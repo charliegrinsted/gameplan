@@ -40,7 +40,9 @@ module.exports.routes = {
   
   '/login': 'SessionController.new',
 
-  '/signup': 'UserController.new'
+  '/signup': 'UserController.new',
+
+  //'/teams/': 'TeamController.new'
   
   /***************************************************************************
   *                                                                          *

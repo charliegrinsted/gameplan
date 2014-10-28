@@ -14,6 +14,10 @@ module.exports = {
   	email:{type:'string', required:true, unique:true},
   	encryptedPass:{type:'string'},
 
+    teamsAdministered: {
+      collection: 'team', via: 'teamAdmin'
+    },
+
   	toJSON: function(){
 
   		var obj = this.toObject();

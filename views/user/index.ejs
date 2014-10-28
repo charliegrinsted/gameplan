@@ -1,9 +1,7 @@
 <h1>Hellooo this is the users index</h1>
 <% _.each(users, function(user) { %>
 <div data-id="<%= user.id %>" data-model="user">
-	<p><%= user.id %></p>
-	<p><%= user.firstName %></p>
-	<p><%= user.lastName %></p>
+	<h2><%= user.firstName %> <%= user.lastName %></h2>
 	<p><%= user.email %></p>
 </div> 
 <% }) %>

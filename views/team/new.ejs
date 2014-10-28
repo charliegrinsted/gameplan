@@ -1,0 +1,16 @@
+<h1>So you want to make a new team?</h1>
+<h2>Team Creation Form</h2>
+<form action="/teams/create" method="POST">
+	<label for="teamName">Team Name</label>
+	<input type="text" name="teamName">
+	<label for="teamSport">Sport</label>
+	<input type="text" name="teamSport">
+	<label for="teamAdmin">Who's the admin?</label>
+	<select name="teamAdmin" id="teamAdmin">
+	<% _.each(users, function(user) { %>
+		<option value="<%= user.id %>"><%= user.firstName %> <%= user.lastName %></option>
+	<% }) %>
+	</select>
+	<input type="hidden" name="_csrf" value="<%= _csrf %>">
+	<input type="submit" value="Create team">
+</form>

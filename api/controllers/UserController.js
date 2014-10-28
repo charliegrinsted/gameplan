@@ -14,11 +14,11 @@ module.exports = {
 	},
 
 	index: function(req, res, next){
-		console.log(new Date());
 		User.find(function foundUsers(err, users) {
 			if (err){
 				return next(err);
 			}
+			// This passes an array to the view, allowing the values to be accessed by an EJS template.
 			res.view({
 				users: users
 			});
@@ -38,11 +38,11 @@ module.exports = {
 
 		// As with much of Node, the parameters are passed in from the request object, then a callback runs.
 		User.create( userObj , function UserCreated(err, user){
-
-			console.log(userObj);
-
 			// Error
-			if (err) return next(err);
+			if (err){
+				console.log(err);
+				return res.redirect('users/new');
+			}
 			// Success
 			res.json(user);
 

@@ -1,0 +1,8 @@
+<h1>Here are all the teams</h1>
+<% _.each(teams, function(team) { %>
+<div data-id="<%= team.id %>" data-model="team">
+	<p><%= team.teamName %></p>
+	<p>This is a <%= team.teamSport %> team.</p>
+	<p>The administrator is <%= team.teamAdmin.firstName %></p>
+</div> 
+<% }) %>

@@ -14,11 +14,13 @@ module.exports = {
 	},
 
 	index: function(req, res, next){
-		User.find(function foundUsers(err, users) {
+
+		User.find() // find all teams and create an array
+		.populate('teamsAdministered') // fetch the related values from the User model
+		.exec(function (err, users){
 			if (err){
 				return next(err);
 			}
-			// This passes an array to the view, allowing the values to be accessed by an EJS template.
 			res.view({
 				users: users
 			});

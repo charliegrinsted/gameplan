@@ -3,5 +3,8 @@
 <div data-id="<%= user.id %>" data-model="user">
 	<h2><%= user.firstName %> <%= user.lastName %></h2>
 	<p><%= user.email %></p>
+	<% _.each(user.teamsAdministered, function(team) { %>
+	<p><%= team.teamName %></p>
+	<% }) %>
 </div> 
 <% }) %>

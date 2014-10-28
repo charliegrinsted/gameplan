@@ -9,10 +9,20 @@ module.exports = {
 
   attributes: {
 
-  	firstName:{type:'string'},
-	lastName:{type:'string'},
-  	email:{type:'string', required:true, unique:true},
-  	encryptedPass:{type:'string'},
+  	firstName:{
+  		type:'string'
+  	},
+	lastName:{
+		type:'string'
+	},
+  	email:{
+  		type:'string', 
+  		required:true, 
+  		unique:true // this doesn't seem to work with Waterline & MongoDB currently
+  	},
+  	encryptedPass:{
+  		type:'string'
+  	},
 
     teamsAdministered: {
       collection: 'team', via: 'teamAdmin'

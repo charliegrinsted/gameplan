@@ -9,16 +9,19 @@ module.exports = {
 
   attributes: {
 
-	teamName:{type:'string'},
-	teamSport:{type:'string'},
-
+	teamName:{
+		type:'string'
+	},
+	teamSport:{
+		type:'string'
+	},
 	teamAdmin: {
-		model: 'user'
+		model:'user'
 	}
 
   },
 
-  
-  
+
+
 };
 

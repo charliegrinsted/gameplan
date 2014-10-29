@@ -9,6 +9,10 @@ module.exports = {
 
   attributes: {
 
+  	eventTitle:{
+  		type:'string'
+  	}
+
   }
 };
 

@@ -1,0 +1,6 @@
+<h1>Here are all the events</h1>
+<% _.each(events, function(thisEvent) { %>
+<div data-id="<%= thisEvent.id %>" data-model="event">
+	<p><%= thisEvent.eventTitle %></p>
+</div> 
+<% }) %>

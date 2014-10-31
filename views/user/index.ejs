@@ -2,6 +2,7 @@
 <% _.each(users, function(user) { %>
 <div data-id="<%= user.id %>" data-model="user">
 	<h2><%= user.firstName %> <%= user.lastName %></h2>
+	<p>Known as "<%= user.userName %></p>
 	<p><%= user.email %></p>
 	<% _.each(user.teamsAdministered, function(team) { %>
 	<p><%= team.teamName %></p>

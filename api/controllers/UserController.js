@@ -27,12 +27,26 @@ module.exports = {
 		});
 	},
 
+	show: function(req, res, next) {
+		User.find()
+		.where({ userName: req.param('userName') })
+		.limit(1)
+		.exec(function(err, user) {
+			if (err) return next(err);
+			if (!user) return next();
+			res.view({
+				user: user[0]
+			});
+		});
+	},
+
 	create: function(req, res, next){
 
 		// Create an object containing all of the parameters passed in by the user sign-up form
 		var userObj = {
 			firstName: req.param('firstName'),
 			lastName: req.param('lastName'),
+			userName: req.param('userName'),
 			email: req.param('email'),
 			password: req.param('password'),
 			passwordConfirmation: req.param('passwordConfirmation')
@@ -46,7 +60,7 @@ module.exports = {
 				return res.redirect('users/new');
 			}
 			// Success
-			res.json(user);
+			res.redirect('users/' + userObj.userName);
 
 		});
 	}

@@ -17,12 +17,17 @@ module.exports = {
 			type:'string'
 		},
 
+		userName:{
+			type:'string',
+			unique:true
+		},
+
 		email:{
 			type:'string', 
 			required:true, 
 			unique:true // this doesn't seem to work with Waterline & MongoDB currently
 		},
-		
+
 		encryptedPass:{
 			type:'string'
 		},

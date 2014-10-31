@@ -3,6 +3,12 @@
 <form action="/events/create" method="POST">
 	<label for="eventTitle">Event Title</label>
 	<input type="text" name="eventTitle">
+	<label for="eventTeam">Which team is this associated with?</label>
+	<select name="eventTeam" id="eventTeam">
+	<% _.each(teams, function(team) { %>
+		<option value="<%= team.id %>"><%= team.teamName %></option>
+	<% }) %>
+	</select>	
 	<input type="hidden" name="_csrf" value="<%= _csrf %>">
 	<input type="submit" value="Create new event">
 </form>

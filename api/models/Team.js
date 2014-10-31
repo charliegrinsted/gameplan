@@ -12,16 +12,20 @@ module.exports = {
 	teamName:{
 		type:'string'
 	},
+
 	teamSport:{
 		type:'string'
 	},
+
 	teamAdmin: {
 		model:'user'
-	}
+	},
+
+	teamEvents: {
+		collection: 'event', via: 'eventTeam'
+	},	
 
   },
-
-
 
 };
 

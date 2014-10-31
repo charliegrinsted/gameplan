@@ -2,5 +2,6 @@
 <% _.each(events, function(thisEvent) { %>
 <div data-id="<%= thisEvent.id %>" data-model="event">
 	<p><%= thisEvent.eventTitle %></p>
+	<p>The event is organised by <%= thisEvent.eventTeam.teamName %></p>
 </div> 
 <% }) %>

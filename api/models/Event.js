@@ -11,8 +11,13 @@ module.exports = {
 
   	eventTitle:{
   		type:'string'
+  	},
+
+  	eventTeam:{
+  		model:'team'
   	}
 
   }
+
 };
 

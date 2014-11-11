@@ -1,7 +1,8 @@
 <h1>Login</h1>
 <p>I really hope this works</p>
-<form action="/session/create" method="POST">
-	<input type="text" name="username">
+<form action="/sessions/create" method="POST">
+	<input type="text" name="userName">
 	<input type="password" name="password">
+	<input type="hidden" name="_csrf" value="<%= _csrf %>">	
 	<input type="submit" value="Login">
 </form>

@@ -60,6 +60,7 @@ module.exports = {
 				return res.redirect('users/new');
 			}
 			// Success
+			console.log("User profile created successfully");
 			res.redirect('users/' + userObj.userName);
 
 		});

@@ -74,7 +74,69 @@ module.exports = {
 			});
 
 		});
-	}
-	
+	},
+
+	update: function(req, res, next) {
+
+		if (req.session.User.userName){
+
+			var currentUser = req.session.User.userName;
+
+			var userObj = {
+				firstName: req.param('firstName'),
+				lastName: req.param('lastName'),
+			}
+
+			User.update({userName: currentUser}, userObj)
+			.exec(function updatedUser(err,updated){
+
+				if (err) {
+					return res.redirect('/settings');
+				}
+
+			console.log('Updated user');
+			
+			res.redirect('/users/' + req.session.User.userName);
+
+			});
+		}
+
+		else {
+
+			// PUT SOME PROPER ERROR HANDLING HERE
+
+			res.redirect('/');
+
+		}
+	},
+
+	edit: function(req, res, next) {
+
+		if (!req.session.User){
+			// redirect to login if there is no active user signed in
+			res.redirect('/login');
+		} 
+		else {
+			var currentUser = req.session.User.userName;
+			console.log(currentUser);
+			if (currentUser){
+				User.find()
+				.where({ userName: currentUser })
+				.limit(1)
+				.exec(function (err, user){
+					if (err){
+						return next(err);
+					}
+					console.log(user);
+					res.view({
+						user: user[0]
+					});
+				});
+			}
+			
+		}
+
+	},
+
 };
 

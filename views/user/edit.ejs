@@ -1,0 +1,9 @@
+<h1>Edit your profile</h1>
+<p>Welcome back <%= user.userName %></p>
+<form action="/users/update/<%= user.userName %>" method="POST">
+	<input value="<%= user.firstName %>" name="firstName" type="text">
+	<input value="<%= user.lastName %>" name="lastName" type="text">
+	<input value="<%= user.email %>" name="email" type="text">
+	<input type="hidden" name="_csrf" value="<%= _csrf %>">
+	<input type="submit" value="Save changes">
+</form>

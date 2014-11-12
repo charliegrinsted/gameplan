@@ -42,7 +42,9 @@ module.exports.routes = {
 
 	'/signup': 'UserController.new',
 
-	'GET /users/:userName': 'UserController.show'
+	'GET /users/:userName': 'UserController.show',
+
+	'/settings': 'UserController.edit'
 
 	/***************************************************************************
 	*                                                                          *

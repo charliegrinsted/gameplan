@@ -3,6 +3,6 @@
 <div data-id="<%= team.id %>" data-model="team">
 	<p><%= team.teamName %></p>
 	<p>This is a <%= team.teamSport %> team.</p>
-	<p>The administrator is <%= team.teamAdmin.firstName %></p>
+	<p>The administrator is <a href="/users/<%= team.teamAdmin.userName %>"><%= team.teamAdmin.firstName %></a></p>
 </div> 
 <% }) %>

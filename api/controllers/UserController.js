@@ -61,7 +61,17 @@ module.exports = {
 			}
 			// Success
 			console.log("User profile created successfully");
-			res.redirect('users/' + userObj.userName);
+
+			req.session.authenticated = true;
+			req.session.User = user;
+
+			user.save(function(err, user) {
+				
+				if (err) return next(err);
+
+				res.redirect('/users/' + user.userName); // take user to their profile once signed in
+
+			});
 
 		});
 	}

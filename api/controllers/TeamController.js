@@ -44,7 +44,7 @@ module.exports = {
 		var teamObj = {
 			teamName: req.param('teamName'),
 			teamSport: req.param('teamSport'),
-			teamAdmin: req.param('teamAdmin')
+			teamAdmin: req.session.User.id
 		}
 
 		// Add a new database entry using the created object values

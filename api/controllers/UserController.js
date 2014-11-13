@@ -57,7 +57,10 @@ module.exports = {
 			// Error
 			if (err){
 				console.log(err);
-				return res.redirect('users/new');
+				req.session.flashMsg = {
+					err: err
+				}
+				return res.redirect('/signup');
 			}
 			// Success
 			console.log("User profile created successfully");

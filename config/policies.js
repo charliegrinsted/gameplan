@@ -28,6 +28,9 @@ module.exports.policies = {
 
   // '*': true,
 
+  'UserController': {
+    'new': ['errorFlashes']
+  }
   
 
   /***************************************************************************

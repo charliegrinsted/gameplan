@@ -24,7 +24,7 @@ module.exports = {
 				message: 'Please fill in all fields.'
 			}]
 
-			req.session.flash = {
+			req.session.flashMsg = {
 				err: formError
 			}
 

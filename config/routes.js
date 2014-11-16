@@ -44,8 +44,10 @@ module.exports.routes = {
 
 	'GET /users/:userName': 'UserController.show',
 
-	'/settings': 'UserController.edit'
+	'/settings': 'UserController.edit',
 
+	'/logout': 'SessionController.destroy'
+	
 	/***************************************************************************
 	*                                                                          *
 	* Custom routes here...                                                    *

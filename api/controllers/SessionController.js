@@ -39,10 +39,10 @@ module.exports = {
 			// If no user is found...
 			if (!user) {
 				var noAccountError = [{
-					name: 'noAccount',
+					name: 'Account not found',
 					message: 'The username ' + req.param('userName') + ' was not found.'
 				}]
-				req.session.flash = {
+				req.session.flashMsg = {
 					err: noAccountError
 				}
 				console.log(noAccountError);
@@ -59,7 +59,7 @@ module.exports = {
 						name: 'Error',
 						message: 'Invalid username or password.'
 					}]
-					req.session.flash = {
+					req.session.flashMsg = {
 						err: passwordError
 					}
 					console.log(passwordError);

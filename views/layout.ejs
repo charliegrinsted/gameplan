@@ -1,49 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
-		<title>GamePlan</title>
+		<meta charset="utf-8">
+		<meta name="author" content="">
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1,minimum-scale=1,maximum-scale=1">
 
-		<!-- Viewport mobile tag for sensible mobile support -->
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="shortcut icon" href="/images/favicon.png">
+		<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
 
-		
-		<!--  
-				Stylesheets and Preprocessors
-				==============================
+		<link rel="stylesheet" href="/styles/global.css">
+		<link rel="stylesheet" href="/styles/ie8.css">
+		<link rel="stylesheet" href="/styles/importer.css">
+		<link rel="stylesheet" href="/styles/responsive.css">
+		<!--[if lte IE 8]><link rel="stylesheet" href="/styles/ie8.css"><![endif]-->
 
-				You can always bring in CSS files manually with `<link>` tags, or asynchronously
-				using a solution like AMD (RequireJS).  Or, if you like, you can take advantage 
-				of Sails' conventional asset pipeline (boilerplate Gruntfile).
-
-				By default, stylesheets from your `assets/styles` folder are included
-				here automatically (between STYLES and STYLES END). Both CSS (.css) and LESS (.less)
-				are supported. In production, your styles will be minified and concatenated into
-				a single file.
-				
-				To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
-				For example, here are a few things you could do:
-						
-						+ Change the order of your CSS files
-						+ Import stylesheets from other directories
-						+ Use a different or additional preprocessor, like SASS, SCSS or Stylus
-		-->
-
-		<!--STYLES-->
-<link rel="stylesheet" href="/styles/importer.css">
-<!--STYLES END-->
+		<title>GamePlan App</title>
 	</head>
 
 	<body>
 	<div class="container" id="header">
 		<div class="row">
-			<div class="w12">
+			<div class="w8"></div>
+			<div class="w4 last">
 				<% if (session.authenticated) { %>
 				<p class="h l">You're signed in as <%= session.User.firstName %></p>
+				<a href="/logout">Logout</a>
 				<% } %>
 			</div>
 		</div>
-	</div>
-		<%- body %>
+	</div>	
+	<%- body %>
 
 
 

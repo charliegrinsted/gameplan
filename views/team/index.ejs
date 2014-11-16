@@ -1,8 +1,14 @@
-<h1>Here are all the teams</h1>
-<% _.each(teams, function(team) { %>
-<div data-id="<%= team.id %>" data-model="team">
-	<p><%= team.teamName %></p>
-	<p>This is a <%= team.teamSport %> team.</p>
-	<p>The administrator is <a href="/users/<%= team.teamAdmin.userName %>"><%= team.teamAdmin.firstName %></a></p>
-</div> 
-<% }) %>
+<div class="container">
+	<div class="row">
+		<div class="w12 wysiwyg">
+			<h1>Teams</h1>
+			<% _.each(teams, function(team) { %>
+			<div data-id="<%= team.id %>" data-model="team">
+				<h2><%= team.teamName %></h2>
+				<p>This is a <%= team.teamSport %> team.</p>
+				<p>The administrator is <a href="/users/<%= team.teamAdmin.userName %>"><%= team.teamAdmin.firstName %></a></p>
+			</div> 
+			<% }) %>
+		</div>
+	</div>
+</div>

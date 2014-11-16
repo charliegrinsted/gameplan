@@ -1,9 +1,46 @@
-<!-- Default home page -->
-<link type="text/css" href='http://sailsjs.org/styles/fonts.css' rel='stylesheet'/>
-<div class="default-page">
-    <div class="header">
-        <h1 id="main-title" class="container"><%= __('A brand new app.') %></h1>
-        <p>Well, this is nice</p>
-        <h3 class="container">You're looking at: <code><%= view.pathFromApp + '.' +view.ext %></code></h3>
-    </div>
+<% if (session.authenticated) { %>
+<div class="container" id="user-quick-links">
+	<div class="row">
+		<div class="w6">
+			<p class="h l">Welcome back, <%= session.User.firstName %></p>
+		</div>
+		<div class="w6 last">
+			<div class="row">
+				<div class="w4">
+					<a href="">Create a team</a>
+				</div>
+				<div class="w4">
+					<a href="">New Event</a>
+				</div>
+				<div class="w4 last">
+					<a href="/settings">Profile Settings</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<% } %>
+
+<div class="container">
+	<div class="row">
+		<div class="w12 wysiwyg">
+			<h1 id="main-title"><%= __('A brand new app.') %></h1>
+			<p>Well, this is nice</p>
+			<h3>You're looking at: <code><%= view.pathFromApp + '.' +view.ext %></code></h3>
+		</div>
+	</div>
+	<% if (!session.authenticated) { %>
+	<div class="row">
+		<div class="w12 wysiwyg">
+			<h2>Sign in</h2>
+			<form action="/sessions/create" method="POST">
+				<input type="text" name="userName">
+				<input type="password" name="password">
+				<input type="hidden" name="_csrf" value="<%= _csrf %>">	
+				<input type="submit" value="Login">
+			</form>	
+		</div>
+	</div>
+	<% } %>
 </div>

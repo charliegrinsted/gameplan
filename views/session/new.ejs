@@ -1,14 +1,19 @@
-<h1>Login</h1>
-<p>I really hope this works</p>
-<% if(flashMsg && flashMsg.err) { %>
-<% _.each(flashMsg.err, function(error) { %>
-<p><%= error.name %></p>
-<p><%= error.message %></p>
-<% }) %>
-<% } %>
-<form action="/sessions/create" method="POST">
-	<input type="text" name="userName">
-	<input type="password" name="password">
-	<input type="hidden" name="_csrf" value="<%= _csrf %>">	
-	<input type="submit" value="Login">
-</form>
+<div class="container">
+	<div class="row">
+		<div class="w12 wysiwyg">
+			<h1>Login</h1>
+			<% if(flashMsg && flashMsg.err) { %>
+			<% _.each(flashMsg.err, function(error) { %>
+			<p><%= error.name %></p>
+			<p><%= error.message %></p>
+			<% }) %>
+			<% } %>
+			<form action="/sessions/create" method="POST">
+				<input type="text" name="userName">
+				<input type="password" name="password">
+				<input type="hidden" name="_csrf" value="<%= _csrf %>">	
+				<input type="submit" value="Login">
+			</form>		
+		</div>
+	</div>
+</div>

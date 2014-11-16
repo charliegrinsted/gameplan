@@ -1,0 +1,156 @@
+@charset 'utf-8';
+
+/* Eric Meyer's Reset CSS v2.0 + Extras */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video,button{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}button{background:none;cursor:pointer;}
+
+/*
+Global CSS Document
+PROJECT NAME HERE
+http://www.ten4design.co.uk
+*/
+
+html,button,input{color:#333; font-family:'Font Name',sans-serif; -webkit-font-smoothing:antialiased; -webkit-font-variant-ligatures:common-ligatures; -moz-font-variant-ligatures:common-ligatures; -o-font-variant-ligatures:common-ligatures; -ms-font-variant-ligatures:common-ligatures; font-variant-ligatures:common-ligatures;}
+input[type=submit],
+input[type=button],
+button{-webkit-appearance:none; -moz-appearance:none; appearance:none; border-radius:0;}
+button:focus{outline:none;}
+body{font-size:16px; line-height:1.4; background-color:#fff;}
+
+
+/* --- UTILITY --- */
+
+.invisible{position:absolute; left:-999em;} /* Can be seen by screen readers */
+.removed{display:none;}
+.relative{position:relative;}
+
+
+/* --- TYPOGRAPHY --- */
+/* Use ems for font-size on responsive sites */
+
+::selection{} /* Selected text style */
+
+strong,
+b{font-weight:bold;}
+em,
+i{font-style:italic;}
+
+a{-webkit-transition:color 0.2s; -moz-transition:color 0.2s; -o-transition:color 0.2s; -ms-transition:color 0.2s; transition:color 0.2s;}
+a:focus,
+a:hover{}
+
+.h,
+.wysiwyg h2,
+.wysiwyg h3{font-weight:bold; margin:0 0 0.6em; line-height:1.4;}
+
+.h.large,
+.wysiwyg h1{font-size:200%;}
+.h.medium,
+.wysiwyg h2{font-size:150%;}
+
+.p,
+.wysiwyg p,
+.wysiwyg ul,
+.wysiwyg ol,
+.wysiwyg img,
+.wysiwyg figure{margin:0 0 1.2em;}
+.wysiwyg figure{display:block; width:100%;}
+.wysiwyg figure figcaption{font-size:90%; font-style:italic;}
+
+.l,
+.wysiwyg ul,
+.wysiwyg ol{padding-left:1.6em;}
+ul.l li,
+.wysiwyg ul li{list-style:disc outside;}
+ol.l li,
+.wysiwyg ol li{list-style:decimal outside;}
+
+
+/* --- STRUCTURE --- */
+/* Makes it easy to convert a site into a responsive layout in the future */
+/* Remove this section if you're using the responsive stylesheet */
+
+.container > .row{margin:0 auto; padding:0 15px; overflow:hidden; width:960px;}
+
+.row > .w3{width:225px;}
+.row > .w4{width:306px;}
+.row > .w6{width:470px;}
+.row > .w8{width:634px;}
+.row > .w9{width:715px;}
+.row > .w12{width:960px; margin-right:0;}
+
+.row > .w3,
+.row > .w4,
+.row > .w6,
+.row > .w8,
+.row > .w9,
+.row > .w12{float:left; margin-right:20px; overflow:hidden;}
+.row > .w3.last,
+.row > .w4.last,
+.row > .w6.last,
+.row > .w8.last,
+.row > .w9.last,
+.row > .w12.last{margin-right:0;}
+
+img{display:block;}
+
+
+/* --- NAVIGATION --- */
+
+#nav-primary{}
+#nav-primary li{display:inline-block;}
+#nav-primary li a{}
+
+#nav-social{}
+#nav-social li{display:inline-block;}
+#nav-social li a{}
+
+#m-nav-toggle{display:none;}
+
+
+/* --- CONTENT --- */
+
+#cookie-notice{padding:0.4em; text-align:center;}
+
+#header{}
+#main-content{}
+#footer{}
+
+
+/* --- SMALLER SCREENS --- */
+
+@media only screen and (max-width:1023px){
+
+body{font-size:0.8em;}
+
+}
+
+
+/* --- MOBILE --- */
+
+@media only handheld, screen and (max-width:767px){ /* 768 = iPad screen */
+
+body{font-size:1em;}
+
+#nav-primary{overflow:hidden; height:0;}
+#nav-primary li{display:block;}
+body.m-nav-open #nav-primary{overflow:auto; height:auto;}
+
+#m-nav-toggle{display:block; position:absolute; right:20px; top:0;}
+#m-nav-toggle:before{content:'X'; font-size:2em; line-height:1; vertical-align:middle;}
+
+}
+
+
+/* --- RETINA --- */
+
+@media only screen and (-webkit-min-device-pixel-ratio:2), screen and (min-resolution:1.5dppx), screen and (min-resolution:192dpi){
+
+
+
+}
+
+@media only handheld and (-webkit-min-device-pixel-ratio:2), screen and (max-width:767px) and (-webkit-min-device-pixel-ratio:2), handheld and (min-resolution:1.5dppx), screen and (max-width:767px) and (min-resolution:1.5dppx), handheld and (min-resolution:192dpi), screen and (max-width:767px) and (min-resolution:192dpi){ /* Retina mobile */
+
+
+
+}

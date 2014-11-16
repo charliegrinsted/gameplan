@@ -1,15 +1,12 @@
 @charset 'utf-8';
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,800);
 
 /* Eric Meyer's Reset CSS v2.0 + Extras */
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video,button{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}button{background:none;cursor:pointer;}
 
-/*
-Global CSS Document
-PROJECT NAME HERE
-http://www.ten4design.co.uk
-*/
+/* Based on Ten4 Framework | http://www.ten4design.co.uk | https://github.com/ten4design/ten4-framework */
 
-html,button,input{color:#333; font-family:'Font Name',sans-serif; -webkit-font-smoothing:antialiased; -webkit-font-variant-ligatures:common-ligatures; -moz-font-variant-ligatures:common-ligatures; -o-font-variant-ligatures:common-ligatures; -ms-font-variant-ligatures:common-ligatures; font-variant-ligatures:common-ligatures;}
+html,button,input{color:#333; font-family:'Raleway', sans-serif; -webkit-font-smoothing:antialiased; -webkit-font-variant-ligatures:common-ligatures; -moz-font-variant-ligatures:common-ligatures; -o-font-variant-ligatures:common-ligatures; -ms-font-variant-ligatures:common-ligatures; font-variant-ligatures:common-ligatures;}
 input[type=submit],
 input[type=button],
 button{-webkit-appearance:none; -moz-appearance:none; appearance:none; border-radius:0;}
@@ -38,17 +35,32 @@ a{-webkit-transition:color 0.2s; -moz-transition:color 0.2s; -o-transition:color
 a:focus,
 a:hover{}
 
-.h,
-.wysiwyg h2,
-.wysiwyg h3{font-weight:bold; margin:0 0 0.6em; line-height:1.4;}
-
-.h.large,
-.wysiwyg h1{font-size:200%;}
-.h.medium,
-.wysiwyg h2{font-size:150%;}
-
 .p,
 .wysiwyg p,
+.h.xl,
+.wysiwyg h1,
+.h.l,
+.wysiwyg h2,
+.h.m,
+.wysiwyg h3,
+.h.s,
+.wysiwyg h4{display:block; clear:both; margin-left:0 !important;}
+
+.p,
+.wysiwyg p{padding-top:0; margin:0 auto 1em auto;}
+
+.h.xl,
+.wysiwyg h1{font-size:2em; letter-spacing:-1px; line-height:1.25; margin-top:0.9375em; margin-bottom:0.3125em; font-weight:800;}
+
+.h.l,
+.wysiwyg h2{font-size:1.625em; line-height:1.15384615; margin-top:1.15384616em; margin-bottom:0.38461539em;}
+
+.h.m,
+.wysiwyg h3{font-size:1.375em; line-height:1.13636364; margin-top:1.36363637em; margin-bottom:0.45454546em;}
+
+.h.s,
+.wysiwyg h4{font-size:1.125em; line-height:1.11111111; margin-top:1.66666667em; margin-bottom:0.55555556em;}
+
 .wysiwyg ul,
 .wysiwyg ol,
 .wysiwyg img,
@@ -63,36 +75,6 @@ ul.l li,
 .wysiwyg ul li{list-style:disc outside;}
 ol.l li,
 .wysiwyg ol li{list-style:decimal outside;}
-
-
-/* --- STRUCTURE --- */
-/* Makes it easy to convert a site into a responsive layout in the future */
-/* Remove this section if you're using the responsive stylesheet */
-
-.container > .row{margin:0 auto; padding:0 15px; overflow:hidden; width:960px;}
-
-.row > .w3{width:225px;}
-.row > .w4{width:306px;}
-.row > .w6{width:470px;}
-.row > .w8{width:634px;}
-.row > .w9{width:715px;}
-.row > .w12{width:960px; margin-right:0;}
-
-.row > .w3,
-.row > .w4,
-.row > .w6,
-.row > .w8,
-.row > .w9,
-.row > .w12{float:left; margin-right:20px; overflow:hidden;}
-.row > .w3.last,
-.row > .w4.last,
-.row > .w6.last,
-.row > .w8.last,
-.row > .w9.last,
-.row > .w12.last{margin-right:0;}
-
-img{display:block;}
-
 
 /* --- NAVIGATION --- */
 
@@ -115,6 +97,49 @@ img{display:block;}
 #main-content{}
 #footer{}
 
+/* --- Typography Breakpoint 1 --- */
+
+@media (min-width:43.75em){
+
+.p,
+.wysiwyg p{max-width:36em;}
+
+.h.xl,
+.wysiwyg h1{font-size:2.5em; letter-spacing:normal; line-height:1.125; margin-top:0.73333334em; margin-bottom:0.24444445em; max-width:14.4em; margin-left:auto; margin-right:auto;}
+
+.h.l,
+.wysiwyg h2{font-size:2em; line-height:1.25; margin-top:1.03125em; margin-bottom:0.34375em; max-width:18em; margin-left:auto; margin-right:auto;}
+
+.h.m,
+.wysiwyg h3{font-size:1.5em; line-height:1.25; margin-top:1.37500001em; margin-bottom:0.45833334em; max-width:24em; margin-left:auto; margin-right:auto;}
+
+.h.s,
+.wysiwyg h4{line-height:1.22222222; margin-top:1.83333333em; margin-bottom:0.61111111em; max-width:32em; margin-left:auto; margin-right:auto;}
+
+}
+
+/* --- Typography Breakpoint 2 --- */
+
+@media (min-width:56.25em){
+
+.logo-home{left:30px;}
+
+.p,
+.wysiwyg p{max-width:42em;}
+
+.h.xl,
+.wysiwyg h1{font-size:3em; letter-spacing:normal; line-height:1.05; margin-top:0.6875em; margin-bottom:0.22916667em; max-width:14.66667em; margin-left:auto; margin-right:auto;}
+
+.h.l,
+.wysiwyg h2{font-size:2.25em; line-height:1.25; margin-top:1.03125em; margin-bottom:0.34375em; max-width:16.88889em; margin-left:auto; margin-right:auto;}
+
+.h.m,
+.wysiwyg h3{font-size:1.75em; line-height:1.25; margin-top:1.37500001em; margin-bottom:0.45833334em; max-width:21.71429em; margin-left:auto; margin-right:auto;}
+
+.h.s,
+.wysiwyg h4{max-width:33.77778em;}
+
+}
 
 /* --- SMALLER SCREENS --- */
 

@@ -28,6 +28,7 @@ module.exports = {
 		Event.find() // find all events and create an array
 		.populate('eventTeam') // fetch the related values from the Team model
 		.exec(function (err, events){
+			console.log(events);
 			if (err){
 				return next(err);
 			}

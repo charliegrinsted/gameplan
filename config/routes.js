@@ -44,6 +44,8 @@ module.exports.routes = {
 
 	'GET /users/:userName': 'UserController.show',
 
+	'GET /teams/:id': 'TeamController.show',
+
 	'/settings': 'UserController.edit',
 
 	'/logout': 'SessionController.destroy'

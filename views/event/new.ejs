@@ -1,14 +1,20 @@
-<h1>Make a new event</h1>
-<h2>Event Creation Form</h2>
-<form action="/events/create" method="POST">
-	<label for="eventTitle">Event Title</label>
-	<input type="text" name="eventTitle">
-	<label for="eventTeam">Which team is this associated with?</label>
-	<select name="eventTeam" id="eventTeam">
-	<% _.each(teams, function(team) { %>
-		<option value="<%= team.id %>"><%= team.teamName %></option>
-	<% }) %>
-	</select>	
-	<input type="hidden" name="_csrf" value="<%= _csrf %>">
-	<input type="submit" value="Create new event">
-</form>
+<div class="container">
+	<div class="row">
+		<div class="w12 wysiwyg">
+			<h1>New Event</h1>
+			<p>You are creating a new event</p>
+			<form action="/events/create" method="POST">
+				<label for="eventTitle">Event Title</label>
+				<input type="text" name="eventTitle">
+				<label for="eventTeam">Which team is this associated with?</label>
+				<select name="eventTeam" id="eventTeam">
+				<% _.each(teams, function(team) { %>
+					<option value="<%= team.id %>"><%= team.teamName %></option>
+				<% }) %>
+				</select>	
+				<input type="hidden" name="_csrf" value="<%= _csrf %>">
+				<input type="submit" value="Create new event">
+			</form>		
+		</div>
+	</div>
+</div>

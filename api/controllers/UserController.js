@@ -16,7 +16,7 @@ module.exports = {
 	index: function(req, res, next){
 
 		User.find() // find all teams and create an array
-		.populate('teamsAdministered') // fetch the related values from the User model
+		.populate('teamsAdministered') // fetch the related values from the Team model
 		.exec(function (err, users){
 			if (err){
 				return next(err);
@@ -31,6 +31,7 @@ module.exports = {
 		User.find()
 		.where({ userName: req.param('userName') })
 		.limit(1)
+		.populate('teamsAdministered') // fetch the related values from the Team model		
 		.exec(function(err, user) {
 			if (err) return next(err);
 			if (!user) return next();

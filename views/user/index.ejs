@@ -1,14 +1,20 @@
-<h1>Hellooo this is the users index</h1>
-<% _.each(users, function(user) { %>
-<div data-id="<%= user.id %>" data-model="user">
-	<h2><a href="/users/<%= user.userName %>"><%= user.firstName %> <%= user.lastName %></a></h2>
-	<% if (session.authenticated && session.User.userName == user.userName){ %>
-		<p class="h l">(this is you!)</p>
-	<% } %>
-	<p>Known as "<%= user.userName %>"</p>
-	<p><%= user.email %></p>
-	<% _.each(user.teamsAdministered, function(team) { %>
-	<p><%= team.teamName %></p>
-	<% }) %>
-</div> 
-<% }) %>
+<div class="container">
+	<div class="row">
+		<div class="w12 wysiwyg">
+			<h1>Users</h1>
+			<% _.each(users, function(user) { %>
+			<div data-id="<%= user.id %>" data-model="user">
+				<h2><a href="/users/<%= user.userName %>"><%= user.firstName %> <%= user.lastName %></a></h2>
+				<% if (session.authenticated && session.User.userName == user.userName){ %>
+					<p class="h s">(this is you!)</p>
+				<% } %>
+				<p>Known as "<%= user.userName %>"</p>
+				<p><%= user.email %></p>
+				<% _.each(user.teamsAdministered, function(team) { %>
+				<p><a href="/teams/<%= team.id %>"><%= team.teamName %></a></p>
+				<% }) %>
+			</div> 
+			<% }) %>
+		</div>
+	</div>
+</div>

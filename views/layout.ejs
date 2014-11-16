@@ -24,12 +24,34 @@
 			<div class="w8"></div>
 			<div class="w4 last">
 				<% if (session.authenticated) { %>
-				<p class="h l">You're signed in as <%= session.User.firstName %></p>
+				<p class="h s"><a href="/users/<%= session.User.userName %>"><%= session.User.userName %></a></p>
 				<a href="/logout">Logout</a>
-				<% } %>
+				<% } else { %>
+				<form action="/sessions/create" method="POST">
+					<input type="text" name="userName">
+					<input type="password" name="password">
+					<input type="hidden" name="_csrf" value="<%= _csrf %>">	
+					<input type="submit" value="Login">
+				</form>
+				<% }%>
 			</div>
 		</div>
-	</div>	
+	</div>
+	<% if (session.authenticated) { %>
+	<div class="container" id="user-quick-links">
+		<div class="row">
+			<div class="w12">
+				<ul id="nav-primary">
+					<li><a href="/">Home</a></li>
+					<li><a href="/teams">Teams</a></li>
+					<li><a href="/users">Users</a></li>
+					<li><a href="/events">Events</a></li>
+					<li><a href="/settings">Settings</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<% } %>	
 	<%- body %>
 
 

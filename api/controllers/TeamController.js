@@ -52,6 +52,20 @@ module.exports = {
 		});
 	},
 
+	showJSON: function(req, res, next) {
+		Team.find()
+		.where({ id: req.param('id') })
+		.limit(1)
+		.populate('teamAdmin') // fetch the related values from the Team model		
+		.exec(function(err, user) {
+			if (err) return next(err);
+			if (!team) return next();
+			res.json({
+				team: team[0]
+			});
+		});
+	},
+
 	create: function(req, res, next){
 
 		// Create an object from the parameters passed in by the form.

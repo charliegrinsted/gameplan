@@ -41,6 +41,20 @@ module.exports = {
 		});
 	},
 
+	showJSON: function(req, res, next) {
+		User.find()
+		.where({ userName: req.param('userName') })
+		.limit(1)
+		.populate('teamsAdministered') // fetch the related values from the Team model		
+		.exec(function(err, user) {
+			if (err) return next(err);
+			if (!user) return next();
+			res.json({
+				user: user[0]
+			});
+		});
+	},
+
 	create: function(req, res, next){
 
 		// Create an object containing all of the parameters passed in by the user sign-up form

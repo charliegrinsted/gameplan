@@ -44,7 +44,11 @@ module.exports.routes = {
 
 	'GET /users/:userName': 'UserController.show',
 
+	'GET /users/:userName/json': 'UserController.showJSON',
+
 	'GET /teams/:id': 'TeamController.show',
+
+	'GET /teams/:id/json': 'TeamController.showJSON',
 
 	'/settings': 'UserController.edit',
 

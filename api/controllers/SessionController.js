@@ -74,6 +74,11 @@ module.exports = {
 					
 					if (err) return next(err);
 
+					// take the user back to the previous page (experimental, not working)
+					//backURL = req.header('Referer') || '/';
+					//console.log(backURL);
+  					//res.redirect(backURL);
+
 					res.redirect('/users/' + user.userName); // take user to their profile once signed in
 
 				});

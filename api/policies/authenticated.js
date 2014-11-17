@@ -15,9 +15,9 @@ module.exports = function(req, res, next) {
 		return next();
 	}
 
-	else{
+	else {
 
-		return res.forbidden('You are not permitted to perform this action.');
+		return res.redirect('/login');
 
 	}
   // User is not allowed

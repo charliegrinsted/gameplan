@@ -34,9 +34,12 @@ module.exports.policies = {
 
 	'SessionController': {
 		'new': ['errorFlashes']
+	},
+
+	'TeamController': {
+		'new': ['authenticated']
 	}
 	
-
 	/***************************************************************************
 	*                                                                          *
 	* Here's an example of mapping some policies to run before a controller    *

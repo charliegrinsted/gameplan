@@ -27,6 +27,20 @@ module.exports = {
 		});
 	},
 
+	indexJSON: function(req, res, next){
+
+		User.find() // find all teams and create an array
+		.populate('teamsAdministered') // fetch the related values from the Team model
+		.exec(function (err, users){
+			if (err){
+				return next(err);
+			}
+			res.json({
+				users: users
+			});
+		});
+	},
+
 	show: function(req, res, next) {
 		User.find()
 		.where({ userName: req.param('userName') })

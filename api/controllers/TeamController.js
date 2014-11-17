@@ -35,6 +35,20 @@ module.exports = {
 				teams: teams
 			});
 		});
+	},
+
+	indexJSON: function(req, res, next){
+
+		Team.find() // find all teams and create an array
+		.populate('teamAdmin') // fetch the related values from the User model
+		.exec(function (err, teams){
+			if (err){
+				return next(err);
+			}
+			res.json({
+				teams: teams
+			});
+		});
 
 	},
 
@@ -57,7 +71,7 @@ module.exports = {
 		.where({ id: req.param('id') })
 		.limit(1)
 		.populate('teamAdmin') // fetch the related values from the Team model		
-		.exec(function(err, user) {
+		.exec(function(err, team) {
 			if (err) return next(err);
 			if (!team) return next();
 			res.json({

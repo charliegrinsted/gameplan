@@ -1,9 +1,8 @@
 <% if (session.authenticated) { %>
 <div class="container">
 	<div class="row">
-		<div class="w12">
-			<h1>So you want to make a new team?</h1>
-			<h2>Team Creation Form</h2>
+		<div class="w12 wysiwyg">
+			<h1>Create a team</h1>
 			<form action="/teams/create" method="POST">
 				<label for="teamName">Team Name</label>
 				<input type="text" name="teamName">

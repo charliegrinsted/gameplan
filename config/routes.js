@@ -44,16 +44,26 @@ module.exports.routes = {
 
 	'GET /users/:userName': 'UserController.show',
 
-	'GET /users/:userName/json': 'UserController.showJSON',
-
 	'GET /teams/:id': 'TeamController.show',
-
-	'GET /teams/:id/json': 'TeamController.showJSON',
 
 	'/settings': 'UserController.edit',
 
-	'/logout': 'SessionController.destroy'
-	
+	'/logout': 'SessionController.destroy',
+
+	'/create/team': 'TeamController.new',
+
+	'/create/event': 'EventController.new',
+
+	// Routes for use with API
+
+	'/api/users': 'UserController.indexJSON',
+
+	'GET /api/users/:userName': 'UserController.showJSON',
+
+	'/api/teams': 'TeamController.indexJSON',
+
+	'GET /api/teams/:id': 'TeamController.showJSON'	
+
 	/***************************************************************************
 	*                                                                          *
 	* Custom routes here...                                                    *

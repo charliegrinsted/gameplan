@@ -64,7 +64,8 @@ module.exports = {
 		.limit(1)
 		.exec(function(err, user) {
 			// add error handling
-			user[0].friendOf.add(activeUser); // add one's self to the user's received requests
+			user[0].friendOf.add(activeUser); // add yourself to the friend's list
+			user[0].friends.add(activeUser);
 			user[0].friendRequestsSent.remove(activeUser);
 
 			// need to find a way to repopulate the session user, otherwise the request doesn't go away until you log out and in again
@@ -98,7 +99,8 @@ module.exports = {
 		User.find()
 		.where({ userName: req.param('userName') })
 		.limit(1)
-		.populate('teamsAdministered') // fetch the related values from the Team model		
+		.populate('teamsAdministered') // fetch the related values from the Team model
+		.populate('friends')
 		.exec(function(err, user) {
 			if (err) return res.redirect(404);
 			if (!user) return res.redirect(404);

@@ -97,7 +97,33 @@ module.exports = {
 			// Success
 			res.redirect('/teams/' + team.id);
 		});
-	}	
+	},
+
+	edit: function(req, res, next) {
+
+		if (!req.session.User){
+			// redirect to login if there is no active user signed in
+			res.redirect('/login');
+		} 
+		else {
+
+			Team.find()
+			.where({ id: req.param('id') })
+			.limit(1)
+			.populate('teamAdmin') // fetch the related values from the Team model		
+			.exec(function(err, team) {
+				if (team[0].teamAdmin.userName != req.session.User.userName){
+					res.redirect('/teams/' + team[0].id);
+				}
+				if (err) return next(err);
+				if (!team) return next();
+				res.view({
+					team: team[0]
+				});
+			});			
+		}
+
+	},
 	
 };
 

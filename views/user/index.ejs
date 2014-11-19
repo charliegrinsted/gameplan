@@ -12,15 +12,7 @@
 				<p><%= user.email %></p>
 				<% _.each(user.teamsAdministered, function(team) { %>
 				<p><a href="/teams/<%= team.id %>"><%= team.teamName %></a></p>
-				<% }) %>
-				<% _.each(user.friendRequestsSent, function(user, i) { %>
-				<% if (i == 0) { %><h3>You've asked to be friends with:</h3><% } %>
-				<p><a href="/users/<%= user.userName %>"><%= user.userName %></a></p>
-				<% }) %>
-				<% _.each(user.friendRequestsReceived, function(user, i) { %>
-				<% if (i == 0) { %><h3>You've got friend requests from:</h3><% } %>
-				<p><a href="/users/<%= user.userName %>"><%= user.userName %></a></p>
-				<% }) %>				
+				<% }) %>		
 			</div> 
 			<% }) %>
 		</div>

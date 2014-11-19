@@ -18,6 +18,18 @@
 			</div>
 		</div>
 	</div>
+	<% _.each(session.User.friendRequestsReceived, function(user, i, users) { %>
+	<% if (i == 0) { %>
+	<div class="row">
+		<div class="w12">
+			<h3>You've got friend requests from:</h3>
+			<% } %>
+			<p><a href="/users/<%= user.userName %>"><%= user.userName %></a></p>
+			<% if (i == users.length - 1) { %>
+		</div>
+	</div>
+	<% } %>
+	<% }) %>					
 </div>
 
 <% } %>

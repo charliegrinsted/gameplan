@@ -17,6 +17,8 @@ module.exports = {
 
 		User.find() // find all teams and create an array
 		.populate('teamsAdministered') // fetch the related values from the Team model
+		.populate('friendRequestsReceived') // fetch the related values from the Team model
+		.populate('friendRequestsSent')
 		.exec(function (err, users){
 			if (err){
 				return next(err);
@@ -26,6 +28,44 @@ module.exports = {
 			});
 		});
 	},
+
+	sendFriendRequest: function(req, res, next){
+
+		var userToAdd = (req.param('userName')); // store the user we're adding as a friend
+		var activeUser = (req.session.User.id); // store who we are
+
+		console.log(userToAdd);
+		console.log(activeUser);
+
+		/*User.find()
+		.where({ userName: activeUser })
+		.limit(1)
+		.exec(function(err, user) {
+			console.log(user[0]);
+			user[0].friendRequestsSent.add(userToAdd); // add the user we're adding to our sent requests
+			user[0].save();
+		});*/
+
+		User.find()
+		.where({ userName: userToAdd })
+		.limit(1)
+		.exec(function(err, user) {
+			// add error handling
+			user[0].friendRequestsReceived.add(activeUser); // add one's self to the user's received requests
+
+			user[0].save(function(err, user) {
+				
+				if (err) return next(err);
+
+				res.redirect('/users/' + user.userName); // take user to their profile once signed in
+
+			});
+		});
+	},
+
+	acceptFriendRequest: function(req, res, next){
+
+	},	
 
 	indexJSON: function(req, res, next){
 

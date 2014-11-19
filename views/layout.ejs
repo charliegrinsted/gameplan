@@ -19,26 +19,28 @@
 	</head>
 
 	<body>
-	<div class="container med-slab" id="header">
+	<div class="container dark-slab" id="header">
 		<div class="row">
-			<div class="w8"></div>
+			<div class="w8">
+				<p class="h m">Logo here etc etc</p>
+			</div>
 			<div class="w4 last">
 				<% if (session.authenticated) { %>
 				<p class="h s"><a href="/users/<%= session.User.userName %>"><%= session.User.userName %></a></p>
 				<a href="/logout">Logout</a>
 				<% } else { %>
 				<form action="/sessions/create" method="POST">
-					<input type="text" name="userName">
-					<input type="password" name="password">
+					<input type="text" name="userName" placeholder="Username">
+					<input type="password" name="password" placeholder="Password">
 					<input type="hidden" name="_csrf" value="<%= _csrf %>">	
-					<input type="submit" value="Login">
+					<input class="cta-submit inline" type="submit" value="Login">
 				</form>
 				<% }%>
 			</div>
 		</div>
 	</div>
 	<% if (session.authenticated) { %>
-	<div class="container dark-slab" id="user-quick-links">
+	<div class="container med-slab" id="user-quick-links">
 		<div class="row">
 			<div class="w12">
 				<ul id="nav-primary">

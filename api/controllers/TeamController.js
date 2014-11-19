@@ -124,6 +124,13 @@ module.exports = {
 		}
 
 	},
+
+	destroy: function(req, res, next){
+
+		// redirect with a flash message of successful deletion
+		res.redirect('/');
+
+	}	
 	
 };
 

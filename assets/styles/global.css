@@ -9,7 +9,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 html,button,input{box-sizing:border-box; color:#333; font-family:'Raleway', sans-serif; -webkit-font-smoothing:antialiased; -webkit-font-variant-ligatures:common-ligatures; -moz-font-variant-ligatures:common-ligatures; -o-font-variant-ligatures:common-ligatures; -ms-font-variant-ligatures:common-ligatures; font-variant-ligatures:common-ligatures;}
 input[type=submit],
 input[type=button],
-button{-webkit-appearance:none; -moz-appearance:none; appearance:none; border-radius:0;}
+button{-webkit-appearance:none; -moz-appearance:none; appearance:none;}
 button:focus{outline:none;}
 body{font-size:16px; line-height:1.4; background-color:#fff;}
 
@@ -89,9 +89,17 @@ ol.l li,
 
 /* --- Colour Containers --- */
 
-.dark-slab{background-color:#253149;}
-.med-slab{background-color:#7E8AA3;}
+.dark-slab{background-color:#253149; color:#FFF;}
+.dark-slab a{color:#FFF;}
+
+.med-slab{background-color:#7E8AA3; color:#FFF;}
 .white-slab{background-color:#FFFFFF;}
+
+/* --- Buttons --- */
+
+.cta-submit{background-color:#FF9900; outline:0; border:0; border-radius:0.2em; font-size:1.2em; line-height:1.2em; vertical-align:middle; cursor:pointer; padding:0.4em 1em; color:#FFF; font-weight:800;}
+.cta-submit.block{display:block;}
+.cta-submit.inline{display:inline-block;}
 
 /* --- CONTENT --- */
 

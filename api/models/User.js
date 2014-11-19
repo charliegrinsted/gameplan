@@ -32,6 +32,10 @@ module.exports = {
 			type:'string'
 		},
 
+		publicView:{
+			type:'boolean'
+		},
+
 		teamsAdministered: {
 			collection:'team', via: 'teamAdmin'
 		},

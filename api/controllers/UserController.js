@@ -65,8 +65,8 @@ module.exports = {
 		.exec(function(err, user) {
 			// add error handling
 			user[0].friendOf.add(activeUser); // add yourself to the friend's list
-			user[0].friends.add(activeUser);
-			user[0].friendRequestsSent.remove(activeUser);
+			user[0].friends.add(activeUser); // and vice versa
+			user[0].friendRequestsSent.remove(activeUser); // delete the request object, since it has been fulfilled
 
 			// need to find a way to repopulate the session user, otherwise the request doesn't go away until you log out and in again
 
@@ -136,7 +136,8 @@ module.exports = {
 			userName: req.param('userName'),
 			email: req.param('email'),
 			password: req.param('password'),
-			passwordConfirmation: req.param('passwordConfirmation')
+			passwordConfirmation: req.param('passwordConfirmation'),
+			publicView: req.param('publicView')
 		}
 
 		// As with much of Node, the parameters are passed in from the request object, then a callback runs.
@@ -175,6 +176,7 @@ module.exports = {
 			var userObj = {
 				firstName: req.param('firstName'),
 				lastName: req.param('lastName'),
+				publicView: req.param('publicView')
 			}
 
 			User.update({userName: currentUser}, userObj)

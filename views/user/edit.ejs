@@ -7,6 +7,10 @@
 				<input value="<%= user.lastName %>" name="lastName" type="text">
 				<input value="<%= user.email %>" name="email" type="text">
 				<input type="hidden" name="_csrf" value="<%= _csrf %>">
+				<select name="publicView">
+					<option value="true">Public</option>
+					<option value="false">Private</option>
+				</select>				
 				<input type="submit" value="Save changes">
 			</form>
 		</div>

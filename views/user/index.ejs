@@ -3,6 +3,7 @@
 		<div class="w12 wysiwyg">
 			<h1>Users</h1>
 			<% _.each(users, function(user) { %>
+			<% if (user.publicView != false) { %>
 			<div data-id="<%= user.id %>" data-model="user">
 				<h2><a href="/users/<%= user.userName %>"><%= user.firstName %> <%= user.lastName %></a></h2>
 				<% if (session.authenticated && session.User.userName == user.userName){ %>
@@ -13,7 +14,8 @@
 				<% _.each(user.teamsAdministered, function(team) { %>
 				<p><a href="/teams/<%= team.id %>"><%= team.teamName %></a></p>
 				<% }) %>		
-			</div> 
+			</div>
+			<% } %>
 			<% }) %>
 		</div>
 	</div>

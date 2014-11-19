@@ -95,7 +95,7 @@ module.exports = {
 			// Error
 			if (err) return next(err);
 			// Success
-			res.json(team);
+			res.redirect('/teams/' + team.id);
 		});
 	}	
 	

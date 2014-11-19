@@ -6,7 +6,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 
 /* Based on Ten4 Framework | http://www.ten4design.co.uk | https://github.com/ten4design/ten4-framework */
 
-html,button,input{color:#333; font-family:'Raleway', sans-serif; -webkit-font-smoothing:antialiased; -webkit-font-variant-ligatures:common-ligatures; -moz-font-variant-ligatures:common-ligatures; -o-font-variant-ligatures:common-ligatures; -ms-font-variant-ligatures:common-ligatures; font-variant-ligatures:common-ligatures;}
+html,button,input{box-sizing:border-box; color:#333; font-family:'Raleway', sans-serif; -webkit-font-smoothing:antialiased; -webkit-font-variant-ligatures:common-ligatures; -moz-font-variant-ligatures:common-ligatures; -o-font-variant-ligatures:common-ligatures; -ms-font-variant-ligatures:common-ligatures; font-variant-ligatures:common-ligatures;}
 input[type=submit],
 input[type=button],
 button{-webkit-appearance:none; -moz-appearance:none; appearance:none; border-radius:0;}
@@ -20,7 +20,6 @@ body{font-size:16px; line-height:1.4; background-color:#fff;}
 .removed{display:none;}
 .relative{position:relative;}
 
-
 /* --- TYPOGRAPHY --- */
 /* Use ems for font-size on responsive sites */
 
@@ -31,7 +30,7 @@ b{font-weight:bold;}
 em,
 i{font-style:italic;}
 
-a{-webkit-transition:color 0.2s; -moz-transition:color 0.2s; -o-transition:color 0.2s; -ms-transition:color 0.2s; transition:color 0.2s;}
+a{text-decoration:none; -webkit-transition:color 0.2s; -moz-transition:color 0.2s; -o-transition:color 0.2s; -ms-transition:color 0.2s; transition:color 0.2s;}
 a:focus,
 a:hover{}
 
@@ -79,8 +78,8 @@ ol.l li,
 /* --- NAVIGATION --- */
 
 #nav-primary{}
-#nav-primary li{display:inline-block;}
-#nav-primary li a{}
+#nav-primary li{display:inline-block; width:19%; text-align:center;}
+#nav-primary li a{color:#FFF;}
 
 #nav-social{}
 #nav-social li{display:inline-block;}
@@ -88,13 +87,18 @@ ol.l li,
 
 #m-nav-toggle{display:none;}
 
+/* --- Colour Containers --- */
+
+.dark-slab{background-color:#253149;}
+.med-slab{background-color:#7E8AA3;}
+.white-slab{background-color:#FFFFFF;}
 
 /* --- CONTENT --- */
 
 #cookie-notice{padding:0.4em; text-align:center;}
 
 #header{}
-#main-content{}
+#main-content{background-color:#7E8AA3;}
 #footer{}
 
 /* --- Typography Breakpoint 1 --- */

@@ -54,6 +54,8 @@ module.exports.routes = {
 
 	'/create/event': 'EventController.new',
 
+	'/create/user': 'UserController.create',
+
 	// Routes for use with API
 
 	'/api/users': 'UserController.indexJSON',

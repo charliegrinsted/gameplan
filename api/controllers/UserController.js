@@ -47,8 +47,11 @@ module.exports = {
 		.limit(1)
 		.populate('teamsAdministered') // fetch the related values from the Team model		
 		.exec(function(err, user) {
-			if (err) return next(err);
-			if (!user) return next();
+			if (err) return res.redirect(404);
+			if (!user) return res.redirect(404);
+			if (!user){
+				console.log('WHAT IS HAPPENING');
+			}
 			res.view({
 				user: user[0]
 			});

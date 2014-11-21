@@ -15,8 +15,11 @@ module.exports = {
 
   	eventTeam:{
   		model:'team'
+  	},
+  	
+  	eventIsPublic:{
+  		type:'boolean'
   	}
-
   }
 
 };

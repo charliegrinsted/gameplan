@@ -66,7 +66,8 @@ module.exports = {
 		// Create an object containing all of the parameters passed in by the user sign-up form
 		var eventObj = {
 			eventTitle: req.param('eventTitle'),
-			eventTeam: req.param('eventTeam')
+			eventTeam: req.param('eventTeam'),
+			eventIsPublic: req.param('eventIsPublic')
 		}
 
 		// As with much of Node, the parameters are passed in from the request object, then a callback runs.

@@ -3,10 +3,12 @@
 		<div class="w12 wysiwyg">
 			<h1>Events</h1>
 			<% _.each(events, function(thisEvent) { %>
+			<% if (thisEvent.eventIsPublic != false) { %>
 			<div data-id="<%= thisEvent.id %>" data-model="event">
 				<a href="/events/<%= thisEvent.id %>"><p><%= thisEvent.eventTitle %></p></a>
 				<p>The event is organised by <%= thisEvent.eventTeam.teamName %></p>			
 			</div>
+			<% } %>
 			<% }) %>
 		</div>
 	</div>

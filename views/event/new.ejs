@@ -11,7 +11,9 @@
 				<% _.each(teams, function(team) { %>
 					<option value="<%= team.id %>"><%= team.teamName %></option>
 				<% }) %>
-				</select>	
+				</select>
+				<input type="radio" name="eventIsPublic" value="true" checked>Public
+				<input type="radio" name="eventIsPublic" value="false">Private
 				<input type="hidden" name="_csrf" value="<%= _csrf %>">
 				<input type="submit" value="Create new event">
 			</form>		

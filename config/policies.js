@@ -38,8 +38,11 @@ module.exports.policies = {
 
 	'TeamController': {
 		'new': ['authenticated']
-	}
+	},
 	
+	'EventController': {
+		'new': ['authenticated']
+	}	
 	/***************************************************************************
 	*                                                                          *
 	* Here's an example of mapping some policies to run before a controller    *

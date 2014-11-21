@@ -81,7 +81,7 @@ module.exports = {
 			res.redirect('/events/' + savedEvent.id);
 
 		});
-	}	
+	}
 	
 };
 

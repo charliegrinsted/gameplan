@@ -2,6 +2,7 @@
 	<div class="row">
 		<div class="w12 wysiwyg">
 			<h1>Events</h1>
+			<a href="/create/event" class="cta-submit inline">Create an event</a>
 			<% _.each(events, function(thisEvent) { %>
 			<% if (thisEvent.eventIsPublic != false) { %>
 			<div data-id="<%= thisEvent.id %>" data-model="event">

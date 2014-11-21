@@ -112,6 +112,8 @@ module.exports = {
 		.limit(1)
 		.populate('teamsAdministered') // fetch the related values from the Team model
 		.populate('friends')
+		.populate('friendRequestsSent')
+		.populate('friendRequestsReceived')
 		.exec(function(err, user) {
 			if (err) return res.redirect(404);
 			if (!user) return res.redirect(404);

@@ -3,7 +3,8 @@
 		<div class="w12">
 			<h1><%= user.firstName %> <%= user.lastName %></h1>
 			<% if (session.authenticated && user.id != session.User.id) { %>
-			<a href="/users/<%= user.userName %>/add" class="cta-submit inline">Add Friend</a>
+			<button id="add_friend" data-user="<%= user.userName %>" class="cta-submit inline">Add this person yo</button>
+			<!--<a href="/users/<%= user.userName %>/add" class="cta-submit inline" id="add_friend">Add Friend</a>-->
 			<% } %>
 			<p>This is a profile page.</p>
 		</div>
@@ -33,3 +34,25 @@
 	<% } %>
 	<% }) %>	
 </div>
+<script>
+$l.ready(function() {
+		var button = $l.id('add_friend');
+		var thisUser = $l.dom.data(button, 'user');
+		$l.dom.setEvent(
+			button,
+			'click',
+			function() {
+				$l.ajax.get(
+					'/users/' + thisUser + '/add',
+					null,
+					function() {
+						$l.dom.replace(button, 'Request sent');
+						$l.dom.attr(button, 'disabled', 'true');
+						$l.dom.attr(button, 'class', 'cta-submit inline disabled');
+					}
+				);
+				return false;
+			}
+		);
+	});
+</script>

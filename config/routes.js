@@ -52,6 +52,8 @@ module.exports.routes = {
 
 	'GET /teams/manage/:id': 'TeamController.edit',
 
+	'GET /events/:id': 'EventController.show',
+
 	'/settings': 'UserController.edit',
 
 	'/logout': 'SessionController.destroy',
@@ -62,6 +64,7 @@ module.exports.routes = {
 
 	'/create/user': 'UserController.create',
 
+	// 'POST /settings/addPhoto': 'UserController.addProfilePhoto',
 
 	// Routes for use with API
 

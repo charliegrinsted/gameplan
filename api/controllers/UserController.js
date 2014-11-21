@@ -32,9 +32,6 @@ module.exports = {
 		var userToAdd = (req.param('userName')); // store the user we're adding as a friend
 		var activeUser = (req.session.User.id); // store who we are
 
-		console.log(userToAdd);
-		console.log(activeUser);
-
 		User.find()
 		.where({ userName: userToAdd })
 		.limit(1)
@@ -79,6 +76,20 @@ module.exports = {
 			});
 		});		
 
+	},
+
+	addProfilePhoto: function (req, res) {
+	// get this working
+	// res.setTimeout(0);
+		console.log("gets this far");
+		req.file('avatar')
+		.upload({maxBytes:1000000}, function complete(err, uploadedFiles) {
+			if (err) return res.serverError(err);
+			else return 
+			res.json({
+				files:uploadedFiles,
+			});
+		});
 	},	
 
 	indexJSON: function(req, res, next){
@@ -210,7 +221,6 @@ module.exports = {
 		} 
 		else {
 			var currentUser = req.session.User.userName;
-			console.log(currentUser);
 			if (currentUser){
 				User.find()
 				.where({ userName: currentUser })
@@ -219,7 +229,6 @@ module.exports = {
 					if (err){
 						return next(err);
 					}
-					console.log(user);
 					res.view({
 						user: user[0]
 					});

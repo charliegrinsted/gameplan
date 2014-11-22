@@ -4,9 +4,6 @@
 			<a href="/events">Back to all events</a>
 		</div>
 		<div class="w4 last">
-			<% if (session.authenticated && session.User.userName == thisEvent.eventTeam.teamAdmin.userName){ %>
-			<a href="/teams/manage/<%= team.id %>">Edit this team</a>
-			<% } %>
 		</div>
 	</div>
 	<div class="row">
@@ -15,4 +12,16 @@
 			<p>The administrator is <a href="/users/<%= thisEvent.eventTeam.teamAdmin.userName %>"><%= thisEvent.eventTeam.teamAdmin.firstName %></a></p>
 		</div>
 	</div>
+	<div class="row">
+		<div class="w12 wysiwyg">
+			<h2>These people are coming:</h2>
+			<div class="row">
+				<% _.each(thisEvent.attendees, function(user, i) { %>
+				<div class="w4<% if (i % 3 == 0) { %> last<% } %>">
+					<h3><a href="/users/<%= user.userName %>"><%= user.userName %></a></h3>
+				</div>
+				<% }) %>
+			</div>
+		</div>
+	</div>	
 </div>

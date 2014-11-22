@@ -37,7 +37,8 @@ module.exports = {
 		},
 
 		teamsAdministered: {
-			collection:'team', via: 'teamAdmin'
+			collection:'team', 
+			via:'teamAdmin'
 		},
 
 		friends:{
@@ -60,6 +61,12 @@ module.exports = {
 		friendRequestsReceived:{
 			collection:'user',
 			via:'friendRequestsSent'
+		},
+
+		eventsAttending:{
+			collection:'event',
+			via:'attendees',
+			dominant:true
 		},
 
 		toJSON: function(){

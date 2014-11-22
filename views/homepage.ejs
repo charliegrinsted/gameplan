@@ -56,3 +56,41 @@
 	</div>
 	<% } %>
 </div>
+
+<% if (session.authenticated) { %>
+<div class="container wysiwyg">
+	<div class="row">
+		<div class="w4">
+			<h2>Your Teams</h2>
+			<% _.each(session.User.teamsAdministered, function(team, i, teams) { %>
+			<% if (i == 0) { %>
+			<ul>
+			<% } %>
+				<li><% team.teamName %></li>
+			<% if (i == teams.length - 1) { %>
+			</ul>
+			<% } %>
+			<% }) %>
+		</div>
+		<div class="w4">
+			<h2>Friends</h2>
+			<% _.each(session.User.friends, function(user, i, users) { %>
+			<% if (i == 0) { %>
+			<ul>
+			<% } %>
+				<li><% user.firstName %> <% user.lastName %></li>
+			<% if (i == users.length - 1) { %>
+			</ul>
+			<% } %>
+			<% }) %>
+		</div>
+		<div class="w4 last">
+			<h2>Events</h2>
+
+		</div>
+	</div>
+</div>
+<% } %>
+
+
+

@@ -16,9 +16,14 @@ module.exports = {
   	eventTeam:{
   		model:'team'
   	},
-  	
+
   	eventIsPublic:{
   		type:'boolean'
+  	},
+
+  	attendees:{
+  		collection:'user',
+  		via:'eventsAttending'
   	}
   }
 

@@ -37,7 +37,8 @@ module.exports.policies = {
 	},
 
 	'TeamController': {
-		'new': ['authenticated']
+		'new': ['authenticated'],
+		'delete':['authenticated']
 	},
 	
 	'EventController': {

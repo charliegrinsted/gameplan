@@ -54,6 +54,10 @@ module.exports.routes = {
 
 	'GET /events/:id': 'EventController.show',
 
+	'GET /teams/:id/delete': 'TeamController.delete',
+
+	'GET /events/:id/rsvp': 'EventController.rsvp',
+
 	'/settings': 'UserController.edit',
 
 	'/logout': 'SessionController.destroy',

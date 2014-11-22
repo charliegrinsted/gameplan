@@ -40,6 +40,7 @@ module.exports = {
 	show: function(req, res, next) {
 		Event.findOneById(req.param('id'))
 		.populate('eventTeam') // fetch the related values from the Team model
+		.populate('attendees')
 		.then(function(eventData){
 
 			var teamData = Team.findOneById(eventData.eventTeam.id) // find the related team using the eventTeam attribute
@@ -55,6 +56,7 @@ module.exports = {
 		})
 		.spread(function(teamData, eventData){
 			eventData.eventTeam = teamData; // set the EventTeam attribute to the team data we've retrieved
+			console.log(eventData);
 			res.view({
 				thisEvent: eventData
 			});
@@ -81,6 +83,38 @@ module.exports = {
 			res.redirect('/events/' + savedEvent.id);
 
 		});
+	},
+
+	rsvp: function(req, res, next){
+
+		var thisEvent = req.param('id');
+		var activeUser = req.session.User.id;
+
+		if (req.session.User.userName){
+
+			Event.find()
+			.where({ id: thisEvent })
+			.limit(1)
+			.exec(function(err, eventToUpdate) {
+				// add error handling
+				eventToUpdate[0].attendees.add(activeUser); // add yourself to the event attendees list
+				eventToUpdate[0].save(function(err, user) {
+					
+					if (err) return next(err);
+
+					res.redirect('/events/' + thisEvent); // take user to their profile once signed in
+
+				});
+			});	
+		}
+
+		else {
+
+			// PUT SOME PROPER ERROR HANDLING HERE
+
+			res.redirect('/');
+
+		}
 	}
 	
 };

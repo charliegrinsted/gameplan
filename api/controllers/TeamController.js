@@ -125,9 +125,24 @@ module.exports = {
 
 	},
 
-	destroy: function(req, res, next){
+	delete: function(req, res, next){
 
-		// redirect with a flash message of successful deletion
+		var thisTeam = req.param('id');
+
+		Team.destroy({id:thisTeam}) // destroy the instance of the team
+		.exec(function(err, team) {
+			if (err) {
+				return res.serverError();
+			}
+			Event.destroy({eventTeam: thisTeam}) // loop through and destroy all of the events dependent on to that team
+			.exec(function(err, events) {
+				console.log("Deleted:");
+				console.log(events);
+			});
+
+		});
+
+		// redirect with a flash message of successful deletion - TO DO
 		res.redirect('/');
 
 	}	

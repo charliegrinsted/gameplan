@@ -241,5 +241,42 @@ module.exports = {
 
 	},
 
+	delete: function(req, res, next){
+
+		var userToDelete = req.param('userName');
+		var currentUserID = req.session.User.id;
+		var currentUserName = req.session.User.userName;
+
+		if (userToDelete == currentUserName){
+			User.destroy({id:currentUserID}) // destroy the instance of the user
+			.exec(function(err, user) {
+				if (err) {
+					return res.serverError();
+				}
+				Team.destroy({teamAdmin: currentUserID}) // loop through and destroy all of the teams dependent on to that user
+				.populate('teamEvents')
+				.exec(function(err, teams, i) {
+					console.log(teams);
+					var teamIDs = teams.map(function(team){
+						return team.id;
+					});
+					Event.destroy({eventTeam: teamIDs})
+					.exec(function(err, events) {
+						console.log(teams);
+					});
+				});
+
+			});
+
+			// redirect with a flash message of successful deletion - TO DO
+			req.session.destroy(); // destroy the session containing the now deleted user
+			res.redirect('/'); // redirect to homepage
+			
+		}
+		else {
+			res.redirect('/users')
+		}
+	}	
+
 };
 

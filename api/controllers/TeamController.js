@@ -145,7 +145,7 @@ module.exports = {
 		// redirect with a flash message of successful deletion - TO DO
 		res.redirect('/');
 
-	}	
+	}
 	
 };
 

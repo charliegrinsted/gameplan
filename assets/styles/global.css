@@ -89,10 +89,13 @@ ol.l li,
 
 /* --- Colour Containers --- */
 
+.team-box,
 .dark-slab{background-color:#253149; color:#FFF;}
 .dark-slab a{color:#FFF;}
 
+.user-box,
 .med-slab{background-color:#7E8AA3; color:#FFF;}
+
 .white-slab{background-color:#FFFFFF;}
 
 /* --- Buttons --- */
@@ -107,7 +110,15 @@ ol.l li,
 #cookie-notice{padding:0.4em; text-align:center;}
 
 #header{}
+.logo{font-weight:800; font-size:1.4em;}
+.user-box{border-radius:0.2em; text-align:right; margin:1em 0; padding:0.6em;}
+.user-box .name{font-weight:800; font-size:1.2em;}
+
+.team-box{border-radius:3.2px;}
+.user-box .btn{font-size:0.8em; display:inline-block; padding-left:1em;}
 #main-content{background-color:#7E8AA3;}
+
+input{display:block; clear:both;}
 #footer{}
 
 /* --- Typography Breakpoint 1 --- */

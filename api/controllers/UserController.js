@@ -114,12 +114,14 @@ module.exports = {
 		.populate('friends')
 		.populate('friendRequestsSent')
 		.populate('friendRequestsReceived')
+		.populate('eventsAttending')
 		.exec(function(err, user) {
 			if (err) return res.redirect(404);
 			if (!user) return res.redirect(404);
 			if (!user){
 				console.log('WHAT IS HAPPENING');
 			}
+			console.log(user[0]);
 			res.view({
 				user: user[0]
 			});

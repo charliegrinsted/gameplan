@@ -43,16 +43,42 @@
 		</div>
 	</div>
 	<% if (!session.authenticated) { %>
-	<div class="row">
-		<div class="w12 wysiwyg">
+	<div class="row wysiwyg">
+		<div class="w6">
 			<h2>Sign in</h2>
 			<form action="/sessions/create" method="POST">
+				<label for="userName">Username</label>	
 				<input type="text" name="userName">
+				<label for="password">Password</label>
 				<input type="password" name="password">
 				<input type="hidden" name="_csrf" value="<%= _csrf %>">	
 				<input class="cta-submit block" type="submit" value="Log in">
 			</form>
 		</div>
+		<div class="w6 last">
+			<h2>Register</h1>
+			<form action="/create/user" method="POST">
+				<label for="firstName">First Name</label>
+				<input type="text" name="firstName">
+				<label for="lastName">Last Name</label>	
+				<input type="text" name="lastName">
+				<label for="email">Email Address</label>	
+				<input type="email" name="email">
+				<label for="userName">Username</label>	
+				<input type="text" name="userName">
+				<label for="password">Password</label>
+				<input type="password" name="password">
+				<label for="passwordConfirmation">Confirm Password</label>		
+				<input type="password" name="passwordConfirmation">
+				<label for="publicView">Account Visibility</label>
+				<select name="publicView">
+					<option value="true">Public</option>
+					<option value="false">Private</option>
+				</select>
+				<input type="hidden" name="_csrf" value="<%= _csrf %>">
+				<input type="submit" class="cta-submit block" value="Sign up">
+			</form>
+		</div>		
 	</div>
 	<% } %>
 </div>

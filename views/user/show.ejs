@@ -21,6 +21,18 @@
 		</div>
 		<% }) %>
 	</div>
+	<div class="row">
+		<div class="w12">
+			<h2><%= user.firstName %>'s Events</h2>
+		</div>
+	</div>
+	<div class="row">	
+		<% _.each(user.eventsAttending, function(thisEvent, i) { %>
+		<div class="w4<% if (i % 3 == 0) { %> last<% } %>">
+			<h3><a href="/events/<%= thisEvent.id %>"><%= thisEvent.eventTitle %></a></h3>
+		</div>
+		<% }) %>
+	</div>	
 	<% _.each(user.friends, function(friend, i, friends) { %>
 	<% if (i == 0) { %>
 	<div class="row">

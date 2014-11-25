@@ -7,25 +7,33 @@
 
 module.exports = {
 
-  attributes: {
+attributes: {
 
-  	eventTitle:{
-  		type:'string'
-  	},
+	eventTitle:{
+		type:'string'
+	},
 
-  	eventTeam:{
-  		model:'team'
-  	},
+	eventTeam:{
+		model:'team'
+	},
 
-  	eventIsPublic:{
-  		type:'boolean'
-  	},
+	startTime:{
+		type:'datetime'
+	},
 
-  	attendees:{
-  		collection:'user',
-  		via:'eventsAttending'
-  	}
-  }
+	endTime:{
+		type:'datetime'
+	},
+
+	eventIsPublic:{
+		type:'boolean'
+	},
+
+	attendees:{
+		collection:'user',
+		via:'eventsAttending'
+	}
+}
 
 };
 

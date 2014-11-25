@@ -16,27 +16,32 @@
 		<!--[if lte IE 8]><link rel="stylesheet" href="/styles/ie8.css"><![endif]-->
 		<script src="/js/laroux.min.js"></script>
 
-		<title>GamePlan App</title>
+		<title>GamePlan</title>
 	</head>
 
 	<body>
 	<div class="container dark-slab" id="header">
 		<div class="row">
-			<div class="w8">
-				<p class="h m">Logo here etc etc</p>
+			<div class="w3 relative">
+				<p class="logo">GamePlan</p>
 			</div>
-			<div class="w4 last">
+			<div class="w6">
+			</div>
+			<div class="w3 last">
+				<div class="user-box">
 				<% if (session.authenticated) { %>
-				<p class="h s"><a href="/users/<%= session.User.userName %>"><%= session.User.userName %></a></p>
-				<a href="/logout">Logout</a>
+					<p class="name"><a href="/users/<%= session.User.userName %>"><%= session.User.firstName %> <%= session.User.lastName %></a></p>
+					<a class="btn" href="/settings">Edit Profile</a>
+					<a class="btn" href="/logout">Logout</a>
 				<% } else { %>
 				<form action="/sessions/create" method="POST">
 					<input type="text" name="userName" placeholder="Username">
 					<input type="password" name="password" placeholder="Password">
 					<input type="hidden" name="_csrf" value="<%= _csrf %>">	
-					<input class="cta-submit inline" type="submit" value="Login">
+					<input class="cta-submit block" type="submit" value="Login">
 				</form>
 				<% }%>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -49,7 +54,6 @@
 					<li><a href="/teams">Teams</a></li>
 					<li><a href="/users">Users</a></li>
 					<li><a href="/events">Events</a></li>
-					<li><a href="/settings">Settings</a></li>
 				</ul>
 			</div>
 		</div>

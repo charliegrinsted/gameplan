@@ -6,11 +6,72 @@
  */
 
 var bcrypt = require('bcrypt');
+var passport = require("passport");
+var jwt = require('jsonwebtoken');
+var secret = 'ewfn09qu43f09qfj94qf*&H#(R';
 
 module.exports = {
 
 	'new': function(req, res) {
 		res.view('session/new');
+	},
+
+	createAPIsession: function(req, res, next){
+
+		if (!req.param('userName') || !req.param('password')) {
+
+			var formError = {
+				name: 'Form error',
+				message: 'Please fill in all fields.'
+			}
+
+			res.json(formError);
+
+			return;
+		}
+
+		User.findOneByUserName(req.param('userName'))
+		.populate('friendRequestsReceived')
+		.populate('friends')
+		.populate('teamsAdministered')
+		.exec(function foundUser(err, user) {
+
+			if (err) return next(err);
+
+			// If no user is found...
+			if (!user) {
+				var noAccountError = {
+					name: 'Account not found',
+					message: 'The username ' + req.param('userName') + ' was not found.'
+				}
+				res.json(noAccountError);
+				return;
+			}
+
+			bcrypt.compare(req.param('password'), user.encryptedPass, function(err, valid) {
+
+				if (err) return next(err);
+
+				if (!valid) {
+					var passwordError = [{
+						name: 'Error',
+						message: 'Invalid username or password.'
+					}]
+					res.json(passwordError);
+					return;
+				}
+
+				var token = jwt.sign(user, secret, {expiresInMinutes:60*24});
+				
+				user.save(function(err, user) {
+					
+					if (err) return next(err);
+
+					res.json(token); // pass back a JSON token
+
+				});
+			});
+		});
 	},
 
 	create: function(req, res, next) {
@@ -71,9 +132,13 @@ module.exports = {
 					return;
 				}
 
+				var token = jwt.sign(user, secret, {expiresInMinutes:60*24});
 				req.session.authenticated = true;
 				req.session.User = user;
+				req.token = token;
 
+				console.log(req.token);
+				
 				user.save(function(err, user) {
 					
 					if (err) return next(err);

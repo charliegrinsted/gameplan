@@ -121,7 +121,7 @@ module.exports = {
 			if (!user){
 				console.log('WHAT IS HAPPENING');
 			}
-			console.log(user[0]);
+			//console.log(user[0]);
 			res.view({
 				user: user[0]
 			});

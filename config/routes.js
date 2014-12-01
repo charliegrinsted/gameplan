@@ -80,7 +80,9 @@ module.exports.routes = {
 
 	'/api/teams': 'TeamController.indexJSON',
 
-	'GET /api/teams/:id': 'TeamController.showJSON'	
+	'GET /api/teams/:id': 'TeamController.showJSON',	
+
+	'POST /api/session/create': 'SessionController.createAPIsession'	
 
 	/***************************************************************************
 	*                                                                          *

@@ -38,7 +38,7 @@ module.exports.policies = {
 	},
 
 	'TeamController': {
-		'new': ['authenticated', 'hasToken'],
+		'new': ['authenticated'],
 		'delete':['authenticated']
 	},
 	

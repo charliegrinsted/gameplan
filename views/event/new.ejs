@@ -15,12 +15,17 @@
 				<input type="radio" name="eventIsPublic" value="true" checked>Public
 				<input type="radio" name="eventIsPublic" value="false">Private
 				<label for="startTime">Start Time</label>
-				<input type="datetime" name="startTime">
-				<label for="startTime">End Time</label>
-				<input type="datetime" name="endTime">
+				<input id="startTime" name="startTime" class="input">
+				<label for="endTime">End Time</label>
+				<input id="endTime" name="endTime" class="input">
 				<input type="hidden" name="_csrf" value="<%= _csrf %>">
 				<input type="submit" value="Create new event">
 			</form>		
 		</div>
 	</div>
 </div>
+<script>
+	var now = moment().format('YYYY-MM-DD HH:00');
+	rome(startTime, { initialValue: now });
+	rome(endTime, { initialValue: now });
+</script>

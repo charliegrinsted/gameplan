@@ -20,6 +20,7 @@
 	</head>
 
 	<body>
+	<% if (session.authenticated) { %>
 	<div class="container dark-slab" id="header">
 		<div class="row">
 			<div class="w3 relative">
@@ -29,23 +30,13 @@
 			</div>
 			<div class="w3 last">
 				<div class="user-box">
-				<% if (session.authenticated) { %>
 					<p class="name"><a href="/users/<%= session.User.userName %>"><%= session.User.firstName %> <%= session.User.lastName %></a></p>
 					<a class="btn" href="/settings">Edit Profile</a>
 					<a class="btn" href="/logout">Logout</a>
-				<% } else { %>
-				<form action="/sessions/create" method="POST">
-					<input type="text" name="userName" placeholder="Username">
-					<input type="password" name="password" placeholder="Password">
-					<input type="hidden" name="_csrf" value="<%= _csrf %>">	
-					<input class="cta-submit block" type="submit" value="Login">
-				</form>
-				<% }%>
 				</div>
 			</div>
 		</div>
 	</div>
-	<% if (session.authenticated) { %>
 	<div class="container med-slab" id="user-quick-links">
 		<div class="row">
 			<div class="w12">
@@ -58,6 +49,22 @@
 			</div>
 		</div>
 	</div>
+	<% } else { %>
+	<div class="container dark-slab" id="header">
+		<div class="row">
+			<div class="w12">
+				<p class="h l">GamePlan</p>
+			</div>
+			<div class="w12">
+				<form action="/sessions/create" method="POST">
+					<input type="text" name="userName" placeholder="Username">
+					<input type="password" name="password" placeholder="Password">
+					<input type="hidden" name="_csrf" value="<%= _csrf %>">	
+					<input class="cta-submit block" type="submit" value="Login">
+				</form>
+			</div>
+		</div>
+	</div>	
 	<% } %>	
 	<%- body %>
 	<script src="/js/dependencies/sails.io.js"></script>

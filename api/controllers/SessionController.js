@@ -21,6 +21,7 @@ module.exports = {
 		if (!req.param('userName') || !req.param('password')) {
 
 			var formError = {
+				type: 'Error',				
 				name: 'Form error',
 				message: 'Please fill in all fields.'
 			}
@@ -41,6 +42,7 @@ module.exports = {
 			// If no user is found...
 			if (!user) {
 				var noAccountError = {
+					type: 'Error',
 					name: 'Account not found',
 					message: 'The username ' + req.param('userName') + ' was not found.'
 				}
@@ -54,6 +56,7 @@ module.exports = {
 
 				if (!valid) {
 					var passwordError = [{
+						type: 'Error',						
 						name: 'Error',
 						message: 'Invalid username or password.'
 					}]
@@ -62,12 +65,15 @@ module.exports = {
 				}
 
 				var token = jwt.sign(user, secret, {expiresInMinutes:60*24});
-				
+
 				user.save(function(err, user) {
 					
 					if (err) return next(err);
 
-					res.json(token); // pass back a JSON token
+					var userObj = user.toObject();
+					userObj.token = token;
+
+					res.json(userObj); // pass back a JSON token
 
 				});
 			});

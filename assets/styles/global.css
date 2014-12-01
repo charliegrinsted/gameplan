@@ -60,20 +60,16 @@ a:hover{}
 .h.s,
 .wysiwyg h4{font-size:1.125em; line-height:1.11111111; margin-top:1.66666667em; margin-bottom:0.55555556em;}
 
+.full{text-align:center;}
+.full.xl{font-size:2.8em; letter-spacing:-1px; line-height:1.25; margin-top:0.9375em; margin-bottom:0.3125em; font-weight:800;}
+.full.l{font-size:2.625em; line-height:1.15384615; margin-top:1.15384616em; margin-bottom:0.38461539em;}
+
 .wysiwyg ul,
 .wysiwyg ol,
 .wysiwyg img,
 .wysiwyg figure{margin:0 0 1.2em;}
 .wysiwyg figure{display:block; width:100%;}
 .wysiwyg figure figcaption{font-size:90%; font-style:italic;}
-
-.l,
-.wysiwyg ul,
-.wysiwyg ol{padding-left:1.6em;}
-ul.l li,
-.wysiwyg ul li{list-style:disc outside;}
-ol.l li,
-.wysiwyg ol li{list-style:decimal outside;}
 
 /* --- NAVIGATION --- */
 

@@ -17,6 +17,10 @@ attributes: {
 		model:'team'
 	},
 
+	eventType:{
+		type:'string'
+	},
+
 	startTime:{
 		type:'datetime'
 	},

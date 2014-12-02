@@ -10,6 +10,9 @@
 		<div class="w12 wysiwyg">
 			<h1><%= thisEvent.eventTitle %></h1>
 			<p>The administrator is <a href="/users/<%= thisEvent.eventTeam.teamAdmin.userName %>"><%= thisEvent.eventTeam.teamAdmin.firstName %></a></p>
+			<% if (thisEvent.eventStatus == "past") { %>
+			<p>This event has already happened</p>
+			<% } %>
 		</div>
 	</div>
 	<div class="row">

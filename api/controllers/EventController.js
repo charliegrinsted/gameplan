@@ -5,6 +5,8 @@
  * @help        :: See http://links.sailsjs.org/docs/controllers
  */
 
+var moment = require('moment'); // include Moment.js for funky date formatting to compare with stored event times
+
 module.exports = {
 
 	'new': function(req, res){
@@ -38,6 +40,7 @@ module.exports = {
 	},
 
 	show: function(req, res, next) {
+		var now = moment().format('YYYY-MM-DDTHH:mm:ss');
 		Event.findOneById(req.param('id'))
 		.populate('eventTeam') // fetch the related values from the Team model
 		.populate('attendees')
@@ -56,7 +59,12 @@ module.exports = {
 		})
 		.spread(function(teamData, eventData){
 			eventData.eventTeam = teamData; // set the EventTeam attribute to the team data we've retrieved
-			console.log(eventData);
+			var formattedEnd = eventData.endTime.toISOString(); // Make the End Time an ISO formatted time
+			if (formattedEnd < now){ // compare it with the current time
+				console.log("A past event");
+				eventData.eventStatus = "past";
+				console.log(eventData);
+			}
 			res.view({
 				thisEvent: eventData
 			});
@@ -65,15 +73,14 @@ module.exports = {
 
 	create: function(req, res, next){
 
-		var now = new Date();
-
 		// Create an object containing all of the parameters passed in by the user sign-up form
 		var eventObj = {
 			eventTitle: req.param('eventTitle'),
 			eventTeam: req.param('eventTeam'),
 			eventIsPublic: req.param('eventIsPublic'),
 			startTime: req.param('startTime'),
-			endTime: req.param('endTime')
+			endTime: req.param('endTime'),
+			eventType: req.param('eventType')
 		}
 
 		// As with much of Node, the parameters are passed in from the request object, then a callback runs.

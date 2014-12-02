@@ -191,7 +191,8 @@ module.exports = {
 			var userObj = {
 				firstName: req.param('firstName'),
 				lastName: req.param('lastName'),
-				publicView: req.param('publicView')
+				publicView: req.param('publicView'),
+				bio: req.param('bio')
 			}
 
 			User.update({userName: currentUser}, userObj)

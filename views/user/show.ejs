@@ -7,6 +7,9 @@
 			<!--<a href="/users/<%= user.userName %>/add" class="cta-submit inline" id="add_friend">Add Friend</a>-->
 			<% } %>
 			<p>This is a profile page.</p>
+			<% if (user.bio) { %>
+			<p><%= user.bio %></p>
+			<% } %>
 		</div>
 	</div>
 	<div class="row">

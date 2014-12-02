@@ -36,6 +36,10 @@ module.exports = {
 			type:'boolean'
 		},
 
+		bio:{
+			type:'text'
+		},
+
 		teamsAdministered: {
 			collection:'team', 
 			via:'teamAdmin'

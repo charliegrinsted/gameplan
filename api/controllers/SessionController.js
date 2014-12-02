@@ -154,7 +154,7 @@ module.exports = {
 					//console.log(backURL);
   					//res.redirect(backURL);
 
-					res.redirect('/users/' + user.userName); // take user to their profile once signed in
+					res.redirect('/'); // take user to their homepage dashboard once signed in
 
 				});
 			});

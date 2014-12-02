@@ -2,30 +2,40 @@
 	<div class="row">
 		<div class="w12 wysiwyg">
 			<h1>New Event</h1>
-			<p>You are creating a new event</p>
 			<form action="/events/create" method="POST">
-				<label for="eventTitle">Event Title</label>
-				<input type="text" name="eventTitle">
-				<label for="eventTeam">Which team is this associated with?</label>
-				<select name="eventTeam" id="eventTeam">
-				<% _.each(teams, function(team) { %>
-					<option value="<%= team.id %>"><%= team.teamName %></option>
-				<% }) %>
-				</select>
-				<input type="radio" name="eventIsPublic" value="true" checked>Public
-				<input type="radio" name="eventIsPublic" value="false">Private
-				<select name="eventType" id="eventType">
-					<option value="game">Game</option>
-					<option value="training">Training</option>
-					<option value="social">Social</option>
-				</select>
-				<label for="startTime">Start Time</label>
-				<input id="startTime" name="startTime" class="input">
-				<label for="endTime">End Time</label>
-				<input id="endTime" name="endTime" class="input">
-				<input type="hidden" name="_csrf" value="<%= _csrf %>">
-				<input type="submit" class="cta-submit inline" value="Create new event">
-			</form>		
+			<div class="row">
+				<div class="w4">
+					<h2>Event details</h2>
+					<label for="eventTitle">Event Title</label>
+					<input type="text" name="eventTitle">
+					<label for="eventTeam">Which team is this associated with?</label>
+					<select name="eventTeam" id="eventTeam">
+					<% _.each(teams, function(team) { %>
+						<option value="<%= team.id %>"><%= team.teamName %></option>
+					<% }) %>
+					</select>
+					<input type="radio" name="eventIsPublic" value="true" checked>Public
+					<input type="radio" name="eventIsPublic" value="false">Private
+					<label for="eventType">Event Type</label>
+					<select name="eventType" id="eventType">
+						<option value="game">Game</option>
+						<option value="training">Training</option>
+						<option value="social">Social</option>
+					</select>
+				</div>
+				<div class="w4">
+					<h2>Set a time &amp; date</h2>
+					<label for="startTime">Start Time</label>
+					<input id="startTime" name="startTime" class="input">
+					<label for="endTime">End Time</label>
+					<input id="endTime" name="endTime" class="input">
+				</div>
+				<div class="w4 last">
+					<input type="hidden" name="_csrf" value="<%= _csrf %>">
+					<input type="submit" class="cta-submit inline" value="Create new event">
+				</div>
+			</div>
+			</form>
 		</div>
 	</div>
 </div>

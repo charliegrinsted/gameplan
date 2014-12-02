@@ -120,17 +120,19 @@
 			<p class="full hero">GamePlan</p>
 		</div>
 		<div class="w12">
+			<div class="home-not-registered">
+				<a href="/register" class="cta-submit inline">Get Started</a>
+			</div>
+		</div>
+		<div class="w12">
+			<div class="home-not-registered">
+			<p>Already a member?</p>
 			<form action="/sessions/create" method="POST" id="home-login-form">
 				<input type="text" name="userName" placeholder="Username">
 				<input type="password" name="password" placeholder="Password">
 				<input type="hidden" name="_csrf" value="<%= _csrf %>">	
 				<input class="cta-submit block" type="submit" value="Login">
 			</form>
-		</div>
-		<div class="w12">
-			<div class="home-not-registered">
-				<p>Not registered?</p>
-				<a href="/register" class="cta-submit inline">Get Started</a>
 			</div>
 		</div>
 	</div>

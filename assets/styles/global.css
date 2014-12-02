@@ -76,6 +76,7 @@ a:hover{}
 input,
 select,
 textarea{font-family:'Lato', sans-serif; margin-bottom:1em; clear:both;}
+input,
 input[type=text],
 input[type=email],
 input[type=password],
@@ -84,6 +85,95 @@ textarea{font-size:1em; padding:0.4em; outline:0; border:1px solid #7E8AA3; bord
 select{display:block;}
 label{clear:both;}
 textarea{max-width:26.4em; width:60%;}
+
+/**
+ * rome - Customizable date (and time) picker. Opt-in UI, no jQuery!
+ * @version v1.2.0
+ * @link https://github.com/bevacqua/rome
+ * @license MIT
+ */
+.rd-container {
+	display:inline-block;
+	border-bottom-right-radius:4px;
+	border-bottom-left-radius:4px;
+	background-color:#253149;
+	color:#fff;
+	padding:1em;
+	text-align:center;
+}
+.rd-container-attachment {
+  position:absolute;
+}
+.rd-month {
+  display:inline-block;
+}
+.rd-month:last-child {
+  margin-right:0;
+}
+.rd-back,
+.rd-next{cursor:pointer; border:none; outline:none; padding:0; margin:0; color:#FFF;}
+.rd-back[disabled],
+.rd-next[disabled] {
+  cursor:default;
+}
+.rd-back {
+  float:left;
+}
+.rd-next {
+  float:right;
+}
+.rd-back:before {
+  display:block;
+  content:'\2190';
+}
+.rd-next:before {
+  display:block;
+  content:'\2192';
+}
+.rd-day-body {
+  cursor:pointer;
+  text-align:center;
+}
+.rd-day-selected,
+.rd-time-selected,
+.rd-time-option:hover {
+  cursor:pointer;
+  background-color:#333;
+  color:#fff;
+}
+.rd-day-prev-month,
+.rd-day-next-month {
+  color:#FFF;
+}
+.rd-day-disabled {
+  cursor:default;
+  color:#fcc;
+}
+.rd-time {
+  position:relative;
+  display:inline-block;
+  margin-top:5px;
+  min-width:80px;
+}
+.rd-time-list {
+  display:none;
+  position:absolute;
+  overflow-y:scroll;
+  max-height:160px;
+  left:0;
+  right:0;
+  background-color:#fff;
+  color:#333;
+}
+.rd-time-selected {
+  padding:5px;
+}
+.rd-time-option {
+  padding:5px;
+}
+.rd-day-concealed {
+  visibility:hidden;
+}
 
 /* --- NAVIGATION --- */
 
@@ -133,8 +223,8 @@ textarea{max-width:26.4em; width:60%;}
 #home-login-form .cta-submit:hover,
 .home-not-registered .cta-submit:hover{background-color:#FFF; color:#000;}
 
-.home-not-registered{margin-top:2.4em; text-align:center;}
-.home-not-registered p{font-size:1.4em; font-weight:800; margin-bottom:0.8em;}
+.home-not-registered{margin-top:2em; text-align:center;}
+.home-not-registered p{font-size:1.4em; font-weight:800; margin-bottom:0.8em; text-shadow:0px 0px 8px #000;}
 .home-not-registered .cta-submit{}
 
 

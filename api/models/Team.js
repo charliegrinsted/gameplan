@@ -28,8 +28,7 @@ module.exports = {
 
 	teamMembers:{
 		collection:'user',
-		via:'userTeams',
-		dominant:true
+		via:'userTeams'
 	}
 
   },

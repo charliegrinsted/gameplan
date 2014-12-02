@@ -17,6 +17,7 @@
 		<script src="/js/laroux.min.js"></script>
 		<script src="/js/moment.min.js"></script>
 		<script src="/js/rome.standalone.min.js"></script>
+		<script src="/js/walkway.min.js"></script>
 		
 		<title>GamePlan</title>
 	</head>
@@ -52,21 +53,6 @@
 		</div>
 	</div>
 	<% } else { %>
-	<div class="container dark-slab" id="header">
-		<div class="row">
-			<div class="w12">
-				<p class="h l">GamePlan</p>
-			</div>
-			<div class="w12">
-				<form action="/sessions/create" method="POST">
-					<input type="text" name="userName" placeholder="Username">
-					<input type="password" name="password" placeholder="Password">
-					<input type="hidden" name="_csrf" value="<%= _csrf %>">	
-					<input class="cta-submit block" type="submit" value="Login">
-				</form>
-			</div>
-		</div>
-	</div>	
 	<% } %>	
 	<%- body %>
 	<script src="/js/dependencies/sails.io.js"></script>

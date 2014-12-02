@@ -29,6 +29,10 @@ module.exports = {
 	teamMembers:{
 		collection:'user',
 		via:'userTeams'
+	},
+
+	teamInfo:{
+		type:'text'
 	}
 
   },

@@ -126,6 +126,40 @@ module.exports = {
 
 	},
 
+	update: function(req, res, next) {
+
+		if (req.session.User.userName){
+
+			var teamID = req.param('id');
+
+			var teamObj = {
+				teamInfo: req.param('teamInfo')
+			}
+
+			User.update({id: teamID}, teamObj)
+			.exec(function updatedTeam(err,updated){
+
+				if (err) {
+					return res.redirect('teams/manage/' + teamID);
+				}
+
+			console.log('Team updated');
+			console.log(updated);
+			
+			res.redirect('/teams/' + teamID);
+
+			});
+		}
+
+		else {
+
+			// PUT SOME PROPER ERROR HANDLING HERE
+
+			res.redirect('/login');
+
+		}
+	},	
+
 	delete: function(req, res, next){
 
 		var thisTeam = req.param('id');

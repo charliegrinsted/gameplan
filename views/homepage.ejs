@@ -65,11 +65,63 @@
 	</div>
 </div>
 <% } else { %>
-<div class="container">
+<div class="container dark-slab" id="hero">
+	<div class="row row-flush">
+		<div class="w4"></div>
+		<div class="w4">
+			<div class="svg-logo">
+				<svg version="1.1" id="ball" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+				width="64px" height="64px" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+					<g>
+						<circle fill="none" stroke="#FFF" stroke-width="2" stroke-miterlimit="10" cx="32" cy="32" r="30.25"/>
+						<path fill="none" stroke="#FFF" stroke-width="2" stroke-miterlimit="10" d="M20.276,4.108c0,0-14.126,24.327,26.901,54.056"/>
+						<path fill="none" stroke="#FFF" stroke-width="2" stroke-miterlimit="10" d="M6.149,47.72c0,0,7.973-39.535,52.668-29.711"/>
+						<path fill="none" stroke="#FFF" stroke-width="2" stroke-miterlimit="10" d="M48.545,6.681c0,0-19.337-2.093-15.349,11.375
+						C37.185,31.524,59.632,37.778,61.7,37.734"/>
+						<path fill="none" stroke="#FFF" stroke-width="2" stroke-miterlimit="10" d="M1.75,34.029c0,0,7.116-10.062,12.606-3.201
+						c5.488,6.861,4.401,16.708,2.056,27.1"/>
+					</g>
+				</svg>
+				<svg version="1.1" id="ball2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+				width="64px" height="64px" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+					<g>
+						<circle fill="none" stroke="#FFF" stroke-width="2" stroke-miterlimit="10" cx="32" cy="32" r="29.277"/>
+						<path fill="none" stroke="#FFF" stroke-width="2" stroke-miterlimit="10" d="M3.046,32.189c3.65-1.39,8.424,2.772,10.907,5.046
+						c2.417,2.213,4.707,4.585,7.053,6.872c2.534,2.468,4.61,4.429,7.786,5.704c3.39,1.361,6.12,1.752,9.494,0.412
+						c3.609-1.431,7.112-4.081,9.484-7.317c1.904-2.599,3.183-7.615,2.736-10.893c-0.887-6.501-6.682-11.143-10.743-15.825
+						c-3.237-3.73-7.601-7.714-8.825-12.629"/>
+					</g>
+				</svg>
+				<svg version="1.1" id="ball3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+				width="64px" height="64px" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+					<g>
+						<circle fill="none" stroke="#FFF" stroke-width="2" stroke-miterlimit="10" cx="31.999" cy="32" r="29.482"/>
+						<path fill="none" stroke="#FFF" stroke-width="2" stroke-miterlimit="10" d="M27.473,2.869
+						c-3.999,10.841,4.158,29.669,4.158,29.669s9.404-2.14,27.743,10.407"/>
+						<path fill="none" stroke="#FFF" stroke-width="2" stroke-miterlimit="10" d="M9.941,51.568c0,0,11.438-2.928,21.403-18.61"/>
+						<path fill="none" stroke="#FFF" stroke-width="2" stroke-miterlimit="10" d="M28.378,23.005c0,0,18.218-2.875,32.269,10.146"/>
+						<path fill="none" stroke="#FFF" stroke-width="2" stroke-miterlimit="10" d="M26.46,12.417c0,0,20.036-1.389,33.467,10.132"/>
+						<path fill="none" stroke="#FFF" stroke-width="2" stroke-miterlimit="10" d="M16.939,57.341c0,0,17.243-2.639,24.417-23.581"/>
+						<path fill="none" stroke="#FFF" stroke-width="2" stroke-miterlimit="10" d="M29.605,61.385c0,0,13.854-4.391,22.234-23.087"/>
+						<path fill="none" stroke="#FFF" stroke-width="2" stroke-miterlimit="10" d="M24.146,42.123c0,0-13.035-13.942-7.45-35.324"/>
+						<path fill="none" stroke="#FFF" stroke-width="2" stroke-miterlimit="10" d="M16.421,48.455c0,0-11.96-14.936-9.603-31.228"/>
+					</g>
+				</svg>
+			</div>
+		</div>
+		<div class="w4 last"></div>
+	</div>
 	<div class="row">
 		<div class="w12">
-			<h1 class="full xl">GamePlan</h1>
-			<!--<h3>You're looking at: <code><%= view.pathFromApp + '.' +view.ext %></code></h3>-->
+			<p class="full hero">GamePlan</p>
+		</div>
+		<div class="w12">
+			<form action="/sessions/create" method="POST" id="home-login-form">
+				<input type="text" name="userName" placeholder="Username">
+				<input type="password" name="password" placeholder="Password">
+				<input type="hidden" name="_csrf" value="<%= _csrf %>">	
+				<input class="cta-submit block" type="submit" value="Login">
+			</form>
 		</div>
 	</div>
 </div>
@@ -80,6 +132,20 @@
 		</div>
 	</div>
 </div>
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		var ball = new Walkway({selector:'#ball', duration:700});
+		var ball2 = new Walkway({selector:'#ball2', duration:700});
+		var ball3 = new Walkway({selector: '#ball3', duration:700});
+		ball.draw(function() {
+			ball2.draw(function() {
+				ball3.draw(function() {
+					console.log("all done");
+				});
+			});
+		});
+	});
+</script>
 <% } %>
 
 

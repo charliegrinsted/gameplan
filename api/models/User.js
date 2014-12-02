@@ -69,6 +69,11 @@ module.exports = {
 			dominant:true
 		},
 
+		userTeams:{
+			collection:'team',
+			via:'teamMembers',
+		},
+
 		toJSON: function(){
 
 			var obj = this.toObject();

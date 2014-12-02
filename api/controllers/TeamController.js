@@ -56,7 +56,8 @@ module.exports = {
 		Team.find()
 		.where({ id: req.param('id') })
 		.limit(1)
-		.populate('teamAdmin') // fetch the related values from the User model		
+		.populate('teamAdmin') // fetch the related values from the User model
+		.populate('teamMembers')	
 		.exec(function(err, team) {
 			if (err) return next(err);
 			if (!team) return next();
@@ -145,7 +146,39 @@ module.exports = {
 		// redirect with a flash message of successful deletion - TO DO
 		res.redirect('/');
 
-	}
+	},
+
+	joinTeam: function(req, res, next){
+
+		var thisTeam = req.param('id');
+		var activeUser = req.session.User.id;
+
+		if (req.session.User.userName){
+
+			Team.find()
+			.where({ id: thisTeam })
+			.limit(1)
+			.exec(function(err, teamToJoin) {
+				// add error handling
+				teamToJoin[0].teamMembers.add(activeUser); // add yourself to the event attendees list
+				teamToJoin[0].save(function(err, user) {
+					
+					if (err) return next(err);
+
+					res.redirect('/teams/' + thisTeam); // take user to their profile once signed in
+
+				});
+			});	
+		}
+
+		else {
+
+			// PUT SOME PROPER ERROR HANDLING HERE
+
+			res.redirect('/');
+
+		}
+	}	
 	
 };
 

@@ -58,6 +58,8 @@ module.exports.routes = {
 
 	'GET /teams/:id/delete': 'TeamController.delete',
 
+	'GET /teams/:id/joinTeam': 'TeamController.joinTeam',
+
 	'GET /events/:id/rsvp': 'EventController.rsvp',
 
 	'/settings': 'UserController.edit',

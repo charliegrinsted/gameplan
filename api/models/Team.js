@@ -22,8 +22,15 @@ module.exports = {
 	},
 
 	teamEvents: {
-		collection: 'event', via: 'eventTeam'
-	},	
+		collection:'event',
+		via:'eventTeam'
+	},
+
+	teamMembers:{
+		collection:'user',
+		via:'userTeams',
+		dominant:true
+	}
 
   },
 

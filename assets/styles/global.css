@@ -73,12 +73,14 @@ a:hover{}
 .wysiwyg figure{display:block; width:100%;}
 .wysiwyg figure figcaption{font-size:90%; font-style:italic;}
 
-input{margin:0 auto; font-family:'Lato', sans-serif; margin-top:1em;}
+input,
+select{font-family:'Lato', sans-serif; margin-bottom:1em;}
 input[type=text],
 input[type=email],
-input[type=password]{font-size:1em; padding:0.4em; text-align:center; outline:0; border:0; border-radius:0.2em;}
-
-
+input[type=password],
+select{font-size:1em; padding:0.4em; outline:0; border:1px solid #7E8AA3; border-radius:0.2em;}
+select{display:block;}
+label{clear:both;}
 /* --- NAVIGATION --- */
 
 #nav-primary{}
@@ -119,11 +121,8 @@ input[type=password]{font-size:1em; padding:0.4em; text-align:center; outline:0;
 .svg-logo svg{width:33.33%; height:33.33%; float:left; position:relative;}
 
 
-/*#home-login-form{}
-#home-login-form input{margin:0 auto; font-family:'Lato', sans-serif; margin-top:1em;}
-#home-login-form input[type=text],
-#home-login-form input[type=email],
-#home-login-form input[type=password]{font-size:1em; padding:0.4em; text-align:center; outline:0; border:0; border-radius:0.2em;}*/
+#home-login-form{}
+#home-login-form input{margin:0 auto; font-family:'Lato', sans-serif; margin-top:1em; border:0; text-align:center;}
 
 #home-login-form .cta-submit{}
 #home-login-form .cta-submit:hover,

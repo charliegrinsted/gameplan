@@ -57,7 +57,7 @@ module.exports = {
 		.where({ id: req.param('id') })
 		.limit(1)
 		.populate('teamAdmin') // fetch the related values from the User model
-		.populate('teamMembers')	
+		.populate('teamMembers')
 		.exec(function(err, team) {
 			if (err) return next(err);
 			if (!team) return next();

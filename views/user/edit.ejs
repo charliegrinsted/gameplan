@@ -3,14 +3,19 @@
 		<div class="w12 wysiwyg">
 			<h1>Edit your profile</h1>
 			<form action="/users/update/<%= user.userName %>" method="POST">
+				<label for="firstName">First Name</label>
 				<input value="<%= user.firstName %>" name="firstName" type="text">
+				<label for="lastName">Last Name</label>
 				<input value="<%= user.lastName %>" name="lastName" type="text">
+				<label for="email">Email Address</label>
 				<input value="<%= user.email %>" name="email" type="text">
 				<input type="hidden" name="_csrf" value="<%= _csrf %>">
+				<label for="publicView">Account Privacy</label>
 				<select name="publicView">
 					<option value="true">Public</option>
 					<option value="false">Private</option>
 				</select>
+				<label for="bio">Biography</label>
 				<textarea name="bio" id="bio" cols="30" rows="10"></textarea>
 				<input type="submit" class="cta-submit block" value="Save changes">
 			</form>

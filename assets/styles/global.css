@@ -14,7 +14,6 @@ button{-webkit-appearance:none; -moz-appearance:none; appearance:none;}
 button:focus{outline:none;}
 body{font-size:16px; line-height:1.4; background-color:#fff;}
 
-
 /* --- UTILITY --- */
 
 .invisible{position:absolute; left:-999em;} /* Can be seen by screen readers */
@@ -75,13 +74,17 @@ a:hover{}
 .wysiwyg figure figcaption{font-size:90%; font-style:italic;}
 
 input,
-select{font-family:'Lato', sans-serif; margin-bottom:1em;}
+select,
+textarea{font-family:'Lato', sans-serif; margin-bottom:1em; clear:both;}
 input[type=text],
 input[type=email],
 input[type=password],
-select{font-size:1em; padding:0.4em; outline:0; border:1px solid #7E8AA3; border-radius:0.2em;}
+select,
+textarea{font-size:1em; padding:0.4em; outline:0; border:1px solid #7E8AA3; border-radius:0.2em;}
 select{display:block;}
 label{clear:both;}
+textarea{max-width:26.4em; width:60%;}
+
 /* --- NAVIGATION --- */
 
 #nav-primary{}

@@ -30,7 +30,8 @@ module.exports.policies = {
 
 	'UserController': {
 		'new': ['errorFlashes'],
-		'delete': ['authenticated']
+		'delete': ['authenticated'],
+		'index': ['authenticated']
 	},
 
 	'SessionController': {

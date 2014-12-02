@@ -27,6 +27,22 @@ module.exports = {
 		});
 	},
 
+	search: function(req, res, next){
+
+		var query = req.param('query');
+
+		User.find({ or: [{ firstName: { 'contains': query }}, { lastName: { 'contains': query }}, { userName: { 'contains': query }}]})
+		.exec(function(err, results){
+			if (err){
+				return next(err);
+			}
+			res.view({
+				users: results
+			});
+		});
+
+	},
+
 	sendFriendRequest: function(req, res, next){
 
 		var userToAdd = (req.param('userName')); // store the user we're adding as a friend

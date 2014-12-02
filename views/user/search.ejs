@@ -1,0 +1,23 @@
+<div class="container">
+	<div class="row">
+		<div class="w12 wysiwyg">
+			<h1>Users</h1>
+			<form action="/search/users" method="POST">
+				<input type="text" id="findPerson" name="query">
+			</form>			
+			<% if (users.length == 0) { %>
+			<p>No results found for your query</p>
+			<% } %>
+			<% _.each(users, function(user) { %>
+			<% if ((user.publicView != false) && (user.id != session.User.id)) { %>
+			<div data-id="<%= user.id %>" data-model="user">
+				<h2><a href="/users/<%= user.userName %>"><%= user.firstName %> <%= user.lastName %></a></h2>
+				<% _.each(user.teamsAdministered, function(team) { %>
+				<p><a href="/teams/<%= team.id %>"><%= team.teamName %></a></p>
+				<% }) %>		
+			</div>
+			<% } %>
+			<% }) %>
+		</div>
+	</div>
+</div>

@@ -40,7 +40,7 @@ module.exports.routes = {
 	
 	'/login': 'SessionController.new',
 
-	'/signup': 'UserController.new',
+	'/register': 'UserController.new',
 
 	'GET /users/:userName': 'UserController.show',
 

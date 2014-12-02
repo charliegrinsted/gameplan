@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="w12 wysiwyg">
-			<h1>User Signup Form</h1>
+			<h1>Create your account</h1>
 			<% if(flashMsg && flashMsg.err) { %>
 			<% _.each(flashMsg.err, function(error) { %>
 				<p><%- JSON.stringify(error) %></p>
@@ -26,7 +26,7 @@
 				<label for="passwordConfirmation">Confirm Password</label>		
 				<input type="password" name="passwordConfirmation">
 				<input type="hidden" name="_csrf" value="<%= _csrf %>">
-				<input type="submit" value="Sign up">
+				<input type="submit" class="cta-submit inline" value="Sign up">
 			</form>
 		</div>
 	</div>

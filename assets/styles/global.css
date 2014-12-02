@@ -31,7 +31,7 @@ b{font-weight:bold;}
 em,
 i{font-style:italic;}
 
-a{text-decoration:none; -webkit-transition:color 0.2s; -moz-transition:color 0.2s; -o-transition:color 0.2s; -ms-transition:color 0.2s; transition:color 0.2s;}
+a{text-decoration:none;}
 a:focus,
 a:hover{}
 
@@ -62,7 +62,7 @@ a:hover{}
 .wysiwyg h4{font-size:1.125em; line-height:1.11111111; margin-top:1.66666667em; margin-bottom:0.55555556em;}
 
 .full{text-align:center;}
-.full.hero{font-size:3.6em; letter-spacing:-1px; line-height:1.25; margin-top:0.175em; margin-bottom:0.3125em; font-weight:800;}
+.full.hero{font-size:3.6em; letter-spacing:-1px; line-height:1.25; margin-top:0.175em; margin-bottom:0; font-weight:800;}
 .full.xl{font-size:2.8em; letter-spacing:-1px; line-height:1.25; margin-top:0.9375em; margin-bottom:0.3125em; font-weight:800;}
 .full.l{font-size:2.625em; line-height:1.15384615; margin-top:1.15384616em; margin-bottom:0.38461539em;}
 
@@ -73,10 +73,16 @@ a:hover{}
 .wysiwyg figure{display:block; width:100%;}
 .wysiwyg figure figcaption{font-size:90%; font-style:italic;}
 
+input{margin:0 auto; font-family:'Lato', sans-serif; margin-top:1em;}
+input[type=text],
+input[type=email],
+input[type=password]{font-size:1em; padding:0.4em; text-align:center; outline:0; border:0; border-radius:0.2em;}
+
+
 /* --- NAVIGATION --- */
 
 #nav-primary{}
-#nav-primary li{display:inline-block; width:19%; text-align:center;}
+#nav-primary li{display:inline-block; width:24%; text-align:center;}
 #nav-primary li a{color:#FFF;}
 
 #nav-social{}
@@ -98,7 +104,7 @@ a:hover{}
 
 /* --- Buttons --- */
 
-.cta-submit{background-color:transparent; letter-spacing:2px; text-transform:uppercase; outline:0; font-size:1.2em; line-height:1.2em; vertical-align:middle; cursor:pointer; padding:0.3em 1em; color:#FFF; font-weight:800;}
+.cta-submit{font-family:'Lato', sans-serif; background-color:#FF9900; outline:0; border:0; border-radius:0.2em; font-size:1.2em; line-height:1.2em; vertical-align:middle; cursor:pointer; padding:0.4em 1em; color:#FFF; font-weight:800;}
 .cta-submit.block{display:block;}
 .cta-submit.inline{display:inline-block;}
 .cta-submit.disabled{background-color:#f3f3f3; color:#333; cursor:default;}
@@ -113,14 +119,20 @@ a:hover{}
 .svg-logo svg{width:33.33%; height:33.33%; float:left; position:relative;}
 
 
-#home-login-form{}
+/*#home-login-form{}
 #home-login-form input{margin:0 auto; font-family:'Lato', sans-serif; margin-top:1em;}
 #home-login-form input[type=text],
 #home-login-form input[type=email],
-#home-login-form input[type=password]{font-size:1em; padding:0.4em; text-align:center; outline:0; border:0;}
+#home-login-form input[type=password]{font-size:1em; padding:0.4em; text-align:center; outline:0; border:0; border-radius:0.2em;}*/
 
-#home-login-form .cta-submit{border:2px solid #FFF;}
-#home-login-form .cta-submit:hover{background-color:#FFF; color:#000;}
+#home-login-form .cta-submit{}
+#home-login-form .cta-submit:hover,
+.home-not-registered .cta-submit:hover{background-color:#FFF; color:#000;}
+
+.home-not-registered{margin-top:2.4em; text-align:center;}
+.home-not-registered p{font-size:1.4em; font-weight:800; margin-bottom:0.8em;}
+.home-not-registered .cta-submit{}
+
 
 .logo{font-weight:800; font-size:1.4em;}
 .user-box{border-radius:0.2em; text-align:right; margin:1em 0; padding:0.6em;}

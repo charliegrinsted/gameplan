@@ -22,11 +22,15 @@
 	<% if (i == 0) { %>
 	<div class="row">
 		<div class="w12">
-			<h3>You've got friend requests from:</h3>
+			<h2 class="h m">Friend Requests</h2>
+			<ul class="friend-requests">
 			<% } %>
-			<p class="h s"><a href="/users/<%= user.userName %>"><%= user.userName %></a></p>
-			<a href="/users/<%= user.userName %>/request/accept" class="cta-submit">Accept Request</a>
+			<li>
+			<p class="h s"><a href="/users/<%= user.userName %>"><%= user.firstName %> <%= user.lastName %></a></p>
+			<a href="/users/<%= user.userName %>/request/accept" class="cta-submit inline">Accept</a>
+			</li>
 			<% if (i == users.length - 1) { %>
+			</ul>
 		</div>
 	</div>
 	<% } %>

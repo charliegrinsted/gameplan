@@ -1,6 +1,12 @@
-<div class="container">
+<div class="container spaced">
 	<div class="row">
 		<div class="w12 wysiwyg">
+			<% if (session.authenticated) { %>
+			<h1>Trying to register?</h1>
+			<p>You're already signed in as <%= session.User.firstName %> <%= session.User.lastName %>.</p>
+			<p>Not you? <a href="/logout">Log out</a></p>
+			<% } else { %>
+			<p></p>
 			<h1>Create your account</h1>
 			<% if(flashMsg && flashMsg.err) { %>
 			<% _.each(flashMsg.err, function(error) { %>
@@ -28,6 +34,7 @@
 				<input type="hidden" name="_csrf" value="<%= _csrf %>">
 				<input type="submit" class="cta-submit inline" value="Sign up">
 			</form>
+			<% } %>
 		</div>
 	</div>
 </div>

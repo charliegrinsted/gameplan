@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container spaced">
 	<div class="row">
 		<div class="w12 wysiwyg">
 			<h1>Login</h1>
@@ -9,10 +9,12 @@
 			<% }) %>
 			<% } %>
 			<form action="/sessions/create" method="POST">
+				<label for="userName">Username</label>
 				<input type="text" name="userName">
+				<label for="password">Password</label>
 				<input type="password" name="password">
 				<input type="hidden" name="_csrf" value="<%= _csrf %>">	
-				<input type="submit" value="Login">
+				<input class="cta-submit inline" type="submit" value="Login">
 			</form>		
 		</div>
 	</div>

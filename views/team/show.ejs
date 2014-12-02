@@ -1,17 +1,19 @@
-<div class="container">
+<div class="container spaced">
 	<div class="row">
-		<div class="w8">
-			<a href="/teams">Back to all teams</a>
+		<div class="w3">
+			<a class="cta-submit inline" href="/teams">Back to all teams</a>
 		</div>
-		<div class="w4 last">
+		<div class="w6">
+			<h1 class="full xl"><%= team.teamName %></h1>			
+		</div>
+		<div class="w3 last">
 			<% if (session.authenticated && session.User.userName == team.teamAdmin.userName){ %>
-			<a href="/teams/manage/<%= team.id %>">Edit this team</a>
+			<a class="cta-submit inline right" href="/teams/manage/<%= team.id %>">Edit this team</a>
 			<% } %>
 		</div>
 	</div>
 	<div class="row">
 		<div class="w12 wysiwyg">
-			<h1><%= team.teamName %></h1>
 			<p>This is a <%= team.teamSport %> team.</p>
 			<p>The administrator is <a href="/users/<%= team.teamAdmin.userName %>"><%= team.teamAdmin.firstName %></a></p>
 		</div>

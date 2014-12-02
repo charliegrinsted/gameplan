@@ -20,6 +20,7 @@ body{font-size:16px; line-height:1.4; background-color:#fff;}
 .invisible{position:absolute; left:-999em;} /* Can be seen by screen readers */
 .removed{display:none;}
 .relative{position:relative;}
+.spaced{margin-top:1.2em;}
 
 /* --- TYPOGRAPHY --- */
 /* Use ems for font-size on responsive sites */
@@ -106,7 +107,8 @@ label{clear:both;}
 
 /* --- Buttons --- */
 
-.cta-submit{font-family:'Lato', sans-serif; background-color:#FF9900; outline:0; border:0; border-radius:0.2em; font-size:1.2em; line-height:1.2em; vertical-align:middle; cursor:pointer; padding:0.4em 1em; color:#FFF; font-weight:800;}
+.cta-submit{font-family:'Lato', sans-serif; background-color:#FF9900; outline:0; border:0; border-radius:0.2em; font-size:1.2em; line-height:1.2em; vertical-align:middle; cursor:pointer; padding:0.4em 1em 0.5em 1em; color:#FFF; font-weight:800;}
+.cta-submit.right{float:right;}
 .cta-submit.block{display:block;}
 .cta-submit.inline{display:inline-block;}
 .cta-submit.disabled{background-color:#f3f3f3; color:#333; cursor:default;}
@@ -134,12 +136,14 @@ label{clear:both;}
 
 
 .logo{font-weight:800; font-size:1.4em;}
-.user-box{border-radius:0.2em; text-align:right; margin:1em 0; padding:0.6em;}
+.user-box{border-radius:0.2em; text-align:right; margin:1em 0; padding:0.6em 1em; float:right; width:auto;}
 .user-box .name{font-weight:800; font-size:1.2em;}
 
 .team-box{border-radius:3.2px;}
 .user-box .btn{font-size:0.8em; display:inline-block; padding-left:1em;}
 #main-content{background-color:#7E8AA3;}
+
+.friend-requests{display:inline-block;}
 
 input{display:block; clear:both;}
 #footer{}

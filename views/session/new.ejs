@@ -1,6 +1,6 @@
 <div class="container spaced">
 	<div class="row">
-		<div class="w12 wysiwyg">
+		<div class="w6 wysiwyg">
 			<h1>Login</h1>
 			<% if(flashMsg && flashMsg.err) { %>
 			<% _.each(flashMsg.err, function(error) { %>
@@ -16,6 +16,11 @@
 				<input type="hidden" name="_csrf" value="<%= _csrf %>">	
 				<input class="cta-submit inline" type="submit" value="Login">
 			</form>		
+		</div>
+		<div class="w6 last wysiwyg">
+			<h2>Register</h2>
+			<p>If you don't already have an account</p>
+			<a href="/register" class="cta-submit inline">Get Started</a>
 		</div>
 	</div>
 </div>

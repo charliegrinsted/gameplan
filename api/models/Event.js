@@ -36,6 +36,10 @@ attributes: {
 	attendees:{
 		collection:'user',
 		via:'eventsAttending'
+	},
+
+	spacesAvailable:{
+		type:'integer'
 	}
 }
 

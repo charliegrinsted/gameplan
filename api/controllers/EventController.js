@@ -63,8 +63,8 @@ module.exports = {
 			if (formattedEnd < now){ // compare it with the current time
 				console.log("A past event");
 				eventData.eventStatus = "past";
-				console.log(eventData);
 			}
+			console.log(eventData);
 			res.view({
 				thisEvent: eventData
 			});
@@ -80,8 +80,10 @@ module.exports = {
 			eventIsPublic: req.param('eventIsPublic'),
 			startTime: req.param('startTime'),
 			endTime: req.param('endTime'),
-			eventType: req.param('eventType')
+			eventType: req.param('eventType'),
+			spacesAvailable: req.param('spacesAvailable')
 		}
+		console.log(eventObj);
 
 		// As with much of Node, the parameters are passed in from the request object, then a callback runs.
 		Event.create( eventObj , function EventCreated(err, savedEvent){

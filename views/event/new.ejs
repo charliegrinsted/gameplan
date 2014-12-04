@@ -10,7 +10,7 @@
 					<input type="text" name="eventTitle">
 					<label for="eventTeam">Which team is this associated with?</label>
 					<select name="eventTeam" id="eventTeam">
-					<% _.each(teams, function(team) { %>
+					<% _.each(session.User.teamsAdministered, function(team) { %>
 						<option value="<%= team.id %>"><%= team.teamName %></option>
 					<% }) %>
 					</select>

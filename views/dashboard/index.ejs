@@ -44,7 +44,7 @@
 			<% if (i == 0) { %>
 			<ul>
 			<% } %>
-				<li><%= team.teamName %></li>
+				<li><a href="/teams/<%= team.id %>"><%= team.teamName %></a></li>
 			<% if (i == user.teamsAdministered.length - 1) { %>
 			</ul>
 			<% } %>

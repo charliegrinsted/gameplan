@@ -32,9 +32,7 @@ module.exports = {
 		}
 
 		User.findOneByUserName(req.param('userName'))
-		.populate('friendRequestsReceived')
-		.populate('friends')
-		.populate('teamsAdministered')
+		.populateAll()
 		.exec(function foundUser(err, user) {
 
 			if (err) return next(err);
@@ -100,9 +98,7 @@ module.exports = {
 		}
 
 		User.findOneByUserName(req.param('userName'))
-		.populate('friendRequestsReceived')
-		.populate('friends')
-		.populate('teamsAdministered')
+		.populateAll()
 		.exec(function foundUser(err, user) {
 
 			if (err) return next(err);

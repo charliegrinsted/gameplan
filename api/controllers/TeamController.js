@@ -180,14 +180,10 @@ module.exports = {
 			}
 			Event.destroy({eventTeam: thisTeam}) // loop through and destroy all of the events dependent on to that team
 			.exec(function(err, events) {
-				console.log("Deleted:");
-				console.log(events);
+				res.redirect('/');
 			});
 
 		});
-
-		// redirect with a flash message of successful deletion - TO DO
-		res.redirect('/');
 
 	},
 

@@ -82,8 +82,6 @@ module.exports = {
 
 		if (!req.param('userName') || !req.param('password')) {
 
-			console.log("WHAT");
-
 			var formError = [{
 				name: 'Form error',
 				message: 'Please fill in all fields.'
@@ -139,7 +137,7 @@ module.exports = {
 				req.session.User = user;
 				req.token = token;
 
-				console.log(req.token);
+				//console.log(req.token);
 				
 				user.save(function(err, user) {
 					

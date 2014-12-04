@@ -11,8 +11,6 @@ module.exports = {
 
 		if (req.session.authenticated){
 
-			console.log("we tried");
-
 			var currentUser = req.session.User.id;
 
 			User.findOneById(currentUser)

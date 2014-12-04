@@ -29,10 +29,6 @@ attributes: {
 		type:'datetime'
 	},
 
-	eventIsPublic:{
-		type:'boolean'
-	},
-
 	attendees:{
 		collection:'user',
 		via:'eventsAttending'

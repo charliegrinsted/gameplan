@@ -77,7 +77,6 @@ module.exports = {
 		var eventObj = {
 			eventTitle: req.param('eventTitle'),
 			eventTeam: req.param('eventTeam'),
-			eventIsPublic: req.param('eventIsPublic'),
 			startTime: req.param('startTime'),
 			endTime: req.param('endTime'),
 			eventType: req.param('eventType'),

@@ -186,6 +186,7 @@ module.exports = {
 
 		var thisTeam = req.param('id');
 		var activeUser = req.session.User.id;
+		console.log(req.session.User.userName);
 
 		if (req.session.User.userName){
 

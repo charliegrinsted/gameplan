@@ -34,9 +34,7 @@ module.exports.routes = {
 
 	// Here, I'm manually dictating some routes instead of relying on the Blueprints.
 
-	'/': {
-		view: 'homepage'
-	},
+	'/': 'HomeController.index',
 	
 	'/login': 'SessionController.new',
 

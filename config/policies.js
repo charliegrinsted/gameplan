@@ -31,7 +31,8 @@ module.exports.policies = {
 	'UserController': {
 		'new': ['errorFlashes'],
 		'delete': ['authenticated'],
-		'index': ['authenticated']
+		'index': ['authenticated'],
+		'show': ['authenticated']
 	},
 
 	'SessionController': {
@@ -44,7 +45,7 @@ module.exports.policies = {
 	
 	'EventController': {
 		'*': ['authenticated']
-	}	
+	}
 	/***************************************************************************
 	*                                                                          *
 	* Here's an example of mapping some policies to run before a controller    *

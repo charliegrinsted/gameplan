@@ -1,74 +1,3 @@
-<% if (session.authenticated) { %>
-<div class="container" id="user-quick-links">
-	<div class="row">
-		<div class="w6">
-			<p class="h s">Welcome back, <%= session.User.firstName %></p>
-		</div>
-		<div class="w6 last">
-			<div class="row">
-				<div class="w4">
-					<a href="/create/team">Create a team</a>
-				</div>
-				<div class="w4">
-					<a href="/create/event">New Event</a>
-				</div>
-				<div class="w4 last">
-					<a href="/settings">Profile Settings</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<% _.each(session.User.friendRequestsReceived, function(user, i, users) { %>
-	<% if (i == 0) { %>
-	<div class="row">
-		<div class="w12">
-			<h2 class="h m">Friend Requests</h2>
-			<ul class="friend-requests">
-			<% } %>
-			<li>
-			<p class="h s"><a href="/users/<%= user.userName %>"><%= user.firstName %> <%= user.lastName %></a></p>
-			<a href="/users/<%= user.userName %>/request/accept" class="cta-submit inline">Accept</a>
-			</li>
-			<% if (i == users.length - 1) { %>
-			</ul>
-		</div>
-	</div>
-	<% } %>
-	<% }) %>					
-</div>
-<div class="container wysiwyg">
-	<div class="row">
-		<div class="w4">
-			<h2>Your Teams</h2>
-			<% _.each(session.User.teamsAdministered, function(team, i, teams) { %>
-			<% if (i == 0) { %>
-			<ul>
-			<% } %>
-				<li><% team.teamName %></li>
-			<% if (i == teams.length - 1) { %>
-			</ul>
-			<% } %>
-			<% }) %>
-		</div>
-		<div class="w4">
-			<h2>Friends</h2>
-			<% _.each(session.User.friends, function(user, i, users) { %>
-			<% if (i == 0) { %>
-			<ul>
-			<% } %>
-				<li><% user.firstName %> <% user.lastName %></li>
-			<% if (i == users.length - 1) { %>
-			</ul>
-			<% } %>
-			<% }) %>
-		</div>
-		<div class="w4 last">
-			<h2>Events</h2>
-
-		</div>
-	</div>
-</div>
-<% } else { %>
 <div class="container dark-slab" id="hero">
 	<div class="row row-flush">
 		<div class="w4"></div>
@@ -158,7 +87,6 @@
 		});
 	});
 </script>
-<% } %>
 
 
 

@@ -18,10 +18,10 @@ module.exports = {
 			User.findOneById(currentUser)
 			.populateAll()
 			.exec(function (err, user){
+
 				if (err){
 					return next(err);
 				}
-				console.log(user);
 				res.view('dashboard/index', {
 					user: user
 				});
@@ -33,32 +33,7 @@ module.exports = {
 			res.view('homepage');
 
 		}
-		/*
-		.then(function(eventData){
 
-			var teamData = Team.findOneById(eventData.eventTeam.id) // find the related team using the eventTeam attribute
-			.populate('teamAdmin') // fetch the related values from the User model
-			.then(function(teamData){
-				var new_data = teamData;
-				delete new_data.createdAt;
-				delete new_data.updatedAt;
-				return new_data;
-			});
-
-  			return [teamData, eventData];
-		})
-		.spread(function(teamData, eventData){
-			eventData.eventTeam = teamData; // set the EventTeam attribute to the team data we've retrieved
-			var formattedEnd = eventData.endTime.toISOString(); // Make the End Time an ISO formatted time
-			if (formattedEnd < now){ // compare it with the current time
-				console.log("A past event");
-				eventData.eventStatus = "past";
-			}
-			console.log(eventData);
-			res.view({
-				user: user
-			});
-		}))*/
 	}
 };
 

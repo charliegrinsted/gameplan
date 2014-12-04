@@ -93,10 +93,19 @@ module.exports = {
 		// Add a new database entry using the created object values
 		Team.create(teamObj)
 		.exec(function UserCreated(err, team){
+
 			// Error
 			if (err) return next(err);
-			// Success
-			res.redirect('/teams/' + team.id);
+
+			team.teamMembers.add(teamObj.teamAdmin); // add yourself to the list of members when creating the team
+			team.save(function(err, user) {
+					
+				if (err) return next(err);
+
+				res.redirect('/teams/' + team.id);
+
+			});
+
 		});
 	},
 

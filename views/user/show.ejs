@@ -18,7 +18,7 @@
 		</div>
 	</div>
 	<div class="row">	
-		<% _.each(user.teamsAdministered, function(team, i) { %>
+		<% _.each(user.userTeams, function(team, i) { %>
 		<div class="w4<% if (i % 3 == 0) { %> last<% } %>">
 			<h3><a href="/teams/<%= team.id %>"><%= team.teamName %></a></h3>
 		</div>

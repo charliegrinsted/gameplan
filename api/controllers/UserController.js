@@ -123,37 +123,26 @@ module.exports = {
 	},
 
 	show: function(req, res, next) {
-		User.find()
-		.where({ userName: req.param('userName') })
-		.limit(1)
-		.populate('teamsAdministered') // fetch the related values from the Team model
-		.populate('friends')
-		.populate('friendRequestsSent')
-		.populate('friendRequestsReceived')
-		.populate('eventsAttending')
+		User.findOneByUserName(req.param('userName'))
+		.populateAll()
 		.exec(function(err, user) {
-			if (err) return res.redirect(404);
-			if (!user) return res.redirect(404);
-			if (!user){
-				console.log('WHAT IS HAPPENING');
-			}
-			//console.log(user[0]);
+			if (err) return res.notFound()
+			if (!user) return res.notFound()
+
 			res.view({
-				user: user[0]
+				user: user
 			});
 		});
 	},
 
 	showJSON: function(req, res, next) {
-		User.find()
-		.where({ userName: req.param('userName') })
-		.limit(1)
-		.populate('teamsAdministered') // fetch the related values from the Team model		
+		User.findOneByUserName(req.param('userName'))
+		.populateAll()
 		.exec(function(err, user) {
 			if (err) return next(err);
 			if (!user) return next();
 			res.json({
-				user: user[0]
+				user: user
 			});
 		});
 	},

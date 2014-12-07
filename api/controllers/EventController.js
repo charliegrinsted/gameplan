@@ -42,8 +42,7 @@ module.exports = {
 	show: function(req, res, next) {
 		var now = moment().format('YYYY-MM-DDTHH:mm:ss');
 		Event.findOneById(req.param('id'))
-		.populate('eventTeam') // fetch the related values from the Team model
-		.populate('attendees')
+		.populateAll() // fetch the related values from the other models
 		.then(function(eventData){
 
 			var teamData = Team.findOneById(eventData.eventTeam.id) // find the related team using the eventTeam attribute

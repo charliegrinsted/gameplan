@@ -53,30 +53,26 @@ module.exports = {
 	},
 
 	show: function(req, res, next) {
-		Team.find()
-		.where({ id: req.param('id') })
-		.limit(1)
-		.populate('teamAdmin') // fetch the related values from the User model
-		.populate('teamMembers')
+		Team.findOneById(req.param('id'))
+		.populateAll()
 		.exec(function(err, team) {
+			console.log(team);
 			if (err) return next(err);
 			if (!team) return next();
 			res.view({
-				team: team[0]
+				team: team
 			});
 		});
 	},
 
 	showJSON: function(req, res, next) {
-		Team.find()
-		.where({ id: req.param('id') })
-		.limit(1)
-		.populate('teamAdmin') // fetch the related values from the Team model		
+		Team.findOneById(req.param('id'))
+		.populateAll()
 		.exec(function(err, team) {
 			if (err) return next(err);
 			if (!team) return next();
 			res.json({
-				team: team[0]
+				team: team
 			});
 		});
 	},

@@ -20,15 +20,30 @@
 			<p>The administrator is <a href="/users/<%= team.teamAdmin.userName %>"><%= team.teamAdmin.firstName %></a></p>
 		</div>
 	</div>
+	<% if (session.authenticated && session.User.userName == team.teamAdmin.userName && team.joinRequestsReceived.length > 0){ %>
+	<div class="row">
+		<div class="w12">
+			<h2>Pending join requests</h2>
+			<% _.each(team.joinRequestsReceived, function(user, i) { %>
+			<div class="w4<% if (i % 3 == 0) { %> last<% } %>">
+				<p><a href="/users/<%= user.userName %>"><%= user.userName %></a></p>
+			</div>
+			<% }) %>
+		</div>
+	</div>
+	<% }%>
 	<div class="row">
 		<h2>These people are members:</h2>
 		<% _.each(team.teamMembers, function(user, i) { %>
 		<div class="w4<% if (i % 3 == 0) { %> last<% } %>">
-			<h3><a href="/users/<%= user.userName %>"><%= user.userName %></a></h3>
+			<p><a href="/users/<%= user.userName %>"><%= user.userName %></a></p>
 		</div>
 		<% }) %>
 	</div>
 </div>
+<% if (session.authenticated && session.User.userName == team.teamAdmin.userName){ %>
+
+<% } else { %>
 <script>
 $l.ready(function() {
 		var button = $l.id('join_team');
@@ -51,3 +66,4 @@ $l.ready(function() {
 		);
 	});
 </script>
+<% } %>

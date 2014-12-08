@@ -191,17 +191,15 @@ module.exports = {
 
 		if (req.session.User.userName){
 
-			Team.find()
-			.where({ id: thisTeam })
-			.limit(1)
+			Team.findOneById(thisTeam)
 			.exec(function(err, teamToJoin) {
 				// add error handling
-				teamToJoin[0].joinRequestsReceived.add(activeUser); // add yourself to the event attendees list
-				teamToJoin[0].save(function(err, user) {
+				teamToJoin.joinRequestsReceived.add(activeUser); // add yourself to the waiting list
+				teamToJoin.save(function(err, user) {
 					
 					if (err) return next(err);
 
-					res.redirect('/teams/' + thisTeam); // take user to their profile once signed in
+					res.redirect('/teams/' + thisTeam);
 
 				});
 			});	
@@ -214,7 +212,31 @@ module.exports = {
 			res.redirect('/');
 
 		}
-	}
+	},
+
+	acceptJoinRequest: function(req, res, next){
+
+		var userToAdd = req.session.User.id; // store who we are
+		var thisTeam = req.param('id');
+
+		Team.findOneById(thisTeam)
+		.exec(function(err, team) {
+			// add error handling
+			team.teamMembers.add(userToAdd); // add yourself to the friend's list
+			team.joinRequestsReceived.remove(userToAdd); // delete the request object, since it has been fulfilled
+
+			// need to find a way to repopulate the session user, otherwise the request doesn't go away until you log out and in again
+
+			team.save(function(err, user) {
+				
+				if (err) return next(err);
+
+				res.redirect('/teams/' + thisTeam); // redirect to the team page when complete
+
+			});
+		});		
+
+	},	
 	
 };
 

@@ -16,7 +16,7 @@
 					<option value="false">Private</option>
 				</select>
 				<label for="bio">Biography</label>
-				<textarea name="bio" id="bio" cols="30" rows="10"></textarea>
+				<textarea name="bio" id="bio" cols="30" rows="10"><%= user.bio %></textarea>
 				<input type="submit" class="cta-submit block" value="Save changes">
 			</form>
 			<form action="/users/addProfilePhoto" method="POST">

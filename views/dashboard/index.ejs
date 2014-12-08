@@ -40,12 +40,12 @@
 	<div class="row">
 		<div class="w4">
 			<h2>Your Teams</h2>
-			<% _.each(user.teamsAdministered, function(team, i) { %>
+			<% _.each(user.userTeams, function(team, i) { %>
 			<% if (i == 0) { %>
 			<ul>
 			<% } %>
 				<li><a href="/teams/<%= team.id %>"><%= team.teamName %></a></li>
-			<% if (i == user.teamsAdministered.length - 1) { %>
+			<% if (i == user.userTeams.length - 1) { %>
 			</ul>
 			<% } %>
 			<% }) %>

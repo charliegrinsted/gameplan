@@ -56,6 +56,8 @@ module.exports.routes = {
 
 	'POST /teams/update/:id': 'TeamController.update',		
 
+	'POST /events/update/:id': 'EventController.update',		
+
 	'GET /events/:id': 'EventController.show',
 
 	'GET /teams/:id/delete': 'TeamController.delete',
@@ -65,6 +67,8 @@ module.exports.routes = {
 	'GET /teams/:id/:user/accept': 'TeamController.acceptJoinRequest',
 
 	'GET /events/:id/rsvp': 'EventController.rsvp',
+
+	'GET /events/edit/:id': 'EventController.edit',
 
 	'/settings': 'UserController.edit',
 

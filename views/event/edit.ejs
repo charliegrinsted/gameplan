@@ -1,0 +1,46 @@
+<div class="container">
+	<div class="row">
+		<div class="w12 wysiwyg">
+			<h1>Editing <%= thisEvent.eventTitle%></h1>
+			<form action="/events/update/<%= thisEvent.id %>" method="POST">
+			<div class="row">
+				<div class="w4">
+					<h2>Event details</h2>
+					<label for="eventTitle">Event Title</label>
+					<input type="text" name="eventTitle">
+					<label for="eventTeam">Which team is this associated with?</label>
+					<select name="eventTeam" id="eventTeam">
+					<% _.each(session.User.teamsAdministered, function(team) { %>
+						<option value="<%= team.id %>"><%= team.teamName %></option>
+					<% }) %>
+					</select>
+					<label for="eventType">Event Type</label>
+					<select name="eventType" id="eventType">
+						<option value="game">Game</option>
+						<option value="training">Training</option>
+						<option value="social">Social</option>
+					</select>
+				</div>
+				<div class="w4">
+					<h2>Set a time &amp; date</h2>
+					<label for="startTime">Start Time</label>
+					<input id="startTime" name="startTime" class="input">
+					<label for="endTime">End Time</label>
+					<input id="endTime" name="endTime" class="input">
+					<h2>Spaces available</h2>
+					<input type="number" value="10" name="spacesAvailable">
+				</div>
+				<div class="w4 last">
+					<input type="hidden" name="_csrf" value="<%= _csrf %>">
+					<input type="submit" class="cta-submit inline" value="Update event">
+				</div>
+			</div>
+			</form>
+		</div>
+	</div>
+</div>
+<script>
+	var now = moment().format('YYYY-MM-DD HH:00');
+	rome(startTime, { initialValue: now, weekStart: 1 });
+	rome(endTime, { initialValue: now, weekStart: 1 });
+</script>

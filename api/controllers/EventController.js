@@ -45,6 +45,7 @@ module.exports = {
 		.populateAll() // fetch the related values from the other models
 		.then(function(eventData){
 
+			console.log(eventData);
 			var teamData = Team.findOneById(eventData.eventTeam.id) // find the related team using the eventTeam attribute
 			.populate('teamAdmin') // fetch the related values from the User model
 			.then(function(teamData){
@@ -94,6 +95,60 @@ module.exports = {
 			res.redirect('/events/' + savedEvent.id);
 
 		});
+	},
+
+	update: function(req, res, next) {
+
+		if (req.session.User.userName){
+
+			var currentUser = req.session.User.userName;
+			var thisEvent = req.param('id');
+
+			var eventObj = {
+				eventTitle: req.param('eventTitle'),
+				eventTeam: req.param('eventTeam'),
+				startTime: req.param('startTime'),
+				endTime: req.param('endTime'),
+				eventType: req.param('eventType'),
+				spacesAvailable: req.param('spacesAvailable')
+			}
+
+			Event.update(thisEvent, eventObj)
+			.exec(function updatedEvent(err, updated){
+
+				console.log('Updated event');
+				
+				res.redirect('/events/' + thisEvent);
+
+			});
+		}
+
+		else {
+
+			// PUT SOME PROPER ERROR HANDLING HERE
+
+			res.redirect('/');
+
+		}
+	},
+
+	edit: function(req, res, next) {
+
+		console.log("attempting");
+
+		Event.findOneById(req.param('id'))
+		.populateAll()
+		.exec(function(err, thisEvent) {
+			if (!req.session.User.userName){
+				res.redirect('/events/' + thisEvent.id);
+			}
+			if (err) return next(err);
+			if (!thisEvent) return next();
+			res.view({
+				thisEvent: thisEvent
+			});
+		});
+
 	},
 
 	rsvp: function(req, res, next){

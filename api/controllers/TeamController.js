@@ -115,7 +115,7 @@ module.exports = {
 		Team.findOneById(req.param('id'))
 		.populateAll()
 			.exec(function(err, team) {
-				if (team[0].teamAdmin.userName != req.session.User.userName){
+				if (team.teamAdmin.userName != req.session.User.userName){
 					res.redirect('/teams/' + team.id);
 				}
 				if (err) return next(err);
@@ -138,7 +138,7 @@ module.exports = {
 				teamInfo: req.param('teamInfo')
 			}
 
-			User.update({id: teamID}, teamObj)
+			Team.update({id: teamID}, teamObj)
 			.exec(function updatedTeam(err,updated){
 
 				if (err) {

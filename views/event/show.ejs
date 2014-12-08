@@ -4,6 +4,9 @@
 			<a href="/events">Back to all events</a>
 		</div>
 		<div class="w4 last">
+			<% if (session.authenticated && session.User.userName == thisEvent.eventTeam.teamAdmin.userName){ %>
+			<a class="cta-submit inline right" href="/events/edit/<%= thisEvent.id %>">Edit this team</a>
+			<% }%>
 		</div>
 	</div>
 	<div class="row">

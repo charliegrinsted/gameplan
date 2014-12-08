@@ -216,6 +216,8 @@ textarea{max-width:26.4em; width:60%;}
 input{display:block; clear:both;}
 #footer{}
 
+.profile-photo{border-radius:50%; height:100px; width:100px;}
+
 /* --- Typography Breakpoint 1 --- */
 
 @media (min-width:43.75em){

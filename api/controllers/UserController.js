@@ -139,15 +139,28 @@ module.exports = {
 	},
 
 	show: function(req, res, next) {
+
+		var theAdapter = require('skipper-gridfs')({uri: 'mongodb://localhost/gameplan.fs' });
+
 		User.findOneByUserName(req.param('userName'))
 		.populateAll()
 		.exec(function(err, user) {
 			if (err) return res.notFound()
 			if (!user) return res.notFound()
-
-			res.view({
-				user: user
-			});
+			if (user.profilePhoto){
+				theAdapter.readLastVersion(user.profilePhoto, function (err, file){
+					var encoded = file.toString('base64');
+					res.view({
+						image: encoded,
+						user: user
+					});
+				});
+			} else {
+				res.view({
+					image: null,
+					user: user
+				});
+			}
 		});
 	},
 

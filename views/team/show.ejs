@@ -9,7 +9,9 @@
 		<div class="w3 last">
 			<% if (session.authenticated && session.User.userName == team.teamAdmin.userName){ %>
 			<a class="cta-submit inline right" href="/teams/manage/<%= team.id %>">Edit this team</a>
-			<% } %>
+			<% } else { %>
+			<button id="join_team" class="cta-submit inline right" data-teamID="<%= team.id %>" href="/teams/<%= team.id %>/join">Join this team</button>
+			<% }%>
 		</div>
 	</div>
 	<div class="row">
@@ -27,3 +29,25 @@
 		<% }) %>
 	</div>
 </div>
+<script>
+$l.ready(function() {
+		var button = $l.id('join_team');
+		var thisTeam = $l.dom.data(button, 'teamID');
+		$l.dom.setEvent(
+			button,
+			'click',
+			function() {
+				$l.ajax.get(
+					'/teams/' + thisTeam + '/join',
+					null,
+					function() {
+						$l.dom.replace(button, 'Request sent');
+						$l.dom.attr(button, 'disabled', 'true');
+						$l.dom.attr(button, 'class', 'cta-submit inline disabled');
+					}
+				);
+				return false;
+			}
+		);
+	});
+</script>

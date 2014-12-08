@@ -60,7 +60,7 @@ module.exports.routes = {
 
 	'GET /teams/:id/delete': 'TeamController.delete',
 
-	'GET /teams/:id/joinTeam': 'TeamController.joinTeam',
+	'GET /teams/:id/join': 'TeamController.requestToJoinTeam',
 
 	'GET /events/:id/rsvp': 'EventController.rsvp',
 

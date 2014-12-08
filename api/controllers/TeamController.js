@@ -183,11 +183,11 @@ module.exports = {
 
 	},
 
-	joinTeam: function(req, res, next){
+	requestToJoinTeam: function(req, res, next){
 
 		var thisTeam = req.param('id');
 		var activeUser = req.session.User.id;
-		console.log(req.session.User.userName);
+		// console.log(req.session.User.userName);
 
 		if (req.session.User.userName){
 
@@ -196,7 +196,7 @@ module.exports = {
 			.limit(1)
 			.exec(function(err, teamToJoin) {
 				// add error handling
-				teamToJoin[0].teamMembers.add(activeUser); // add yourself to the event attendees list
+				teamToJoin[0].joinRequestsReceived.add(activeUser); // add yourself to the event attendees list
 				teamToJoin[0].save(function(err, user) {
 					
 					if (err) return next(err);
@@ -214,7 +214,7 @@ module.exports = {
 			res.redirect('/');
 
 		}
-	}	
+	}
 	
 };
 

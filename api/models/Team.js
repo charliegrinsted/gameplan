@@ -31,6 +31,11 @@ module.exports = {
 		via:'userTeams'
 	},
 
+	joinRequestsReceived:{
+		collection:'user',
+		via:'joinRequestsSent'
+	},
+
 	teamInfo:{
 		type:'text'
 	}

@@ -67,6 +67,12 @@ module.exports = {
 			via:'friendRequestsSent'
 		},
 
+		joinRequestsSent:{
+			collection:'team',
+			via:'joinRequestsReceived',
+			dominant:true
+		},
+
 		eventsAttending:{
 			collection:'event',
 			via:'attendees',

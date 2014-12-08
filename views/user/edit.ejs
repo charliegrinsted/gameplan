@@ -19,9 +19,9 @@
 				<textarea name="bio" id="bio" cols="30" rows="10"><%= user.bio %></textarea>
 				<input type="submit" class="cta-submit block" value="Save changes">
 			</form>
-			<form action="/users/addProfilePhoto" method="POST">
+			<form action="/settings/addPhoto" method="POST" enctype="multipart/form-data">
 				<input type="file" name="avatar">
-				<input type="submit" value="Upload photo">
+				<input type="submit" class="cta-submit inline" value="Upload photo">
 			</form>
 		</div>
 	</div>

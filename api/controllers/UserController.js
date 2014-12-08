@@ -95,16 +95,32 @@ module.exports = {
 	},
 
 	addProfilePhoto: function (req, res) {
-	// get this working
-	// res.setTimeout(0);
-		console.log("gets this far");
+
+		var theAdapter = require('skipper-gridfs')({uri: 'mongodb://localhost/gameplan.fs' });
+
 		req.file('avatar')
-		.upload({maxBytes:1000000}, function complete(err, uploadedFiles) {
-			if (err) return res.serverError(err);
-			else return 
-			res.json({
-				files:uploadedFiles,
+			.upload(theAdapter.receive(), function whenDone(err, uploadedFiles) {
+				console.log(uploadedFiles[0].fd);
+			if (err){ 
+				return res.negotiate(err);
+			}
+			else {
+				var userObj = {
+					profilePhoto: (uploadedFiles[0].fd)
+				}
+				User.update({userName: req.session.User.userName}, userObj)
+				.exec(function updatedUser(err,updated){
+
+				if (err) {
+					return res.redirect('/settings');
+				}
+
+				console.log('Updated user');
+				
+				res.redirect('/users/' + req.session.User.userName);
+
 			});
+			}
 		});
 	},	
 
@@ -207,9 +223,9 @@ module.exports = {
 					return res.redirect('/settings');
 				}
 
-			console.log('Updated user');
-			
-			res.redirect('/users/' + req.session.User.userName);
+				console.log('Updated user');
+				
+				res.redirect('/users/' + req.session.User.userName);
 
 			});
 		}

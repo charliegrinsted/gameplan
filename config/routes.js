@@ -80,7 +80,7 @@ module.exports.routes = {
 
 	'/create/user': 'UserController.create',
 
-	// 'POST /settings/addPhoto': 'UserController.addProfilePhoto',
+	'POST /settings/addPhoto': 'UserController.addProfilePhoto',
 
 	// Routes for use with API
 

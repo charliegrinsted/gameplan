@@ -28,6 +28,10 @@ module.exports = {
 			unique:true // this doesn't seem to work with Waterline & MongoDB currently
 		},
 
+		profilePhoto:{
+			type:'string'
+		},
+
 		encryptedPass:{
 			type:'string'
 		},

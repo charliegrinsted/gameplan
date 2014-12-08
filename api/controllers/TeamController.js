@@ -56,7 +56,6 @@ module.exports = {
 		Team.findOneById(req.param('id'))
 		.populateAll()
 		.exec(function(err, team) {
-			console.log(team);
 			if (err) return next(err);
 			if (!team) return next();
 			res.view({
@@ -113,18 +112,16 @@ module.exports = {
 		} 
 		else {
 
-			Team.find()
-			.where({ id: req.param('id') })
-			.limit(1)
-			.populate('teamAdmin') // fetch the related values from the Team model		
+		Team.findOneById(req.param('id'))
+		.populateAll()
 			.exec(function(err, team) {
 				if (team[0].teamAdmin.userName != req.session.User.userName){
-					res.redirect('/teams/' + team[0].id);
+					res.redirect('/teams/' + team.id);
 				}
 				if (err) return next(err);
 				if (!team) return next();
 				res.view({
-					team: team[0]
+					team: team
 				});
 			});			
 		}
@@ -216,7 +213,7 @@ module.exports = {
 
 	acceptJoinRequest: function(req, res, next){
 
-		var userToAdd = req.session.User.id; // store who we are
+		var userToAdd = req.param('user'); // store who we are
 		var thisTeam = req.param('id');
 
 		Team.findOneById(thisTeam)

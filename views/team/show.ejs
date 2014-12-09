@@ -34,10 +34,11 @@
 	</div>
 	<% }%>
 	<div class="row">
-		<h2>These people are members:</h2>
+		<h2 class="full l">Members</h2>			
 		<% _.each(team.teamMembers, function(user, i) { %>
-		<div class="w4<% if (i % 3 == 0) { %> last<% } %>">
-			<p><a href="/users/<%= user.userName %>"><%= user.userName %></a></p>
+		<div class="w3 member<% if (i % 4 == 0) { %> last<% } %>">
+			<img class="profile-photo" src="data:image/jpg;base64, <%= user.profilePhoto %>" alt="<%= user.firstName %> <%= user.lastName %>">
+			<p><a href="/users/<%= user.userName %>"><%= user.firstName %> <%= user.lastName %></a></p>
 		</div>
 		<% }) %>
 	</div>

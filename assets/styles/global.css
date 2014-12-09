@@ -84,7 +84,7 @@ select,
 textarea{font-size:1em; padding:0.4em; outline:0; border:1px solid #7E8AA3; border-radius:0.2em;}
 select{display:block;}
 label{clear:both;}
-textarea{max-width:26.4em; width:60%;}
+textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 
 /*** rome - Customizable date (and time) picker. Opt-in UI, no jQuery! * @version v1.2.0 * @link https://github.com/bevacqua/rome * @license MIT */
 
@@ -164,7 +164,6 @@ textarea{max-width:26.4em; width:60%;}
 
 /* --- Colour Containers --- */
 
-.team-box,
 .dark-slab{background-color:#253149; color:#FFF;}
 .dark-slab a{color:#FFF;}
 
@@ -212,7 +211,7 @@ textarea{max-width:26.4em; width:60%;}
 #main-content{background-color:#7E8AA3;}
 
 .friend-requests{display:inline-block;}
-
+.member{text-align:center;}
 input{display:block; clear:both;}
 #footer{}
 

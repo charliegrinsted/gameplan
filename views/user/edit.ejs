@@ -1,33 +1,38 @@
 <div class="container">
 	<div class="row">
 		<div class="w12 wysiwyg">
-			<h1>Edit your profile</h1>
-			<form action="/users/update/<%= user.userName %>" method="POST">
-				<label for="firstName">First Name</label>
-				<input value="<%= user.firstName %>" name="firstName" type="text">
-				<label for="lastName">Last Name</label>
-				<input value="<%= user.lastName %>" name="lastName" type="text">
-				<label for="email">Email Address</label>
-				<input value="<%= user.email %>" name="email" type="text">
-				<input type="hidden" name="_csrf" value="<%= _csrf %>">
-				<label for="publicView">Account Privacy</label>
-				<select name="publicView">
-					<option value="true">Public</option>
-					<option value="false">Private</option>
-				</select>
-				<label for="bio">Biography</label>
-				<textarea name="bio" id="bio" cols="30" rows="10"><%= user.bio %></textarea>
-				<input type="submit" class="cta-submit block" value="Save changes">
-			</form>
-			<form action="/settings/addPhoto" method="POST" enctype="multipart/form-data">
-				<input type="file" name="avatar">
-				<input type="submit" class="cta-submit inline" value="Upload photo">
-			</form>
-		</div>
-	</div>
-	<div class="row">
-		<div class="w12 wysiwyg">
-			<a id="delete_account" href="/users/<%= user.userName %>/delete" class="cta-submit inline">Delete my account</a>
+			<h1>Editing <%= user.firstName %>'s profile</h1>
+			<div class="row">
+				<div class="w6">
+					<h2>Personal details</h2>
+					<form action="/users/update/<%= user.userName %>" method="POST">
+						<label for="firstName">First Name</label>
+						<input value="<%= user.firstName %>" name="firstName" type="text">
+						<label for="lastName">Last Name</label>
+						<input value="<%= user.lastName %>" name="lastName" type="text">
+						<label for="email">Email Address</label>
+						<input value="<%= user.email %>" name="email" type="text">
+						<input type="hidden" name="_csrf" value="<%= _csrf %>">
+						<label for="publicView">Account Privacy</label>
+						<select name="publicView">
+							<option value="true">Public</option>
+							<option value="false">Private</option>
+						</select>
+						<label for="bio">Biography</label>
+						<textarea name="bio" id="bio" cols="30" rows="5"><%= user.bio %></textarea>
+						<input type="submit" class="cta-submit block" value="Save changes">
+					</form>
+				</div>
+				<div class="w6 last">
+					<h2>Profile picture</h2>
+					<form action="/settings/addPhoto" method="POST" enctype="multipart/form-data">
+						<input type="file" name="avatar">
+						<input type="submit" class="cta-submit inline" value="Upload photo">
+					</form>
+					<h2>Delete account</h2>
+					<a id="delete_account" href="/users/<%= user.userName %>/delete" class="cta-submit inline">Delete my account</a>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

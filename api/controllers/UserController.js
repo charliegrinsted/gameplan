@@ -147,6 +147,8 @@ module.exports = {
 		.exec(function(err, user) {
 			if (err) return res.notFound()
 			if (!user) return res.notFound()
+
+			// check to see if the current user is friends with this person
 			if (user.profilePhoto){
 				theAdapter.readLastVersion(user.profilePhoto, function (err, file){
 					var encoded = file.toString('base64');

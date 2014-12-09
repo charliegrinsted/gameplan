@@ -82,18 +82,34 @@ module.exports = {
 			eventType: req.param('eventType'),
 			spacesAvailable: req.param('spacesAvailable')
 		}
-		console.log(eventObj);
 
-		// As with much of Node, the parameters are passed in from the request object, then a callback runs.
-		Event.create( eventObj , function EventCreated(err, savedEvent){
-			// Error
-			if (err){
-				console.log(err);
-				return res.redirect('events/new');
+		// Lookup the team to be associated with the event and double check permissions
+		Team.findOneById(eventObj.eventTeam)
+		.populateAll()
+		.exec(function (err, team){
+
+			if (team.teamAdmin.id != req.session.User.id){
+
+				res.redirect('/events');
+
+			} else {
+
+				Event.create( eventObj , function EventCreated(err, savedEvent){
+					// Error
+					if (err) return next(err);
+
+					savedEvent.attendees.add(team.teamAdmin.id); // add yourself to the list of attendees when creating the event
+					savedEvent.save(function(err, thisEvent) {
+							
+						if (err) return next(err);
+
+						res.redirect('/events/' + savedEvent.id);
+
+					});
+
+				});
+
 			}
-			// Success
-			res.redirect('/events/' + savedEvent.id);
-
 		});
 	},
 

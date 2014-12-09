@@ -6,7 +6,7 @@
 			<p><img class="profile-photo" src="data:image/jpg;base64, <%= image %>" alt="<%= user.firstName %> <%= user.lastName %>"></p>
 			<% } %>
 			<% if (session.authenticated && user.id != session.User.id) { %>
-			<button id="add_friend" data-user="<%= user.userName %>" class="cta-submit inline">Add this person yo</button>
+			<button id="add_friend" data-user="<%= user.userName %>" class="cta-submit inline">Add Friend</button>
 			<!--<a href="/users/<%= user.userName %>/add" class="cta-submit inline" id="add_friend">Add Friend</a>-->
 			<% } %>
 			<% if (user.bio) { %>

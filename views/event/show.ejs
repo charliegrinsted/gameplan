@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container spaced">
 	<div class="row">
 		<div class="w8">
-			<a href="/events">Back to all events</a>
+			<a class="cta-submit inline" href="/events">Back to all events</a>
 		</div>
 		<div class="w4 last">
 			<% if (session.authenticated && session.User.userName == thisEvent.eventTeam.teamAdmin.userName){ %>
-			<a class="cta-submit inline right" href="/events/edit/<%= thisEvent.id %>">Edit this team</a>
+			<a class="cta-submit inline right" href="/events/edit/<%= thisEvent.id %>">Edit this event</a>
 			<% }%>
 		</div>
 	</div>

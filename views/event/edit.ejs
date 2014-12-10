@@ -7,18 +7,18 @@
 				<div class="w4">
 					<h2>Event details</h2>
 					<label for="eventTitle">Event Title</label>
-					<input type="text" name="eventTitle">
+					<input type="text" name="eventTitle" value="<%= thisEvent.eventTitle%>">
 					<label for="eventTeam">Which team is this associated with?</label>
 					<select name="eventTeam" id="eventTeam">
 					<% _.each(session.User.teamsAdministered, function(team) { %>
-						<option value="<%= team.id %>"><%= team.teamName %></option>
+						<option value="<%= team.id %>"<% if (thisEvent.eventTeam.id == team.id){ %> selected="selected"<% } %>><%= team.teamName %></option>
 					<% }) %>
 					</select>
 					<label for="eventType">Event Type</label>
 					<select name="eventType" id="eventType">
-						<option value="game">Game</option>
-						<option value="training">Training</option>
-						<option value="social">Social</option>
+						<option value="game"<% if (thisEvent.eventType == 'game'){ %> selected="selected"<% } %>>Game</option>
+						<option value="training"<% if (thisEvent.eventType == 'training'){ %> selected="selected"<% } %>>Training</option>
+						<option value="social"<% if (thisEvent.eventType == 'social'){ %> selected="selected"<% } %>>Social</option>
 					</select>
 				</div>
 				<div class="w4">

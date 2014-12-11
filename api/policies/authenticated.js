@@ -20,7 +20,5 @@ module.exports = function(req, res, next) {
 		return res.redirect('/login');
 
 	}
-  // User is not allowed
-  // (default res.forbidden() behavior can be overridden in `config/403.js`)
 
 };

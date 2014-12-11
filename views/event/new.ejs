@@ -24,9 +24,11 @@
 				<div class="w4">
 					<h2>Set a time &amp; date</h2>
 					<label for="startTime">Start Time</label>
-					<input id="startTime" name="startTime" class="input">
+					<div id="startCal"></div>
+					<input type="hidden" id="startTime" name="startTime" class="input">
 					<label for="endTime">End Time</label>
-					<input id="endTime" name="endTime" class="input">
+					<div id="endCal"></div>
+					<input type="hidden" id="endTime" name="endTime" class="input">
 					<h2>Spaces available</h2>
 					<input type="number" value="10" name="spacesAvailable">
 				</div>
@@ -41,6 +43,12 @@
 </div>
 <script>
 	var now = moment().format('YYYY-MM-DD HH:00');
-	rome(startTime, { initialValue: now, weekStart: 1 });
-	rome(endTime, { initialValue: now, weekStart: 1 });
+	rome(startCal, { initialValue: now, weekStart: 1 }); // create the two inline calendars
+	rome(endCal, { initialValue: now, weekStart: 1 });
+	rome(startCal).on('data', function (value) {	// set the values of hidden input fields when changed
+		startTime.value = value;
+	});
+	rome(endCal).on('data', function (value) {
+		endTime.value = value;
+	});	
 </script>

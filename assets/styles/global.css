@@ -160,6 +160,9 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 #nav-social li{display:inline-block;}
 #nav-social li a{}
 
+.nav-secondary{float:right;}
+.nav-secondary li{background-color:#FF9900; font-weight:800; display:inline-block; text-transform:uppercase; font-size:1.2em; font-family:'Lato', sans-serif; margin-left:1.2em; outline:0; border:0; border-radius:0.2em; padding:0.4em 1em 0.5em 1em;}
+.nav-secondary a{color:#FFF;}
 #m-nav-toggle{display:none;}
 
 /* --- Colour Containers --- */

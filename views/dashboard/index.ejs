@@ -1,18 +1,14 @@
-<div class="container" id="user-quick-links">
+<div class="container spaced" id="user-quick-links">
 	<div class="row">
 		<div class="w6">
 			<h1 class="invisible">Dashboard</h1>
 			<p class="h xl">Hello, <%= user.firstName %></p>
 		</div>
 		<div class="w6 last">
-			<div class="row">
-				<div class="w6">
-					<a href="/create/team">Create a team</a>
-				</div>
-				<div class="w6 last">
-					<a href="/create/event">New Event</a>
-				</div>
-			</div>
+			<ul class="nav-secondary">
+				<li><a href="/create/team">Create Team</a></li>
+				<li><a href="/create/event">New Event</a></li>
+			</ul>
 		</div>
 	</div>
 	<% _.each(user.friendRequestsReceived, function(request, i) { %>
@@ -35,7 +31,7 @@
 </div>
 <div class="container wysiwyg">
 	<div class="row">
-		<div class="w4">
+		<div class="w6">
 			<h2>Your Teams</h2>
 			<% _.each(user.userTeams, function(team, i) { %>
 			<% if (i == 0) { %>
@@ -47,21 +43,17 @@
 			<% } %>
 			<% }) %>
 		</div>
-		<div class="w4">
-			<h2>Friends</h2>
-			<% _.each(user.friends, function(friend, i) { %>
+		<div class="w6 last">
+			<h2>Upcoming Events</h2>
+			<% _.each(user.eventsAttending, function(thisEvent, i) { %>
 			<% if (i == 0) { %>
 			<ul>
 			<% } %>
-				<li><a href="/users/<%= friend.userName %>"><%= friend.firstName %> <%= friend.lastName %></a></li>
-			<% if (i == user.friends.length - 1) { %>
+				<li><a href="/events/<%= thisEvent.id %>"><%= thisEvent.eventTitle %></a></li>
+			<% if (i == user.eventsAttending.length - 1) { %>
 			</ul>
 			<% } %>
 			<% }) %>
-		</div>
-		<div class="w4 last">
-			<h2>Events</h2>
-
 		</div>
 	</div>
 </div>

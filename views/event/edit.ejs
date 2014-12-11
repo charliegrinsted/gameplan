@@ -24,11 +24,11 @@
 				<div class="w4">
 					<h2>Set a time &amp; date</h2>
 					<label for="startTime">Start Time</label>
-					<input id="startTime" name="startTime" class="input">
+					<input id="startTime" name="startTime" class="input" data-start="<%= thisEvent.startTime %>">
 					<label for="endTime">End Time</label>
-					<input id="endTime" name="endTime" class="input">
-					<h2>Spaces available</h2>
-					<input type="number" value="10" name="spacesAvailable">
+					<input id="endTime" name="endTime" class="input" data-end="<%= thisEvent.endTime %>">
+					<h2>Spots available</h2>
+					<input type="number" value="<%= thisEvent.spacesAvailable %>" name="spacesAvailable">
 				</div>
 				<div class="w4 last">
 					<input type="hidden" name="_csrf" value="<%= _csrf %>">
@@ -41,6 +41,15 @@
 </div>
 <script>
 	var now = moment().format('YYYY-MM-DD HH:00');
-	rome(startTime, { initialValue: now, weekStart: 1 });
-	rome(endTime, { initialValue: now, weekStart: 1 });
+	var start = $l.id('startTime');
+	var end = $l.id('endTime');
+	var oldStartTime = $l.dom.data(start, 'start');
+	var oldEndTime = $l.dom.data(end, 'end');
+	var formattedStart = moment(oldStartTime).format('YYYY-MM-DD HH:00');
+	var formattedEnd = moment(oldEndTime).format('YYYY-MM-DD HH:00');
+	console.log(oldStartTime);
+	console.log(oldEndTime);
+
+	rome(startTime, { initialValue: formattedStart, weekStart: 1 });
+	rome(endTime, { initialValue: formattedEnd, weekStart: 1 });
 </script>

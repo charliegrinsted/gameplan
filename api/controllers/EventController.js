@@ -150,8 +150,6 @@ module.exports = {
 
 	edit: function(req, res, next) {
 
-		console.log("attempting");
-
 		Event.findOneById(req.param('id'))
 		.populateAll()
 		.exec(function(err, thisEvent) {

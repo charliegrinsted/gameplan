@@ -199,8 +199,8 @@ module.exports = {
 			.populateAll()
 			.exec(function(err, eventToUpdate) {
 				// add error handling
-				eventToUpdate[0].attendees.add(activeUser); // add yourself to the event attendees list
-				eventToUpdate[0].save(function(err, user) {
+				eventToUpdate.attendees.add(activeUser); // add yourself to the event attendees list
+				eventToUpdate.save(function(err, user) {
 					
 					if (err) return next(err);
 

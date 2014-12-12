@@ -25,10 +25,7 @@
 	<% if (session.authenticated) { %>
 	<div class="container dark-slab" id="header">
 		<div class="row row-flush">
-			<div class="w2 relative">
-				<p class="logo"><a href="/">GamePlan</a></p>
-			</div>
-			<div class="w7">
+			<div class="w4">
 				<ul id="nav-primary">
 					<li><a href="/">Home</a></li>
 					<li><a href="/teams">Teams</a></li>
@@ -36,7 +33,10 @@
 					<li><a href="/events">Events</a></li>
 				</ul>
 			</div>
-			<div class="w3 last">
+			<div class="w4 relative">
+				<p class="logo"><a href="/">GamePlan</a></p>
+			</div>
+			<div class="w4 last">
 				<div class="user-box">
 					<p class="name"><a href="/users/<%= session.User.userName %>"><%= session.User.firstName %> <%= session.User.lastName %></a></p>
 					<a class="btn" href="/settings">Edit Profile</a>

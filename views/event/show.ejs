@@ -7,6 +7,7 @@
 			<% if (session.authenticated && session.User.userName == thisEvent.eventTeam.teamAdmin.userName){ %>
 			<a class="cta-submit inline right" href="/events/edit/<%= thisEvent.id %>">Edit this event</a>
 			<% }%>
+			<a class="cta-submit inline right" href="/events/<%= thisEvent.id %>/rsvp">Join this event</a>
 		</div>
 	</div>
 	<div class="row">
@@ -29,7 +30,7 @@
 			<div class="row">
 				<% _.each(thisEvent.attendees, function(user, i) { %>
 				<div class="w4<% if (i % 3 == 0) { %> last<% } %>">
-					<h3><a href="/users/<%= user.userName %>"><%= user.userName %></a></h3>
+					<h3><a href="/users/<%= user.userName %>"><%= user.firstName %> <%= user.lastName %></a></h3>
 				</div>
 				<% }) %>
 			</div>

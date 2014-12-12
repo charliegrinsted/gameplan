@@ -210,11 +210,13 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 .home-not-registered .cta-submit{}
 
 
-.logo{font-weight:800; font-size:1.4em;}
-.user-box{border-radius:0.2em; text-align:right; margin:1em 0; padding:0.6em 1em; float:right; width:auto;}
+.logo{font-weight:800; font-size:1.4em; text-align:center;}
+.user-box{text-align:right; padding:0.6em 1em; float:right; width:auto;}
 .user-box .name{font-weight:800; font-size:1.2em;}
 
 .team-box{border-radius:3.2px;}
+
+.user-box p{display:inline-block;}
 .user-box .btn{font-size:0.8em; display:inline-block; padding-left:1em;}
 #main-content{background-color:#7E8AA3;}
 

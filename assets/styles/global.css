@@ -88,13 +88,13 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 
 /*** rome - Customizable date (and time) picker. Opt-in UI, no jQuery! * @version v1.2.0 * @link https://github.com/bevacqua/rome * @license MIT */
 
-.rd-container{font-family:'Lato', sans-serif; display:inline-block; border-bottom-right-radius:4px; border-bottom-left-radius:4px; background-color:#253149; color:#fff; padding:1em; text-align:center;}
+.rd-container{font-family:'Lato', sans-serif; display:inline-block; border-bottom-right-radius:4px; border-bottom-left-radius:4px; color:#253149; padding:1em; text-align:center;}
 .rd-container-attachment{position:absolute;}
 .rd-month{display:inline-block;}
 .rd-month-label{margin-bottom:0.8em;}
 .rd-month:last-child{margin-right:0;}
 .rd-back,
-.rd-next{cursor:pointer; border:none; outline:none; padding:0; margin:0; color:#FFF;}
+.rd-next{cursor:pointer; border:none; outline:none; padding:0; margin:0; color:#FF9900;}
 .rd-back[disabled],
 .rd-next[disabled] {
   cursor:default;
@@ -114,12 +114,12 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 .rd-time-selected,
 .rd-time-option:hover {
   cursor:pointer;
-  background-color:#FFF;
-  color:#000;
+  background-color:#FF9900;
+  color:#FFF;
 }
 .rd-day-prev-month,
 .rd-day-next-month {
-  color:#FFF;
+  color:#DCDEDC;
 }
 .rd-day-disabled {
   cursor:default;

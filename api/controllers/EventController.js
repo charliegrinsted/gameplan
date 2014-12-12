@@ -78,7 +78,9 @@ module.exports = {
 			startTime: req.param('startTime'),
 			endTime: req.param('endTime'),
 			eventType: req.param('eventType'),
-			spacesAvailable: req.param('spacesAvailable')
+			spacesAvailable: req.param('spacesAvailable'),
+			eventLat: req.param('locationLat'),
+			eventLng: req.param('locationLng')
 		}
 
 		// Lookup the team to be associated with the event and double check permissions

@@ -36,6 +36,14 @@ attributes: {
 
 	spacesAvailable:{
 		type:'integer'
+	},
+
+	eventLat:{
+		type:'float'
+	},
+
+	eventLng:{
+		type:'float'
 	}
 }
 

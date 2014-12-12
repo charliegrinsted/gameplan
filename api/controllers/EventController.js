@@ -45,7 +45,6 @@ module.exports = {
 		.populateAll() // fetch the related values from the other models
 		.then(function(eventData){
 
-			console.log(eventData);
 			var teamData = Team.findOneById(eventData.eventTeam.id) // find the related team using the eventTeam attribute
 			.populate('teamAdmin') // fetch the related values from the User model
 			.then(function(teamData){
@@ -64,7 +63,6 @@ module.exports = {
 				console.log("A past event");
 				eventData.eventStatus = "past";
 			}
-			console.log(eventData);
 			res.view({
 				thisEvent: eventData
 			});

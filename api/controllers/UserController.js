@@ -237,8 +237,6 @@ module.exports = {
 				if (err) {
 					return res.redirect('/settings');
 				}
-
-				console.log('Updated user');
 				
 				res.redirect('/users/' + req.session.User.userName);
 

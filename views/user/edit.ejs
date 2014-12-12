@@ -19,7 +19,7 @@
 							<option value="false">Private</option>
 						</select>
 						<label for="bio">Biography</label>
-						<textarea name="bio" id="bio" cols="30" rows="5"><%= user.bio %></textarea>
+						<textarea name="bio" id="bio" cols="30" rows="5"><% if (user.bio){ %><%= user.bio %><% } %></textarea>
 						<input type="submit" class="cta-submit block" value="Save changes">
 					</form>
 				</div>

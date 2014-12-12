@@ -1,8 +1,16 @@
-<div class="container">
+<div class="container spaced">
+	<div class="row">
+		<div class="w6 wysiwyg">
+			<h1>Events</h1>
+		</div>
+		<div class="w6 last">
+			<ul class="nav-secondary">
+				<li><a href="/create/event">New Event</a></li>
+			</ul>
+		</div>
+	</div>
 	<div class="row">
 		<div class="w12 wysiwyg">
-			<h1>Events</h1>
-			<a href="/create/event" class="cta-submit inline">Create an event</a>
 			<% _.each(events, function(thisEvent) { %>
 			<% if (thisEvent.eventIsPublic != false) { %>
 			<div data-id="<%= thisEvent.id %>" data-model="event">

@@ -184,17 +184,29 @@ module.exports = {
 	delete: function(req, res, next){
 
 		var thisTeam = req.param('id');
+		var activeUser = req.session.User.id;
 
-		Team.destroy({id:thisTeam}) // destroy the instance of the team
-		.exec(function(err, team) {
+		Team.findOneById(thisTeam)
+		.populateAll()
+		.exec(function(err, teamToDelete) {
 			if (err) {
 				return res.serverError();
 			}
-			Event.destroy({eventTeam: thisTeam}) // loop through and destroy all of the events dependent on to that team
-			.exec(function(err, events) {
-				res.redirect('/');
-			});
-
+			if (teamToDelete.teamAdmin == activeUser){
+				Team.destroy({id: thisTeam})
+				.exec(function(err, team) {
+					if (err) {
+						return res.serverError();
+					}
+					Event.destroy({eventTeam: thisTeam}) // loop through and destroy all of the events dependent on to that team
+					.exec(function(err, events) {
+						res.redirect('/teams');
+					});
+				});
+			}
+			else {
+				res.redirect('/teams/' + thisTeam);
+			}
 		});
 
 	},

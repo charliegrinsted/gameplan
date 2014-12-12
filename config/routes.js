@@ -70,6 +70,8 @@ module.exports.routes = {
 
 	'GET /events/edit/:id': 'EventController.edit',
 
+	'GET /events/:id/delete': 'EventController.delete',
+
 	'/settings': 'UserController.edit',
 
 	'/logout': 'SessionController.destroy',

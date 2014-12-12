@@ -60,7 +60,6 @@ module.exports = {
 			eventData.eventTeam = teamData; // set the EventTeam attribute to the team data we've retrieved
 			var formattedEnd = eventData.endTime.toISOString(); // Make the End Time an ISO formatted time
 			if (formattedEnd < now){ // compare it with the current time
-				console.log("A past event");
 				eventData.eventStatus = "past";
 			}
 			res.view({
@@ -165,6 +164,30 @@ module.exports = {
 
 	},
 
+	delete: function(req, res, next){
+
+		var thisEvent = req.param('id');
+		var activeUser = req.session.User.id;
+
+		Event.findOneById(thisEvent)
+		.populateAll()
+		.exec(function(err, eventToDelete) {
+			if (err) {
+				return res.serverError();
+			}
+			if (eventToDelete.eventTeam.teamAdmin == activeUser){
+				Event.destroy({id: thisEvent})
+				.exec(function(err, deletedEvent) {
+					res.redirect('/events');
+				});
+			}
+			else {
+				res.redirect('/events/' + thisEvent);
+			}
+		});
+
+	},	
+
 	rsvp: function(req, res, next){
 
 		var thisEvent = req.param('id');
@@ -172,9 +195,8 @@ module.exports = {
 
 		if (req.session.User.userName){
 
-			Event.find()
-			.where({ id: thisEvent })
-			.limit(1)
+			Event.findOneById(thisEvent)
+			.populateAll()
 			.exec(function(err, eventToUpdate) {
 				// add error handling
 				eventToUpdate[0].attendees.add(activeUser); // add yourself to the event attendees list

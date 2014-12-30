@@ -202,7 +202,9 @@ module.exports = {
 				eventToUpdate.attendees.add(activeUser); // add yourself to the event attendees list
 				eventToUpdate.save(function(err, user) {
 					
-					if (err) return next(err);
+					if (err){
+						res.redirect('/events' + thisEvent);
+					}
 
 					res.redirect('/events/' + thisEvent); // take user to their profile once signed in
 

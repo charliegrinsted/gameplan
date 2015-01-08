@@ -29,7 +29,7 @@ module.exports = {
 		},
 
 		profilePhoto:{
-			type:'string'
+			model:'file'
 		},
 
 		encryptedPass:{

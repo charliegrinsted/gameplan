@@ -9,6 +9,11 @@ module.exports = {
 
   attributes: {
 
+		fileName:{
+			collection:'user',
+			via:'profilePhoto'
+		}
+
   }
 };
 

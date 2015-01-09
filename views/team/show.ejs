@@ -34,6 +34,14 @@
 	</div>
 	<% }%>
 	<div class="row">
+		<h2 class="full l">Upcoming Events</h2>
+		<% _.each(team.teamEvents, function(thisEvent, i) { %>
+		<div class="w3 member<% if (i % 4 == 0) { %> last<% } %>">
+			<p><a href="/events/<%= thisEvent.id %>"><%= thisEvent.eventTitle %></a></p>
+		</div>
+		<% }) %>
+	</div>
+	<div class="row">
 		<h2 class="full l">Members</h2>			
 		<% _.each(team.teamMembers, function(user, i) { %>
 		<div class="w3 member<% if (i % 4 == 0) { %> last<% } %>">

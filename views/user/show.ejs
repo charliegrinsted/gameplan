@@ -5,10 +5,6 @@
 			<% if (image != null) { %>
 			<p><img class="profile-photo" src="data:image/jpg;base64, <%= image %>" alt="<%= user.firstName %> <%= user.lastName %>"></p>
 			<% } %>
-			<% if (session.authenticated && user.id != session.User.id) { %>
-			<button id="add_friend" data-user="<%= user.userName %>" class="cta-submit inline">Add Friend</button>
-			<!--<a href="/users/<%= user.userName %>/add" class="cta-submit inline" id="add_friend">Add Friend</a>-->
-			<% } %>
 			<% if (user.bio) { %>
 			<p><%= user.bio %></p>
 			<% } %>
@@ -51,25 +47,3 @@
 	<% } %>
 	<% }) %>	
 </div>
-<script>
-$l.ready(function() {
-		var button = $l.id('add_friend');
-		var thisUser = $l.dom.data(button, 'user');
-		$l.dom.setEvent(
-			button,
-			'click',
-			function() {
-				$l.ajax.get(
-					'/users/' + thisUser + '/add',
-					null,
-					function() {
-						$l.dom.replace(button, 'Request sent');
-						$l.dom.attr(button, 'disabled', 'true');
-						$l.dom.attr(button, 'class', 'cta-submit inline disabled');
-					}
-				);
-				return false;
-			}
-		);
-	});
-</script>

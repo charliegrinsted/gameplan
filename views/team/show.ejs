@@ -14,43 +14,50 @@
 			<% }%>
 		</div>
 	</div>
-	<div class="row">
-		<div class="w12 wysiwyg">
-			<p>This is a <%= team.teamSport %> team.</p>
+	<div class="row wysiwyg">
+		<div class="w8">
+		<% if (session.authenticated && session.User.userName == team.teamAdmin.userName && team.joinRequestsReceived.length > 0){ %>
+		<div class="row">
+			<div class="w12">
+				<h2>Pending join requests</h2>
+				<% _.each(team.joinRequestsReceived, function(user, i) { %>
+				<div class="w4<% if (i % 3 == 0) { %> last<% } %>">
+					<p><a href="/users/<%= user.userName %>"><%= user.userName %></a></p>
+					<button class="cta-submit inline pending_user" data-userid="<%= user.id %>" data-teamid="<%= team.id %>">Accept</button>
+				</div>
+				<% }) %>
+			</div>
+		</div>
+		<% }%>
+		<div class="row">
+			<h2 class="h l">Upcoming Events</h2>
+			<% _.each(team.teamEvents, function(thisEvent, i, events) { %>
+				<% if (i == 0) { %>
+				<ul>
+				<% } %>				
+				<li><a href="/events/<%= thisEvent.id %>"><%= thisEvent.eventTitle %></a></li>
+				<% if (i == events.length ) { %>
+				</ul>
+				<% } %>				
+			<% }) %>
+		</div>
+		<div class="row">
+			<h2 class="h l">Members</h2>			
+			<% _.each(team.teamMembers, function(user, i, users) { %>
+				<% if (i == 0) { %>
+				<ul>
+				<% } %>	
+					<li><a href="/users/<%= user.userName %>"><%= user.firstName %> <%= user.lastName %></a></li>
+				<% if (i == users.length ) { %>
+				</ul>
+				<% } %>
+			<% }) %>
+		</div>
+		</div>
+		<div class="w4 last">
 			<p>The administrator is <a href="/users/<%= team.teamAdmin.userName %>"><%= team.teamAdmin.firstName %></a></p>
 		</div>
 	</div>
-	<% if (session.authenticated && session.User.userName == team.teamAdmin.userName && team.joinRequestsReceived.length > 0){ %>
-	<div class="row">
-		<div class="w12">
-			<h2>Pending join requests</h2>
-			<% _.each(team.joinRequestsReceived, function(user, i) { %>
-			<div class="w4<% if (i % 3 == 0) { %> last<% } %>">
-				<p><a href="/users/<%= user.userName %>"><%= user.userName %></a></p>
-				<button class="cta-submit inline pending_user" data-userid="<%= user.id %>" data-teamid="<%= team.id %>">Accept</button>
-			</div>
-			<% }) %>
-		</div>
-	</div>
-	<% }%>
-	<div class="row">
-		<h2 class="full l">Upcoming Events</h2>
-		<% _.each(team.teamEvents, function(thisEvent, i) { %>
-		<div class="w3 member<% if (i % 4 == 0) { %> last<% } %>">
-			<p><a href="/events/<%= thisEvent.id %>"><%= thisEvent.eventTitle %></a></p>
-		</div>
-		<% }) %>
-	</div>
-	<div class="row">
-		<h2 class="full l">Members</h2>			
-		<% _.each(team.teamMembers, function(user, i) { %>
-		<div class="w3 member<% if (i % 4 == 0) { %> last<% } %>">
-			<img class="profile-photo" src="data:image/jpg;base64, <%= user.profilePhoto %>" alt="<%= user.firstName %> <%= user.lastName %>">
-			<p><a href="/users/<%= user.userName %>"><%= user.firstName %> <%= user.lastName %></a></p>
-		</div>
-		<% }) %>
-	</div>
-</div>
 <% if (session.authenticated && session.User.userName == team.teamAdmin.userName && team.joinRequestsReceived.length > 0){ %>
 <script>
 $l.ready(function() {

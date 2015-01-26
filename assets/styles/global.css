@@ -86,6 +86,81 @@ select{display:block;}
 label{clear:both;}
 textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 
+
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot?-k5ooh1');
+	src:url('fonts/icomoon.eot?#iefix-k5ooh1') format('embedded-opentype'),
+		url('fonts/icomoon.woff?-k5ooh1') format('woff'),
+		url('fonts/icomoon.ttf?-k5ooh1') format('truetype'),
+		url('fonts/icomoon.svg?-k5ooh1#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.icon{
+	font-family:'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	margin-right:0.4em;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon.home:before {
+	content: "\e902";
+}
+
+.icon.pencil:before {
+	content: "\e905";
+}
+
+.icon.bell:before {
+	content: "\e951";
+}
+
+.icon.events:before {
+	content: "\e953";
+}
+
+.icon.teams:before {
+	content: "\e972";
+}
+
+.icon.cog:before {
+	content: "\e994";
+}
+
+.icon.menu:before {
+	content: "\e9bd";
+}
+
+.icon.plus:before {
+	content: "\ea0a";
+}
+
+.icon.minus:before {
+	content: "\ea0b";
+}
+
+.icon.cross:before {
+	content: "\ea0f";
+}
+
+.icon.checkmark:before {
+	content: "\ea10";
+}
+
+.icon.enter:before {
+	content: "\ea13";
+}
+
 /*** rome - Customizable date (and time) picker. Opt-in UI, no jQuery! * @version v1.2.0 * @link https://github.com/bevacqua/rome * @license MIT */
 
 .rd-container{font-family:'Lato', sans-serif; display:inline-block; border-bottom-right-radius:4px; border-bottom-left-radius:4px; color:#253149; padding:1em; text-align:center;}
@@ -97,58 +172,58 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 .rd-next{cursor:pointer; border:none; outline:none; padding:0; margin:0; color:#FF9900;}
 .rd-back[disabled],
 .rd-next[disabled] {
-  cursor:default;
+	cursor:default;
 }
 .rd-back{float:left;}
 .rd-next{float:right;}
 .rd-back:before{display:block; content:'\2190';}
 .rd-next:before{display:block; content:'\2192';}
 .rd-day-body {
-  cursor:pointer;
-  text-align:center;
-  padding:0.4em 0.5em;
-  border-radius:50%;
+	cursor:pointer;
+	text-align:center;
+	padding:0.4em 0.5em;
+	border-radius:50%;
 }
 .rd-day-body:hover{background-color:#FF9900; color:#FFF;}
 .rd-day-selected,
 .rd-time-selected,
 .rd-time-option:hover {
-  cursor:pointer;
-  background-color:#FF9900;
-  color:#FFF;
+	cursor:pointer;
+	background-color:#FF9900;
+	color:#FFF;
 }
 .rd-day-prev-month,
 .rd-day-next-month {
-  color:#DCDEDC;
+	color:#DCDEDC;
 }
 .rd-day-disabled {
-  cursor:default;
-  color:#fcc;
+	cursor:default;
+	color:#fcc;
 }
 .rd-time {
-  position:relative;
-  display:inline-block;
-  margin-top:5px;
-  min-width:80px;
+	position:relative;
+	display:inline-block;
+	margin-top:5px;
+	min-width:80px;
 }
 .rd-time-list {
-  display:none;
-  position:absolute;
-  overflow-y:scroll;
-  max-height:160px;
-  left:0;
-  right:0;
-  background-color:#fff;
-  color:#333;
+	display:none;
+	position:absolute;
+	overflow-y:scroll;
+	max-height:160px;
+	left:0;
+	right:0;
+	background-color:#fff;
+	color:#333;
 }
 .rd-time-selected {
-  padding:5px;
+	padding:5px;
 }
 .rd-time-option {
-  padding:5px;
+	padding:5px;
 }
 .rd-day-concealed {
-  visibility:hidden;
+	visibility:hidden;
 }
 
 
@@ -158,8 +233,11 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 /* --- NAVIGATION --- */
 
 #nav-primary{}
-#nav-primary li{display:inline-block; width:24%; text-align:center;}
-#nav-primary li a{color:#FFF;}
+#nav-primary li{display:inline-block; font-size:1.2em; line-height:2.4em; vertical-align:middle;}
+#nav-primary li a{color:#FFF; padding:2em 1em;}
+#nav-primary li a:hover,
+#nav-primary li a.active{background-color:#FFF; color:#253149;}
+
 
 #nav-social{}
 #nav-social li{display:inline-block;}

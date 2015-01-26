@@ -1,4 +1,13 @@
 <div class="container spaced">
+	<% if (session.authenticated) { %>
+	<div class="row">
+		<div class="w12 wysiwyg">
+			<h1>Trying to log in?</h1>
+			<p>You're already signed in as <%= session.User.firstName %> <%= session.User.lastName %>.</p>
+			<p>Not you? <a href="/logout">Log out</a></p>
+		</div>
+	</div>
+	<% } else { %>
 	<div class="row">
 		<div class="w6 wysiwyg">
 			<h1>Login</h1>
@@ -23,4 +32,5 @@
 			<a href="/register" class="cta-submit inline">Get Started</a>
 		</div>
 	</div>
+	<% } %>
 </div>

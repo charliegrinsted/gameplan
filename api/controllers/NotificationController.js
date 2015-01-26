@@ -9,8 +9,9 @@ module.exports = {
 
 	index: function(req, res, next){
 
-		Notification.find() // find all teams and create an array
-		.populateAll() // fetch the related values from the User model
+		Notification.find()
+		.where({ read: false, notifiedUser: req.session.User.id })
+		.populateAll()
 		.exec(function (err, notifications){
 			if (err){
 				return next(err);
@@ -23,15 +24,13 @@ module.exports = {
 
 	create: function(req, res, next){
 
-		// Create an object from the parameters passed in by the form.
 		var notObj = {
 			notifiedUser: req.session.User.id,
 			title: req.param('title'),
 			content: req.param('content'),
-			hasRead: false
+			read: false
 		}
 
-		// Add a new database entry using the created object values
 		Notification.create(notObj)
 		.exec(function NotificationCreated(err, notification){
 
@@ -62,6 +61,7 @@ module.exports = {
 		Notification.findOneById(req.param('id'))
 		.populateAll()
 		.exec(function(err, notification) {
+			notification.read = true;
 			if (err) return next(err);
 			if (!notification) return next();
 			notification.save(function(err) {

@@ -108,7 +108,7 @@ module.exports = {
 			if (err) return next(err);
 
 			team.teamMembers.add(teamObj.teamAdmin); // add yourself to the list of members when creating the team
-			team.save(function(err, user) {
+			team.save(function(err) {
 					
 				if (err) return next(err);
 

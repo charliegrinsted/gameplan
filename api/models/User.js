@@ -44,6 +44,11 @@ module.exports = {
 			type:'text'
 		},
 
+		userNotifications: {
+			collection:'notification', 
+			via:'notifiedUser'
+		},
+
 		teamsAdministered: {
 			collection:'team', 
 			via:'teamAdmin'

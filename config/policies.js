@@ -43,6 +43,10 @@ module.exports.policies = {
 		'*': ['authenticated'],
 	},
 	
+	'NotificationController': {
+		'*': ['authenticated'],
+	},
+
 	'EventController': {
 		'*': ['authenticated']
 	}

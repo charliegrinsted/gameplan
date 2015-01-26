@@ -1,0 +1,25 @@
+<div class="container spaced">
+	<div class="row">
+		<div class="w12">
+			<a class="cta-submit inline" href="/teams">Back to all teams</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="w12 wysiwyg">
+			<h1>Editing <%= team.teamName %></h1>
+			<form action="/teams/update/<%= team.id %>" method="POST">
+				<label for="teamName">Team Name</label>
+				<input type="text" name="teamName">
+				<label for="teamSport">Sport</label>
+				<input type="text" name="teamSport">
+				<textarea name="teamInfo" id="teamInfo" cols="30" rows="10"></textarea>
+				<input type="submit" class="cta-submit block" value="Save changes">
+			</form>
+		</div>
+	</div>
+	<div class="row">
+		<div class="w12 wysiwyg">
+			<a id="delete_team" href="/teams/<%= team.id %>/delete" class="cta-submit inline">Delete this team</a>
+		</div>
+	</div>
+</div>

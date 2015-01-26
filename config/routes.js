@@ -78,6 +78,8 @@ module.exports.routes = {
 
 	'/create/team': 'TeamController.new',
 
+	'/create/notification': 'NotificationController.new',
+
 	'/create/event': 'EventController.new',
 
 	'/create/user': 'UserController.create',

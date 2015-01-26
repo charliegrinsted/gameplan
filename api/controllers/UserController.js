@@ -199,7 +199,7 @@ module.exports = {
 				req.session.flashMsg = {
 					err: err
 				}
-				return res.redirect('/signup');
+				return res.redirect('/register');
 			}
 			// Success
 			console.log("User profile created successfully");

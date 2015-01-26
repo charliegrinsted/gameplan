@@ -11,9 +11,37 @@
 				<div class="w4 <% if ((i+1) % 3 == 0) { %> last<% } %>">
 					<h2><%= item.title %></h2>
 					<p><%= item.content %></p>
+					<button class="mark_as_read cta-submit inline right" data-thisId="<%= item.id %>" href="/notifications/<%= item.id %>/read">Mark as read</button>
+					<p><%= item.read %></p>
 				</div>
 				<% }) %>	
 			</div>
 		</div>	
 	</div>
 </div>
+<% if (notifications.length > 0){ %>
+<script>
+$l.ready(function() {
+	var buttons = $l.dom.selectByClass('mark_as_read');
+	console.log(buttons);
+	$l.dom.setEvent(
+		buttons,
+		'click',
+		function(event, element) {
+			var notificationID = $l.dom.data(element, 'thisId');
+			console.log(notificationID);
+			$l.ajax.get(
+				'/notifications/' + notificationID +  '/read',
+				null,
+				function() {
+					$l.dom.replace(element, 'Read');
+					$l.dom.attr(element, 'disabled', 'true');
+					$l.dom.attr(element, 'class', 'cta-submit inline disabled');
+				}
+			);
+			return false;
+		}
+	);
+});
+</script>
+<% } %>

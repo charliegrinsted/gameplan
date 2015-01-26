@@ -72,6 +72,8 @@ module.exports.routes = {
 
 	'GET /events/:id/delete': 'EventController.delete',
 
+	'GET /notifications/:id/read': 'NotificationController.read',
+
 	'/settings': 'UserController.edit',
 
 	'/logout': 'SessionController.destroy',

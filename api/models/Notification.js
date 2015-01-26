@@ -19,6 +19,10 @@ module.exports = {
 
 	content:{
 		type:'text'
+	},
+
+	read:{
+		type:'boolean'
 	}
 
   }

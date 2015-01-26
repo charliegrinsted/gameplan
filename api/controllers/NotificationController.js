@@ -27,7 +27,8 @@ module.exports = {
 		var notObj = {
 			notifiedUser: req.session.User.id,
 			title: req.param('title'),
-			content: req.param('content')
+			content: req.param('content'),
+			hasRead: false
 		}
 
 		// Add a new database entry using the created object values
@@ -48,12 +49,27 @@ module.exports = {
 		});
 	},
 
-	'new': function(req, res){
+	new: function(req, res){
 
 		res.view({
 			
 		});
-		
+
+	},
+
+	read: function(req, res){
+
+		Notification.findOneById(req.param('id'))
+		.populateAll()
+		.exec(function(err, notification) {
+			if (err) return next(err);
+			if (!notification) return next();
+			notification.save(function(err) {
+				if (err) return next(err);
+				res.redirect('/notifications');
+			});
+		});
+
 	}
 	
 };

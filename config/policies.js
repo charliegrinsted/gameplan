@@ -26,13 +26,13 @@ module.exports.policies = {
 	*                                                                          *
 	***************************************************************************/
 
-	// '*': true,
+	'*': 'errorFlashes',
 
 	'UserController': {
 		'new': ['errorFlashes'],
-		'delete': ['authenticated'],
-		'index': ['authenticated'],
-		'show': ['authenticated']
+		'delete': ['authenticated', 'errorFlashes'],
+		'index': ['authenticated', 'errorFlashes'],
+		'show': ['authenticated', 'errorFlashes']
 	},
 
 	'SessionController': {
@@ -40,15 +40,15 @@ module.exports.policies = {
 	},
 
 	'TeamController': {
-		'*': ['authenticated'],
+		'*': ['authenticated', 'errorFlashes']
 	},
 	
 	'NotificationController': {
-		'*': ['authenticated'],
+		'*': ['authenticated', 'errorFlashes']
 	},
 
 	'EventController': {
-		'*': ['authenticated']
+		'*': ['authenticated', 'errorFlashes']
 	}
 	/***************************************************************************
 	*                                                                          *

@@ -45,7 +45,18 @@
 		</div>
 	</div>
 	<% } else { %>
-	<% } %>	
+	<% } %>
+	<% if(flashMsg && flashMsg.err) { %>
+	<div class="container error-bar">
+		<div class="row">
+			<div class="w12">
+					<% _.each(flashMsg.err, function(error) { %>
+						<p><%- JSON.stringify(error) %></p>
+					<% }) %>
+			</div>
+		</div>
+	</div>
+	<% } %>
 	<%- body %>
 	<script src="/js/dependencies/sails.io.js"></script>
 	<!--SCRIPTS END-->

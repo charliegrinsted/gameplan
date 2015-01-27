@@ -8,11 +8,6 @@
 			<% } else { %>
 			<p></p>
 			<h1>Create your account</h1>
-			<% if(flashMsg && flashMsg.err) { %>
-			<% _.each(flashMsg.err, function(error) { %>
-				<p><%- JSON.stringify(error) %></p>
-			<% }) %>
-			<% } %>
 			<form action="/create/user" method="POST">
 				<label for="firstName">First Name</label>
 				<input type="text" name="firstName">

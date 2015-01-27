@@ -11,12 +11,6 @@
 	<div class="row">
 		<div class="w6 wysiwyg">
 			<h1>Login</h1>
-			<% if(flashMsg && flashMsg.err) { %>
-			<% _.each(flashMsg.err, function(error) { %>
-			<p><%= error.name %></p>
-			<p><%= error.message %></p>
-			<% }) %>
-			<% } %>
 			<form action="/sessions/create" method="POST">
 				<label for="userName">Username</label>
 				<input type="text" name="userName">

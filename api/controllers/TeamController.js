@@ -57,6 +57,7 @@ module.exports = {
 		Team.findOneById(req.param('id'))
 		.populateAll()
 		.exec(function(err, team) {
+			console.log(team);
 			/*console.log(team.teamMembers.length);
 			var loopLength = team.teamMembers.length;
 			for (var i = 0; i < loopLength; i++){
@@ -78,6 +79,29 @@ module.exports = {
 		});
 
 	},
+
+	addTeamPhoto: function (req, res) {
+
+		var teamID = req.param('id');
+
+		var addFileToTeam = function(returnedFile){
+
+			var teamObj = {
+				teamPhoto: returnedFile
+			}
+
+			Team.update({id: teamID}, teamObj)
+			.exec(function updatedTeam(err,updated){
+
+				if (err) {
+					return res.redirect('/teams/' + teamID);
+				}
+					
+				res.redirect('/teams/' + teamID);
+			});
+		}
+		utility.uploadFile(req, 'teamPhoto', addFileToTeam);
+	},		
 
 	showJSON: function(req, res, next) {
 		Team.findOneById(req.param('id'))

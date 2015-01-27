@@ -38,6 +38,10 @@ module.exports = {
 
 	teamInfo:{
 		type:'text'
+	},
+
+	teamPhoto:{
+		type:'string'
 	}
 
   },

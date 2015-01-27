@@ -15,6 +15,11 @@
 				<textarea name="teamInfo" id="teamInfo" cols="30" rows="10"></textarea>
 				<input type="submit" class="cta-submit block" value="Save changes">
 			</form>
+			<h2>Team photo</h2>
+			<form action="/teams/manage/<%= team.id %>/photo" method="POST" enctype="multipart/form-data">
+				<input type="file" name="teamPhoto">
+				<input type="submit" class="cta-submit inline" value="Upload photo">
+			</form>
 		</div>
 	</div>
 	<div class="row">

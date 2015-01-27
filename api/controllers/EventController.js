@@ -6,6 +6,7 @@
  */
 
 var moment = require('moment'); // include Moment.js for funky date formatting to compare with stored event times
+var utility = require('../services/utility'); // include the global helper function for building notifications
 
 module.exports = {
 
@@ -98,6 +99,16 @@ module.exports = {
 					if (err) return next(err);
 
 					savedEvent.attendees.add(team.teamAdmin.id); // add yourself to the list of attendees when creating the event
+
+					// Create the notification and send it to everyone in the team
+					var content = team.teamAdmin.firstName + " " + team.teamAdmin.lastName + " created a new event for " + team.teamName;
+					var title = "A new event";
+
+					for (var i = 0; i < team.teamMembers.length; i++) {
+						var userID = team.teamMembers[i].id;
+						utility.createNotification(title, userID, content);
+					};
+
 					savedEvent.save(function(err, thisEvent) {
 							
 						if (err) return next(err);

@@ -5,6 +5,8 @@
  * @help        :: See http://links.sailsjs.org/docs/controllers
  */
 
+var utility = require('../services/utility');
+
 module.exports = {
 
 	index: function(req, res, next){
@@ -24,14 +26,17 @@ module.exports = {
 
 	create: function(req, res, next){
 
-		var notObj = {
-			notifiedUser: req.session.User.id,
-			title: req.param('title'),
-			content: req.param('content'),
-			read: false
-		}
+		var userID = req.session.User.id;
+		var title = req.param('title');
+		var content = req.param('content');
 
-		Notification.create(notObj)
+		utility.createNotification(title, userID, content, function(){
+
+			res.redirect('/notifications');
+			
+		});
+
+		/*Notification.create(notObj)
 		.exec(function NotificationCreated(err, notification){
 
 			// Error
@@ -45,7 +50,7 @@ module.exports = {
 
 			});
 
-		});
+		});*/
 	},
 
 	new: function(req, res){

@@ -4,6 +4,7 @@
  * @description :: Server-side logic for managing users
  * @help        :: See http://links.sailsjs.org/docs/controllers
  */
+var utility = require('../services/utility'); // include the global helper functions
 
 module.exports = {
 
@@ -96,32 +97,26 @@ module.exports = {
 
 	addProfilePhoto: function (req, res) {
 
-		var theAdapter = require('skipper-gridfs')({uri: 'mongodb://localhost/gameplan.fs' });
+		var addFileToUser = function(returnedFile){
 
-		req.file('avatar')
-			.upload(theAdapter.receive(), function whenDone(err, uploadedFiles) {
-				console.log(uploadedFiles[0].fd);
-			if (err){ 
-				return res.negotiate(err);
+			console.log(returnedFile);
+			var userObj = {
+				profilePhoto: returnedFile
 			}
-			else {
-				var userObj = {
-					profilePhoto: (uploadedFiles[0].fd)
-				}
-				User.update({userName: req.session.User.userName}, userObj)
-				.exec(function updatedUser(err,updated){
+
+			User.update({userName: req.session.User.userName}, userObj)
+			.exec(function updatedUser(err,updated){
 
 				if (err) {
 					return res.redirect('/settings');
 				}
 
 				console.log('Updated user');
-				
+					
 				res.redirect('/users/' + req.session.User.userName);
-
 			});
-			}
-		});
+		}
+		utility.uploadFile(req, 'avatar', addFileToUser); // this doesn't wait for the returned value so I need to make it a callback but my brain is melting
 	},	
 
 	indexJSON: function(req, res, next){

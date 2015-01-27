@@ -23,5 +23,22 @@ module.exports = {
 
 		});
 
+	},
+
+	uploadFile: function(req, fieldName, cb){
+
+		var fileAdapter = require('skipper-gridfs')({uri: 'mongodb://localhost/gameplan.fs' });
+		var returnedFile = null;
+
+		req.file(fieldName)
+		.upload(fileAdapter.receive(), function complete(err, uploaded) {
+			if (err){ 
+				return res.negotiate(err);
+			}
+			else {
+				returnedFile = uploaded[0].fd;
+				cb(returnedFile);
+			}
+		});
 	}
 }

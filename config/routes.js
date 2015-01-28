@@ -48,7 +48,9 @@ module.exports.routes = {
 
 	'GET /users/:userName/request/accept': 'UserController.acceptFriendRequest',
 
-	'POST /search/users': 'UserController.search',		
+	'POST /search/users': 'UserController.search',
+
+	'POST /search/teams': 'TeamController.search',		
 
 	'GET /teams/:id': 'TeamController.show',
 

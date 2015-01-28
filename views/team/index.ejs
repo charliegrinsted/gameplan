@@ -10,6 +10,14 @@
 		</div>
 	</div>
 	<div class="row">
+		<div class="w12 wysiwyg">
+			<h2>Find a team</h2>
+			<form action="/search/teams" method="POST">
+				<input type="text" id="findTeam" name="query">
+			</form>
+		</div>
+	</div>
+	<div class="row">
 		<div class="w12">
 			<div class="row">
 				<% _.each(teams, function(team, i, teams) { %>

@@ -1,0 +1,18 @@
+<div class="container">
+	<div class="row">
+		<div class="w12 wysiwyg">
+			<h1>Search Results</h1>
+			<form action="/search/teams" method="POST">
+				<input type="text" id="findTeam" name="query">
+			</form>			
+			<% if (teams.length == 0) { %>
+			<p>No results found for your query</p>
+			<% } %>
+			<% _.each(teams, function(team) { %>
+			<div data-id="<%= team.id %>">
+				<p><a href="/teams/<%= team.id %>"><%= team.teamName %></a></p>
+			</div>
+			<% }) %>
+		</div>
+	</div>
+</div>

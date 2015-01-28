@@ -25,6 +25,22 @@ module.exports = {
 
 	},
 
+	search: function(req, res, next){
+
+		var query = req.param('query');
+
+		Team.find({ or: [{ teamName: { 'contains': query }}]})
+		.exec(function(err, results){
+			if (err){
+				return next(err);
+			}
+			res.view({
+				teams: results
+			});
+		});
+
+	},	
+
 	index: function(req, res, next){
 
 		Team.find() // find all teams and create an array

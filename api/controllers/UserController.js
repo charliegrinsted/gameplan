@@ -99,7 +99,6 @@ module.exports = {
 
 		var addFileToUser = function(returnedFile){
 
-			console.log(returnedFile);
 			var userObj = {
 				profilePhoto: returnedFile
 			}
@@ -110,8 +109,6 @@ module.exports = {
 				if (err) {
 					return res.redirect('/settings');
 				}
-
-				console.log('Updated user');
 					
 				res.redirect('/users/' + req.session.User.userName);
 			});

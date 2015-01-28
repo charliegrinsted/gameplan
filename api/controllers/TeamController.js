@@ -4,7 +4,8 @@
  * @description :: Server-side logic for managing teams
  * @help        :: See http://links.sailsjs.org/docs/controllers
  */
-var theAdapter = require('skipper-gridfs')({uri: 'mongodb://localhost/gameplan.fs' });
+
+var utility = require('../services/utility'); // include the global helper functions
 
 module.exports = {
 
@@ -54,28 +55,15 @@ module.exports = {
 	},
 
 	show: function(req, res, next) {
+
 		Team.findOneById(req.param('id'))
 		.populateAll()
 		.exec(function(err, team) {
-			console.log(team);
-			/*console.log(team.teamMembers.length);
-			var loopLength = team.teamMembers.length;
-			for (var i = 0; i < loopLength; i++){
-				if (team.teamMembers[i].profilePhoto){
-					console.log(team.teamMembers[i]);
-					theAdapter.readLastVersion(team.teamMembers[i].profilePhoto, function (err, file){
-						console.log(file);
-						team.teamMembers[i].profilePhoto = file.toString('base64');
-						return;
-					});
-				}
-			}*/
-			// console.log(team);
 			if (err) return next(err);
 			if (!team) return next();
 			res.view({
 				team: team
-			});
+			});			
 		});
 
 	},

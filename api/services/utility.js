@@ -1,5 +1,7 @@
+var fileAdapter = require('skipper-gridfs')({uri: 'mongodb://localhost/gameplan.fs' });
 module.exports = {
 	
+
 	createNotification: function(title, userID, content){
 
 		var notificationObject = {
@@ -27,7 +29,6 @@ module.exports = {
 
 	uploadFile: function(req, fieldName, cb){
 
-		var fileAdapter = require('skipper-gridfs')({uri: 'mongodb://localhost/gameplan.fs' });
 		var returnedFile = null;
 
 		req.file(fieldName)
@@ -40,5 +41,6 @@ module.exports = {
 				cb(returnedFile);
 			}
 		});
-	}
+	},
+
 }

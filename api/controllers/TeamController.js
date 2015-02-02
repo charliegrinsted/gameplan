@@ -220,7 +220,7 @@ module.exports = {
 			if (err) {
 				return res.serverError();
 			}
-			if (teamToDelete.teamAdmin == activeUser){
+			if (teamToDelete.teamAdmin.id == activeUser){
 				Team.destroy({id: thisTeam})
 				.exec(function(err, team) {
 					if (err) {

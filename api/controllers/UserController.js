@@ -143,11 +143,19 @@ module.exports = {
 			// check to see if the current user is friends with this person
 			if (user.profilePhoto){
 				theAdapter.readLastVersion(user.profilePhoto, function (err, file){
-					var encoded = file.toString('base64');
-					res.view({
-						image: encoded,
-						user: user
-					});
+					if (!file){
+						res.view({
+							image: null,
+							user: user
+						});
+					}
+					else {
+						var encoded = file.toString('base64');
+						res.view({
+							image: encoded,
+							user: user
+						});
+					}
 				});
 			} else {
 				res.view({

@@ -4,22 +4,32 @@
 			<h1>New Event</h1>
 			<form action="/events/create" method="POST">
 			<div class="row">
-				<div class="w4">
-					<h2>Event details</h2>
+				<div class="w12">
+					<h2 class="invisible">Event details</h2>
 					<label for="eventTitle">Event Title</label>
-					<input type="text" name="eventTitle">
+					<input type="text" name="eventTitle" class="input wide breaker" placeholder="Add a title for your event">
+				</div>
+			</div>
+			<div class="row">
+				<div class="w6">
 					<label for="eventTeam">Which team is this associated with?</label>
 					<select name="eventTeam" id="eventTeam">
 					<% _.each(session.User.teamsAdministered, function(team) { %>
 						<option value="<%= team.id %>"><%= team.teamName %></option>
 					<% }) %>
 					</select>
+				</div>
+				<div class="w6 last">
 					<label for="eventType">Event Type</label>
 					<select name="eventType" id="eventType">
 						<option value="game">Game</option>
 						<option value="training">Training</option>
 						<option value="social">Social</option>
 					</select>
+				</div>
+			</div>
+			<div class="row">
+				<div class="w12">
 					<h2>Spaces available</h2>
 					<input type="number" value="10" name="spacesAvailable">
 					<input type="hidden" id="locationLat" name="locationLat">	
@@ -30,10 +40,10 @@
 	</div>
 </div>
 <div class="container">
-	<div class="row">
+	<div class="row roverflow">
 		<div class="w12 wysiwyg">
 			<h2>Set a time &amp; date</h2>
-			<div class="row">
+			<div class="row roverflow">
 				<div class="w6">
 					<label class="h m" for="startTime">Start Time</label>
 					<div id="startCal"></div>
@@ -51,17 +61,18 @@
 <div class="container">
 	<div class="row">
 		<div class="w12">
-			<input type="hidden" name="_csrf" value="<%= _csrf %>">
-			<input type="submit" class="cta-submit inline" value="Create new event">
-			</form>
+			<label class="h m" for="location">Where?</label>
+			<input type="text" name="location" class="input wide" id="location" value="" placeholder="Type a name, address or postcode">
+			<div id="map-canvas"></div>
 		</div>
 	</div>
 </div>
 <div class="container">
 	<div class="row">
 		<div class="w12">
-			<input type="text" name="location" class="textbox" id="location" value="">
-			<div id="map-canvas"></div>
+			<input type="hidden" name="_csrf" value="<%= _csrf %>">
+			<input type="submit" class="cta-submit inline input breaker" value="Create new event">
+			</form>
 		</div>
 	</div>
 </div>
@@ -95,7 +106,7 @@
 	function initializeMap() {
 		var myLatlng = new google.maps.LatLng(51.517503,-0.133896);
 		var mapOptions = {
-			zoom: 1,
+			zoom: 10,
 			center: myLatlng
 		}
 		

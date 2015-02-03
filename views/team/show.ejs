@@ -4,6 +4,9 @@
 			<a class="cta-submit inline" href="/teams">Back to all teams</a>
 		</div>
 		<div class="w6">
+			<% if (image != null) { %>
+			<p><img class="profile-photo" src="data:image/jpg;base64, <%= image %>" alt="<%= team.teamName %>"></p>
+			<% } %>		
 			<h1 class="full xl"><%= team.teamName %></h1>			
 		</div>
 		<div class="w3 last">
@@ -58,6 +61,7 @@
 			<p>The administrator is <a href="/users/<%= team.teamAdmin.userName %>"><%= team.teamAdmin.firstName %></a></p>
 		</div>
 	</div>
+</div>	
 <% if (session.authenticated && session.User.userName == team.teamAdmin.userName && team.joinRequestsReceived.length > 0){ %>
 <script>
 $l.ready(function() {

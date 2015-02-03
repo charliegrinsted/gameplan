@@ -12,15 +12,16 @@ input[type=submit],
 input[type=button],
 button{-webkit-appearance:none; -moz-appearance:none; appearance:none;}
 button:focus{outline:none;}
-body{font-size:16px; line-height:1.4; background-color:#fff;}
+body{font-size:16px; line-height:1.4; background-color:#253149;}
 
 /* --- UTILITY --- */
 
 .invisible{position:absolute; left:-999em;} /* Can be seen by screen readers */
 .removed{display:none;}
 .relative{position:relative;}
-.spaced{margin-top:1.2em;}
+.spaced{padding-top:1.2em;}
 .padded{padding:1.2em 0;}
+
 /* --- TYPOGRAPHY --- */
 /* Use ems for font-size on responsive sites */
 
@@ -250,6 +251,7 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 
 /* --- Colour Containers --- */
 
+.container{background-color:#fff;}
 .dark-slab{background-color:#253149; color:#FFF;}
 .dark-slab a{color:#FFF;}
 
@@ -292,9 +294,9 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 .user-box{text-align:right; padding:0.6em 1em; float:right; width:auto;}
 .user-box .name{font-weight:800; font-size:1.2em;}
 
-.team-box{border-radius:3.2px; background-color:#253149; text-align:center; display:block; height:10em; margin-top:2em;}
+.team-box{background-color:#fff; text-align:center; display:block; height:10em;}
 .team-box p{font-size:1.4em; font-weight:800;}
-.team-box a{color:#FFF;}
+.team-box a{color:#333;}
 .user-box p{display:inline-block;}
 .user-box .btn{font-size:0.8em; display:inline-block; padding-left:1em;}
 #main-content{background-color:#7E8AA3;}

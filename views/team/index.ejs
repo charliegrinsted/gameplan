@@ -17,9 +17,11 @@
 			</form>
 		</div>
 	</div>
+</div>
+<div class="container med-slab">	
 	<div class="row">
 		<div class="w12">
-			<div class="row">
+			<div class="row row-flush">
 				<% _.each(teams, function(team, i, teams) { %>
 				<div class="w4 team-box<% if ((i+1) % 3 == 0) { %> last<% } %>">
 					<p><a href="/teams/<%= team.id %>"><%= team.teamName %></a></p>

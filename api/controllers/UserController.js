@@ -50,8 +50,8 @@ module.exports = {
 		var activeUser = (req.session.User.id); // store who we are
 
 		User.find()
-		.where({ userName: userToAdd })
-		.limit(1)
+		.where({ userName: userToAdd }) // find our new friend
+		.limit(1) // and only them
 		.exec(function(err, user) {
 			// add error handling
 			user[0].friendRequestsReceived.add(activeUser); // add one's self to the user's received requests
@@ -70,11 +70,11 @@ module.exports = {
 
 		// double check to see if the user is awaiting approval
 
-		var userToAccept = (req.param('userName')); // store the user we're adding as a friend
+		var userToAccept = (req.param('userName')); // store the user we're accepting as a friend
 		var activeUser = (req.session.User.id); // store who we are
 
 		User.find()
-		.where({ userName: userToAccept })
+		.where({ userName: userToAccept }) // find our new friend
 		.limit(1)
 		.exec(function(err, user) {
 			// add error handling
@@ -97,7 +97,9 @@ module.exports = {
 
 	addProfilePhoto: function (req, res) {
 
-		var addFileToUser = function(returnedFile){
+		/* This is the callback function which gets passed into the utlity function. This means it is executed once the file upload is complete. 
+		It takes the uploaded file result as an argument */
+		var addFileToUser = function(returnedFile){  
 
 			var userObj = {
 				profilePhoto: returnedFile
@@ -132,31 +134,32 @@ module.exports = {
 
 	show: function(req, res, next) {
 
-		var theAdapter = require('skipper-gridfs')({uri: 'mongodb://localhost/gameplan.fs' });
+		var parseFile = function(parentObject, returnedFile, user){  
 
+			var user = parentObject;
+			
+			if (returnedFile == null){
+				res.view({
+					image: null,
+					user: user
+				});
+			}
+			else {
+
+				res.view({
+					image: returnedFile,
+					user: user
+				});
+			}
+		}
+		
 		User.findOneByUserName(req.param('userName'))
 		.populateAll()
 		.exec(function(err, user) {
 			if (err) return res.notFound()
 			if (!user) return res.notFound()
-
-			// check to see if the current user is friends with this person
 			if (user.profilePhoto){
-				theAdapter.readLastVersion(user.profilePhoto, function (err, file){
-					if (!file){
-						res.view({
-							image: null,
-							user: user
-						});
-					}
-					else {
-						var encoded = file.toString('base64');
-						res.view({
-							image: encoded,
-							user: user
-						});
-					}
-				});
+				utility.readFile(user, user.profilePhoto, parseFile);
 			} else {
 				res.view({
 					image: null,

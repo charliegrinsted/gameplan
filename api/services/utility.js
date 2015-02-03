@@ -1,4 +1,5 @@
 var fileAdapter = require('skipper-gridfs')({uri: 'mongodb://localhost/gameplan.fs' });
+
 module.exports = {
 	
 
@@ -42,5 +43,20 @@ module.exports = {
 			}
 		});
 	},
+
+	readFile: function(parentObject, fileToGet, cb){
+
+		fileAdapter.readLastVersion(fileToGet, function (err, file){
+			if (!file){
+				var error = null;
+				cb(parentObject, error);
+			}
+			else {
+				var encoded = file.toString('base64');
+				cb(parentObject, encoded);
+			}
+		});
+
+	}
 
 }

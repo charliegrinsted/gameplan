@@ -27,7 +27,11 @@ module.exports = {
 	},
 
 	index: function(req, res, next){
+
+		var now = new Date(moment().format('YYYY-MM-DDTHH:mm:ss.SSS') + 'Z');
+
 		Event.find() // find all events and create an array
+		.where({ endTime: { '>=': now }})
 		.populate('eventTeam') // fetch the related values from the Team model
 		.exec(function (err, events){
 			// console.log(events);
@@ -41,7 +45,9 @@ module.exports = {
 	},
 
 	show: function(req, res, next) {
-		var now = moment().format('YYYY-MM-DDTHH:mm:ss');
+		
+		var now = new Date(moment().format('YYYY-MM-DDTHH:mm:ss.SSS') + 'Z');
+
 		Event.findOneById(req.param('id'))
 		.populateAll() // fetch the related values from the other models
 		.then(function(eventData){

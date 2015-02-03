@@ -22,12 +22,12 @@
 	</head>
 
 	<body>
-	<% if (session.authenticated) { %>
 	<div class="container dark-slab" id="header">
 		<div class="row row-flush">
 			<div class="w2 relative">
 				<p class="logo"><a href="/">GamePlan</a></p>
 			</div>
+			<% if (session.authenticated) { %>
 			<div class="w6">
 				<ul id="nav-primary">
 					<li><a href="/"><span class="icon home"></span>Home</a></li>
@@ -42,10 +42,9 @@
 					<a class="btn" href="/logout">Logout</a>
 				</div>
 			</div>
+			<% } %>
 		</div>
 	</div>
-	<% } else { %>
-	<% } %>
 	<% if(flashMsg && flashMsg.err) { %>
 	<div class="container error-bar">
 		<div class="row">

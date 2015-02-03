@@ -137,7 +137,7 @@ module.exports = {
 		var parseFile = function(parentObject, returnedFile, user){  
 
 			var user = parentObject;
-			
+
 			if (returnedFile == null){
 				res.view({
 					image: null,

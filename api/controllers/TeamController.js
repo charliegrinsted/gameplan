@@ -74,33 +74,43 @@ module.exports = {
 
 		var theAdapter = require('skipper-gridfs')({uri: 'mongodb://localhost/gameplan.fs' });
 
+		var showTeam = function(team, image){
+			res.view({
+				image: null,
+				team: team
+			});
+		}
+
+		var parseFile = function(parentObject, returnedFile, user){  
+
+			var team = parentObject;
+
+			if (returnedFile == null){
+				res.view({
+					image: null,
+					team: team
+				});
+			}
+			else {
+
+				res.view({
+					image: returnedFile,
+					team: team
+				});
+			}
+		}
+
 		Team.findOneById(req.param('id'))
 		.populateAll()
 		.exec(function(err, team) {
 			if (err) return next(err);
 
 			if (!team) return next();
+			
 			if (team.teamPhoto){
-				theAdapter.readLastVersion(team.teamPhoto, function (err, file){
-					if (!file){
-						res.view({
-							image: null,
-							team: team
-						});
-					}
-					else {
-						var encoded = file.toString('base64');
-						res.view({
-							image: encoded,
-							team: team
-						});
-					}
-				});
+				utility.readFile(team, team.teamPhoto, parseFile);
 			} else {
-				res.view({
-					image: null,
-					team: team
-				});
+				showTeam(team, null);
 			}		
 		});
 

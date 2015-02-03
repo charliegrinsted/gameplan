@@ -49,7 +49,8 @@
 			<% if (i == 0) { %>
 			<ul>
 			<% } %>
-				<li><a href="/events/<%= thisEvent.id %>"><%= thisEvent.eventTitle %></a></li>
+				<li><a href="/events/<%= thisEvent.id %>"><%= thisEvent.eventTitle %></a> - <span><%= moment(thisEvent.startTime).fromNow() %></span>
+</li>
 			<% if (i == user.eventsAttending.length - 1) { %>
 			</ul>
 			<% } %>

@@ -6,6 +6,7 @@
  */
 
 var utility = require('../services/utility'); // include the global helper functions
+var moment = require('moment');
 
 module.exports = {
 
@@ -77,7 +78,8 @@ module.exports = {
 		var showTeam = function(team, image){
 			res.view({
 				image: null,
-				team: team
+				team: team,
+				moment: moment
 			});
 		}
 
@@ -88,14 +90,16 @@ module.exports = {
 			if (returnedFile == null){
 				res.view({
 					image: null,
-					team: team
+					team: team,
+					moment: moment
 				});
 			}
 			else {
 
 				res.view({
 					image: returnedFile,
-					team: team
+					team: team,
+					moment: moment
 				});
 			}
 		}

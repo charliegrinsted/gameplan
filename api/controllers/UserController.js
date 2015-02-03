@@ -134,7 +134,7 @@ module.exports = {
 
 	show: function(req, res, next) {
 
-		var parseFile = function(parentObject, returnedFile, user){  
+		var parseFile = function(parentObject, returnedFile){  
 
 			var user = parentObject;
 
@@ -151,6 +151,12 @@ module.exports = {
 					user: user
 				});
 			}
+		}
+
+		var getFriendProfilePhotos = function(user, returnedFile){
+
+			console.log();
+
 		}
 		
 		User.findOneByUserName(req.param('userName'))

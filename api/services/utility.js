@@ -44,16 +44,16 @@ module.exports = {
 		});
 	},
 
-	readFile: function(parentObject, fileToGet, cb){
+	readFile: function(parent, fileToGet, cb){
 
 		fileAdapter.readLastVersion(fileToGet, function (err, file){
 			if (!file){
 				var error = null;
-				cb(parentObject, error);
+				cb(parent, error);
 			}
 			else {
 				var encoded = file.toString('base64');
-				cb(parentObject, encoded);
+				cb(parent, encoded);
 			}
 		});
 

@@ -45,7 +45,7 @@ module.exports = {
 	},
 
 	show: function(req, res, next) {
-		
+
 		var now = new Date(moment().format('YYYY-MM-DDTHH:mm:ss.SSS') + 'Z');
 
 		Event.findOneById(req.param('id'))
@@ -72,7 +72,7 @@ module.exports = {
 			res.view({
 				thisEvent: eventData
 			});
-		})
+		});
 	},	
 
 	create: function(req, res, next){

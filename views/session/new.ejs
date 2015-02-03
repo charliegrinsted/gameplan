@@ -1,4 +1,4 @@
-<div class="container spaced">
+<div class="container">
 	<% if (session.authenticated) { %>
 	<div class="row">
 		<div class="w12 wysiwyg">
@@ -8,14 +8,14 @@
 		</div>
 	</div>
 	<% } else { %>
-	<div class="row">
+	<div class="row padded">
 		<div class="w6 wysiwyg">
 			<h1>Login</h1>
 			<form action="/sessions/create" method="POST">
 				<label for="userName">Username</label>
-				<input type="text" name="userName">
+				<input type="text" name="userName" class="input breaker">
 				<label for="password">Password</label>
-				<input type="password" name="password">
+				<input type="password" name="password" class="input breaker">
 				<input type="hidden" name="_csrf" value="<%= _csrf %>">	
 				<input class="cta-submit inline" type="submit" value="Login">
 			</form>		

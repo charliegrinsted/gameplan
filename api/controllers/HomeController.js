@@ -26,7 +26,8 @@ module.exports = {
 					return next(err);
 				}
 				res.view('dashboard/index', {
-					user: user
+					user: user,
+					moment: moment
 				});
 			});
 			

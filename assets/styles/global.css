@@ -21,6 +21,7 @@ body{font-size:16px; line-height:1.4; background-color:#253149;}
 .relative{position:relative;}
 .spaced{padding-top:1.2em;}
 .padded{padding:1.2em 0;}
+.centred{text-align:center;}
 
 /* --- TYPOGRAPHY --- */
 /* Use ems for font-size on responsive sites */
@@ -255,10 +256,15 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 .dark-slab{background-color:#253149; color:#FFF;}
 .dark-slab a{color:#FFF;}
 
-.error-bar{padding-top:1.2em; padding-bottom:1.2em; background-color:#DE0200; color:#FFF;}
 .med-slab{background-color:#7E8AA3; color:#FFF;}
-
 .white-slab{background-color:#FFFFFF;}
+
+.error-bar{padding-top:1.2em; padding-bottom:1.2em; background-color:#DE0200; color:#FFF;}
+
+.user-bar{text-align:center; margin:1.2em 0 1.2em;}
+.user-bar .profile-photo{border:3px solid #FFF; margin:0 auto;}
+.user-bar h1{font-size:1.6em; font-weight:800; margin-top:0.2em;}
+.user-bar p{max-width:300px; margin:0 auto; font-style:italic; font-size:0.8em;}
 
 /* --- Buttons --- */
 
@@ -314,7 +320,7 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 input{display:block; clear:both;}
 #footer{}
 
-.profile-photo{border-radius:50%; height:100px; width:100px;}
+.profile-photo{border-radius:50%; height:100px; width:100px; margin-top:1.2em;}
 
 /* --- Typography Breakpoint 1 --- */
 

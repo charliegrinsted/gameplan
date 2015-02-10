@@ -4,16 +4,22 @@
 			<h1>Editing <%= thisEvent.eventTitle%></h1>
 			<form action="/events/update/<%= thisEvent.id %>" method="POST">
 			<div class="row">
-				<div class="w4">
-					<h2>Event details</h2>
+				<div class="w12">
+					<h2 class="invisible">Event details</h2>
 					<label for="eventTitle">Event Title</label>
-					<input type="text" name="eventTitle" value="<%= thisEvent.eventTitle%>">
+					<input type="text" name="eventTitle" value="<%= thisEvent.eventTitle%>" class="input wide breaker">
+				</div>
+			</div>
+			<div class="row">
+				<div class="w6">
 					<label for="eventTeam">Which team is this associated with?</label>
 					<select name="eventTeam" id="eventTeam">
 					<% _.each(session.User.teamsAdministered, function(team) { %>
 						<option value="<%= team.id %>"<% if (thisEvent.eventTeam.id == team.id){ %> selected="selected"<% } %>><%= team.teamName %></option>
 					<% }) %>
 					</select>
+				</div>
+				<div class="w6 last">
 					<label for="eventType">Event Type</label>
 					<select name="eventType" id="eventType">
 						<option value="game"<% if (thisEvent.eventType == 'game'){ %> selected="selected"<% } %>>Game</option>
@@ -21,25 +27,99 @@
 						<option value="social"<% if (thisEvent.eventType == 'social'){ %> selected="selected"<% } %>>Social</option>
 					</select>
 				</div>
-				<div class="w4">
-					<h2>Set a time &amp; date</h2>
-					<label for="startTime">Start Time</label>
-					<input id="startTime" name="startTime" class="input" data-start="<%= thisEvent.startTime %>">
-					<label for="endTime">End Time</label>
-					<input id="endTime" name="endTime" class="input" data-end="<%= thisEvent.endTime %>">
-					<h2>Spots available</h2>
+			</div>
+			<div class="row">
+				<div class="w12">
+					<h2>Spaces available</h2>
 					<input type="number" value="<%= thisEvent.spacesAvailable %>" name="spacesAvailable">
-				</div>
-				<div class="w4 last">
-					<input type="hidden" name="_csrf" value="<%= _csrf %>">
-					<input type="submit" class="cta-submit inline" value="Update event">
+					<input type="hidden" id="locationLat" name="locationLat">	
+					<input type="hidden" id="locationLng" name="locationLng">	
 				</div>
 			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row roverflow">
+		<div class="w12 wysiwyg">
+			<h2>Set a time &amp; date</h2>
+			<div class="row roverflow">
+				<div class="w6">
+					<label class="h m" for="startTime">Start Time</label>
+					<div id="startCal"></div>
+					<input type="hidden" id="startTime" name="startTime" class="input" data-start="<%= thisEvent.startTime %>">
+				</div>
+				<div class="w6 last">
+					<label class="h m" for="endTime">End Time</label>
+					<div id="endCal"></div>
+					<input type="hidden" id="endTime" name="endTime" class="input" data-end="<%= thisEvent.endTime %>">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="w12">
+			<label class="h m" for="location">Where?</label>
+			<input type="text" name="location" class="input wide" id="location" value="" placeholder="Type a name, address or postcode">
+			<div id="map-canvas"></div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="w12">
+			<input type="hidden" name="_csrf" value="<%= _csrf %>">
+			<input type="submit" class="cta-submit inline input breaker" value="Update event">
 			</form>
 		</div>
 	</div>
 </div>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false&amp;libraries=places"></script>
 <script>
+	var query = document.getElementById('location');
+	var latInput = document.getElementById('locationLat');
+	var lngInput = document.getElementById('locationLng');
+	var autocomplete = new google.maps.places.Autocomplete(query);
+	var place;
+	var map;
+	var marker;
+
+	//Add listener to detect autocomplete selection
+	google.maps.event.addListener(autocomplete, 'place_changed', function () {
+		place = autocomplete.getPlace();
+		console.log(place);
+		var newlatlong = new google.maps.LatLng(place.geometry.location.lat(),place.geometry.location.lng());
+		latInput.value = place.geometry.location.lat();
+		lngInput.value = place.geometry.location.lng();
+		map.setCenter(newlatlong);
+		marker.setPosition(newlatlong);
+		map.setZoom(15);
+	});
+
+	//Reset the input box on click
+	query.addEventListener('click', function(){
+		query.value = "";
+	});
+
+	function initializeMap() {
+		var myLatlng = new google.maps.LatLng(51.517503,-0.133896);
+		var mapOptions = {
+			zoom: 10,
+			center: myLatlng
+		}
+		
+		map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+ 
+		marker = new google.maps.Marker({
+			position: myLatlng,
+			map: map
+		});
+	}
+
+	google.maps.event.addDomListener(window, 'load', initializeMap);
+
 	var now = moment().format('YYYY-MM-DD HH:00');
 	var start = $l.id('startTime');
 	var end = $l.id('endTime');
@@ -47,9 +127,13 @@
 	var oldEndTime = $l.dom.data(end, 'end');
 	var formattedStart = moment(oldStartTime).format('YYYY-MM-DD HH:00');
 	var formattedEnd = moment(oldEndTime).format('YYYY-MM-DD HH:00');
-	console.log(oldStartTime);
-	console.log(oldEndTime);
 
-	rome(startTime, { initialValue: formattedStart, weekStart: 1 });
-	rome(endTime, { initialValue: formattedEnd, weekStart: 1 });
+	rome(startCal, { initialValue: formattedStart, weekStart: 1 });
+	rome(endCal, { initialValue: formattedEnd, weekStart: 1 });
+	rome(startCal).on('data', function (value) {	// set the values of hidden input fields when changed
+		startTime.value = value;
+	});
+	rome(endCal).on('data', function (value) {
+		endTime.value = value;
+	});	
 </script>

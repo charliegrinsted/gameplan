@@ -147,8 +147,6 @@ module.exports = {
 
 			Event.update(thisEvent, eventObj)
 			.exec(function updatedEvent(err, updated){
-
-				console.log('Updated event');
 				
 				res.redirect('/events/' + thisEvent);
 

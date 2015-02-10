@@ -15,27 +15,42 @@
 	<div class="row">
 		<div class="w6">
 			<h2><%= user.firstName %> plays for...</h2>
-			<% _.each(user.userTeams, function(team, i) { %>
-			<h3><a href="/teams/<%= team.id %>"><%= team.teamName %></a></h3>
+			<% _.each(user.userTeams, function(team, i, teams) { %>
+				<% if (i == 0) { %>
+				<ul>
+				<% } %>
+				<li><a href="/teams/<%= team.id %>"><%= team.teamName %></a></li>
+				<% if (i == teams.length ) { %>
+				</ul>
+				<% } %>	
 			<% }) %>
 		</div>
 		<div class="w6 last">
 			<h2><%= user.firstName %> is going to...</h2>
-			<% _.each(user.eventsAttending, function(thisEvent, i) { %>
-			<h3><a href="/events/<%= thisEvent.id %>"><%= thisEvent.eventTitle %></a></h3>
+			<% _.each(user.eventsAttending, function(thisEvent, i, events) { %>
+			<% if (i == 0) { %>
+			<ul>
+			<% } %>
+			<li><a href="/events/<%= thisEvent.id %>"><%= thisEvent.eventTitle %></a></li>
+			<% if (i == events.length ) { %>
+			</ul>
+			<% } %>				
 			<% }) %>
 		</div>
 	</div>
-	<% _.each(user.friends, function(friend, i, friends) { %>
-	<% if (i == 0) { %>
 	<div class="row">
-		<div class="w12">
+		<div class="w6">
 			<h2>Friends</h2>
-			<% } %>
-			<p><a href="/users/<%= friend.userName %>"><%= friend.firstName %> <%= friend.lastName %></a></p>
-			<% if (i == friends.length - 1) { %>
+			<% if (user.friends.length == 0) { %><p><%= user.firstName %> has no friends to show</p><% } %>
+			<% _.each(user.friends, function(friend, i, friends) { %>
+				<% if (i == 0) { %>
+				<ul>
+				<% } %>
+					<li><a href="/users/<%= friend.userName %>"><%= friend.firstName %> <%= friend.lastName %></a></li>
+				<% if (i == friends.length) { %>
+				</ul>
+				<% } %>
+			<% }) %>
 		</div>
 	</div>
-	<% } %>
-	<% }) %>	
 </div>

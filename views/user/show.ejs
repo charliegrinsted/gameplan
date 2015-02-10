@@ -13,36 +13,26 @@
 </div>
 <div class="container wysiwyg">
 	<div class="row">
-		<div class="w12">
-			<h2><%= user.firstName %>'s Teams</h2>
-		</div>
-	</div>
-	<div class="row">	
-		<% _.each(user.userTeams, function(team, i) { %>
-		<div class="w4<% if (i % 3 == 0) { %> last<% } %>">
+		<div class="w6">
+			<h2><%= user.firstName %> plays for...</h2>
+			<% _.each(user.userTeams, function(team, i) { %>
 			<h3><a href="/teams/<%= team.id %>"><%= team.teamName %></a></h3>
+			<% }) %>
 		</div>
-		<% }) %>
-	</div>
-	<div class="row">
-		<div class="w12">
-			<h2><%= user.firstName %>'s Events</h2>
-		</div>
-	</div>
-	<div class="row">	
-		<% _.each(user.eventsAttending, function(thisEvent, i) { %>
-		<div class="w4<% if (i % 3 == 0) { %> last<% } %>">
+		<div class="w6 last">
+			<h2><%= user.firstName %> is going to...</h2>
+			<% _.each(user.eventsAttending, function(thisEvent, i) { %>
 			<h3><a href="/events/<%= thisEvent.id %>"><%= thisEvent.eventTitle %></a></h3>
+			<% }) %>
 		</div>
-		<% }) %>
-	</div>	
+	</div>
 	<% _.each(user.friends, function(friend, i, friends) { %>
 	<% if (i == 0) { %>
 	<div class="row">
 		<div class="w12">
 			<h2>Friends</h2>
 			<% } %>
-			<p><a href="/users/<%= friend.userName %>"><%= friend.userName %></a></p>
+			<p><a href="/users/<%= friend.userName %>"><%= friend.firstName %> <%= friend.lastName %></a></p>
 			<% if (i == friends.length - 1) { %>
 		</div>
 	</div>

@@ -228,9 +228,6 @@ module.exports = {
 					return res.redirect('teams/manage/' + teamID);
 				}
 
-			console.log('Team updated');
-			console.log(updated);
-			
 			res.redirect('/teams/' + teamID);
 
 			});

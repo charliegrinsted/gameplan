@@ -6,8 +6,9 @@
 		<div class="w4 last">
 			<% if (session.authenticated && session.User.userName == thisEvent.eventTeam.teamAdmin.userName){ %>
 			<a class="cta-submit inline right" href="/events/edit/<%= thisEvent.id %>">Edit this event</a>
-			<% }%>
+			<% } else { %>
 			<a class="cta-submit inline right" href="/events/<%= thisEvent.id %>/rsvp">Join this event</a>
+			<% } %>
 		</div>
 	</div>
 	<div class="row">
@@ -26,7 +27,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="w12">
+		<div class="w6">
 			<h2>Where?</h2>
 			<div id="map-canvas"></div>
 		</div>
@@ -51,6 +52,7 @@
 		</div>
 	</div>	
 </div>
+<% if (session.User.userName != thisEvent.eventTeam.teamAdmin.userName){ %>
 <script>
 $l.ready(function() {
 	var button = $l.id('join_event');
@@ -63,7 +65,7 @@ $l.ready(function() {
 				'/events/' + thisEventID + '/rsvp',
 				null,
 				function() {
-					$l.dom.replace(button, 'Done deal');
+					$l.dom.replace(button, "You're in!");
 					$l.dom.attr(button, 'disabled', 'true');
 					$l.dom.attr(button, 'class', 'cta-submit inline disabled');
 				}
@@ -73,6 +75,7 @@ $l.ready(function() {
 	);
 });
 </script>
+<% } %>
 <script>
 	function initialize() {
 		var myLatlng = new google.maps.LatLng("<%- thisEvent.eventLat %>", "<%- thisEvent.eventLng %>");

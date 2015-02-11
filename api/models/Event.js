@@ -5,15 +5,7 @@
 * @docs        :: http://sailsjs.org/#!documentation/models
 */
 
-module.exports = {
-
-	types: {
-
-		point: function(latlng){
-			return latlng.x && latlng.y
-		},
-
-	},	
+module.exports = {	
 
 	attributes: {
 
@@ -48,7 +40,6 @@ module.exports = {
 
 		location: {
 			type: 'json',
-			point: true
 		},
 	}
 

@@ -46,8 +46,8 @@ module.exports = {
 
 	nearby: function(req, res, next){
 
-		var lat = req.param('lat'); // get the latitude from POST
-		var lng = req.param('lng'); // get the longitude from POST
+		var lat = parseFloat(req.param('lat')); // get the latitude from POST
+		var lng = parseFloat(req.param('lng')); // get the longitude from POST
 
 		var locationObj = {
 			lat : lat,
@@ -109,9 +109,12 @@ module.exports = {
 
 	create: function(req, res, next){
 
-		var locationObj = {
-			x: req.param('locationLat'),
-			y: req.param('locationLng')
+		var lng = parseFloat(req.param('locationLng'));
+		var lat = parseFloat(req.param('locationLat'))
+
+		var locationObj = { 
+			"type": "Point", 
+			"coordinates": [lng, lat]
 		}
 
 		// Create an object containing all of the parameters passed in by the user sign-up form
@@ -172,9 +175,12 @@ module.exports = {
 			var currentUser = req.session.User.userName;
 			var thisEvent = req.param('id');
 
-			var locationObj = {
-				x: req.param('locationLat'),
-				y: req.param('locationLng')
+			var lng = parseFloat(req.param('locationLng'));
+			var lat = parseFloat(req.param('locationLat'))
+
+			var locationObj = { 
+				"type": "Point", 
+				"coordinates": [lng, lat]
 			}
 
 			var eventObj = {
@@ -183,7 +189,7 @@ module.exports = {
 				startTime: req.param('startTime'),
 				endTime: req.param('endTime'),
 				eventType: req.param('eventType'),
-				spacesAvailable: req.param('spacesAvailable')
+				spacesAvailable: req.param('spacesAvailable'),
 				location: locationObj
 			}
 

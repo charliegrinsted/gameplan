@@ -50,7 +50,9 @@ module.exports.routes = {
 
 	'POST /search/users': 'UserController.search',
 
-	'POST /search/teams': 'TeamController.search',		
+	'POST /search/teams': 'TeamController.search',
+
+	'POST /search/events/nearby': 'EventController.nearby',
 
 	'GET /teams/:id': 'TeamController.show',
 

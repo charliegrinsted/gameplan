@@ -11,6 +11,16 @@
 	</div>
 	<div class="row">
 		<div class="w12 wysiwyg">
+			<h2>Events nearby</h2>
+			<p>Find an event nearby. You may need to allow permission to use your location.</p>
+			<input type="hidden" id="geoLocationLat">
+			<input type="hidden" id="geoLocationLng">
+			<button id="locator">Show nearby events</button>
+			<div id="dump"></div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="w12 wysiwyg">
 			<% _.each(events, function(thisEvent) { %>
 			<% if (thisEvent.eventIsPublic != false) { %>
 			<div data-id="<%= thisEvent.id %>" data-model="event">
@@ -22,3 +32,42 @@
 		</div>
 	</div>
 </div>
+<script>
+$l.ready(function() {
+
+	var dumpBox = $l.id('dump');
+	var button = $l.id('locator');
+
+	var showPosition = function(position) {
+
+		var lat = position.coords.latitude; // store the latitude
+		var lng = position.coords.longitude; // store the longitude
+
+		$l.ajax.post(
+			'/search/events/nearby', // the API URL that the POST request is made to
+			{ lat: lat, lng: lng }, // pass the latitude and longitude to the server as POST request parameters
+			function(response) { // parse the server response
+				console.log(response);
+			}
+		);
+	}
+
+	$l.dom.setEvent(
+		button,
+		'click',
+		function() {
+			if (navigator.geolocation) {
+				
+				var position = navigator.geolocation.getCurrentPosition(showPosition);
+
+			 } else {
+				// need to have a no-geolocation error here
+			}
+		}
+	);
+
+	//var googleMap = $l.id('map_canvas');
+	//var thisTeam = $l.dom.data(button, 'teamID');
+
+});
+</script>

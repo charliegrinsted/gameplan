@@ -44,6 +44,20 @@ module.exports = {
 		});
 	},
 
+	nearby: function(req, res, next){
+
+		var lat = req.param('lat'); // get the latitude from POST
+		var lng = req.param('lng'); // get the longitude from POST
+
+		var locationObj = {
+			lat : lat,
+			lng : lng
+		}
+
+		res.json(locationObj);
+
+	},
+
 	show: function(req, res, next) {
 
 		var now = new Date(moment().format('YYYY-MM-DDTHH:mm:ss.SSS') + 'Z');

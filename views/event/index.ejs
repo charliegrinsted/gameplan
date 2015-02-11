@@ -16,7 +16,7 @@
 			<input type="hidden" id="geoLocationLat">
 			<input type="hidden" id="geoLocationLng">
 			<button id="locator">Show nearby events</button>
-			<div id="dump"></div>
+			<div id="map-canvas"></div>
 		</div>
 	</div>
 	<div class="row">
@@ -32,11 +32,44 @@
 		</div>
 	</div>
 </div>
+<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
 <script>
 $l.ready(function() {
 
 	var dumpBox = $l.id('dump');
 	var button = $l.id('locator');
+
+	var plotMapPoints = function(locations, lat, lng){
+
+		var map = new google.maps.Map(document.getElementById('map-canvas'), {
+			zoom: 10,
+			center: new google.maps.LatLng(lat, lng),
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		});
+
+		var infowindow = new google.maps.InfoWindow();
+		var marker, i;
+
+		for (i = 0; i < locations.length; i++) {
+
+			var toolTipContent = "<a href=/events/" + locations[i].obj._id + ">" + locations[i].obj.eventTitle + "</a>"
+
+			var thisLat = locations[i].obj.location.coordinates[1];
+			var thisLng = locations[i].obj.location.coordinates[0];
+
+			marker = new google.maps.Marker({
+				position: new google.maps.LatLng(thisLat, thisLng),
+				map: map
+			});
+
+			google.maps.event.addListener(marker, 'click', (function(marker, i) {
+				return function() {
+					infowindow.setContent(toolTipContent);
+					infowindow.open(map, marker);
+				}
+			})(marker, i));
+		}
+	}
 
 	var showPosition = function(position) {
 
@@ -47,7 +80,10 @@ $l.ready(function() {
 			'/search/events/nearby', // the API URL that the POST request is made to
 			{ lat: lat, lng: lng }, // pass the latitude and longitude to the server as POST request parameters
 			function(response) { // parse the server response
-				console.log(response);
+				var locations = response.results;
+				console.log(locations);
+
+				plotMapPoints(locations, lat, lng);				
 			}
 		);
 	}

@@ -46,8 +46,8 @@ module.exports = {
 
 	nearby: function(req, res, next){
 
-		var lat = parseFloat(req.param('lat')); // get the latitude from POST
-		var lng = parseFloat(req.param('lng')); // get the longitude from POST
+		var lat = parseFloat(req.param('lat')); // get the latitude from POST and make it a number
+		var lng = parseFloat(req.param('lng')); // get the longitude from POST and make it a number
 
 		var locationObj = {
 			lat : lat,
@@ -56,23 +56,18 @@ module.exports = {
 
 		Event.native(function(err, collection) {
 			collection.geoNear(lng, lat, {
-				// limit: limit,
-				maxDistance: 2000, // two kilometre radius
+				maxDistance: 0.001, // one kilometre radius?
 				//query: {}, // allows filtering in the future
-				distanceMultiplier: 6371, // converts radians to miles (use 6371 for km)
 				spherical : true
-			}, function(mongoErr, docs) {
+			}, function(mongoErr, results) {
 				if (mongoErr) {
 					console.error(mongoErr);
 					res.send('geoProximity failed with error='+mongoErr);
 				} else {
-					console.log('docs=',docs);
-					res.json(docs.results);
+					res.json(results);
 				}
 		  	});
 		});		
-
-		// res.json(locationObj);
 
 	},
 

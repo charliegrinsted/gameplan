@@ -54,7 +54,25 @@ module.exports = {
 			lng : lng
 		}
 
-		res.json(locationObj);
+		Event.native(function(err, collection) {
+			collection.geoNear(lng, lat, {
+				// limit: limit,
+				maxDistance: 2000, // two kilometre radius
+				//query: {}, // allows filtering in the future
+				distanceMultiplier: 6371, // converts radians to miles (use 6371 for km)
+				spherical : true
+			}, function(mongoErr, docs) {
+				if (mongoErr) {
+					console.error(mongoErr);
+					res.send('geoProximity failed with error='+mongoErr);
+				} else {
+					console.log('docs=',docs);
+					res.json(docs.results);
+				}
+		  	});
+		});		
+
+		// res.json(locationObj);
 
 	},
 
@@ -75,7 +93,7 @@ module.exports = {
 				return new_data;
 			});
 
-  			return [teamData, eventData];
+			return [teamData, eventData];
 		})
 		.spread(function(teamData, eventData){
 			eventData.eventTeam = teamData; // set the EventTeam attribute to the team data we've retrieved
@@ -91,6 +109,11 @@ module.exports = {
 
 	create: function(req, res, next){
 
+		var locationObj = {
+			x: req.param('locationLat'),
+			y: req.param('locationLng')
+		}
+
 		// Create an object containing all of the parameters passed in by the user sign-up form
 		var eventObj = {
 			eventTitle: req.param('eventTitle'),
@@ -99,8 +122,7 @@ module.exports = {
 			endTime: req.param('endTime'),
 			eventType: req.param('eventType'),
 			spacesAvailable: req.param('spacesAvailable'),
-			eventLat: req.param('locationLat'),
-			eventLng: req.param('locationLng')
+			location: locationObj
 		}
 
 		// Lookup the team to be associated with the event and double check permissions
@@ -150,6 +172,11 @@ module.exports = {
 			var currentUser = req.session.User.userName;
 			var thisEvent = req.param('id');
 
+			var locationObj = {
+				x: req.param('locationLat'),
+				y: req.param('locationLng')
+			}
+
 			var eventObj = {
 				eventTitle: req.param('eventTitle'),
 				eventTeam: req.param('eventTeam'),
@@ -157,6 +184,7 @@ module.exports = {
 				endTime: req.param('endTime'),
 				eventType: req.param('eventType'),
 				spacesAvailable: req.param('spacesAvailable')
+				location: locationObj
 			}
 
 			Event.update(thisEvent, eventObj)

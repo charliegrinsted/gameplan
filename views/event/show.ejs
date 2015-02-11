@@ -78,7 +78,7 @@ $l.ready(function() {
 <% } %>
 <script>
 	function initialize() {
-		var myLatlng = new google.maps.LatLng("<%- thisEvent.eventLat %>", "<%- thisEvent.eventLng %>");
+		var myLatlng = new google.maps.LatLng("<%- thisEvent.location.x %>", "<%- thisEvent.location.y %>");
 		var myOptions = {
 		zoom: 16,
 		center: myLatlng,

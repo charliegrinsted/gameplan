@@ -7,45 +7,50 @@
 
 module.exports = {
 
-attributes: {
+	types: {
 
-	eventTitle:{
-		type:'string'
-	},
+		point: function(latlng){
+			return latlng.x && latlng.y
+		},
 
-	eventTeam:{
-		model:'team'
-	},
+	},	
 
-	eventType:{
-		type:'string'
-	},
+	attributes: {
 
-	startTime:{
-		type:'datetime'
-	},
+		eventTitle:{
+			type:'string'
+		},
 
-	endTime:{
-		type:'datetime'
-	},
+		eventTeam:{
+			model:'team'
+		},
 
-	attendees:{
-		collection:'user',
-		via:'eventsAttending'
-	},
+		eventType:{
+			type:'string'
+		},
 
-	spacesAvailable:{
-		type:'integer'
-	},
+		startTime:{
+			type:'datetime'
+		},
 
-	eventLat:{
-		type:'float'
-	},
+		endTime:{
+			type:'datetime'
+		},
 
-	eventLng:{
-		type:'float'
+		attendees:{
+			collection:'user',
+			via:'eventsAttending'
+		},
+
+		spacesAvailable:{
+			type:'integer'
+		},
+
+		location: {
+			type: 'json',
+			point: true
+		},
 	}
-}
 
 };
 

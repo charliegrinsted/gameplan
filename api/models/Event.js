@@ -17,8 +17,8 @@ module.exports = {
 			model:'team'
 		},
 
-		eventType:{
-			type:'string'
+		eventInfo:{
+			type:'text'
 		},
 
 		startTime:{

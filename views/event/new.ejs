@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="w12 wysiwyg">
-			<h1>New Event</h1>
+			<h1>Create a new event</h1>
 			<form action="/events/create" method="POST">
 			<div class="row">
 				<div class="w12">
@@ -12,6 +12,10 @@
 			</div>
 			<div class="row">
 				<div class="w6">
+					<label for="eventInfo">Event Information</label>
+					<textarea name="eventInfo" id="eventInfo" cols="30" rows="10"></textarea>
+				</div>
+				<div class="w6 last">
 					<label for="eventTeam">Which team is this associated with?</label>
 					<select name="eventTeam" id="eventTeam">
 					<% _.each(session.User.teamsAdministered, function(team) { %>
@@ -19,21 +23,11 @@
 					<% }) %>
 					</select>
 				</div>
-				<div class="w6 last">
-					<label for="eventType">Event Type</label>
-					<select name="eventType" id="eventType">
-						<option value="game">Game</option>
-						<option value="training">Training</option>
-						<option value="social">Social</option>
-					</select>
-				</div>
 			</div>
 			<div class="row">
 				<div class="w12">
 					<h2>Spaces available</h2>
 					<input type="number" value="10" name="spacesAvailable">
-					<input type="hidden" id="locationLat" name="locationLat">	
-					<input type="hidden" id="locationLng" name="locationLng">	
 				</div>
 			</div>
 		</div>
@@ -64,6 +58,8 @@
 			<label class="h m" for="location">Where?</label>
 			<input type="text" name="location" class="input wide" id="location" value="" placeholder="Type a name, address or postcode">
 			<div id="map-canvas"></div>
+			<input type="hidden" id="locationLat" name="locationLat">
+			<input type="hidden" id="locationLng" name="locationLng">
 		</div>
 	</div>
 </div>

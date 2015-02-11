@@ -104,6 +104,18 @@ module.exports = {
 
 	create: function(req, res, next){
 
+		if (req.param('startTime') > req.param('endTime')){
+
+			var timeError = [{
+				name: 'Date/Time mismatch',
+				message: 'The event start time cannot be after the end time'
+			}]
+			req.session.flashMsg = {
+				err: timeError
+			}
+			res.redirect('/create/event');
+		}		
+
 		var lng = parseFloat(req.param('locationLng'));
 		var lat = parseFloat(req.param('locationLat'))
 
@@ -116,10 +128,10 @@ module.exports = {
 		var eventObj = {
 			eventTitle: req.param('eventTitle'),
 			eventTeam: req.param('eventTeam'),
+			eventInfo: req.param('eventInfo'),
+			spacesAvailable: req.param('spacesAvailable'),
 			startTime: req.param('startTime'),
 			endTime: req.param('endTime'),
-			eventType: req.param('eventType'),
-			spacesAvailable: req.param('spacesAvailable'),
 			location: locationObj
 		}
 
@@ -165,7 +177,22 @@ module.exports = {
 
 	update: function(req, res, next) {
 
+		thisEventId = req.param('id');
+		console.log(thisEventId);
+
 		if (req.session.User.userName){
+
+			if (req.param('startTime') > req.param('endTime')){
+
+				var timeError = [{
+					name: 'Date/Time mismatch',
+					message: 'The event start time cannot be after the end time'
+				}]
+				req.session.flashMsg = {
+					err: timeError
+				}
+				res.redirect('/events/edit/' + req.param('id'));
+			}
 
 			var currentUser = req.session.User.userName;
 			var thisEvent = req.param('id');
@@ -181,10 +208,10 @@ module.exports = {
 			var eventObj = {
 				eventTitle: req.param('eventTitle'),
 				eventTeam: req.param('eventTeam'),
+				eventInfo: req.param('eventInfo'),
+				spacesAvailable: req.param('spacesAvailable'),
 				startTime: req.param('startTime'),
 				endTime: req.param('endTime'),
-				eventType: req.param('eventType'),
-				spacesAvailable: req.param('spacesAvailable'),
 				location: locationObj
 			}
 

@@ -12,6 +12,10 @@
 			</div>
 			<div class="row">
 				<div class="w6">
+					<label for="eventInfo">Event Information</label>
+					<textarea name="eventInfo" id="eventInfo" cols="30" rows="10"></textarea>
+				</div>
+				<div class="w6 last">
 					<label for="eventTeam">Which team is this associated with?</label>
 					<select name="eventTeam" id="eventTeam">
 					<% _.each(session.User.teamsAdministered, function(team) { %>
@@ -19,21 +23,11 @@
 					<% }) %>
 					</select>
 				</div>
-				<div class="w6 last">
-					<label for="eventType">Event Type</label>
-					<select name="eventType" id="eventType">
-						<option value="game"<% if (thisEvent.eventType == 'game'){ %> selected="selected"<% } %>>Game</option>
-						<option value="training"<% if (thisEvent.eventType == 'training'){ %> selected="selected"<% } %>>Training</option>
-						<option value="social"<% if (thisEvent.eventType == 'social'){ %> selected="selected"<% } %>>Social</option>
-					</select>
-				</div>
 			</div>
 			<div class="row">
 				<div class="w12">
 					<h2>Spaces available</h2>
 					<input type="number" value="<%= thisEvent.spacesAvailable %>" name="spacesAvailable">
-					<input type="hidden" id="locationLat" name="locationLat">	
-					<input type="hidden" id="locationLng" name="locationLng">	
 				</div>
 			</div>
 		</div>
@@ -64,6 +58,8 @@
 			<label class="h m" for="location">Where?</label>
 			<input type="text" name="location" class="input wide" id="location" value="" placeholder="Type a name, address or postcode">
 			<div id="map-canvas"></div>
+			<input type="hidden" id="locationLat" name="locationLat" value="<%- thisEvent.location.coordinates[1] %>">	
+			<input type="hidden" id="locationLng" name="locationLng" value="<%- thisEvent.location.coordinates[0] %>">	
 		</div>
 	</div>
 </div>
@@ -104,7 +100,7 @@
 	});
 
 	function initializeMap() {
-		var myLatlng = new google.maps.LatLng(51.517503,-0.133896);
+		var myLatlng = new google.maps.LatLng("<%- thisEvent.location.coordinates[1] %>", "<%- thisEvent.location.coordinates[0] %>");
 		var mapOptions = {
 			zoom: 10,
 			center: myLatlng

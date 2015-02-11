@@ -78,11 +78,11 @@ $l.ready(function() {
 <% } %>
 <script>
 	function initialize() {
-		var myLatlng = new google.maps.LatLng("<%- thisEvent.location.x %>", "<%- thisEvent.location.y %>");
+		var myLatlng = new google.maps.LatLng("<%- thisEvent.location.coordinates[1] %>", "<%- thisEvent.location.coordinates[0] %>");
 		var myOptions = {
-		zoom: 16,
-		center: myLatlng,
-		mapTypeId: google.maps.MapTypeId.ROADMAP
+			zoom: 16,
+			center: myLatlng,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
 		}
 		var map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
 	}

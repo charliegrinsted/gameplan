@@ -110,7 +110,6 @@ module.exports = {
 				req.session.flashMsg = {
 					err: noAccountError
 				}
-				console.log(noAccountError);
 				res.redirect('/login');
 				return;
 			}

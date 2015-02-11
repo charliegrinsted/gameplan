@@ -22,6 +22,15 @@
 	</head>
 
 	<body>
+	<% if (session.authenticated && session.User.userNotifications.length > 0) { %>
+	<div class="off-canvas wysiwyg">
+		<ul>
+		<% _.each(session.User.userNotifications, function(item, i, notifications) { %>
+			<% if (item.read == false ) { %><li><%= item.title %></li><% } %>
+		<% }) %>
+		</ul>
+	</div>
+	<% } %>	
 	<div class="container dark-slab" id="header">
 		<div class="row row-flush">
 			<div class="w2 relative">
@@ -45,19 +54,6 @@
 			<% } %>
 		</div>
 	</div>
-	<% if (session.authenticated && session.User.userNotifications.length > 0) { %>
-	<div class="container wysiwyg">
-		<div class="row spaced">
-			<div class="w12">
-				<ul>
-				<% _.each(session.User.userNotifications, function(item, i, notifications) { %>
-					<% if (item.read == false ) { %><li><%= item.title %></li><% } %>
-				<% }) %>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<% } %>
 	<% if(flashMsg && flashMsg.err) { %>
 	<div class="container error-bar">
 		<div class="row">

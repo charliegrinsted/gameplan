@@ -229,7 +229,6 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 }
 
 
-#map-canvas{height:500px; display:block;}
 #map-canvas img{max-width:none;}
 
 /* --- NAVIGATION --- */
@@ -310,7 +309,14 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 
 /* --- Form Elements --- */
 
-#map-canvas{margin-bottom:1.4em;}
+#map-canvas{width:100%; display:block;}
+#map-canvas.hidden{height:0;}
+#map-canvas.active{height:500px;}
+
+#preloader{opacity:1; background-color:#fff; margin-bottom:1em;}
+#preloader img{margin:0 auto; height:60px;}
+#preloader.hidden{opacity:0; display:none;}
+
 #startCal,
 #endCal{overflow:visible;}
 .input.wide{width:100%; font-size:1.2em; color:#FFF; background-color:#253149;}

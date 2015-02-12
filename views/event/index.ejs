@@ -16,9 +16,14 @@
 			<input type="hidden" id="geoLocationLat">
 			<input type="hidden" id="geoLocationLng">
 			<button id="locator">Show nearby events</button>
-			<div id="map-canvas"></div>
 		</div>
 	</div>
+</div>
+<div id="preloader" class="hidden">
+	<img src="/images/loading-spin.svg" width="64" height="64">
+</div>
+<div id="map-canvas" class="hidden"></div>
+<div class="container">	
 	<div class="row">
 		<div class="w12 wysiwyg">
 			<% _.each(events, function(thisEvent) { %>
@@ -38,14 +43,21 @@ $l.ready(function() {
 
 	var dumpBox = $l.id('dump');
 	var button = $l.id('locator');
+	var map_l = $l('#map-canvas');
+	var preloader = $l('#preloader');
 
 	var plotMapPoints = function(locations, lat, lng){
 
 		var map = new google.maps.Map(document.getElementById('map-canvas'), {
 			zoom: 10,
 			center: new google.maps.LatLng(lat, lng),
-			mapTypeId: google.maps.MapTypeId.ROADMAP
+			mapTypeId: google.maps.MapTypeId.ROADMAP,
+			scrollwheel: false,
+			draggable: false			
 		});
+
+		$l.css.addClass(preloader, 'hidden');
+		$l.css.addClass(map_l, 'active');
 
 		var infowindow = new google.maps.InfoWindow();
 		var marker, i;
@@ -94,6 +106,7 @@ $l.ready(function() {
 		function() {
 			if (navigator.geolocation) {
 				
+				$l.css.removeClass(preloader, 'hidden');
 				var position = navigator.geolocation.getCurrentPosition(showPosition);
 
 			 } else {

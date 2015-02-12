@@ -6,8 +6,10 @@
 		</div>
 		<% if (session.authenticated && session.User.userName == thisEvent.eventTeam.teamAdmin.userName){ %>
 		<a class="cta-submit inline b right" href="/events/edit/<%= thisEvent.id %>">Edit this event</a>
-		<% } else { %>
+		<% } else if ((pos = thisEvent.attendees.map(function(e) { return e.id; }).indexOf(session.User.id)) == -1) /* check to see if they're already a team member */ { %> 
 		<a class="cta-submit inline b right" href="/events/<%= thisEvent.id %>/rsvp">Join this event</a>
+		<% } else if ((pos = thisEvent.attendees.map(function(e) { return e.id; }).indexOf(session.User.id)) >= 0) /* check to see if they're already a team member */ { %>
+		<a class="cta-submit inline b right negative" href="/events/<%= thisEvent.id %>/cancel">Cancel your attendance</a>		
 		<% } %>
 	</div>
 	<div class="row">

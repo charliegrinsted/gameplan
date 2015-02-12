@@ -76,6 +76,8 @@ module.exports.routes = {
 
 	'GET /events/:id/rsvp': 'EventController.rsvp',
 
+	'GET /events/:id/cancel': 'EventController.cancel',
+
 	'GET /events/edit/:id': 'EventController.edit',
 
 	'GET /events/:id/delete': 'EventController.delete',

@@ -152,7 +152,7 @@ module.exports = {
 					if (err) return next(err);
 
 					savedEvent.attendees.add(team.teamAdmin.id); // add yourself to the list of attendees when creating the event
-
+					savedEvent.spacesAvailable = (savedEvent.spacesAvailable - 1);
 					// Create the notification and send it to everyone in the team
 					var content = team.teamAdmin.firstName + " " + team.teamAdmin.lastName + " created a new event for " + team.teamName;
 					var title = "A new event";
@@ -179,7 +179,7 @@ module.exports = {
 	update: function(req, res, next) {
 
 		thisEventId = req.param('id');
-		
+
 		if (req.session.User.userName){
 
 			if (req.param('startTime') > req.param('endTime')){
@@ -271,7 +271,41 @@ module.exports = {
 			}
 		});
 
-	},	
+	},
+
+	cancel: function(req, res, next){
+
+		var thisEvent = req.param('id');
+		var activeUser = req.session.User.id;
+
+		if (req.session.User.userName){
+
+			Event.findOneById(thisEvent)
+			.populateAll()
+			.exec(function(err, eventToUpdate) {
+				// add error handling
+				eventToUpdate.spacesAvailable = (eventToUpdate.spacesAvailable + 1); // take up a space
+				eventToUpdate.attendees.remove(activeUser); // add yourself to the event attendees list
+				eventToUpdate.save(function(err, user) {
+					
+					if (err){
+						res.redirect('/events' + thisEvent);
+					}
+
+					res.redirect('/events/' + thisEvent);
+
+				});
+			});	
+		}
+
+		else {
+
+			// PUT SOME PROPER ERROR HANDLING HERE
+
+			res.redirect('/');
+
+		}
+	},
 
 	rsvp: function(req, res, next){
 
@@ -292,7 +326,7 @@ module.exports = {
 						res.redirect('/events' + thisEvent);
 					}
 
-					res.redirect('/events/' + thisEvent); // take user to their profile once signed in
+					res.redirect('/events/' + thisEvent);
 
 				});
 			});	

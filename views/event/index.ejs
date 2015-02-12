@@ -1,11 +1,9 @@
+<h1 class="invisible">Events</h1>
 <div class="container spaced">
 	<div class="row">
-		<div class="w6 wysiwyg">
-			<h1>Events</h1>
-		</div>
-		<div class="w6 last">
+		<div class="w12 wysiwyg">
 			<ul class="nav-secondary">
-				<li><a href="/create/event">New Event</a></li>
+				<li><a href="/create/event">Create Event</a></li>
 			</ul>
 		</div>
 	</div>
@@ -28,20 +26,6 @@
 	<img src="/images/loading-spin.svg" width="64" height="64">
 </div>
 <div id="map-canvas" class="hidden"></div>
-<div class="container">	
-	<div class="row">
-		<div class="w12 wysiwyg">
-			<% _.each(events, function(thisEvent) { %>
-			<% if (thisEvent.eventIsPublic != false) { %>
-			<div data-id="<%= thisEvent.id %>" data-model="event">
-				<a href="/events/<%= thisEvent.id %>"><p><%= thisEvent.eventTitle %></p></a>
-				<p>The event is organised by <%= thisEvent.eventTeam.teamName %></p>			
-			</div>
-			<% } %>
-			<% }) %>
-		</div>
-	</div>
-</div>
 <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
 <script>
 

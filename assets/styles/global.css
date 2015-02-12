@@ -250,7 +250,7 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 #m-nav-toggle{display:none;}
 
 /* --- Colour Containers --- */
-.off-canvas{position:absolute; right:0; top:0; background-color:#000; color:#FFF;}
+.off-canvas{display:none; position:absolute; right:0; top:0; background-color:#000; color:#FFF;}
 .container{background-color:#fff;}
 .dark-slab{background-color:#253149; color:#FFF;}
 .dark-slab a{color:#FFF;}

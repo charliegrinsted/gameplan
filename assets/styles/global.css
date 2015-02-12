@@ -55,7 +55,7 @@ a:hover{}
 .wysiwyg h1{font-size:2em; letter-spacing:-1px; line-height:1.25; margin-top:0.9375em; margin-bottom:0.3125em; font-weight:800;}
 
 .h.l,
-.wysiwyg h2{font-size:1.625em; line-height:1.15384615; margin-top:1.15384616em; margin-bottom:0.38461539em;}
+.wysiwyg h2{font-size:1.325em; line-height:1.15384615; margin-top:1.15384616em; margin-bottom:0.38461539em; text-align:center; text-transform:uppercase; font-weight:bold;}
 
 .h.m,
 .wysiwyg h3{font-size:1.375em; line-height:1.13636364; margin-top:1.36363637em; margin-bottom:0.45454546em;}
@@ -268,6 +268,7 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 /* --- Buttons --- */
 
 .cta-submit{font-family:'Lato', sans-serif; background-color:#FF9900; outline:0; border:0; border-radius:0.2em; font-size:1.2em; line-height:1.2em; vertical-align:middle; cursor:pointer; padding:0.4em 1em 0.5em 1em; color:#FFF; font-weight:800;}
+.cta-submit.locate{margin:0 auto 1em;}
 .cta-submit.right{float:right;}
 .cta-submit.block{display:block;}
 .cta-submit.inline{display:inline-block;}
@@ -309,11 +310,11 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 
 /* --- Form Elements --- */
 
-#map-canvas{width:100%; display:block;}
+#map-canvas{width:100%; display:block; height:500px;}
 #map-canvas.hidden{height:0;}
 #map-canvas.active{height:500px;}
 
-#preloader{opacity:1; background-color:#fff; margin-bottom:1em;}
+#preloader{opacity:1; background-color:#fff;}
 #preloader img{margin:0 auto; height:60px;}
 #preloader.hidden{opacity:0; display:none;}
 
@@ -333,19 +334,19 @@ input{display:block; clear:both;}
 @media (min-width:43.75em){
 
 .p,
-.wysiwyg p{max-width:36em;}
+.wysiwyg p{}
 
 .h.xl,
-.wysiwyg h1{font-size:2.5em; letter-spacing:normal; line-height:1.125; margin-top:0.73333334em; margin-bottom:0.24444445em; max-width:14.4em; margin-left:auto; margin-right:auto;}
+.wysiwyg h1{font-size:2.5em; letter-spacing:normal; line-height:1.125; margin-top:0.73333334em; margin-bottom:0.24444445em; margin-left:auto; margin-right:auto;}
 
 .h.l,
-.wysiwyg h2{font-size:2em; line-height:1.25; margin-top:1.03125em; margin-bottom:0.34375em; max-width:18em; margin-left:auto; margin-right:auto;}
+.wysiwyg h2{font-size:1.4em; line-height:1.25; margin-top:1.03125em; margin-bottom:0.34375em; margin-left:auto; margin-right:auto;}
 
 .h.m,
-.wysiwyg h3{font-size:1.5em; line-height:1.25; margin-top:1.37500001em; margin-bottom:0.45833334em; max-width:24em; margin-left:auto; margin-right:auto;}
+.wysiwyg h3{font-size:1.5em; line-height:1.25; margin-top:1.37500001em; margin-bottom:0.45833334em; margin-left:auto; margin-right:auto;}
 
 .h.s,
-.wysiwyg h4{line-height:1.22222222; margin-top:1.83333333em; margin-bottom:0.61111111em; max-width:32em; margin-left:auto; margin-right:auto;}
+.wysiwyg h4{line-height:1.22222222; margin-top:1.83333333em; margin-bottom:0.61111111em; margin-left:auto; margin-right:auto;}
 
 }
 
@@ -356,16 +357,16 @@ input{display:block; clear:both;}
 .logo-home{left:30px;}
 
 .p,
-.wysiwyg p{max-width:42em;}
+.wysiwyg p{}
 
 .h.xl,
-.wysiwyg h1{font-size:3em; letter-spacing:normal; line-height:1.05; margin-top:0.6875em; margin-bottom:0.22916667em; max-width:14.66667em; margin-left:auto; margin-right:auto;}
+.wysiwyg h1{font-size:3em; letter-spacing:normal; line-height:1.05; margin-top:0.6875em; margin-bottom:0.22916667em; margin-left:auto; margin-right:auto;}
 
 .h.l,
-.wysiwyg h2{font-size:2.25em; line-height:1.25; margin-top:1.03125em; margin-bottom:0.34375em; max-width:16.88889em; margin-left:auto; margin-right:auto;}
+.wysiwyg h2{font-size:1.6em; line-height:1.25; margin-top:1.03125em; margin-bottom:0.34375em; margin-left:auto; margin-right:auto;}
 
 .h.m,
-.wysiwyg h3{font-size:1.75em; line-height:1.25; margin-top:1.37500001em; margin-bottom:0.45833334em; max-width:21.71429em; margin-left:auto; margin-right:auto;}
+.wysiwyg h3{font-size:1.75em; line-height:1.25; margin-top:1.37500001em; margin-bottom:0.45833334em; margin-left:auto; margin-right:auto;}
 
 .h.s,
 .wysiwyg h4{max-width:33.77778em;}

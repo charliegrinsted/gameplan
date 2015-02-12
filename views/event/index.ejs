@@ -10,12 +10,17 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="w12 wysiwyg">
+		<div class="w12 wysiwyg centred">
 			<h2>Events nearby</h2>
 			<p>Find an event nearby. You may need to allow permission to use your location.</p>
-			<input type="hidden" id="geoLocationLat">
-			<input type="hidden" id="geoLocationLng">
-			<button id="locator">Show nearby events</button>
+
+			<form onsubmit="return false" oninput="output.value = distance.value">
+				<label for="distance">Distance (in kilometres)</label>
+				<input type="range" name="distance" id="distance" min="5" value="10" max="250" step="5" ondrag="updateDistance(value)">
+				<output for="distance" id="distance-output" name="output">10</output>
+			</form>
+
+			<button id="locator" class="cta-submit locate">Find events</button>
 		</div>
 	</div>
 </div>
@@ -39,6 +44,11 @@
 </div>
 <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
 <script>
+
+var updateDistance = function(vol) {
+	document.getElementById('distance-output').value = vol;
+}
+
 $l.ready(function() {
 
 	var dumpBox = $l.id('dump');
@@ -87,10 +97,11 @@ $l.ready(function() {
 
 		var lat = position.coords.latitude; // store the latitude
 		var lng = position.coords.longitude; // store the longitude
+		var distance = document.getElementById('distance').value;
 
 		$l.ajax.post(
 			'/search/events/nearby', // the API URL that the POST request is made to
-			{ lat: lat, lng: lng }, // pass the latitude and longitude to the server as POST request parameters
+			{ lat: lat, lng: lng, distance: distance }, // pass the latitude and longitude to the server as POST request parameters
 			function(response) { // parse the server response
 				var locations = response.results;
 				console.log(locations);

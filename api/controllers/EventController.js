@@ -48,6 +48,7 @@ module.exports = {
 
 		var lat = parseFloat(req.param('lat')); // get the latitude from POST and make it a number
 		var lng = parseFloat(req.param('lng')); // get the longitude from POST and make it a number
+		var distance = parseFloat(req.param('distance'));
 
 		var locationObj = {
 			lat : lat,
@@ -56,7 +57,7 @@ module.exports = {
 
 		Event.native(function(err, collection) {
 			collection.geoNear(lng, lat, {
-				maxDistance: 0.001, // one kilometre radius?
+				maxDistance: distance / 1000, // one kilometre radius?
 				//query: {}, // allows filtering in the future
 				spherical : true
 			}, function(mongoErr, results) {

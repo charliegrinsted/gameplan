@@ -272,6 +272,47 @@ module.exports = {
 
 	},
 
+	leaveTeam: function(req, res, next){
+
+		var thisTeam = req.param('id');
+		var activeUser = req.session.User.id;
+
+		if (req.session.User.userName){
+
+			Team.findOneById(thisTeam)
+			.populateAll()
+			.exec(function(err, teamToLeave) {
+
+				if (teamToLeave.teamAdmin.id == activeUser){
+
+					// add an error flash saying you can't quit because you're the admin
+
+					res.redirect('/teams/' + thisTeam);
+
+				} else {
+
+					// add error handling
+					teamToLeave.teamMembers.remove(activeUser); // remove yourself from the team
+					teamToLeave.save(function(err, team) {
+						
+						if (err) return next(err);
+
+						res.redirect('/teams/' + thisTeam);
+
+					});
+				}	
+			});	
+		}
+
+		else {
+
+			// PUT SOME PROPER ERROR HANDLING HERE
+
+			res.redirect('/');
+
+		}
+	},	
+
 	requestToJoinTeam: function(req, res, next){
 
 		var thisTeam = req.param('id');

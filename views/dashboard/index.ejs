@@ -36,7 +36,7 @@
 			<% } %>
 				<li>
 					<a href="/teams/<%= team.id %>"><%= team.teamName %></a>
-		  			<a class="cta-submit negative inline" href="">Leave</a>
+		  			<a class="cta-submit negative inline" href="/teams/<%= team.id %>/leave">Leave</a>
 		  			<a class="cta-submit" href="/teams/<%= team.id %>">View</a>
 	  			</li>
 			<% if (i == user.userTeams.length - 1) { %>

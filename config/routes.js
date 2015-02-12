@@ -72,6 +72,8 @@ module.exports.routes = {
 
 	'GET /teams/:id/:user/accept': 'TeamController.acceptJoinRequest',
 
+	'GET /teams/:id/leave': 'TeamController.leaveTeam',
+
 	'GET /events/:id/rsvp': 'EventController.rsvp',
 
 	'GET /events/edit/:id': 'EventController.edit',

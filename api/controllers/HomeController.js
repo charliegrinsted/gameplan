@@ -17,7 +17,7 @@ module.exports = {
 			var now = new Date(moment().format('YYYY-MM-DDTHH:mm:ss.SSS') + 'Z'); // get the current time
 
 			User.findOneById(currentUser) // query to return the details for the active user
-			.populate('eventsAttending', {endTime: {'>=': now}}) // populate user object with only upcoming, not past, events.
+			.populate('eventsAttending', {endTime: {'>=': now}, sort: 'startTime ASC' }) // populate user object with only upcoming, not past, events.
 			.populate('userTeams')
 			.populate('friendRequestsReceived')
 			.exec(function (err, user){

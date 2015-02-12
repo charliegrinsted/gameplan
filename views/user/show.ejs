@@ -14,7 +14,7 @@
 <div class="container wysiwyg">
 	<div class="row">
 		<div class="w6">
-			<h2><%= user.firstName %> plays for...</h2>
+			<h2>Teams</h2>
 			<% _.each(user.userTeams, function(team, i, teams) { %>
 				<% if (i == 0) { %>
 				<ul>
@@ -26,7 +26,7 @@
 			<% }) %>
 		</div>
 		<div class="w6 last">
-			<h2><%= user.firstName %> is going to...</h2>
+			<h2>Events</h2>
 			<% _.each(user.eventsAttending, function(thisEvent, i, events) { %>
 			<% if (i == 0) { %>
 			<ul>

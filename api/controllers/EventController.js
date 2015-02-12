@@ -57,7 +57,7 @@ module.exports = {
 
 		Event.native(function(err, collection) {
 			collection.geoNear(lng, lat, {
-				maxDistance: distance / 1000, // one kilometre radius?
+				maxDistance: distance / 10000, // one kilometre radius?
 				//query: {}, // allows filtering in the future
 				spherical : true
 			}, function(mongoErr, results) {

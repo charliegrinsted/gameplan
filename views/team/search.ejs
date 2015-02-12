@@ -1,18 +1,28 @@
-<div class="container">
+<h1 class="invisible">Search Results</h1>
+<div class="container spaced">
 	<div class="row">
-		<div class="w12 wysiwyg">
-			<h1>Search Results</h1>
+		<div class="w12">
+			<ul class="nav-secondary">
+				<li><a href="/create/team">Create Team</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="row">
+		<div class="w12 wysiwyg centred">
+			<h2>Find a team</h2>
 			<form action="/search/teams" method="POST">
-				<input type="text" id="findTeam" name="query">
-			</form>			
+				<input class="input med breaker" type="text" id="findTeam" name="query" placeholder="Enter a team name">
+			</form>		
 			<% if (teams.length == 0) { %>
-			<p>No results found for your query</p>
-			<% } %>
+			<p>No results found for your search.</p>
+			<% } else { %>
+			<p>The following results matched your search:</p>
 			<% _.each(teams, function(team) { %>
 			<div data-id="<%= team.id %>">
 				<p><a href="/teams/<%= team.id %>"><%= team.teamName %></a></p>
 			</div>
 			<% }) %>
+			<% } %>
 		</div>
 	</div>
 </div>

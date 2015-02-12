@@ -244,8 +244,8 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 #nav-social li{display:inline-block;}
 #nav-social li a{}
 
-.nav-secondary{float:right;}
-.nav-secondary li{background-color:#FF9900; font-weight:800; display:inline-block; font-size:1.2em; font-family:'Lato', sans-serif; margin-left:1.2em; outline:0; border:0; border-radius:0.2em; padding:0.4em 1em 0.5em 1em;}
+.nav-secondary{text-align:center;}
+.nav-secondary li{background-color:#FF9900; font-weight:800; display:inline-block; font-size:1.2em; font-family:'Lato', sans-serif; margin:0 1.2em; outline:0; border:0; border-radius:0.2em; padding:0.4em 1em 0.5em 1em;}
 .nav-secondary a{color:#FFF;}
 #m-nav-toggle{display:none;}
 
@@ -268,6 +268,9 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 /* --- Buttons --- */
 
 .cta-submit{font-family:'Lato', sans-serif; background-color:#FF9900; outline:0; border:0; border-radius:0.2em; font-size:1.1em; line-height:1.2em; vertical-align:middle; cursor:pointer; padding:0.4em 1em 0.5em 1em; color:#FFF; font-weight:800;}
+
+.cta-submit.negative{background-color:#DE0200;}
+
 .cta-submit.locate{margin:0 auto 1em;}
 .cta-submit.right{float:right; right:0;}
 .cta-submit.block{display:block;}
@@ -284,6 +287,11 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 .svg-logo{width:70%; margin:0 auto;}
 .svg-logo svg{width:33.33%; height:33.33%; float:left; position:relative;}
 
+
+.dash-list{padding-top:0.6em;}
+.dash-list li{font-weight:bold; height:2.4em; line-height:2.4em; background-color:#eee; padding:1em; vertical-align:middle; margin-bottom:0.1em;}
+.dash-list li .cta-submit{float:right; margin-left:1em; display:inline-block;}
+.dash-list span{font-weight:normal;}
 
 #home-login-form{}
 #home-login-form input{margin:0 auto; font-family:'Lato', sans-serif; margin-top:1em; border:0; text-align:center;}
@@ -321,7 +329,8 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 
 #startCal,
 #endCal{overflow:visible;}
-.input.wide{width:100%; font-size:1.2em; color:#FFF; background-color:#253149;}
+.input.wide{width:100%; font-size:1.2em; color:#222; background-color:#eee;}
+.input.med{width:50%; font-size:1.2em; color:#222; background-color:#eee; margin:0 auto;}
 .input.breaker{margin-bottom:1em;}
 .friend-requests{display:inline-block;}
 .member{text-align:center;}

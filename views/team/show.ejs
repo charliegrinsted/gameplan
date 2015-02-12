@@ -23,48 +23,50 @@
 			<% }%>
 		</div>
 	</div>
-	<div class="row wysiwyg">
+</div>
+<% if (session.authenticated && session.User.userName == team.teamAdmin.userName && team.joinRequestsReceived.length > 0){ %>
+<div class="container dark-slab">
+	<div class="row">
 		<div class="w12">
-			<% if (session.authenticated && session.User.userName == team.teamAdmin.userName && team.joinRequestsReceived.length > 0){ %>
-			<div class="row">
-				<div class="w12">
-					<h2>Pending join requests</h2>
-					<% _.each(team.joinRequestsReceived, function(user, i) { %>
-					<div class="w4<% if (i % 3 == 0) { %> last<% } %>">
-						<p><a href="/users/<%= user.userName %>"><%= user.userName %></a></p>
-						<button class="cta-submit inline pending_user" data-userid="<%= user.id %>" data-teamid="<%= team.id %>">Accept</button>
-					</div>
-					<% }) %>
-				</div>
+			<h2 class="h l">Pending join requests</h2>
+			<% _.each(team.joinRequestsReceived, function(user, i) { %>
+			<div class="w4<% if (i % 3 == 0) { %> last<% } %>">
+				<p><a href="/users/<%= user.userName %>"><%= user.firstName %> <%= user.lastName %></a></p>
+				<button class="cta-submit inline pending_user" data-userid="<%= user.id %>" data-teamid="<%= team.id %>">Accept</button>
 			</div>
-			<% }%>
-			<div class="row">
-				<h2 class="h l">Upcoming Events</h2>
-				<% _.each(team.teamEvents, function(thisEvent, i, events) { %>
-					<% if (i == 0) { %>
-					<ul>
-					<% } %>				
-					<li><a href="/events/<%= thisEvent.id %>"><%= thisEvent.eventTitle %></a>
-					<span><%= moment(thisEvent.startTime).fromNow() %></span>
-					</li>
-					<% if (i == events.length ) { %>
-					</ul>
-					<% } %>				
-				<% }) %>
-			</div>
-			<div class="row">
-				<h2 class="h l">Members</h2>			
-				<% _.each(team.teamMembers, function(user, i, users) { %>
-					<% if (i == 0) { %>
-					<ul>
-					<% } %>	
-						<li><a href="/users/<%= user.userName %>"><%= user.firstName %> <%= user.lastName %></a></li>
-					<% if (i == users.length ) { %>
-					</ul>
-					<% } %>
-				<% }) %>
-			</div>
+			<% }) %>
+		</div>
+	</div>
+</div>
+<% }%>
+<div class="container">
+	<div class="row wysiwyg">
+		<div class="w4">
+			<h2 class="h l">Upcoming Events</h2>
+			<% _.each(team.teamEvents, function(thisEvent, i, events) { %>
+				<% if (i == 0) { %>
+				<ul>
+				<% } %>				
+				<li><a href="/events/<%= thisEvent.id %>"><%= thisEvent.eventTitle %></a>
+				<span><%= moment(thisEvent.startTime).fromNow() %></span>
+				</li>
+				<% if (i == events.length ) { %>
+				</ul>
+				<% } %>				
+			<% }) %>
 		</div>	
+		<div class="w4">
+			<h2 class="h l">Members</h2>
+			<% _.each(team.teamMembers, function(user, i, users) { %>
+				<% if (i == 0) { %>
+				<ul>
+				<% } %>	
+					<li><a href="/users/<%= user.userName %>"><%= user.firstName %> <%= user.lastName %></a></li>
+				<% if (i == users.length ) { %>
+				</ul>
+				<% } %>
+			<% }) %>
+		</div>
 	</div>
 </div>	
 <% if (session.authenticated && session.User.userName == team.teamAdmin.userName && team.joinRequestsReceived.length > 0){ %>

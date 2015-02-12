@@ -78,7 +78,8 @@ $l.ready(function() {
 			var infowindow = new google.maps.InfoWindow();
 			var marker = new google.maps.Marker({
 				position: new google.maps.LatLng(thisLat, thisLng),
-				map: map
+				map: map,
+				animation: google.maps.Animation.DROP
 			});
 
 			google.maps.event.addListener(marker, 'click', (function(marker, i) {

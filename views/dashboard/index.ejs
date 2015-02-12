@@ -32,9 +32,13 @@
 			<h2>Your Teams</h2>
 			<% _.each(user.userTeams, function(team, i) { %>
 			<% if (i == 0) { %>
-			<ul>
+			<ul class="dash-list team">
 			<% } %>
-				<li><a href="/teams/<%= team.id %>"><%= team.teamName %></a></li>
+				<li>
+					<a href="/teams/<%= team.id %>"><%= team.teamName %></a>
+		  			<a class="cta-submit negative inline" href="">Leave</a>
+		  			<a class="cta-submit" href="/teams/<%= team.id %>">View</a>
+	  			</li>
 			<% if (i == user.userTeams.length - 1) { %>
 			</ul>
 			<% } %>
@@ -44,10 +48,12 @@
 			<h2>Upcoming Events</h2>
 			<% _.each(user.eventsAttending, function(thisEvent, i) { %>
 			<% if (i == 0) { %>
-			<ul>
+			<ul class="dash-list event">
 			<% } %>
-				<li><a href="/events/<%= thisEvent.id %>"><%= thisEvent.eventTitle %></a> - <span><%= moment(thisEvent.startTime).fromNow() %></span>
-</li>
+				<li>
+					<a href="/events/<%= thisEvent.id %>"><%= thisEvent.eventTitle %></a> - <span><%= moment(thisEvent.startTime).fromNow() %></span>
+					<a class="cta-submit" href="/events/<%= thisEvent.id %>">View</a>
+				</li>
 			<% if (i == user.eventsAttending.length - 1) { %>
 			</ul>
 			<% } %>

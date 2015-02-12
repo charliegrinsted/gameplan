@@ -179,8 +179,7 @@ module.exports = {
 	update: function(req, res, next) {
 
 		thisEventId = req.param('id');
-		console.log(thisEventId);
-
+		
 		if (req.session.User.userName){
 
 			if (req.param('startTime') > req.param('endTime')){
@@ -285,6 +284,7 @@ module.exports = {
 			.populateAll()
 			.exec(function(err, eventToUpdate) {
 				// add error handling
+				eventToUpdate.spacesAvailable = (eventToUpdate.spacesAvailable -1); // take up a space
 				eventToUpdate.attendees.add(activeUser); // add yourself to the event attendees list
 				eventToUpdate.save(function(err, user) {
 					

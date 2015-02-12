@@ -68,17 +68,15 @@ $l.ready(function() {
 		$l.css.addClass(preloader, 'hidden');
 		$l.css.addClass(map_l, 'active');
 
-		var infowindow = new google.maps.InfoWindow();
-		var marker, i;
-
-		for (i = 0; i < locations.length; i++) {
+		for (var i = 0; i < locations.length; i++) {
 
 			var toolTipContent = "<a href=/events/" + locations[i].obj._id + ">" + locations[i].obj.eventTitle + "</a>"
 
 			var thisLat = locations[i].obj.location.coordinates[1];
 			var thisLng = locations[i].obj.location.coordinates[0];
 
-			marker = new google.maps.Marker({
+			var infowindow = new google.maps.InfoWindow();
+			var marker = new google.maps.Marker({
 				position: new google.maps.LatLng(thisLat, thisLng),
 				map: map
 			});

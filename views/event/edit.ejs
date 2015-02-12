@@ -41,12 +41,12 @@
 				<div class="w6">
 					<label class="h m" for="startTime">Start Time</label>
 					<div id="startCal"></div>
-					<input type="hidden" id="startTime" name="startTime" class="input" data-start="<%= thisEvent.startTime %>">
+					<input type="hidden" id="startTime" name="startTime" class="input" data-start="<%= thisEvent.startTime %>" value="<%= thisEvent.endTime %>">
 				</div>
 				<div class="w6 last">
 					<label class="h m" for="endTime">End Time</label>
 					<div id="endCal"></div>
-					<input type="hidden" id="endTime" name="endTime" class="input" data-end="<%= thisEvent.endTime %>">
+					<input type="hidden" id="endTime" name="endTime" class="input" data-end="<%= thisEvent.endTime %>" value="<%= thisEvent.endTime %>">
 				</div>
 			</div>
 		</div>

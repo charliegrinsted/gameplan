@@ -267,12 +267,13 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 
 /* --- Buttons --- */
 
-.cta-submit{font-family:'Lato', sans-serif; background-color:#FF9900; outline:0; border:0; border-radius:0.2em; font-size:1.2em; line-height:1.2em; vertical-align:middle; cursor:pointer; padding:0.4em 1em 0.5em 1em; color:#FFF; font-weight:800;}
+.cta-submit{font-family:'Lato', sans-serif; background-color:#FF9900; outline:0; border:0; border-radius:0.2em; font-size:1.1em; line-height:1.2em; vertical-align:middle; cursor:pointer; padding:0.4em 1em 0.5em 1em; color:#FFF; font-weight:800;}
 .cta-submit.locate{margin:0 auto 1em;}
-.cta-submit.right{float:right;}
+.cta-submit.right{float:right; right:0;}
 .cta-submit.block{display:block;}
 .cta-submit.inline{display:inline-block;}
 .cta-submit.disabled{background-color:#f3f3f3; color:#333; cursor:default;}
+.cta-submit.b{position:absolute; bottom:0;}
 
 /* --- CONTENT --- */
 

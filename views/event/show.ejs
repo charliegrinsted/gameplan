@@ -1,29 +1,32 @@
-<div class="container spaced">
-	<div class="row">
-		<div class="w8">
-			<a class="cta-submit inline" href="/events">Back to all events</a>
+<div class="container">
+	<div class="row relative">
+		<a class="cta-submit inline b" href="/events">Back to all events</a>
+		<div class="w12">
+			<h1 class="h l"><%= thisEvent.eventTitle %></h1>
 		</div>
-		<div class="w4 last">
-			<% if (session.authenticated && session.User.userName == thisEvent.eventTeam.teamAdmin.userName){ %>
-			<a class="cta-submit inline right" href="/events/edit/<%= thisEvent.id %>">Edit this event</a>
-			<% } else { %>
-			<a class="cta-submit inline right" href="/events/<%= thisEvent.id %>/rsvp">Join this event</a>
-			<% } %>
+		<% if (session.authenticated && session.User.userName == thisEvent.eventTeam.teamAdmin.userName){ %>
+		<a class="cta-submit inline b right" href="/events/edit/<%= thisEvent.id %>">Edit this event</a>
+		<% } else { %>
+		<a class="cta-submit inline b right" href="/events/<%= thisEvent.id %>/rsvp">Join this event</a>
+		<% } %>
+	</div>
+	<div class="row">
+		<div class="w12 centred">
+			<p>organised by</p>
+			<p><a href="/teams/<%= thisEvent.eventTeam.id %>"><%= thisEvent.eventTeam.teamName %></a></p>
 		</div>
 	</div>
 	<div class="row">
 		<div class="w12 wysiwyg">
-			<h1><%= thisEvent.eventTitle %></h1>
-			<p>The administrator is <a href="/users/<%= thisEvent.eventTeam.teamAdmin.userName %>"><%= thisEvent.eventTeam.teamAdmin.firstName %></a></p>
 			<% if (thisEvent.eventStatus == "past") { %>
 			<p>This event has already happened</p>
 			<% } %>
 		</div>
 	</div>
 	<div class="row">
-		<div class="w12">
-			<h2>Spaces Available: <%= thisEvent.spacesAvailable %></h2>
-			<p>This is for <%= thisEvent.eventTeam.teamName %></p>
+		<div class="w12 wysiwyg">
+			<h2>Spots left</h2>
+			<p><%= thisEvent.spacesAvailable %></p>
 		</div>
 	</div>
 	<div class="row">
@@ -41,7 +44,7 @@
 	<% }%>
 	<div class="row">
 		<div class="w12 wysiwyg">
-			<h2>Confirmed players</h2>
+			<h2>Who's in?</h2>
 			<div class="row">
 				<% _.each(thisEvent.attendees, function(user, i) { %>
 				<div class="w4<% if (i % 3 == 0) { %> last<% } %>">

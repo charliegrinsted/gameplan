@@ -76,7 +76,7 @@ $l.ready(function() {
 	}
 
 	var showPosition = function(position) {
-
+		
 		var lat = position.coords.latitude; // store the latitude
 		var lng = position.coords.longitude; // store the longitude
 		var distance = document.getElementById('distance').value;
@@ -103,6 +103,7 @@ $l.ready(function() {
 				var position = navigator.geolocation.getCurrentPosition(showPosition);
 
 			 } else {
+
 				// need to have a no-geolocation error here
 			}
 		}

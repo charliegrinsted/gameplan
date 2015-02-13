@@ -323,7 +323,7 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 #map-canvas.hidden{height:0;}
 #map-canvas.active{height:500px;}
 
-#preloader{opacity:1; background-color:#fff;}
+#preloader{opacity:1; background-color:#fff; padding-bottom:1em;}
 #preloader img{margin:0 auto; height:60px;}
 #preloader.hidden{opacity:0; display:none;}
 

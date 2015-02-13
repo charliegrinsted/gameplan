@@ -1,30 +1,32 @@
-<div class="container spaced">
-	<div class="row">
+<div class="container">
+	<div class="row relative">
+		<a class="cta-submit inline b" href="/teams">Back to all teams</a>
 		<div class="w12">
-			<a class="cta-submit inline" href="/teams">Back to all teams</a>
+			<h1 class="h l">Editing <%= team.teamName %></h1>
 		</div>
 	</div>
-	<div class="row">
-		<div class="w12 wysiwyg">
-			<h1>Editing <%= team.teamName %></h1>
+	<div class="row padded wysiwyg">
+		<div class="w6">
+			<h2>Team Details</h2>
 			<form action="/teams/update/<%= team.id %>" method="POST">
 				<label for="teamName">Team Name</label>
-				<input type="text" name="teamName">
-				<label for="teamSport">Sport</label>
-				<input type="text" name="teamSport">
-				<textarea name="teamInfo" id="teamInfo" cols="30" rows="10"></textarea>
+				<input class="input breaker" type="text" name="teamName">
+				<label for="teamInfo">Information</label>
+				<textarea name="teamInfo" id="teamInfo" cols="30" rows="10" class="input breaker"></textarea>
 				<input type="submit" class="cta-submit block" value="Save changes">
 			</form>
+		</div>
+		<div class="w6 last">
 			<h2>Team photo</h2>
 			<form action="/teams/manage/<%= team.id %>/photo" method="POST" enctype="multipart/form-data">
-				<input type="file" name="teamPhoto">
+				<input type="file" name="teamPhoto" class="input breaker" >
 				<input type="submit" class="cta-submit inline" value="Upload photo">
 			</form>
-		</div>
-	</div>
-	<div class="row">
-		<div class="w12 wysiwyg">
-			<a id="delete_team" href="/teams/<%= team.id %>/delete" class="cta-submit inline">Delete this team</a>
+			<div class="row padded">
+				<div class="w12">
+					<a id="delete_team" href="/teams/<%= team.id %>/delete" class="cta-submit negative">Delete this team</a>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

@@ -13,9 +13,9 @@
 			<p>Find an event nearby. You may need to allow permission to use your location.</p>
 
 			<form onsubmit="return false" oninput="output.value = distance.value">
-				<label for="distance">Distance (in kilometres)</label>
-				<input type="range" name="distance" id="distance" min="5" value="10" max="250" step="5" ondrag="updateDistance(value)">
-				<output for="distance" id="distance-output" name="output">10</output>
+				<label for="distance">Distance:</label>
+				<output for="distance" id="distance-output" name="output">10</output><span> kilometres</span>
+				<input class="input med" type="range" name="distance" id="distance" min="5" value="10" max="250" step="5" ondrag="updateDistance(value)">
 			</form>
 
 			<button id="locator" class="cta-submit locate">Find events</button>
@@ -97,6 +97,15 @@ $l.ready(function() {
 		button,
 		'click',
 		function() {
+
+			// this is temporary code to test Socket.IO. Remove before finalising
+			io.socket.get('/test/socket', function(data) {
+
+				console.log(data);
+
+			});
+			// this is temporary code to test Socket.IO. Remove before finalising
+
 			if (navigator.geolocation) {
 				
 				$l.css.removeClass(preloader, 'hidden');

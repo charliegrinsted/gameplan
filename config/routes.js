@@ -40,6 +40,8 @@ module.exports.routes = {
 
 	'/register': 'UserController.new',
 
+	'GET /test/socket': 'HomeController.test',
+
 	'GET /users/:userName': 'UserController.show',
 
 	'GET /users/:userName/add': 'UserController.sendFriendRequest',

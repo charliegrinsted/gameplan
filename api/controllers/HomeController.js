@@ -9,6 +9,17 @@ var moment = require('moment'); // include Moment.js for funky date formatting t
 
 module.exports = {
 
+
+	test: function (req, res) {
+
+		// Note, you can check whether this was a socket request
+		// with req.isSocket, and if so access the connecting
+		// socket with req.socket
+
+		res.json({"message": "Hello!"});
+
+	},
+
 	index: function(req, res, next){
 
 		if (req.session.authenticated){

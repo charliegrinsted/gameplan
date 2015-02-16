@@ -122,90 +122,94 @@ module.exports = {
 
 	create: function(req, res, next){
 
-		if (req.param('startTime') == ''){
+		var valid = true;
+		var lng = parseFloat(req.param('locationLng'));
+		var lat = parseFloat(req.param('locationLat'));
 
-			// set a flash error
-
-			return res.redirect('/create/event');
+		// probably turn this into a switch statement
+		var checkFields = function(param, message){
+			if (param == ''){
+				req.session.flashMsg = {
+					err: message
+				}
+				valid = false;
+			}
 		}
 
-		if (req.param('endTime') == ''){
-
-			// set a flash error
-
-			return res.redirect('/create/event');
-		}
+		checkFields(req.param('eventTitle'), "You haven't set a title!");
+		checkFields(req.param('startTime'), "You haven't set a start time!");
+		checkFields(req.param('endTime'), "You haven't set an end time!");
 
 		if (req.param('startTime') > req.param('endTime')){
 
-			var timeError = [{
-				name: 'Date/Time mismatch',
-				message: 'The event start time cannot be after the end time'
-			}]
+			var message = [{message: 'The event start time cannot be after the end time'}]
 			req.session.flashMsg = {
-				err: timeError
+				err: message
 			}
-			return res.redirect('/create/event');
-		}		
-
-		var lng = parseFloat(req.param('locationLng'));
-		var lat = parseFloat(req.param('locationLat'))
-
-		var locationObj = { 
-			"type": "Point", 
-			"coordinates": [lng, lat]
+			valid = false;
 		}
 
-		// Create an object containing all of the parameters passed in by the user sign-up form
-		var eventObj = {
-			eventTitle: req.param('eventTitle'),
-			eventTeam: req.param('eventTeam'),
-			eventInfo: req.param('eventInfo'),
-			spacesAvailable: req.param('spacesAvailable'),
-			startTime: req.param('startTime'),
-			endTime: req.param('endTime'),
-			location: locationObj
-		}
+		if (valid == true){
 
-		// Lookup the team to be associated with the event and double check permissions
-		Team.findOneById(eventObj.eventTeam)
-		.populateAll()
-		.exec(function (err, team){
+			var locationObj = { 
+				"type": "Point", 
+				"coordinates": [lng, lat]
+			}
 
-			if (team.teamAdmin.id != req.session.User.id){
+			// Create an object containing all of the parameters passed in by the user sign-up form
+			var eventObj = {
+				eventTitle: req.param('eventTitle'),
+				eventTeam: req.param('eventTeam'),
+				eventInfo: req.param('eventInfo'),
+				spacesAvailable: req.param('spacesAvailable'),
+				startTime: req.param('startTime'),
+				endTime: req.param('endTime'),
+				location: locationObj
+			}
 
-				res.redirect('/events');
+			// Lookup the team to be associated with the event and double check permissions
+			Team.findOneById(eventObj.eventTeam)
+			.populateAll()
+			.exec(function (err, team){
 
-			} else {
+				if (team.teamAdmin.id != req.session.User.id){
 
-				Event.create( eventObj , function EventCreated(err, savedEvent){
-					// Error
-					if (err) return next(err);
+					res.redirect('/events');
 
-					savedEvent.attendees.add(team.teamAdmin.id); // add yourself to the list of attendees when creating the event
-					savedEvent.spacesAvailable = (savedEvent.spacesAvailable - 1); // take up a space (you're going, after all)
+				} else {
 
-					// Create the notification and send it to everyone in the team
-					var content = team.teamAdmin.firstName + " " + team.teamAdmin.lastName + " created a new event for " + team.teamName;
-					var title = "A new event";
-
-					for (var i = 0; i < team.teamMembers.length; i++) {
-						var userID = team.teamMembers[i].id;
-						utility.createNotification(title, userID, content);
-					};
-
-					savedEvent.save(function(err, thisEvent) {
-							
+					Event.create( eventObj , function EventCreated(err, savedEvent){
+						// Error
 						if (err) return next(err);
 
-						res.redirect('/events/' + savedEvent.id);
+						savedEvent.attendees.add(team.teamAdmin.id); // add yourself to the list of attendees when creating the event
+						savedEvent.spacesAvailable = (savedEvent.spacesAvailable - 1); // take up a space (you're going, after all)
+
+						// Create the notification and send it to everyone in the team
+						var content = team.teamAdmin.firstName + " " + team.teamAdmin.lastName + " created a new event for " + team.teamName;
+						var title = "A new event";
+
+						for (var i = 0; i < team.teamMembers.length; i++) {
+							var userID = team.teamMembers[i].id;
+							utility.createNotification(title, userID, content);
+						};
+
+						savedEvent.save(function(err, thisEvent) {
+								
+							if (err) return next(err);
+
+							res.redirect('/events/' + savedEvent.id);
+
+						});
 
 					});
 
-				});
-
-			}
-		});
+				}
+			});
+		}
+		else {
+			return res.redirect('/create/event');
+		}
 	},
 
 	update: function(req, res, next) {

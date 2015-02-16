@@ -122,6 +122,20 @@ module.exports = {
 
 	create: function(req, res, next){
 
+		if (req.param('startTime') == ''){
+
+			// set a flash error
+
+			return res.redirect('/create/event');
+		}
+
+		if (req.param('endTime') == ''){
+
+			// set a flash error
+
+			return res.redirect('/create/event');
+		}
+
 		if (req.param('startTime') > req.param('endTime')){
 
 			var timeError = [{
@@ -131,7 +145,7 @@ module.exports = {
 			req.session.flashMsg = {
 				err: timeError
 			}
-			res.redirect('/create/event');
+			return res.redirect('/create/event');
 		}		
 
 		var lng = parseFloat(req.param('locationLng'));
@@ -169,7 +183,8 @@ module.exports = {
 					if (err) return next(err);
 
 					savedEvent.attendees.add(team.teamAdmin.id); // add yourself to the list of attendees when creating the event
-					savedEvent.spacesAvailable = (savedEvent.spacesAvailable - 1);
+					savedEvent.spacesAvailable = (savedEvent.spacesAvailable - 1); // take up a space (you're going, after all)
+
 					// Create the notification and send it to everyone in the team
 					var content = team.teamAdmin.firstName + " " + team.teamAdmin.lastName + " created a new event for " + team.teamName;
 					var title = "A new event";

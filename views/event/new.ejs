@@ -77,6 +77,8 @@
 	var query = document.getElementById('location');
 	var latInput = document.getElementById('locationLat');
 	var lngInput = document.getElementById('locationLng');
+	latInput.value = 51.517503;
+	lngInput.value = -0.133896;
 	var autocomplete = new google.maps.places.Autocomplete(query);
 	var place;
 	var map;

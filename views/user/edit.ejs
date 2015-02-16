@@ -1,36 +1,36 @@
 <div class="container">
 	<div class="row">
-		<div class="w12 wysiwyg">
-			<h1>Editing <%= user.firstName %>'s profile</h1>
-			<div class="row">
+		<div class="w12">
+			<h1 class="h l">Editing <%= user.firstName %>'s profile</h1>
+			<div class="row below">
 				<div class="w6">
-					<h2>Personal details</h2>
+					<h2 class="h m left">Personal details</h2>
 					<form action="/users/update/<%= user.userName %>" method="POST">
 						<label for="firstName">First Name</label>
-						<input value="<%= user.firstName %>" name="firstName" type="text">
+						<input class="input breaker" value="<%= user.firstName %>" name="firstName" type="text">
 						<label for="lastName">Last Name</label>
-						<input value="<%= user.lastName %>" name="lastName" type="text">
+						<input class="input breaker" value="<%= user.lastName %>" name="lastName" type="text">
 						<label for="email">Email Address</label>
-						<input value="<%= user.email %>" name="email" type="text">
+						<input class="input breaker" value="<%= user.email %>" name="email" type="text">
 						<input type="hidden" name="_csrf" value="<%= _csrf %>">
-						<label for="publicView">Account Privacy</label>
-						<select name="publicView">
+						<label class="input breaker" for="publicView">Account Privacy</label>
+						<select class="input breaker" name="publicView">
 							<option value="true">Public</option>
 							<option value="false">Private</option>
 						</select>
-						<label for="bio">Biography</label>
-						<textarea name="bio" id="bio" cols="30" rows="5"><% if (user.bio){ %><%= user.bio %><% } %></textarea>
+						<label class="input breaker" for="bio">Biography</label>
+						<textarea name="bio" id="bio" cols="30" rows="5" class="input breaker"><% if (user.bio){ %><%= user.bio %><% } %></textarea>
 						<input type="submit" class="cta-submit block" value="Save changes">
 					</form>
 				</div>
 				<div class="w6 last">
-					<h2>Profile picture</h2>
+					<h2 class="h m left">Profile picture</h2>
 					<form action="/settings/addPhoto" method="POST" enctype="multipart/form-data">
-						<input type="file" name="avatar">
+						<input type="file" name="avatar" class="input breaker">
 						<input type="submit" class="cta-submit inline" value="Upload photo">
 					</form>
-					<h2>Delete account</h2>
-					<a id="delete_account" href="/users/<%= user.userName %>/delete" class="cta-submit inline">Delete my account</a>
+					<h2 class="h m left">Delete account</h2>
+					<a id="delete_account" href="/users/<%= user.userName %>/delete" class="cta-submit inline negative">Delete my account</a>
 				</div>
 			</div>
 		</div>

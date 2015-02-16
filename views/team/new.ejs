@@ -1,12 +1,10 @@
 <div class="container">
-	<div class="row">
+	<div class="row below">
 		<div class="w12 wysiwyg">
 			<h1>Create a team</h1>
 			<form action="/teams/create" method="POST">
 				<label for="teamName">Team Name</label>
-				<input type="text" name="teamName">
-				<label for="teamSport">Sport</label>
-				<input type="text" name="teamSport">
+				<input class="input breaker" type="text" name="teamName">
 				<input type="hidden" name="_csrf" value="<%= _csrf %>">
 				<input class="cta-submit block" type="submit" value="Create team">
 			</form>

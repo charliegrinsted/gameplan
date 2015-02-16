@@ -21,6 +21,7 @@ body{font-size:16px; line-height:1.4; background-color:#253149;}
 .relative{position:relative;}
 .spaced{padding-top:1.2em;}
 .padded{padding:1.2em 0;}
+.below{padding-bottom:1.2em;}
 .centred{text-align:center;}
 
 /* --- TYPOGRAPHY --- */
@@ -337,6 +338,7 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 input{display:block; clear:both;}
 #footer{}
 
+.spots-left{font-size:1.8em; font-weight:bold;}
 .profile-photo{border-radius:50%; height:100px; width:100px; margin-top:1.2em;}
 
 /* --- Typography Breakpoint 1 --- */

@@ -26,6 +26,23 @@ module.exports = {
 
 	},
 
+	search: function(req, res, next){
+
+		var query = req.param('query');
+
+		Event.find({ or: [{ eventTitle: { 'contains': query }}]})
+		.populateAll()
+		.exec(function(err, results){
+			if (err){
+				return next(err);
+			}
+			res.view({
+				events: results
+			});
+		});
+
+	},	
+
 	index: function(req, res, next){
 
 		var now = new Date(moment().format('YYYY-MM-DDTHH:mm:ss.SSS') + 'Z');

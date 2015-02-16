@@ -38,7 +38,7 @@ module.exports = {
 				}
 				res.view('dashboard/index', {
 					user: user,
-					moment: moment
+					moment: moment // pass the Moment.js library to the front-end JS.
 				});
 			});
 			

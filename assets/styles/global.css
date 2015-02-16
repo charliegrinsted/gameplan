@@ -289,7 +289,7 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 .svg-logo svg{width:33.33%; height:33.33%; float:left; position:relative;}
 
 
-.dash-list{padding-top:0.6em;}
+.dash-list{}
 .dash-list li{font-weight:bold; height:2.4em; line-height:2.4em; background-color:#eee; padding:1em; vertical-align:middle; margin-bottom:0.1em;}
 .dash-list li .cta-submit{float:right; margin-left:1em; display:inline-block;}
 .dash-list span{font-weight:normal;}

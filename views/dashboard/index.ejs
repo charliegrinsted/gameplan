@@ -30,6 +30,9 @@
 	<div class="row">
 		<div class="w6">
 			<h2>Your Teams</h2>
+			<% if (user.userTeams.length == 0) { %>
+				<p class="centred">You're not currently a member of any teams.</p>
+			<% } %>			
 			<% _.each(user.userTeams, function(team, i) { %>
 			<% if (i == 0) { %>
 			<ul class="dash-list team">
@@ -44,22 +47,25 @@
 			<% } %>
 			<% }) %>
 		</div>
-		<div class="w6 last">
+		<div class="w6 centred last">
 			<h2>Upcoming Events</h2>
-			<% _.each(user.eventsAttending, function(thisEvent, i) { %>
-			<% if (i == 0) { %>
-			<ul class="dash-list event">
-			<% } %>
-				<li>
-					<a href="/events/<%= thisEvent.id %>"><%= thisEvent.eventTitle %></a> - <span><%= moment(thisEvent.startTime).fromNow() %></span>
-					<a class="cta-submit negative" href="/events/<%= thisEvent.id %>/cancel">Cancel</a>
-					<a class="cta-submit" href="/events/<%= thisEvent.id %>">View</a>
+				<% if (user.eventsAttending.length == 0) { %>
+				<p>No upcoming events.</p>
+				<% } %>
+				<% _.each(user.eventsAttending, function(thisEvent, i) { %>
+				<% if (i == 0) { %>
+				<ul class="dash-list event">
+				<% } %>
+					<li>
+						<a href="/events/<%= thisEvent.id %>"><%= thisEvent.eventTitle %></a> - <span><%= moment(thisEvent.startTime).fromNow() %></span>
+						<a class="cta-submit negative" href="/events/<%= thisEvent.id %>/cancel">Cancel</a>
+						<a class="cta-submit" href="/events/<%= thisEvent.id %>">View</a>
 
-				</li>
-			<% if (i == user.eventsAttending.length - 1) { %>
-			</ul>
-			<% } %>
-			<% }) %>
+					</li>
+				<% if (i == user.eventsAttending.length - 1) { %>
+				</ul>
+				<% } %>
+				<% }) %>
 		</div>
 	</div>
 </div>

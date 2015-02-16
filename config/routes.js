@@ -54,6 +54,8 @@ module.exports.routes = {
 
 	'POST /search/teams': 'TeamController.search',
 
+	'POST /search/events': 'EventController.search',
+
 	'POST /search/events/nearby': 'EventController.nearby',
 
 	'GET /teams/:id': 'TeamController.show',

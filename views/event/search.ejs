@@ -1,0 +1,28 @@
+<h1 class="invisible">Search Results | Events</h1>
+<div class="container spaced">
+	<div class="row">
+		<div class="w12 wysiwyg">
+			<ul class="nav-secondary">
+				<li><a href="/create/event">Create Event</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="row">
+		<div class="w12 wysiwyg centred">
+			<h2>Find an event</h2>
+			<form action="/search/events" method="POST">
+				<input class="input med breaker" type="text" id="findEvent" name="query" placeholder="Enter an event title">
+			</form>		
+			<% if (events.length == 0) { %>
+				<p>No results found for your search.</p>
+			<% } else { %>
+				<p>The following results matched your search:</p>
+				<% _.each(events, function(anEvent) { %>
+				<div data-id="<%= anEvent.id %>">
+					<p><a href="/events/<%= anEvent.id %>"><%= anEvent.eventTitle %> (<%= anEvent.eventTeam.teamName %>)</a></p>
+				</div>
+				<% }) %>
+			<% } %>
+		</div>
+	</div>
+</div>

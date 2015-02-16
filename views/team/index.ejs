@@ -7,8 +7,27 @@
 			</ul>
 		</div>
 	</div>
-	<div class="row">
-		<div class="w12 wysiwyg centred">
+	<div class="row wysiwyg">
+		<div class="w6">
+			<h2>Your Teams</h2>
+			<% if (session.User.userTeams.length == 0) { %>
+				<p class="centred">You're not currently a member of any teams.</p>
+			<% } %>
+			<% _.each(session.User.userTeams, function(team, i, teams) { %>
+				<% if (i == 0) { %>
+				<ul class="dash-list team">
+				<% } %>
+					<li>
+						<a href="/teams/<%= team.id %>"><%= team.teamName %></a>
+			  			<a class="cta-submit negative" href="/teams/<%= team.id %>/leave">Leave</a>
+			  			<a class="cta-submit" href="/teams/<%= team.id %>">View</a>
+		  			</li>
+				<% if (i == teams.length) { %>
+				</ul>
+				<% } %>
+			<% }) %>
+		</div>
+		<div class="w6 last">
 			<h2>Find a team</h2>
 			<form action="/search/teams" method="POST">
 				<input class="input med breaker" type="text" id="findTeam" name="query" placeholder="Enter a team name">

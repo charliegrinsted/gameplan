@@ -52,13 +52,6 @@
 			
 		</div>
 	</div>
-	<% if (session.authenticated && session.User.userName != thisEvent.eventTeam.teamAdmin.userName){ %>
-	<div class="row">
-		<div class="w12">
-			<button id="join_event" class="cta-submit inline" data-eventID="<%= thisEvent.id %>" href="/events/<%= thisEvent.id %>/rsvp">Count me in</button>
-		</div>
-	</div>
-	<% }%>
 </div>
 <% if (session.User.userName != thisEvent.eventTeam.teamAdmin.userName){ %>
 <script>
@@ -90,6 +83,7 @@ $l.ready(function() {
 		var myOptions = {
 			zoom: 16,
 			center: eventLatlng,
+			scrollwheel: false,			
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		}
 		var map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);

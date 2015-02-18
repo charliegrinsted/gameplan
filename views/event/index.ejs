@@ -88,15 +88,13 @@ $l.ready(function() {
 		
 		var lat = position.coords.latitude; // store the latitude
 		var lng = position.coords.longitude; // store the longitude
-		var distance = document.getElementById('distance').value;
+		var distance = document.getElementById('distance').value; // get the radius distance from the range input
 
 		$l.ajax.post(
 			'/search/events/nearby', // the API URL that the POST request is made to
 			{ lat: lat, lng: lng, distance: distance }, // pass the latitude and longitude to the server as POST request parameters
 			function(response) { // parse the server response
 				var locations = response.results;
-				console.log(locations);
-
 				plotMapPoints(locations, lat, lng);				
 			}
 		);

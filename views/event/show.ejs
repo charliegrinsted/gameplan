@@ -27,9 +27,14 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="w12 wysiwyg centred">
-			<h2>Spots left</h2>
-			<p class="spots-left"><%= thisEvent.spacesAvailable %></p>
+		<div class="w6 centred wysiwyg">
+			<h2>When?</h2>
+			<p><strong>Starts at:</strong> <%= moment(thisEvent.startTime).format("dddd Do MMMM YYYY, h:mm a") %><br>
+				<strong>Ends at:</strong> <%= moment(thisEvent.endTime).format("dddd Do MMMM YYYY, h:mm a") %></p>
+		</div>
+		<div class="w6 wysiwyg centred last">
+			<h2>Remaining spaces</h2>
+			<p class="spots-left"><%= thisEvent.spacesAvailable - thisEvent.attendees.length %> / <%= thisEvent.spacesAvailable %></p>
 		</div>
 	</div>
 	<div class="row below">
@@ -37,13 +42,16 @@
 			<h2>Where?</h2>
 			<div id="map-canvas"></div>
 		</div>
-		<div class="w6 wysiwyg last centred">
+		<div class="w6 wysiwyg last">
 			<h2>Who's in?</h2>
 				<% _.each(thisEvent.attendees, function(user, i, users) { %>
 				<% if (i == 0) { %>
-				<ul>
+				<ul class="dash-list team">
 				<% } %>	
-				<li><a href="/users/<%= user.userName %>"><%= user.firstName %> <%= user.lastName %></a></li>
+				<li>
+				<a href="/users/<%= user.userName %>"><%= user.firstName %> <%= user.lastName %></a>
+				<a href="/users/<%= user.userName %>" class="cta-submit right">View Profile</a>
+				</li>
 				<% if (i == users.length ) { %>
 				</ul>
 				<% } %>					

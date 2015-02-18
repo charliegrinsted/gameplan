@@ -47,10 +47,10 @@
 			<% } %>
 			<% }) %>
 		</div>
-		<div class="w6 centred last">
+		<div class="w6 last">
 			<h2>Upcoming Events</h2>
 				<% if (user.eventsAttending.length == 0) { %>
-				<p>No upcoming events.</p>
+				<p class="centred">No upcoming events.</p>
 				<% } %>
 				<% _.each(user.eventsAttending, function(thisEvent, i) { %>
 				<% if (i == 0) { %>

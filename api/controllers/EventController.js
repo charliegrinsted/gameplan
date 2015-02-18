@@ -115,7 +115,8 @@ module.exports = {
 				eventData.eventStatus = "past";
 			}
 			res.view({
-				thisEvent: eventData
+				thisEvent: eventData,
+				moment: moment
 			});
 		});
 	},	
@@ -183,7 +184,6 @@ module.exports = {
 						if (err) return next(err);
 
 						savedEvent.attendees.add(team.teamAdmin.id); // add yourself to the list of attendees when creating the event
-						savedEvent.spacesAvailable = (savedEvent.spacesAvailable - 1); // take up a space (you're going, after all)
 
 						// Create the notification and send it to everyone in the team
 						var content = team.teamAdmin.firstName + " " + team.teamAdmin.lastName + " created a new event for " + team.teamName;
@@ -320,7 +320,6 @@ module.exports = {
 			.populateAll()
 			.exec(function(err, eventToUpdate) {
 				// add error handling
-				eventToUpdate.spacesAvailable = (eventToUpdate.spacesAvailable + 1); // take up a space
 				eventToUpdate.attendees.remove(activeUser); // add yourself to the event attendees list
 				eventToUpdate.save(function(err, user) {
 					
@@ -354,7 +353,6 @@ module.exports = {
 			.populateAll()
 			.exec(function(err, eventToUpdate) {
 				// add error handling
-				eventToUpdate.spacesAvailable = (eventToUpdate.spacesAvailable -1); // take up a space
 				eventToUpdate.attendees.add(activeUser); // add yourself to the event attendees list
 				eventToUpdate.save(function(err, user) {
 					

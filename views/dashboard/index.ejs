@@ -60,7 +60,6 @@
 						<a href="/events/<%= thisEvent.id %>"><%= thisEvent.eventTitle %></a> - <span><%= moment(thisEvent.startTime).fromNow() %></span>
 						<a class="cta-submit negative" href="/events/<%= thisEvent.id %>/cancel">Cancel</a>
 						<a class="cta-submit" href="/events/<%= thisEvent.id %>">View</a>
-
 					</li>
 				<% if (i == user.eventsAttending.length - 1) { %>
 				</ul>

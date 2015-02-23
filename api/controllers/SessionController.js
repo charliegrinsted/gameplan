@@ -147,7 +147,7 @@ module.exports = {
 					//console.log(backURL);
   					//res.redirect(backURL);
 
-					res.redirect('/'); // take user to their homepage dashboard once signed in
+					res.redirect(req.session.returnTo || '/'); // take user to their homepage dashboard once signed in
 
 				});
 			});

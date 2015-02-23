@@ -17,9 +17,15 @@
 			<h2>Teams</h2>
 			<% _.each(user.userTeams, function(team, i, teams) { %>
 				<% if (i == 0) { %>
-				<ul>
+				<ul class="dash-list team">
 				<% } %>
-				<li><a href="/teams/<%= team.id %>"><%= team.teamName %></a></li>
+				<li>
+					<a href="/teams/<%= team.id %>"><%= team.teamName %></a>
+					<% if (session.User.id == user.id) { %>
+					<a class="cta-submit negative" href="/teams/<%= team.id %>/leave">Leave</a>
+		  			<a class="cta-submit" href="/teams/<%= team.id %>">View</a>
+		  			<% } %>
+					</li>
 				<% if (i == teams.length ) { %>
 				</ul>
 				<% } %>	
@@ -29,9 +35,15 @@
 			<h2>Events</h2>
 			<% _.each(user.eventsAttending, function(thisEvent, i, events) { %>
 			<% if (i == 0) { %>
-			<ul>
+			<ul class="dash-list team">
 			<% } %>
-			<li><a href="/events/<%= thisEvent.id %>"><%= thisEvent.eventTitle %></a></li>
+			<li>
+				<a href="/events/<%= thisEvent.id %>"><%= thisEvent.eventTitle %></a>
+				<% if (session.User.id == user.id) { %>
+				<a class="cta-submit negative" href="/events/<%= thisEvent.id %>/cancel">Cancel</a>
+				<a class="cta-submit" href="/events/<%= thisEvent.id %>">View</a>
+	  			<% } %>
+			</li>
 			<% if (i == events.length ) { %>
 			</ul>
 			<% } %>				
@@ -44,7 +56,7 @@
 			<% if (user.friends.length == 0) { %><p><%= user.firstName %> has no friends to show</p><% } %>
 			<% _.each(user.friends, function(friend, i, friends) { %>
 				<% if (i == 0) { %>
-				<ul>
+				<ul class="dash-list team">
 				<% } %>
 					<li><a href="/users/<%= friend.userName %>"><%= friend.firstName %> <%= friend.lastName %></a></li>
 				<% if (i == friends.length) { %>

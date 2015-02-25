@@ -13,10 +13,14 @@ var secret = 'ewfn09qu43f09qfj94qf*&H#(R';
 module.exports = {
 
 	'new': function(req, res) {
-		res.view('session/new');
+		res.view('session/new', {
+			page_title: "Login"
+		});
 	},
 
 	createAPIsession: function(req, res, next){
+
+		console.log('Request Received');
 
 		if (!req.param('userName') || !req.param('password')) {
 

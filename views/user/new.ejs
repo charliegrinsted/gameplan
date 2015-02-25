@@ -1,6 +1,6 @@
 <div class="container spaced">
 	<div class="row">
-		<div class="w12 wysiwyg">
+		<div class="w12 wysiwyg bottom">
 			<% if (session.authenticated) { %>
 			<h1>Trying to register?</h1>
 			<p>You're already signed in as <%= session.User.firstName %> <%= session.User.lastName %>.</p>
@@ -8,24 +8,24 @@
 			<% } else { %>
 			<p></p>
 			<h1>Create your account</h1>
-			<form action="/create/user" method="POST">
+			<form class="below" action="/create/user" method="POST">
 				<label for="firstName">First Name</label>
-				<input type="text" name="firstName">
+				<input class="input breaker" type="text" name="firstName">
 				<label for="lastName">Last Name</label>	
-				<input type="text" name="lastName">
+				<input class="input breaker" type="text" name="lastName">
 				<label for="email">Email Address</label>	
-				<input type="email" name="email">
+				<input class="input breaker" type="email" name="email">
 				<label for="userName">Username</label>	
-				<input type="text" name="userName">
+				<input class="input breaker" type="text" name="userName">
 				<label for="publicView">Account Visibility</label>						
-				<select name="publicView">
+				<select class="input breaker" name="publicView">
 					<option value="true">Public</option>
 					<option value="false">Private</option>
 				</select>
 				<label for="password">Password</label>
-				<input type="password" name="password">
+				<input class="input breaker" type="password" name="password">
 				<label for="passwordConfirmation">Confirm Password</label>		
-				<input type="password" name="passwordConfirmation">
+				<input class="input breaker" type="password" name="passwordConfirmation">
 				<input type="hidden" name="_csrf" value="<%= _csrf %>">
 				<input type="submit" class="cta-submit inline" value="Sign up">
 			</form>

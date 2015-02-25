@@ -20,6 +20,7 @@ module.exports = {
 			}
 			// This passes an array to the view, allowing the values to be accessed by an EJS template.
 			res.view({
+				page_title: "Create an event",
 				teams: teams
 			});
 		});
@@ -37,6 +38,7 @@ module.exports = {
 				return next(err);
 			}
 			res.view({
+				page_title: "Search for an event",
 				events: results
 			});
 		});
@@ -56,6 +58,7 @@ module.exports = {
 				return next(err);
 			}
 			res.view({
+				page_title: "Events",
 				events: events
 			});
 		});
@@ -115,6 +118,7 @@ module.exports = {
 				eventData.eventStatus = "past";
 			}
 			res.view({
+				page_title: eventData.eventTitle,
 				thisEvent: eventData,
 				moment: moment
 			});
@@ -279,6 +283,7 @@ module.exports = {
 			if (err) return next(err);
 			if (!thisEvent) return next();
 			res.view({
+				page_title: "Editing " + thisEvent.eventTitle,
 				thisEvent: thisEvent
 			});
 		});

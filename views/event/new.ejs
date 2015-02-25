@@ -101,6 +101,14 @@
 		query.value = "";
 	});
 
+	// Stop the enter key from submitting the Google map form
+	query.addEventListener('keypress', function(e) {
+		if (e.keyCode === 13) {
+			e.preventDefault();
+		}
+	}, false);
+
+
 	function initializeMap() {
 		var myLatlng = new google.maps.LatLng(51.517503,-0.133896);
 		var mapOptions = {
@@ -111,7 +119,7 @@
 		}
 		
 		map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
- 
+
 		marker = new google.maps.Marker({
 			position: myLatlng,
 			map: map

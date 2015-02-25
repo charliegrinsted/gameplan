@@ -37,6 +37,7 @@ module.exports = {
 					return next(err);
 				}
 				res.view('dashboard/index', {
+					page_title: "Dashboard",
 					user: user,
 					moment: moment // pass the Moment.js library to the front-end JS.
 				});
@@ -45,7 +46,9 @@ module.exports = {
 		} 
 		else {
 
-			res.view('homepage');
+			res.view('homepage', {
+				page_title: "Home"
+			});
 
 		}
 

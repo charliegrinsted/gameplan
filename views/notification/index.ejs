@@ -6,15 +6,18 @@
 	</div>
 	<div class="row">
 		<div class="w12 wysiwyg">
-			<div class="row">
-				<% _.each(notifications, function(item, i, notifications) { %>
-				<div class="w4 <% if ((i+1) % 3 == 0) { %> last<% } %>">
-					<h2><%= item.title %></h2>
-					<p><%= item.content %></p>
-					<button class="mark_as_read cta-submit inline right" data-thisId="<%= item.id %>" href="/notifications/<%= item.id %>/read">Mark as read</button>
-				</div>
-				<% }) %>	
-			</div>
+			<% _.each(notifications, function(item, i, notifications) { %>
+			<% if (i == 0) { %>
+			<ul class="dash-list team">
+			<% } %>
+				<li>
+				<%= item.content %>
+				<button data-thisId="<%= item.id %>" class="mark_as_read cta-submit inline right">Mark as read</button>
+				</li>
+			<% if (i == notifications.length - 1) { %>
+			</ul>
+			<% } %>
+			<% }) %>	
 		</div>	
 	</div>
 </div>

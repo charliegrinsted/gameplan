@@ -10,7 +10,9 @@ module.exports = {
 
 	'new': function(req, res){
 
-		res.view();
+		res.view(null, {
+			page_title: "Register an account"
+		});
 
 	},
 
@@ -38,6 +40,7 @@ module.exports = {
 				return next(err);
 			}
 			res.view({
+				page_title: "Search for a user",
 				users: results
 			});
 		});
@@ -140,6 +143,7 @@ module.exports = {
 
 			if (returnedFile == null){
 				res.view({
+					page_title: "" + user.firstName + " " + user.lastName + "",
 					image: null,
 					user: user
 				});
@@ -147,16 +151,11 @@ module.exports = {
 			else {
 
 				res.view({
+					page_title: "" + user.firstName + " " + user.lastName + "",
 					image: returnedFile,
 					user: user
 				});
 			}
-		}
-
-		var getFriendProfilePhotos = function(user, returnedFile){
-
-			console.log();
-
 		}
 		
 		User.findOneByUserName(req.param('userName'))
@@ -168,6 +167,7 @@ module.exports = {
 				utility.readFile(user, user.profilePhoto, parseFile);
 			} else {
 				res.view({
+					page_title: "" + user.firstName + " " + user.lastName + "",
 					image: null,
 					user: user
 				});
@@ -211,7 +211,6 @@ module.exports = {
 				return res.redirect('/register');
 			}
 			// Success
-			console.log("User profile created successfully");
 
 			req.session.authenticated = true;
 			req.session.User = user;
@@ -270,15 +269,15 @@ module.exports = {
 		else {
 			var currentUser = req.session.User.userName;
 			if (currentUser){
-				User.find()
-				.where({ userName: currentUser })
-				.limit(1)
+				User.findOneByUserName(currentUser)
+				.populateAll()
 				.exec(function (err, user){
 					if (err){
 						return next(err);
 					}
 					res.view({
-						user: user[0]
+						page_title: "Editing " + user.firstName + "'s profile",
+						user: user
 					});
 				});
 			}

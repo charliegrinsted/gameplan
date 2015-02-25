@@ -19,6 +19,7 @@ module.exports = {
 				return next(err);
 			}
 			res.view({
+				page_title: "Your notifications",
 				notifications: notifications
 			});
 		});
@@ -51,14 +52,6 @@ module.exports = {
 			});
 
 		});*/
-	},
-
-	new: function(req, res){
-
-		res.view({
-			
-		});
-
 	},
 
 	read: function(req, res){

@@ -20,6 +20,7 @@ module.exports = {
 			}
 			// This passes an array to the view, allowing the values to be accessed by an EJS template.
 			res.view({
+				page_title: "Create a team",
 				users: users
 			});
 		});
@@ -36,6 +37,7 @@ module.exports = {
 				return next(err);
 			}
 			res.view({
+				page_title: "Search for a team",
 				teams: results
 			});
 		});
@@ -51,6 +53,7 @@ module.exports = {
 				return next(err);
 			}
 			res.view({
+				page_title: "Teams",
 				teams: teams
 			});
 		});
@@ -77,6 +80,7 @@ module.exports = {
 
 		var showTeam = function(team, image){
 			res.view({
+				page_title: team.teamName,
 				image: null,
 				team: team,
 				moment: moment
@@ -89,6 +93,7 @@ module.exports = {
 
 			if (returnedFile == null){
 				res.view({
+					page_title: team.teamName,
 					image: null,
 					team: team,
 					moment: moment
@@ -97,6 +102,7 @@ module.exports = {
 			else {
 
 				res.view({
+					page_title: team.teamName,
 					image: returnedFile,
 					team: team,
 					moment: moment
@@ -200,6 +206,7 @@ module.exports = {
 				if (err) return next(err);
 				if (!team) return next();
 				res.view({
+					page_title: "Editing " + team.teamName,
 					team: team
 				});
 			});			

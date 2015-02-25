@@ -309,7 +309,7 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 .logo{font-weight:800; font-size:1.4em; line-height:2.2em; vertical-align:middle;}
 .user-box{text-align:right; padding:0.6em 1em; float:right; width:auto;}
 .user-box .name{font-weight:800; font-size:1.2em;}
-
+#notifications{display:inline-block; color:#FFF; padding-right:0.6em;}
 .team-box{background-color:#fff; text-align:center; display:block; height:10em;}
 .team-box p{font-size:1.4em; font-weight:800;}
 .team-box a{color:#333;}

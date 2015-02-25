@@ -25,7 +25,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="w12">
+				<div class="w12 centred">
 					<h2>Spaces available</h2>
 					<input type="number" value="<%= thisEvent.spacesAvailable %>" name="spacesAvailable">
 				</div>
@@ -38,12 +38,12 @@
 		<div class="w12 wysiwyg">
 			<h2>Set a time &amp; date</h2>
 			<div class="row roverflow">
-				<div class="w6">
+				<div class="w6 centred">
 					<label class="h m" for="startTime">Start Time</label>
 					<div id="startCal"></div>
 					<input type="hidden" id="startTime" name="startTime" class="input" data-start="<%= thisEvent.startTime %>" value="<%= thisEvent.endTime %>">
 				</div>
-				<div class="w6 last">
+				<div class="w6 centred last">
 					<label class="h m" for="endTime">End Time</label>
 					<div id="endCal"></div>
 					<input type="hidden" id="endTime" name="endTime" class="input" data-end="<%= thisEvent.endTime %>" value="<%= thisEvent.endTime %>">
@@ -55,7 +55,7 @@
 <div class="container">
 	<div class="row">
 		<div class="w12">
-			<label class="h m" for="location">Where?</label>
+			<label class="full h l" for="location">Where?</label>
 			<input type="text" name="location" class="input wide" id="location" value="" placeholder="Type a name, address or postcode">
 			<div id="map-canvas"></div>
 			<input type="hidden" id="locationLat" name="locationLat" value="<%- thisEvent.location.coordinates[1] %>">	

@@ -328,6 +328,7 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 #preloader img{margin:0 auto; height:60px;}
 #preloader.hidden{opacity:0; display:none;}
 
+.centred input{margin:0 auto; text-align:center;}
 #startCal,
 #endCal{overflow:visible;}
 .input.wide{width:100%; font-size:1.2em; color:#222; background-color:#eee;}

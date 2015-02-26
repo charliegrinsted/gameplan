@@ -22,15 +22,8 @@
 	</head>
 
 	<body>
-	<% if (session.authenticated && session.User.userNotifications.length > 0) { %>
-	<div class="off-canvas wysiwyg">
-		<ul>
-
-		</ul>
-	</div>
-	<% } %>	
 	<div class="container dark-slab" id="header">
-		<div class="row relative roverflow row-flush">
+		<div class="row relative row-flush">
 			<div class="w2 relative">
 				<p class="logo"><a href="/">GamePlan</a></p>
 			</div>
@@ -54,7 +47,7 @@
 				<% if (session.authenticated && session.User.userNotifications.length > 0) { %>
 				<ul>
 					<% _.each(session.User.userNotifications, function(item, i, notifications) { %>
-					<% if (item.read == false ) { %><li><%= item.title %></li><% } %>
+					<% if (item.read == false ) { %><li><a href="<%= item.url %>"><%= item.title %></a></li><% } %>
 					<% }) %>
 				</ul>
 				<% } %>	
@@ -73,13 +66,13 @@
 	</div>
 	<% } %>
 	<%- body %>
-<div class="container dark-slab" id="footer">
-	<div class="row padded">
-		<div class="w12 centred">
-			<p>&copy; 2015 | GamePlan</p>
+	<div class="container dark-slab" id="footer">
+		<div class="row padded">
+			<div class="w12 centred">
+				<p>&copy; 2015 | GamePlan</p>
+			</div>
 		</div>
 	</div>
-</div>
 	<script src="/js/dependencies/sails.io.js"></script>
 	<!--SCRIPTS END-->
 	</body>
@@ -87,7 +80,7 @@
 	<script>
 	$l.ready(function() {
 		var show_notifications = $l.id('notifications');
-		var notifications_box = $l.id('notifications-box'); // the element with id="element" attribute
+		var notifications_box = $l.id('notifications-box');
 		$l.dom.setEvent(
 			show_notifications,
 			'click',

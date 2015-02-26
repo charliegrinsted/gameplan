@@ -294,8 +294,8 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 .dash-list li .cta-submit{float:right; margin-left:1em; display:inline-block;}
 .dash-list span{font-weight:normal;}
 
-#home-login-form{}
-#home-login-form input{margin:0 auto; font-family:'Lato', sans-serif; margin-top:1em; border:0; text-align:center;}
+.home-form{}
+.home-form input{margin:0 auto; font-family:'Lato', sans-serif; margin-top:1em; border:0; text-align:center;}
 
 #home-login-form .cta-submit{}
 #home-login-form .cta-submit:hover,

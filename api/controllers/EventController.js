@@ -190,12 +190,13 @@ module.exports = {
 						savedEvent.attendees.add(team.teamAdmin.id); // add yourself to the list of attendees when creating the event
 
 						// Create the notification and send it to everyone in the team
-						var content = team.teamAdmin.firstName + " " + team.teamAdmin.lastName + " created a new event for " + team.teamName;
-						var title = "A new event";
+						var content = team.teamAdmin.firstName + " " + team.teamAdmin.lastName + " created the event " + savedEvent.eventTitle;
+						var title = savedEvent.eventTitle;
+						var url = "/events/" + savedEvent.id;
 
 						for (var i = 0; i < team.teamMembers.length; i++) {
 							var userID = team.teamMembers[i].id;
-							utility.createNotification(title, userID, content);
+							utility.createNotification(title, userID, content, url);
 						};
 
 						savedEvent.save(function(err, thisEvent) {

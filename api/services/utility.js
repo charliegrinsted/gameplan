@@ -3,11 +3,12 @@ var fileAdapter = require('skipper-gridfs')({uri: 'mongodb://localhost/gameplan.
 module.exports = {
 	
 
-	createNotification: function(title, userID, content){
+	createNotification: function(title, userID, content, url){
 
 		var notificationObject = {
 			notifiedUser: userID,
 			title: title,
+			url: url,
 			content: content,
 			read: false
 		}

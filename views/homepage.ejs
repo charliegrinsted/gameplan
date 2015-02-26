@@ -49,18 +49,43 @@
 			<p class="full hero">GamePlan</p>
 		</div>
 		<div class="w12">
-			<div class="home-not-registered">
-				<a href="/register" class="cta-submit inline">Get Started</a>
-			</div>
+			<ul class="tab-nav">
+				<li><button id="show-login">Login</button></li>
+				<li><button id="show-register">Register</button></li>
+			</ul>
 		</div>
-		<div class="w12">
+		<div class="w12" id="login-form">
 			<div class="home-not-registered">
-			<p>Already a member?</p>
-			<form action="/sessions/create" method="POST" id="home-login-form">
+			<form action="/sessions/create" method="POST" class="home-form">
 				<input type="text" name="userName" placeholder="Username">
 				<input type="password" name="password" placeholder="Password">
 				<input type="hidden" name="_csrf" value="<%= _csrf %>">	
 				<input class="cta-submit block" type="submit" value="Login">
+			</form>
+			</div>
+		</div>
+		<div class="w12 invisible" id="register-form">
+			<div class="home-not-registered">
+			<form action="/create/user" method="POST" class="home-form">
+				<label for="firstName">First Name</label>
+				<input class="input breaker" type="text" name="firstName">
+				<label for="lastName">Last Name</label>	
+				<input class="input breaker" type="text" name="lastName">
+				<label for="email">Email Address</label>	
+				<input class="input breaker" type="email" name="email">
+				<label for="userName">Username</label>	
+				<input class="input breaker" type="text" name="userName">
+				<label for="publicView">Account Visibility</label>						
+				<select class="input breaker" name="publicView">
+					<option value="true">Public</option>
+					<option value="false">Private</option>
+				</select>
+				<label for="password">Password</label>
+				<input class="input breaker" type="password" name="password">
+				<label for="passwordConfirmation">Confirm Password</label>		
+				<input class="input breaker" type="password" name="passwordConfirmation">
+				<input type="hidden" name="_csrf" value="<%= _csrf %>">
+				<input type="submit" class="cta-submit inline" value="Sign up">
 			</form>
 			</div>
 		</div>
@@ -74,18 +99,42 @@
 	</div>
 </div>
 <script>
-	document.addEventListener('DOMContentLoaded', function() {
-		var ball = new Walkway({selector:'#ball', duration:700});
-		var ball2 = new Walkway({selector:'#ball2', duration:700});
-		var ball3 = new Walkway({selector: '#ball3', duration:700});
-		ball.draw(function() {
-			ball2.draw(function() {
-				ball3.draw(function() {
-					console.log("all done");
-				});
+document.addEventListener('DOMContentLoaded', function() {
+	var ball = new Walkway({selector:'#ball', duration:700});
+	var ball2 = new Walkway({selector:'#ball2', duration:700});
+	var ball3 = new Walkway({selector: '#ball3', duration:700});
+	ball.draw(function() {
+		ball2.draw(function() {
+			ball3.draw(function() {
+				console.log("all done");
 			});
 		});
 	});
+});
+$l.ready(function() {
+	var show_login = $l.id('show-login');
+	var show_register = $l.id('show-register');
+	var register_form = $l.id('register-form');
+	var login_form = $l.id('login-form');
+	$l.dom.setEvent(
+		show_login,
+		'click',
+		function() {
+			$l.css.addClass(register_form, 'invisible');
+			$l.css.removeClass(login_form, 'invisible');
+			return false;
+		}
+	);
+	$l.dom.setEvent(
+		show_register,
+		'click',
+		function() {
+			$l.css.addClass(login_form, 'invisible');
+			$l.css.removeClass(register_form, 'invisible');
+			return false;
+		}
+	);	
+});
 </script>
 
 

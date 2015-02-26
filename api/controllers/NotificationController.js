@@ -25,35 +25,6 @@ module.exports = {
 		});
 	},
 
-	create: function(req, res, next){
-
-		var userID = req.session.User.id;
-		var title = req.param('title');
-		var content = req.param('content');
-
-		utility.createNotification(title, userID, content, function(){
-
-			res.redirect('/notifications');
-			
-		});
-
-		/*Notification.create(notObj)
-		.exec(function NotificationCreated(err, notification){
-
-			// Error
-			if (err) return next(err);
-
-			notification.save(function(err) {
-					
-				if (err) return next(err);
-
-				res.redirect('/notifications');
-
-			});
-
-		});*/
-	},
-
 	read: function(req, res){
 
 		Notification.findOneById(req.param('id'))

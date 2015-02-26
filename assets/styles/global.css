@@ -236,7 +236,7 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 
 #nav-primary{}
 #nav-primary li{display:inline-block; font-size:1.2em; line-height:2.4em; vertical-align:middle;}
-#nav-primary li a{color:#FFF; padding:2em 1em;}
+#nav-primary li a{color:#FFF; padding:1em;}
 #nav-primary li a:hover,
 #nav-primary li a.active{background-color:#FFF; color:#253149;}
 
@@ -310,6 +310,9 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 .user-box{text-align:right; padding:0.6em 1em; float:right; width:auto;}
 .user-box .name{font-weight:800; font-size:1.2em;}
 #notifications{display:inline-block; color:#FFF; padding-right:0.6em;}
+#notifications-box{position:absolute; top:3em; right:3em; background-color:#7E8AA3; display:none; width:20em;}
+#notifications-box.visible{display:block;}
+
 .team-box{background-color:#fff; text-align:center; display:block; height:10em;}
 .team-box p{font-size:1.4em; font-weight:800;}
 .team-box a{color:#333;}

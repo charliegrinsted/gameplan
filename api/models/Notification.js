@@ -21,6 +21,10 @@ module.exports = {
 		type:'text'
 	},
 
+	url:{
+		type:'text'
+	},
+
 	read:{
 		type:'boolean'
 	}

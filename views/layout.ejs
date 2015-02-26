@@ -25,14 +25,12 @@
 	<% if (session.authenticated && session.User.userNotifications.length > 0) { %>
 	<div class="off-canvas wysiwyg">
 		<ul>
-		<% _.each(session.User.userNotifications, function(item, i, notifications) { %>
-			<% if (item.read == false ) { %><li><%= item.title %></li><% } %>
-		<% }) %>
+
 		</ul>
 	</div>
 	<% } %>	
 	<div class="container dark-slab" id="header">
-		<div class="row row-flush">
+		<div class="row relative roverflow row-flush">
 			<div class="w2 relative">
 				<p class="logo"><a href="/">GamePlan</a></p>
 			</div>
@@ -51,6 +49,16 @@
 					<a class="btn" href="/settings">Edit Profile</a>
 					<a class="btn" href="/logout">Logout</a>
 				</div>
+			</div>
+			<div id="notifications-box">
+				<% if (session.authenticated && session.User.userNotifications.length > 0) { %>
+				<ul>
+					<% _.each(session.User.userNotifications, function(item, i, notifications) { %>
+					<% if (item.read == false ) { %><li><%= item.title %></li><% } %>
+					<% }) %>
+				</ul>
+				<% } %>	
+				<a href="/notifications">View all notifications</a>
 			</div>
 			<% } %>
 		</div>
@@ -71,8 +79,24 @@
 			<p>&copy; 2015 | GamePlan</p>
 		</div>
 	</div>
-</div>	
+</div>
 	<script src="/js/dependencies/sails.io.js"></script>
 	<!--SCRIPTS END-->
 	</body>
+	<% if (session.authenticated) { %>
+	<script>
+	$l.ready(function() {
+		var show_notifications = $l.id('notifications');
+		var notifications_box = $l.id('notifications-box'); // the element with id="element" attribute
+		$l.dom.setEvent(
+			show_notifications,
+			'click',
+			function() {
+				$l.css.toggleClass(notifications_box, 'visible');
+				return false;
+			}
+		);
+	});
+	</script>
+	<% } %>
 </html>

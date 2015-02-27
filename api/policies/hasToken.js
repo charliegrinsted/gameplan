@@ -7,23 +7,17 @@
  * @docs        :: http://sailsjs.org/#!documentation/policies
  *
  */
-var expressJwt = require('express-jwt');
+var jwt = require('jsonwebtoken');
 var secret = 'ewfn09qu43f09qfj94qf*&H#(R';
 
 module.exports = function(req, res, next) {
 
-	console.log("checking...");
-  // User is allowed, proceed to the next policy, 
-  // or if this is the last policy, the controller
-	if (req.token) {
+	var token = req.headers.token;
+
+	jwt.verify(token, secret, function(err, decoded) {
+		  if (err) {
+		  	return res.json('Invalid Token.');
+		  }
 		return next();
-
-	}
-
-	else {
-		return res.redirect('/login');
-	}
-  // User is not allowed
-  // (default res.forbidden() behavior can be overridden in `config/403.js`)
-
+	});
 };

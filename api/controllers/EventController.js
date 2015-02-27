@@ -123,7 +123,7 @@ module.exports = {
 				moment: moment
 			});
 		});
-	},	
+	},
 
 	create: function(req, res, next){
 

@@ -32,7 +32,8 @@ module.exports.policies = {
 		'new': ['errorFlashes'],
 		'delete': ['authenticated', 'errorFlashes'],
 		'index': ['authenticated', 'errorFlashes'],
-		'show': ['authenticated', 'errorFlashes']
+		'show': ['authenticated', 'errorFlashes'],
+		'showJSON': ['hasToken']
 	},
 
 	'SessionController': {

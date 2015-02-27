@@ -1,7 +1,14 @@
 <div class="container">
-	<div class="row">
+	<div class="row relative">
+		<div class="w12">
+			<h1 class="full h l">Editing <%= thisEvent.eventTitle%></h1>
+		</div>
+		<% if (session.User.id == thisEvent.eventTeam.teamAdmin){ %>
+		<a class="cta-submit inline b right negative" href="/events/<%= thisEvent.id %>/delete">Cancel this event</a>
+		<% } %>
+	</div>
+	<div class="row">	
 		<div class="w12 wysiwyg">
-			<h1>Editing <%= thisEvent.eventTitle%></h1>
 			<form action="/events/update/<%= thisEvent.id %>" method="POST">
 			<div class="row">
 				<div class="w12">

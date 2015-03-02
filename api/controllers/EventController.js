@@ -68,7 +68,7 @@ module.exports = {
 
 		var lat = parseFloat(req.param('lat')); // get the latitude from POST and make it a number
 		var lng = parseFloat(req.param('lng')); // get the longitude from POST and make it a number
-		var distance = parseFloat(req.param('distance'));
+		var distance = parseFloat(req.param('distance')); // get the search radius and make it a number
 
 		var locationObj = {
 			lat : lat,
@@ -88,9 +88,39 @@ module.exports = {
 					res.json(results);
 				}
 		  	});
-		});		
-
+		});
 	},
+
+	nearbyJSON: function(req, res, next){ 
+
+		/* Despite being identical to the action above, this is required to properly handle permissions with policies. 
+		The app requires a JSON Web Token, whereas the previous action will rely on the session authentication.
+		Taking a look at config/policies.js will clarify this if need be. */
+
+		var lat = parseFloat(req.param('lat')); // get the latitude from POST and make it a number
+		var lng = parseFloat(req.param('lng')); // get the longitude from POST and make it a number
+		var distance = parseFloat(req.param('distance')); // get the search radius and make it a number
+
+		var locationObj = {
+			lat : lat,
+			lng : lng
+		}
+
+		Event.native(function(err, collection) {
+			collection.geoNear(lng, lat, {
+				maxDistance: distance / 10000, // one kilometre radius?
+				//query: {}, // allows filtering in the future
+				spherical : true
+			}, function(mongoErr, results) {
+				if (mongoErr) {
+					console.error(mongoErr);
+					res.send('geoProximity failed with error='+mongoErr);
+				} else {
+					res.json(results);
+				}
+		  	});
+		});
+	},	
 
 	show: function(req, res, next) {
 

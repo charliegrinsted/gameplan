@@ -61,6 +61,7 @@ $l.ready(function() {
 		$l.css.addClass(preloader, 'hidden');
 		$l.css.addClass(map_l, 'active');
 
+	
 		for (var i = 0; i < locations.length; i++) {
 
 			var toolTipContent = "<a href=/events/" + locations[i].obj._id + ">" + locations[i].obj.eventTitle + "</a>"
@@ -82,6 +83,7 @@ $l.ready(function() {
 				}
 			})(marker, i));
 		}
+	
 	}
 
 	var showPosition = function(position) {
@@ -94,8 +96,14 @@ $l.ready(function() {
 			'/search/events/nearby', // the API URL that the POST request is made to
 			{ lat: lat, lng: lng, distance: distance }, // pass the latitude and longitude to the server as POST request parameters
 			function(response) { // parse the server response
-				var locations = response.results;
-				plotMapPoints(locations, lat, lng);				
+
+				if (response.results.length > 0){
+					var locations = response.results;
+					plotMapPoints(locations, lat, lng);
+				} else {
+					console.log("No events found");
+					$l.css.addClass(preloader, 'hidden');
+				}			
 			}
 		);
 	}

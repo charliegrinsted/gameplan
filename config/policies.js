@@ -50,7 +50,7 @@ module.exports.policies = {
 
 	'EventController': {
 		'*': ['authenticated', 'errorFlashes'],
-		'nearby': ['hasToken']
+		'nearbyJSON': ['hasToken']
 	}
 	/***************************************************************************
 	*                                                                          *

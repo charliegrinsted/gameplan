@@ -49,7 +49,8 @@ module.exports.policies = {
 	},
 
 	'EventController': {
-		'*': ['authenticated', 'errorFlashes']
+		'*': ['authenticated', 'errorFlashes'],
+		'nearby': ['hasToken']
 	}
 	/***************************************************************************
 	*                                                                          *

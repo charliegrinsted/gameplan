@@ -108,6 +108,8 @@ module.exports.routes = {
 
 	'/api/teams': 'TeamController.indexJSON',
 
+	'/api/search/events/nearby': 'EventController.nearby',
+
 	'GET /api/teams/:id': 'TeamController.showJSON',	
 
 	'POST /api/session/create': 'SessionController.createAPIsession'	

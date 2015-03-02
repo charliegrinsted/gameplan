@@ -43,8 +43,11 @@
 <% }%>
 <div class="container">
 	<div class="row wysiwyg">
-		<div class="w4">
+		<div class="w6 centred">
 			<h2 class="h l">Upcoming Events</h2>
+			<% if (team.teamEvents.length == 0){ %>
+			<p>This team has no events planned.</p>
+			<% } %>
 			<% _.each(team.teamEvents, function(thisEvent, i, events) { %>
 				<% if (i == 0) { %>
 				<ul>
@@ -57,13 +60,16 @@
 				<% } %>				
 			<% }) %>
 		</div>	
-		<div class="w4 centred">
+		<div class="w6 last">
 			<h2 class="h l">Members</h2>
 			<% _.each(team.teamMembers, function(user, i, users) { %>
 				<% if (i == 0) { %>
-				<ul>
+				<ul class="dash-list">
 				<% } %>	
-					<li><a href="/users/<%= user.userName %>"><%= user.firstName %> <%= user.lastName %></a></li>
+					<li>
+					<a href="/users/<%= user.userName %>"><%= user.firstName %> <%= user.lastName %></a>
+					<a href="/users/<%= user.userName %>" class="cta-submit right">View Profile</a>
+					</li>
 				<% if (i == users.length ) { %>
 				</ul>
 				<% } %>

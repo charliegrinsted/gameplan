@@ -38,6 +38,10 @@ module.exports = {
 			type:'integer'
 		},
 
+		eventPrivacy:{
+			type:'string'
+		},
+
 		location: {
 			type: 'json',
 		},

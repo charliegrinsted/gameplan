@@ -108,7 +108,7 @@ module.exports.routes = {
 
 	'/api/teams': 'TeamController.indexJSON',
 
-	'/api/search/events/nearby': 'EventController.nearby',
+	'/api/search/events/nearby': 'EventController.nearbyJSON',
 
 	'GET /api/teams/:id': 'TeamController.showJSON',	
 

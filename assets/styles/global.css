@@ -403,7 +403,8 @@ body{font-size:0.8em;}
 @media only handheld, screen and (max-width:767px){ /* 768 = iPad screen */
 
 body{font-size:1em;}
-
+#header{height:auto;}
+.logo{text-align:center;}
 #nav-primary{overflow:hidden; height:0;}
 #nav-primary li{display:block;}
 body.m-nav-open #nav-primary{overflow:auto; height:auto;}

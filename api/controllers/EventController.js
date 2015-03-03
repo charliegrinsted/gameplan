@@ -355,17 +355,23 @@ module.exports = {
 			Event.findOneById(thisEvent)
 			.populateAll()
 			.exec(function(err, eventToUpdate) {
-				// add error handling
-				eventToUpdate.attendees.remove(activeUser); // add yourself to the event attendees list
-				eventToUpdate.save(function(err, user) {
-					
-					if (err){
-						res.redirect('/events' + thisEvent);
-					}
 
+				if (eventToUpdate.eventTeam.teamAdmin == activeUser){
 					res.redirect('/events/' + thisEvent);
+				}
+				else {
+					// add error handling
+					eventToUpdate.attendees.remove(activeUser); // add yourself to the event attendees list
+					eventToUpdate.save(function(err, user) {
+						
+						if (err){
+							res.redirect('/events/' + thisEvent);
+						}
 
-				});
+						res.redirect('/events/' + thisEvent);
+
+					});
+				}
 			});	
 		}
 

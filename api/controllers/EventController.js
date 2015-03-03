@@ -77,8 +77,8 @@ module.exports = {
 
 		Event.native(function(err, collection) {
 			collection.geoNear(lng, lat, {
-				maxDistance: distance / 10000, // one kilometre radius?
-				//query: {}, // allows filtering in the future
+				maxDistance: distance / 10000, // calculate radius to search
+				query: { eventPrivacy: 'public' }, // filters out group-only events
 				spherical : true
 			}, function(mongoErr, results) {
 				if (mongoErr) {
@@ -108,8 +108,8 @@ module.exports = {
 
 		Event.native(function(err, collection) {
 			collection.geoNear(lng, lat, {
-				maxDistance: distance / 10000, // one kilometre radius?
-				//query: {}, // allows filtering in the future
+				maxDistance: distance / 10000, // calculate radius to search
+				query: { eventPrivacy: 'public' }, // filters out group-only events
 				spherical : true
 			}, function(mongoErr, results) {
 				if (mongoErr) {
@@ -197,6 +197,7 @@ module.exports = {
 				eventTeam: req.param('eventTeam'),
 				eventInfo: req.param('eventInfo'),
 				spacesAvailable: req.param('spacesAvailable'),
+				eventPrivacy: req.param('eventPrivacy'),
 				startTime: req.param('startTime'),
 				endTime: req.param('endTime'),
 				location: locationObj
@@ -281,6 +282,7 @@ module.exports = {
 				eventTeam: req.param('eventTeam'),
 				eventInfo: req.param('eventInfo'),
 				spacesAvailable: req.param('spacesAvailable'),
+				eventPrivacy: req.param('eventPrivacy'),
 				startTime: req.param('startTime'),
 				endTime: req.param('endTime'),
 				location: locationObj

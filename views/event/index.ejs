@@ -39,18 +39,30 @@
 <script>
 
 var updateDistance = function(vol) {
-	document.getElementById('distance-output').value = vol;
+	document.getElementById('distance-output').value = vol; // function for updating the feedback for the range slider
+}
+
+function setUpMarkerInfo(marker, map, infowindow, toolTipContent) { // function for adding the data windows to each map marker when plotted
+    google.maps.event.addListener(marker, 'click', function() {
+    	if (infowindow){
+    		infowindow.close();
+    	}
+        infowindow.setContent(toolTipContent);
+        infowindow.open(map, marker);
+    });
 }
 
 $l.ready(function() {
 
-	var dumpBox = $l.id('dump');
-	var button = $l.id('locator');
-	var map_l = $l('#map-canvas');
-	var preloader = $l('#preloader');
+	var button = $l.id('locator'); // select the button from the DOM
+	var map_l = $l('#map-canvas'); // select the div that will contain the map
+	var preloader = $l('#preloader'); // select the div containing the loading spinner
+
+	var infowindow = new google.maps.InfoWindow(); // declared globally so there can only be one open at a time
 
 	var plotMapPoints = function(locations, lat, lng){
 
+		// create a new Google Map
 		var map = new google.maps.Map(document.getElementById('map-canvas'), {
 			zoom: 10,
 			center: new google.maps.LatLng(lat, lng),
@@ -58,30 +70,29 @@ $l.ready(function() {
 			scrollwheel: false,
 		});
 
-		$l.css.addClass(preloader, 'hidden');
-		$l.css.addClass(map_l, 'active');
+		$l.css.addClass(preloader, 'hidden'); // hide the loading spinner
+		$l.css.addClass(map_l, 'active'); // show the map
 
-	
+		// loop through each map marker
 		for (var i = 0; i < locations.length; i++) {
 
-			var toolTipContent = "<a href=/events/" + locations[i].obj._id + ">" + locations[i].obj.eventTitle + "</a>"
+			// content to go into infowindow
+			var toolTipContent = "<a href=/events/" + locations[i].obj._id + ">" + locations[i].obj.eventTitle + "</a>" 
 
+			// get lat/lng for the marker
 			var thisLat = locations[i].obj.location.coordinates[1];
 			var thisLng = locations[i].obj.location.coordinates[0];
 
-			var infowindow = new google.maps.InfoWindow();
+ 			// drop a marker on the map
 			var marker = new google.maps.Marker({
 				position: new google.maps.LatLng(thisLat, thisLng),
 				map: map,
 				animation: google.maps.Animation.DROP
 			});
 
-			google.maps.event.addListener(marker, 'click', (function(marker, i) {
-				return function() {
-					infowindow.setContent(toolTipContent);
-					infowindow.open(map, marker);
-				}
-			})(marker, i));
+			// add an event listener to open the infowindow if the marker is clicked
+			setUpMarkerInfo(marker, map, infowindow, toolTipContent); 
+
 		}
 	
 	}
@@ -113,14 +124,6 @@ $l.ready(function() {
 		'click',
 		function() {
 
-			// this is temporary code to test Socket.IO. Remove before finalising
-			io.socket.get('/test/socket', function(data) {
-
-				console.log(data);
-
-			});
-			// this is temporary code to test Socket.IO. Remove before finalising
-
 			if (navigator.geolocation) {
 				
 				$l.css.removeClass(preloader, 'hidden');
@@ -128,13 +131,10 @@ $l.ready(function() {
 
 			 } else {
 
-				// need to have a no-geolocation error here
+		 		$l.dom.insert(map_l,'afterBegin',"<p>Sorry, you don't have geolocation enabled</p>");
+
 			}
 		}
 	);
-
-	//var googleMap = $l.id('map_canvas');
-	//var thisTeam = $l.dom.data(button, 'teamID');
-
 });
 </script>

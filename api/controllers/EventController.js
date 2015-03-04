@@ -155,6 +155,37 @@ module.exports = {
 		});
 	},
 
+	showJSON: function(req, res, next) {
+
+		var now = new Date(moment().format('YYYY-MM-DDTHH:mm:ss.SSS') + 'Z');
+
+		Event.findOneById(req.param('id'))
+		.populateAll() // fetch the related values from the other models
+		.then(function(eventData){
+
+			var teamData = Team.findOneById(eventData.eventTeam.id) // find the related team using the eventTeam attribute
+			.populate('teamAdmin') // fetch the related values from the User model
+			.then(function(teamData){
+				var new_data = teamData;
+				delete new_data.createdAt;
+				delete new_data.updatedAt;
+				return new_data;
+			});
+
+			return [teamData, eventData];
+		})
+		.spread(function(teamData, eventData){
+			eventData.eventTeam = teamData; // set the EventTeam attribute to the team data we've retrieved
+			var formattedEnd = eventData.endTime.toISOString(); // Make the End Time an ISO formatted time
+			if (formattedEnd < now){ // compare it with the current time
+				eventData.eventStatus = "past";
+			}
+			res.json({
+				thisEvent: eventData
+			});
+		});
+	},	
+
 	create: function(req, res, next){
 
 		var valid = true;

@@ -106,6 +106,8 @@ module.exports.routes = {
 
 	'GET /api/users/:userName': 'UserController.showJSON',
 
+	'GET /api/events/:id': 'EventController.showJSON',
+
 	'/api/teams': 'TeamController.indexJSON',
 
 	'/api/search/events/nearby': 'EventController.nearbyJSON',

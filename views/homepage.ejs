@@ -50,7 +50,7 @@
 		</div>
 		<div class="w12">
 			<ul class="tab-nav">
-				<li><button id="show-login">Login</button></li>
+				<li><button id="show-login" class="active">Login</button></li>
 				<li><button id="show-register">Register</button></li>
 			</ul>
 		</div>
@@ -120,6 +120,9 @@ $l.ready(function() {
 		show_login,
 		'click',
 		function() {
+			$l.css.addClass(show_login, 'active');
+			$l.css.removeClass(show_register, 'active');
+
 			$l.css.addClass(register_form, 'invisible');
 			$l.css.removeClass(login_form, 'invisible');
 			return false;
@@ -129,6 +132,9 @@ $l.ready(function() {
 		show_register,
 		'click',
 		function() {
+			$l.css.removeClass(show_login, 'active');
+			$l.css.addClass(show_register, 'active');
+
 			$l.css.addClass(login_form, 'invisible');
 			$l.css.removeClass(register_form, 'invisible');
 			return false;

@@ -89,7 +89,7 @@ select{display:block;}
 label{clear:both;}
 textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 
-
+/* Icons, some used, some available for future use */
 @font-face {
 	font-family: 'icomoon';
 	src:url('fonts/icomoon.eot?-k5ooh1');
@@ -101,68 +101,19 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 	font-style: normal;
 }
 
-.icon{
-	font-family:'icomoon';
-	speak: none;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
-	margin-right:0.4em;
-
-	/* Better Font Rendering =========== */
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
-.icon.home:before {
-	content: "\e902";
-}
-
-.icon.pencil:before {
-	content: "\e905";
-}
-
-.icon.bell:before {
-	content: "\e951";
-}
-
-.icon.events:before {
-	content: "\e953";
-}
-
-.icon.teams:before {
-	content: "\e972";
-}
-
-.icon.cog:before {
-	content: "\e994";
-}
-
-.icon.menu:before {
-	content: "\e9bd";
-}
-
-.icon.plus:before {
-	content: "\ea0a";
-}
-
-.icon.minus:before {
-	content: "\ea0b";
-}
-
-.icon.cross:before {
-	content: "\ea0f";
-}
-
-.icon.checkmark:before {
-	content: "\ea10";
-}
-
-.icon.enter:before {
-	content: "\ea13";
-}
+.icon{font-family:'icomoon'; speak:none; font-style:normal; font-weight:normal; font-variant:normal; text-transform:none; line-height:1; margin-right:0.4em; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
+.icon.home:before{content:"\e902";}
+.icon.pencil:before {content:"\e905";}
+.icon.bell:before {content:"\e951";}
+.icon.events:before {content:"\e953";}
+.icon.teams:before {content:"\e972";}
+.icon.cog:before {content:"\e994";}
+.icon.menu:before {content:"\e9bd";}
+.icon.plus:before {content:"\ea0a";}
+.icon.minus:before {content:"\ea0b";}
+.icon.cross:before {content:"\ea0f";}
+.icon.checkmark:before {content:"\ea10";}
+.icon.enter:before {content:"\ea13";}
 
 /*** rome - Customizable date (and time) picker. Opt-in UI, no jQuery! * @version v1.2.0 * @link https://github.com/bevacqua/rome * @license MIT */
 
@@ -181,8 +132,7 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 .rd-next{float:right;}
 .rd-back:before{display:block; content:'\2190';}
 .rd-next:before{display:block; content:'\2192';}
-.rd-day-body {
-	cursor:pointer;
+.rd-day-body{cursor:pointer;
 	text-align:center;
 	padding:0.4em 0.5em;
 	border-radius:50%;
@@ -190,47 +140,17 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 .rd-day-body:hover{background-color:#FF9900; color:#FFF;}
 .rd-day-selected,
 .rd-time-selected,
-.rd-time-option:hover {
-	cursor:pointer;
-	background-color:#FF9900;
-	color:#FFF;
-}
+.rd-time-option:hover{cursor:pointer; background-color:#FF9900; color:#FFF;}
 .rd-day-prev-month,
-.rd-day-next-month {
-	color:#DCDEDC;
-}
-.rd-day-disabled {
-	cursor:default;
-	color:#fcc;
-}
-.rd-time {
-	position:relative;
-	display:inline-block;
-	margin-top:5px;
-	min-width:80px;
-}
-.rd-time-list {
-	display:none;
-	position:absolute;
-	overflow-y:scroll;
-	max-height:160px;
-	left:0;
-	right:0;
-	background-color:#fff;
-	color:#333;
-}
-.rd-time-selected {
-	padding:5px;
-}
-.rd-time-option {
-	padding:5px;
-}
-.rd-day-concealed {
-	visibility:hidden;
-}
+.rd-day-next-month{color:#DCDEDC;}
+.rd-day-disabled{cursor:default; color:#fcc;}
+.rd-time{position:relative; display:inline-block; margin-top:5px; min-width:80px;}
+.rd-time-list{display:none; position:absolute; overflow-y:scroll; max-height:160px; left:0; right:0; background-color:#fff; color:#333;}
+.rd-time-selected{padding:5px;}
+.rd-time-option{padding:5px;}
+.rd-day-concealed{visibility:hidden;}
 
-
-#map-canvas img{max-width:none;}
+#map-canvas img{max-width:none;} /* fix to stop the Google Map elements from distorting */
 
 /* --- NAVIGATION --- */
 
@@ -268,9 +188,15 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 
 /* --- Buttons --- */
 
-.cta-submit{font-family:'Lato', sans-serif; background-color:#FF9900; outline:0; border:0; border-radius:0.2em; font-size:1.1em; line-height:1.2em; vertical-align:middle; cursor:pointer; padding:0.4em 1em 0.5em 1em; color:#FFF; font-weight:800;}
+.cta-submit{border:none; box-shadow:0 3px #E78A00; border-radius:5px; position:relative; border:none; cursor:pointer; font-family:'Lato', sans-serif; background-color:#FF9900; outline:0; font-size:1.1em; line-height:1.2em; vertical-align:middle; cursor:pointer; padding:0.4em 1em 0.5em 1em; color:#FFF; font-weight:800;}
+.cta-submit:hover{box-shadow:0 5px #E78A00; top:-2px;}
+.cta-submit:active{box-shadow:0 0 #E78A00; top:3px;}
 
-.cta-submit.negative{background-color:#DE0200;}
+.cta-submit.negative{background-color:#DE0200; box-shadow:0 3px #BE0200;}
+.cta-submit.negative:hover{box-shadow:0 5px #BE0200; top:-2px;}
+.cta-submit.negative:active{box-shadow:0 0 #BE0200; top:3px;}
+
+.cta-submit:after{content:''; position:absolute; z-index:-1;	-webkit-transition:all 0.3s; -moz-transition:all 0.3s; transition:all 0.3s;}
 
 .cta-submit.locate{margin:0 auto 1em;}
 .cta-submit.right{float:right; right:0;}
@@ -278,6 +204,12 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 .cta-submit.inline{display:inline-block;}
 .cta-submit.disabled{background-color:#f3f3f3; color:#333; cursor:default;}
 .cta-submit.b{position:absolute; bottom:0;}
+
+
+.tab-nav{max-width:300px; margin:0 auto; text-align:center;}
+.tab-nav li{display:inline-block; width:48%;}
+.tab-nav li button{background-color:#fff; color:#000; width:100%;}
+.tab-nav li button.active{background-color:#333;}
 
 /* --- CONTENT --- */
 

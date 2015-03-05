@@ -20,8 +20,6 @@ module.exports = {
 
 	createAPIsession: function(req, res, next){
 
-		console.log('Request Received');
-
 		if (!req.param('userName') || !req.param('password')) {
 
 			var formError = {

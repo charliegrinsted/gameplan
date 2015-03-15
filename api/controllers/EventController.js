@@ -1,18 +1,15 @@
-/**
- * EventController
- *
- * @description :: Server-side logic for managing events
- * @help        :: See http://links.sailsjs.org/docs/controllers
- */
+/* EventController - Server-side logic for managing events */
 
-var moment = require('moment'); // include Moment.js for funky date formatting to compare with stored event times
-var utility = require('../services/utility'); // include the global helper function for building notifications
+// Include Moment.js for easier date formatting to compare with stored event times
+var moment = require('moment');
+// Include the global helper functions for building notifications & handling files
+var utility = require('../services/utility');
 
 module.exports = {
 
 	'new': function(req, res){
 
-	// Pass in all of the available teams to populate the select element with possible associated teams.
+		// Pass in all of the available teams to populate the select element with possible associated teams.
 		Team.find()
 		.exec(function (err, teams) {
 			if (err){
@@ -29,8 +26,10 @@ module.exports = {
 
 	search: function(req, res, next){
 
+		// Take the search query string
 		var query = req.param('query');
 
+		// Search through all events to find the query, then pass results to a view
 		Event.find({ or: [{ eventTitle: { 'contains': query }}]})
 		.populateAll()
 		.exec(function(err, results){
@@ -47,13 +46,13 @@ module.exports = {
 
 	index: function(req, res, next){
 
+		// What's the time right now?
 		var now = new Date(moment().format('YYYY-MM-DDTHH:mm:ss.SSS') + 'Z');
 
-		Event.find() // find all events and create an array
-		.where({ endTime: { '>=': now }})
-		.populate('eventTeam') // fetch the related values from the Team model
+		Event.find() // find all events
+		.where({ endTime: { '>=': now }}) // that end after the current time, thus not expired/past events
+		.populate('eventTeam') // fetch the related values from the Team model for each event
 		.exec(function (err, events){
-			// console.log(events);
 			if (err){
 				return next(err);
 			}
@@ -329,7 +328,7 @@ module.exports = {
 
 		else {
 
-			// PUT SOME PROPER ERROR HANDLING HERE
+			// Currently, this simply redirects home if the event couldn't be updated.
 
 			res.redirect('/');
 
@@ -338,6 +337,8 @@ module.exports = {
 
 	edit: function(req, res, next) {
 
+		/* Look up an event by ID, then pass its properties to the view, allowing the
+		edit form to be pre-populated with the event's current values */
 		Event.findOneById(req.param('id'))
 		.populateAll()
 		.exec(function(err, thisEvent) {
@@ -356,8 +357,8 @@ module.exports = {
 
 	delete: function(req, res, next){
 
-		var thisEvent = req.param('id');
-		var activeUser = req.session.User.id;
+		var thisEvent = req.param('id'); // The ID of the event you'd like to delete
+		var activeUser = req.session.User.id; // Your User ID
 
 		Event.findOneById(thisEvent)
 		.populateAll()
@@ -365,6 +366,8 @@ module.exports = {
 			if (err) {
 				return res.serverError();
 			}
+
+			// Make sure that you're the Team Admin, or you won't be allowed to delete the team
 			if (eventToDelete.eventTeam.teamAdmin == activeUser){
 				Event.destroy({id: thisEvent})
 				.exec(function(err, deletedEvent) {
@@ -380,28 +383,30 @@ module.exports = {
 
 	cancel: function(req, res, next){
 
-		var thisEvent = req.param('id');
-		var activeUser = req.session.User.id;
+		var thisEvent = req.param('id'); // The ID of the event you'd like to cancel attendance of
+		var activeUser = req.session.User.id; // Your User ID
 
 		if (req.session.User.userName){
 
-			Event.findOneById(thisEvent)
+			Event.findOneById(thisEvent) // find the Event using the ID
 			.populateAll()
 			.exec(function(err, eventToUpdate) {
 
+				/* If you're the admin of the team, you can't leave an event. In the future,
+				this would show an error or perhaps allow this under certain conditions */
 				if (eventToUpdate.eventTeam.teamAdmin == activeUser){
 					res.redirect('/events/' + thisEvent);
 				}
 				else {
-					// add error handling
-					eventToUpdate.attendees.remove(activeUser); // add yourself to the event attendees list
+
+					eventToUpdate.attendees.remove(activeUser); // remove the User from the event attendees list
 					eventToUpdate.save(function(err, user) {
 						
 						if (err){
 							res.redirect('/events/' + thisEvent);
 						}
 
-						res.redirect('/events/' + thisEvent);
+						res.redirect('/events/' + thisEvent); // if it worked, redirect to the event's page
 
 					});
 				}
@@ -409,8 +414,6 @@ module.exports = {
 		}
 
 		else {
-
-			// PUT SOME PROPER ERROR HANDLING HERE
 
 			res.redirect('/');
 
@@ -427,8 +430,8 @@ module.exports = {
 			Event.findOneById(thisEvent)
 			.populateAll()
 			.exec(function(err, eventToUpdate) {
-				// add error handling
-				eventToUpdate.attendees.add(activeUser); // add yourself to the event attendees list
+
+				eventToUpdate.attendees.add(activeUser); // Add yourself to the event attendees list
 				eventToUpdate.save(function(err, user) {
 					
 					if (err){
@@ -442,8 +445,6 @@ module.exports = {
 		}
 
 		else {
-
-			// PUT SOME PROPER ERROR HANDLING HERE
 
 			res.redirect('/');
 

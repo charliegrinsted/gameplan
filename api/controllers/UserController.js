@@ -178,6 +178,7 @@ module.exports = {
 	showJSON: function(req, res, next) {
 		User.findOneByUserName(req.param('userName'))
 		.populateAll()
+		.sort('startTime asc')
 		.exec(function(err, user) {
 			if (err) return next(err);
 			if (!user) return next();

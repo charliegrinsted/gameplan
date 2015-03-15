@@ -1,9 +1,4 @@
-/**
-* Team.js
-*
-* @description :: TODO: You might write a short summary of how this model works and what it represents here.
-* @docs        :: http://sailsjs.org/#!documentation/models
-*/
+/* This model defines all of the attributes for Teams, including relationships to Users and Events */
 
 module.exports = {
 

@@ -54,39 +54,60 @@
 				<li><button id="show-register">Register</button></li>
 			</ul>
 		</div>
-		<div class="w12" id="login-form">
-			<div class="home-not-registered">
-			<form action="/sessions/create" method="POST" class="home-form">
-				<input type="text" name="userName" placeholder="Username">
-				<input type="password" name="password" placeholder="Password">
-				<input type="hidden" name="_csrf" value="<%= _csrf %>">	
-				<input class="cta-submit block" type="submit" value="Login">
-			</form>
+		<div class="w12">
+			<div class="home-form" id="login-form">
+				<form action="/sessions/create" method="POST" class="home-form">
+					<div class="row">
+						<div class="w12">
+							<input type="text" name="userName" placeholder="Username">
+						</div>
+					</div>
+					<div class="row">
+						<div class="w12">
+							<input type="password" name="password" placeholder="Password">
+						</div>
+					</div>
+					<input type="hidden" name="_csrf" value="<%= _csrf %>">
+					<div class="row">
+						<div class="w12">
+							<input class="cta-submit block" type="submit" value="Login">
+						</div>
+					</div>
+				</form>
 			</div>
-		</div>
-		<div class="w12 invisible" id="register-form">
-			<div class="home-not-registered">
-			<form action="/create/user" method="POST" class="home-form">
-				<label for="firstName">First Name</label>
-				<input class="input breaker" type="text" name="firstName">
-				<label for="lastName">Last Name</label>	
-				<input class="input breaker" type="text" name="lastName">
-				<label for="email">Email Address</label>	
-				<input class="input breaker" type="email" name="email">
-				<label for="userName">Username</label>	
-				<input class="input breaker" type="text" name="userName">
-				<label for="publicView">Account Visibility</label>						
-				<select class="input breaker" name="publicView">
-					<option value="true">Public</option>
-					<option value="false">Private</option>
-				</select>
-				<label for="password">Password</label>
-				<input class="input breaker" type="password" name="password">
-				<label for="passwordConfirmation">Confirm Password</label>		
-				<input class="input breaker" type="password" name="passwordConfirmation">
-				<input type="hidden" name="_csrf" value="<%= _csrf %>">
-				<input type="submit" class="cta-submit inline" value="Sign up">
-			</form>
+			<div class="home-form invisible" id="register-form">
+				<form action="/create/user" method="POST" class="home-form">
+					<div class="row">
+						<div class="w6">
+							<input class="input" type="text" name="firstName" placeholder="First Name">
+						</div>
+						<div class="w6 last">
+							<input class="input" type="text" name="lastName" placeholder="Last Name">
+						</div>
+					</div>
+					<div class="row">
+						<div class="w6">
+							<input class="input" type="email" name="email" placeholder="Email Address">
+						</div>
+						<div class="w6 last">
+							<input class="input" type="text" name="userName" placeholder="Username">
+						</div>
+					</div>
+					<div class="row">
+						<div class="w6">
+							<input class="input" type="password" name="password" placeholder="Password">
+						</div>
+						<div class="w6 last">
+							<input class="input" type="password" name="passwordConfirmation" placeholder="Confirm Password">
+						</div>
+					</div>
+					<div class="row">
+						<div class="w12">
+							<input type="hidden" name="_csrf" value="<%= _csrf %>">
+							<input type="submit" class="cta-submit block" value="Sign up">
+						</div>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>

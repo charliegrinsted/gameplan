@@ -23,7 +23,7 @@
 
 	<body>
 	<div class="container dark-slab" id="header">
-		<div class="row relative row-flush">
+		<div class="row roverflow relative row-flush">
 			<div class="w2 relative">
 				<p class="logo"><a href="/">GamePlan</a></p>
 			</div>
@@ -45,7 +45,7 @@
 			</div>
 			<div id="notifications-box">
 				<% if (session.authenticated && session.User.userNotifications.length > 0) { %>
-				<ul>
+				<ul class="dash-list">
 					<% _.each(session.User.userNotifications, function(item, i, notifications) { %>
 					<% if (item.read == false ) { %><li><a href="<%= item.url %>"><%= item.title %></a></li><% } %>
 					<% }) %>

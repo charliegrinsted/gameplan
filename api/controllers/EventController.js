@@ -395,6 +395,14 @@ module.exports = {
 				/* If you're the admin of the team, you can't leave an event. In the future,
 				this would show an error or perhaps allow this under certain conditions */
 				if (eventToUpdate.eventTeam.teamAdmin == activeUser){
+
+					var adminError = [{
+						name: 'Cannot cancel attendance',
+						message: 'You cannot remove yourself from this event because you are the administrator'
+					}]
+					req.session.flashMsg = {
+						err: adminError
+					}
 					res.redirect('/events/' + thisEvent);
 				}
 				else {
@@ -425,30 +433,21 @@ module.exports = {
 		var thisEvent = req.param('id');
 		var activeUser = req.session.User.id;
 
-		if (req.session.User.userName){
+		Event.findOneById(thisEvent)
+		.populateAll()
+		.exec(function(err, eventToUpdate) {
 
-			Event.findOneById(thisEvent)
-			.populateAll()
-			.exec(function(err, eventToUpdate) {
-
-				eventToUpdate.attendees.add(activeUser); // Add yourself to the event attendees list
-				eventToUpdate.save(function(err, user) {
+			eventToUpdate.attendees.add(activeUser); // Add yourself to the event attendees list
+			eventToUpdate.save(function(err, user) {
 					
-					if (err){
-						res.redirect('/events' + thisEvent);
-					}
+				if (err){
+					res.redirect('/events' + thisEvent);
+				}
 
-					res.redirect('/events/' + thisEvent);
+				res.redirect('/events/' + thisEvent);
 
-				});
-			});	
-		}
-
-		else {
-
-			res.redirect('/');
-
-		}
+			});
+		});
 	}
 	
 };

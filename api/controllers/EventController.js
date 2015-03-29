@@ -328,7 +328,7 @@ module.exports = {
 
 		else {
 
-			// Currently, this simply redirects home if the event couldn't be updated.
+			// Currently, this simply redirects home if the event couldn't be updated for an unknown reason.
 
 			res.redirect('/');
 
@@ -342,9 +342,6 @@ module.exports = {
 		Event.findOneById(req.param('id'))
 		.populateAll()
 		.exec(function(err, thisEvent) {
-			if (!req.session.User.userName){
-				res.redirect('/events/' + thisEvent.id);
-			}
 			if (err) return next(err);
 			if (!thisEvent) return next();
 			res.view({
@@ -375,6 +372,13 @@ module.exports = {
 				});
 			}
 			else {
+				var adminError = [{
+					name: 'Cannot delete team',
+					message: 'You are not the team administrator'
+				}]
+				req.session.flashMsg = {
+					err: adminError
+				}
 				res.redirect('/events/' + thisEvent);
 			}
 		});

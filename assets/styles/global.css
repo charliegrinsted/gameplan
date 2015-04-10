@@ -345,11 +345,10 @@ body{font-size:1em;}
 #nav-primary li{display:block;}
 body.m-nav-open #nav-primary{overflow:auto; height:auto;}
 
-#m-nav-toggle{display:block; position:absolute; right:20px; top:0;}
-#m-nav-toggle:before{content:'X'; font-size:2em; line-height:1; vertical-align:middle;}
+/*#m-nav-toggle{display:block; position:absolute; right:20px; top:0;}
+#m-nav-toggle:before{content:'X'; font-size:2em; line-height:1; vertical-align:middle;}*/
 
-}
-
+.dash-list li .cta-submit{display:none;}
 
 /* --- RETINA --- */
 

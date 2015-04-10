@@ -92,7 +92,6 @@ module.exports = {
       user: '',
       password: '',
       database: 'gameplan',
-
       schema: true
     }
    }

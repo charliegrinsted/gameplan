@@ -1,7 +1,7 @@
 /* This file contains a few functions which are used in multiple API controllers. In the spirit of efficient programming,
 these functions are defined here and imported into the relevant controllers, rather than being repeated. */
 
-var fileAdapter = require('skipper-gridfs')({uri: 'mongodb://localhost/gameplan.fs' }); // create an instance of the adapter that handles file uploads/downloads from the MongoDB GridFS
+var fileAdapter = require('skipper-gridfs')({uri: 'mongodb://127.0.0.1:27017/gameplan' }); // create an instance of the adapter that handles file uploads/downloads from the MongoDB GridFS
 
 module.exports = {
 

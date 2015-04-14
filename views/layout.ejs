@@ -23,7 +23,7 @@
 
 	<body>
 	<div class="container dark-slab" id="header">
-		<div class="row roverflow relative row-flush">
+		<div class="row relative row-flush">
 			<div class="w2 relative">
 				<p class="logo"><a href="/">GamePlan</a></p>
 			</div>
@@ -37,7 +37,7 @@
 			</div>
 			<div class="w4 last">
 				<div class="user-box">
-				<button id="notifications"><span class="icon bell"></button>
+				<a href="/notifications" id="notifications"><span class="icon bell"></span></a>
 					<p class="name"><a href="/users/<%= session.User.userName %>"><%= session.User.firstName %> <%= session.User.lastName %></a></p>
 					<a class="btn" href="/settings">Edit Profile</a>
 					<a class="btn" href="/logout">Logout</a>

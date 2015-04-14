@@ -88,6 +88,7 @@ textarea{font-size:1em; padding:0.4em; outline:0; border:1px solid #7E8AA3;}
 select{display:block;}
 label{clear:both;}
 textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
+#eventPrivacy{margin:0 auto;}
 
 /* Icons, some used, some available for future use */
 @font-face {
@@ -116,7 +117,6 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 .icon.enter:before {content:"\ea13";}
 
 /*** rome - Customizable date (and time) picker. Opt-in UI, no jQuery! * @version v1.2.0 * @link https://github.com/bevacqua/rome * @license MIT */
-
 .rd-container{font-family:'Lato', sans-serif; display:inline-block; border-bottom-right-radius:4px; border-bottom-left-radius:4px; color:#253149; padding:1em; text-align:center; overflow:visible;}
 .rd-container-attachment{position:absolute;}
 .rd-month{display:inline-block;}
@@ -153,7 +153,6 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 #map-canvas img{max-width:none;} /* fix to stop the Google Map elements from distorting */
 
 /* --- NAVIGATION --- */
-
 #nav-primary{}
 #nav-primary li{display:inline-block; font-size:1.2em; line-height:2.4em; vertical-align:middle;}
 #nav-primary li a{color:#FFF; padding:0.75em;}
@@ -166,8 +165,8 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 #nav-social li a{}
 
 .nav-secondary{text-align:center;}
-.nav-secondary li{background-color:#FF9900; font-weight:800; display:inline-block; font-size:1.2em; font-family:'Lato', sans-serif; margin:0 1.2em; outline:0; border:0; border-radius:0.2em; padding:0.4em 1em 0.5em 1em;}
-.nav-secondary a{color:#FFF;}
+.nav-secondary li{background-color:#FF9900; font-weight:800; display:inline-block; font-size:1.2em; font-family:'Lato', sans-serif; margin:0 1.2em; outline:0; border:0; border-radius:0.2em;}
+.nav-secondary a{color:#FFF; display:block; padding:0.4em 1em 0.5em 1em;}
 #m-nav-toggle{display:none;}
 
 /* --- Colour Containers --- */
@@ -204,8 +203,6 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 .cta-submit.inline{display:inline-block;}
 .cta-submit.disabled{background-color:#f3f3f3; color:#333; cursor:default;}
 .cta-submit.b{position:absolute; bottom:0;}
-
-
 
 /* --- CONTENT --- */
 
@@ -256,7 +253,6 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 .user-box .btn{font-size:0.8em; display:inline-block; padding-left:1em;}
 #main-content{background-color:#7E8AA3;}
 
-
 /* --- Form Elements --- */
 
 #map-canvas{width:100%; display:block; height:500px;}
@@ -276,7 +272,6 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 .friend-requests{display:inline-block;}
 .member{text-align:center;}
 input{display:block; clear:both;}
-#footer{}
 
 .spots-left{font-size:2.4em; font-weight:bold;}
 .profile-photo{border-radius:50%; height:100px; width:100px; margin-top:1.2em;}
@@ -327,9 +322,8 @@ input{display:block; clear:both;}
 
 /* --- SMALLER SCREENS --- */
 
-@media only screen and (max-width:1023px){
+@media only screen and (max-width:1120px){
 
-body{font-size:0.8em;}
 
 }
 
@@ -341,12 +335,9 @@ body{font-size:0.8em;}
 body{font-size:1em;}
 #header{height:auto;}
 .logo{text-align:center;}
-#nav-primary{overflow:hidden; height:0;}
-#nav-primary li{display:block;}
-body.m-nav-open #nav-primary{overflow:auto; height:auto;}
 
-/*#m-nav-toggle{display:block; position:absolute; right:20px; top:0;}
-#m-nav-toggle:before{content:'X'; font-size:2em; line-height:1; vertical-align:middle;}*/
+#nav-primary li{width:32%; margin:0; text-align:center;}
+#nav-primary li a{width:100%; box-sizing:border-box; display:block; padding:0.2em 0;}
 
 .dash-list li .cta-submit{display:none;}
 

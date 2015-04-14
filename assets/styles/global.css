@@ -195,14 +195,18 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 .cta-submit.negative:hover{box-shadow:0 5px #BE0200; top:-2px;}
 .cta-submit.negative:active{box-shadow:0 0 #BE0200; top:3px;}
 
-.cta-submit:after{content:''; position:absolute; z-index:-1;	-webkit-transition:all 0.3s; -moz-transition:all 0.3s; transition:all 0.3s;}
+.cta-submit:after{content:''; position:absolute; z-index:-1; -webkit-transition:all 0.3s; -moz-transition:all 0.3s; transition:all 0.3s;}
 
 .cta-submit.locate{margin:0 auto 1em;}
 .cta-submit.right{float:right; right:0;}
 .cta-submit.block{display:block;}
 .cta-submit.inline{display:inline-block;}
 .cta-submit.disabled{background-color:#f3f3f3; color:#333; cursor:default;}
-.cta-submit.b{position:absolute; bottom:0;}
+
+.cta-submit.b{position:absolute; bottom:0; box-shadow:none;}
+.cta-submit.b:hover,
+.cta-submit.b.negative:hover,
+.cta-submit.b:active{box-shadow:none; top:auto;}
 
 /* --- CONTENT --- */
 
@@ -215,8 +219,9 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 
 
 .dash-list{}
-.dash-list li{font-weight:bold; height:2.4em; line-height:2.4em; background-color:#eee; padding:1em; vertical-align:middle; margin-bottom:0.1em;}
-.dash-list li .cta-submit{float:right; margin-left:1em; display:inline-block;}
+.dash-list li{font-weight:bold; background-color:#eee; padding:1em; vertical-align:middle; margin-bottom:0.1em;}
+
+.dash-list li .cta-submit{float:right; margin-left:1em; display:inline-block; margin-bottom:1em;}
 .dash-list span{font-weight:normal;}
 
 .tab-nav{max-width:300px; margin:2em auto 0; text-align:center;}

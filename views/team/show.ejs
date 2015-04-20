@@ -10,12 +10,10 @@
 </div>
 <div class="container spaced">
 	<div class="row">
-		<div class="w3">
+		<div class="w9 mw6">
 			<a class="cta-submit inline" href="/teams">Back to all teams</a>
 		</div>
-		<div class="w6">
-		</div>
-		<div class="w3 last">
+		<div class="w3 mw6 last mlast">
 			<% if (session.authenticated && session.User.userName == team.teamAdmin.userName){ %>
 			<a class="cta-submit inline right" href="/teams/manage/<%= team.id %>">Edit this team</a>
 			<% } else if ((pos = team.joinRequestsReceived.map(function(e) { return e.id; }).indexOf(session.User.id)) > -1) /* check to see if they've already sent a request */ { %> 

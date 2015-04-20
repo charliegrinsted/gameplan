@@ -353,6 +353,9 @@ body{font-size:1em;}
 .home-form input[type="email"],
 .home-form input[type="password"]{margin-top:1.2em;}
 .home-form .cta-submit{margin:1.2em auto;}
+
+.cta-submit.b{position:static; float:none; text-align:center; display:block; margin:1em auto;}
+
 .dash-list li .cta-submit{display:none;}
 
 /* --- RETINA --- */

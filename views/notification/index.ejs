@@ -6,6 +6,9 @@
 	</div>
 	<div class="row">
 		<div class="w12 wysiwyg">
+			<% if (notifications.length == 0) { %>
+			<p>You have no unread notifications.</p>
+			<% } %>
 			<% _.each(notifications, function(item, i, notifications) { %>
 			<% if (i == 0) { %>
 			<ul class="dash-list team">

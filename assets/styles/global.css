@@ -187,7 +187,7 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 
 /* --- Buttons --- */
 
-.cta-submit{border:none; box-shadow:0 3px #E78A00; border-radius:5px; position:relative; border:none; cursor:pointer; font-family:'Lato', sans-serif; background-color:#FF9900; outline:0; font-size:1.1em; line-height:1.2em; vertical-align:middle; cursor:pointer; padding:0.4em 1em 0.5em 1em; color:#FFF; font-weight:800;}
+.cta-submit{border:none; box-shadow:0 3px #E78A00; border-radius:5px; position:relative; border:none; cursor:pointer; font-family:'Lato', sans-serif; background-color:#FF9900; outline:0; font-size:0.8em; line-height:1.2em; vertical-align:middle; cursor:pointer; padding:0.4em 1em 0.5em 1em; color:#FFF; font-weight:800;}
 .cta-submit:hover{box-shadow:0 5px #E78A00; top:-2px;}
 .cta-submit:active{box-shadow:0 0 #E78A00; top:3px;}
 
@@ -198,7 +198,9 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 .cta-submit:after{content:''; position:absolute; z-index:-1; -webkit-transition:all 0.3s; -moz-transition:all 0.3s; transition:all 0.3s;}
 
 .cta-submit.locate{margin:0 auto 1em;}
-.cta-submit.right{float:right; right:0;}
+.cta-submit.top-left{float:left; display:inline; box-shadow:none;}
+.cta-submit.top-right{float:right; right:0; display:inline; position:absolute; bottom:0; box-shadow:none;}
+
 .cta-submit.block{display:block;}
 .cta-submit.inline{display:inline-block;}
 .cta-submit.disabled{background-color:#f3f3f3; color:#333; cursor:default;}
@@ -206,6 +208,10 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 .cta-submit.b{position:absolute; bottom:0; box-shadow:none;}
 .cta-submit.b:hover,
 .cta-submit.b.negative:hover,
+.cta-submit.top-right:active,
+.cta-submit.top-right:hover,
+.cta-submit.top-left:active,
+.cta-submit.top-left:hover,
 .cta-submit.b:active{box-shadow:none; top:auto;}
 
 /* --- CONTENT --- */

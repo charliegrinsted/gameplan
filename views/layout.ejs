@@ -76,20 +76,4 @@
 	<script src="/js/dependencies/sails.io.js"></script>
 	<!--SCRIPTS END-->
 	</body>
-	<% if (session.authenticated) { %>
-	<script>
-	$l.ready(function() {
-		var show_notifications = $l.id('notifications');
-		var notifications_box = $l.id('notifications-box');
-		$l.dom.setEvent(
-			show_notifications,
-			'click',
-			function() {
-				$l.css.toggleClass(notifications_box, 'visible');
-				return false;
-			}
-		);
-	});
-	</script>
-	<% } %>
 </html>

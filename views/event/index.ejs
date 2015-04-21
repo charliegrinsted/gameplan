@@ -28,6 +28,7 @@
 			</form>
 
 			<button id="locator" class="cta-submit locate">Find events</button>
+			<div id="search-error"></div>
 		</div>
 	</div>
 </div>
@@ -56,6 +57,7 @@ $l.ready(function() {
 
 	var button = $l.id('locator'); // select the button from the DOM
 	var map_l = $l('#map-canvas'); // select the div that will contain the map
+	var error_box = $l('#search-error'); // select the div that will contain the map
 	var preloader = $l('#preloader'); // select the div containing the loading spinner
 
 	var infowindow = new google.maps.InfoWindow(); // declared globally so there can only be one open at a time
@@ -112,7 +114,7 @@ $l.ready(function() {
 					var locations = response.results;
 					plotMapPoints(locations, lat, lng);
 				} else {
-					console.log("No events found");
+					$l.dom.insert(error_box,'afterBegin',"<p>No events found. Try increasing the search radius.</p>");
 					$l.css.addClass(preloader, 'hidden');
 				}			
 			}
@@ -126,12 +128,13 @@ $l.ready(function() {
 
 			if (navigator.geolocation) {
 				
+				$l.dom.clear(error_box); // empty the map/error div
 				$l.css.removeClass(preloader, 'hidden');
 				var position = navigator.geolocation.getCurrentPosition(showPosition);
 
 			 } else {
 
-		 		$l.dom.insert(map_l,'afterBegin',"<p>Sorry, you don't have geolocation enabled</p>");
+		 		$l.dom.insert(error_box,'afterBegin',"<p>Sorry, you don't have geolocation enabled.</p>");
 
 			}
 		}

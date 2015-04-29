@@ -1,13 +1,9 @@
 # Gameplan
 
-## Creating an account
+GamePlan is a web app for managing sport teams, built on Sails.js. To install this on a server, you'll need Node and MongoDB installed. Then, run
+	
+	npm install
 
-## Creating a team
+from this directory.
 
-## Joining a team
-
-## Creating an event
-
-A team administrator has the ability to create an event. An event can include details such as the time, location and a short description.
-
-Event privacy is optional, making events visible to the public and searchable.
+To use a working demo of this app, go [here](http://planaga.me/).

@@ -1,0 +1,1043 @@
+commit 8acfaff251d1770e83138157cd5a32bb1a0ccd44
+Author: Charlie Grinsted <charlesgrinsted@gmail.com>
+Date:   Tue Apr 21 11:10:25 2015 +0100
+
+    map error if no results
+
+commit 81ba7f560c0f065e26410177c06a99fa5551d1dd
+Author: Charlie Grinsted <charlesgrinsted@gmail.com>
+Date:   Mon Apr 20 19:11:00 2015 +0100
+
+    bug fixes
+
+commit aef28d809424a3e4867de1980f80aa7ed943f019
+Author: Charlie Grinsted <charlesgrinsted@gmail.com>
+Date:   Mon Apr 20 13:47:14 2015 +0100
+
+    CSS tweaks
+
+commit d11731b5d60ef1855a3364f9eb26d5f814314c97
+Author: Charlie Grinsted <charlesgrinsted@gmail.com>
+Date:   Mon Apr 20 13:39:52 2015 +0100
+
+    CSS tweaks
+
+commit 9e284bfd22fe3b8c8da5a9542e6d1a8ef131d95f
+Author: Charlie Grinsted <charlesgrinsted@gmail.com>
+Date:   Mon Apr 20 11:07:14 2015 +0100
+
+    homepage CSS tweaks
+
+commit 89a38e8822418341d50a13c98796b0d7b1a3ef7c
+Author: Charlie Grinsted <charlesgrinsted@gmail.com>
+Date:   Tue Apr 14 12:10:36 2015 +0100
+
+    more CSS fixes
+
+commit 5b085289ab5a0c9575e7f958fbac3aea7366ca8f
+Author: Charlie Grinsted <charlesgrinsted@gmail.com>
+Date:   Tue Apr 14 11:40:18 2015 +0100
+
+    CSS fixes
+
+commit f654648f9fe855b56b42b0c9316dd81a9d119284
+Author: Charlie Grinsted <charlesgrinsted@gmail.com>
+Date:   Mon Apr 13 20:03:36 2015 +0100
+
+    removed superfluous styleguide
+
+commit 336e945308cc8635a7e21d94abaaa0e4ccc335ea
+Author: Charlie Grinsted <charlesgrinsted@gmail.com>
+Date:   Fri Apr 10 11:13:02 2015 +0100
+
+    CSS tweaks
+
+commit 0713c64e907aca481532eea533bc585c1e1725b0
+Author: Charlie Grinsted <charlesgrinsted@gmail.com>
+Date:   Fri Apr 10 10:51:23 2015 +0100
+
+    less broken file uploads hopefully
+
+commit 35d73d8b0cc431e966a1e221a2b743778551a851
+Author: Charlie Grinsted <charlesgrinsted@gmail.com>
+Date:   Fri Apr 10 10:45:11 2015 +0100
+
+    changed file upload params
+
+commit 73a8d9d86349c222a8ded30026753e6bcb322531
+Author: Charlie Grinsted <charlesgrinsted@gmail.com>
+Date:   Thu Apr 9 19:34:24 2015 +0100
+
+    changed port again
+
+commit 0d59a756d6174715b1208c8e0867be73b3a4912f
+Author: Charlie Grinsted <charlesgrinsted@gmail.com>
+Date:   Thu Apr 9 19:20:35 2015 +0100
+
+    changed default port to 80
+
+commit f4895b4f0e6541e5993b3cd0a4308f7fead91161
+Author: Charlie Grinsted <charlesgrinsted@gmail.com>
+Date:   Thu Apr 9 18:44:54 2015 +0100
+
+    added environment params
+
+commit bf5f231e4a3922bcc9e5cea65a38a1eec90633a0
+Author: Charlie Grinsted <charlesgrinsted@gmail.com>
+Date:   Sun Mar 29 12:00:06 2015 +0100
+
+    flash messages
+
+commit f8e35a21e3dd58eca4d595c9d3fd466c53750c98
+Author: Charlie Grinsted <charlesgrinsted@gmail.com>
+Date:   Sun Mar 29 11:53:18 2015 +0100
+
+    flash message informing admin they can't leave their own event
+
+commit adc8606335946ec1347d21ff67f323f1de31c901
+Author: Charlie Grinsted <charlesgrinsted@gmail.com>
+Date:   Mon Mar 16 13:08:18 2015 +0000
+
+    homepage login styling, notifications dropdown
+
+commit 205d63ca819ac3df6ce70d919fbcb9e1fa8c7be7
+Author: Charlie Grinsted <charlesgrinsted@gmail.com>
+Date:   Sun Mar 15 13:39:13 2015 +0000
+
+    additional comments to sections of the code
+
+commit cb9a1f623c2899d3ab596e94b88a3e5d3a53e56b
+Author: Charlie Grinsted <charlesgrinsted@gmail.com>
+Date:   Thu Mar 5 14:36:10 2015 +0000
+
+    removed comments
+
+commit ad111a66b84331ccdee1b5427c5e85f93e0d7076
+Author: Charlie Grinsted <charlesgrinsted@gmail.com>
+Date:   Wed Mar 4 13:03:41 2015 +0000
+
+    added fancier CSS for buttons; route for individual JSON API event
+
+commit b6b21ce3834c8fbc0379b81251db17d07ae2a6e7
+Author: Charlie Grinsted <charlesgrinsted@gmail.com>
+Date:   Tue Mar 3 12:55:11 2015 +0000
+
+    added event privacy and stopped nearby search from showing private events
+
+commit 0827de9589fe824ee433be2cd666aa075da06bd7
+Author: Charlie Grinsted <charlesgrinsted@gmail.com>
+Date:   Tue Mar 3 12:13:23 2015 +0000
+
+    fixed map plotting loop bug
+
+commit 84d73fde846faac96b16e38085e19b1bcd23bfdd
+Author: Charlie Grinsted <charlesgrinsted@gmail.com>
+Date:   Tue Mar 3 11:16:42 2015 +0000
+
+    prevent team admins from removing themselves from their own events
+
+commit 5fef4580aabe85f03db1b8c39de3c34ac9738c72
+Author: Charlie Grinsted <charlesgrinsted@gmail.com>
+Date:   Mon Mar 2 16:36:38 2015 +0000
+
+    client-side tweaks
+
+commit 175037660896d7086d9d9e19e3bb0edff9246732
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Mon Mar 2 11:19:42 2015 +0000
+
+    added an action for the API, altered event index front-end logic
+
+commit ed7225d36e7a59523583f92ee8b60c7eccf30416
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Mon Mar 2 10:57:48 2015 +0000
+
+    updated policies for Android app
+
+commit 07e85181ab2897310bd5230c16f2be960abb31a9
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Fri Feb 27 14:30:05 2015 +0000
+
+    JSONwebtoken support working with policies
+
+commit 02b1f43a60719faf7bde7e580db35af0b41d5764
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Fri Feb 27 12:26:31 2015 +0000
+
+    added delete button to event edit view
+
+commit 1990335385950e204557819ea4f56edd0396781a
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Thu Feb 26 21:31:21 2015 +0000
+
+    refactored notifications, added primitive toggle for homepage login/register
+
+commit c418c6bb1667ed6b7313335b1576fa346b45dfb7
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Thu Feb 26 11:16:38 2015 +0000
+
+    added URL property for Notifications. To be implemented
+
+commit 64f9e9fb680b3d975c8e2317ac4d182105d6e995
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Thu Feb 26 10:57:42 2015 +0000
+
+    adjusted event creation layout
+
+commit de0274f73fe40bd32ec5d535fdb1d22be300fca4
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Wed Feb 25 13:42:22 2015 +0000
+
+    added notifications button to layout, to be implemented later
+
+commit be488068406c3a34a026edcd9ea2936e1079d619
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Wed Feb 25 11:49:30 2015 +0000
+
+    event creation/edit layout tweaks
+
+commit 6f3af6c8855822f7364793b9e0589c4ba647f5b1
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Wed Feb 25 11:10:28 2015 +0000
+
+    removed manual notification creation, fixed map submit bug, added page titles globally for SEO
+
+commit 475051dc27315c2ab02963989f7955735b75aab3
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Mon Feb 23 11:41:31 2015 +0000
+
+    updated user show view with new list styles
+
+commit a5b532297115c48e26d124cb575ffab6597bc61d
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Wed Feb 18 15:50:19 2015 +0000
+
+    refactored event view
+
+commit e4a050b8597b4327537f70a24bc23cfb945213e5
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Wed Feb 18 12:40:37 2015 +0000
+
+    layout tweaks for event show
+
+commit 48a86f42bf02e205201d445ea91a4af1b2942e19
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Mon Feb 16 18:55:54 2015 +0000
+
+    error flashes put into function, implemented for event creation
+
+commit 95c1b21a55dc20087715d70456568e60034b2dd4
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Mon Feb 16 18:18:48 2015 +0000
+
+    start of event creation validation
+
+commit 3ba453bc96d85b4dacd734f648de7af0ef23a1d5
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Mon Feb 16 15:39:04 2015 +0000
+
+    added event search, team list on teams page
+
+commit 2775556ec17d67072da9e993aaf96a054883fb1d
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Mon Feb 16 15:16:54 2015 +0000
+
+    layout tweaks & logic for showing buttons when needed
+
+commit 6054e6b906826dc495d488b5c3eceecb71dae553
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Fri Feb 13 15:37:49 2015 +0000
+
+    tweaked edit team layout
+
+commit f917567f3cb569fe271a40814988e321a61dba44
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Fri Feb 13 15:08:04 2015 +0000
+
+    backup before upgrading sails
+
+commit 0a076d2b53da5d02d095a9d17e499f127c59beb6
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Thu Feb 12 17:11:19 2015 +0000
+
+    added event cancelling to remove users from events
+
+commit 05d27bb4e843f2cf93db208b0c9157f8826e9fc5
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Thu Feb 12 16:52:17 2015 +0000
+
+    added a leave team function
+
+commit cd17ca44ba745980ca0fbda480817c9983d99668
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Thu Feb 12 16:23:39 2015 +0000
+
+    sort dashboard events by soonest first
+
+commit 451910454e15d9cf18507eab9942245bd154662e
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Thu Feb 12 14:04:20 2015 +0000
+
+    layout tweaks
+
+commit c9f65f0240fe30c354c247bf8f7a5d416b3ca303
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Thu Feb 12 11:46:47 2015 +0000
+
+    layout tweaks & event spaces calculation fix
+
+commit 4031df2ab6a874e6f62860ab1d516e1a7d48e952
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Thu Feb 12 09:47:06 2015 +0000
+
+    fixed distance calc error
+
+commit e1ad9a7eca0056dd2a60f8f036ad76f00806e0c0
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Thu Feb 12 09:29:32 2015 +0000
+
+    added range input to set distance for nearby events
+
+commit a72ef096cb7f835cf8736789fd159c5895db6e64
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Thu Feb 12 00:03:45 2015 +0000
+
+    added SVG loading spinner for events index map
+
+commit a529f0cf6620cacaf7d92761a99873f9976c03dd
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Wed Feb 11 22:40:21 2015 +0000
+
+    event edit/new/show layout tweaks
+
+commit ced885b2e34ec988f0d172f901c924c6cb9a10f0
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Wed Feb 11 17:43:09 2015 +0000
+
+    only show 'join team' button if not a member already
+
+commit a2ee29e155fd1d175a7c8dbfa425366c28406304
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Wed Feb 11 16:38:55 2015 +0000
+
+    nearby events display on a map with links
+
+commit d657302c6fdb07f96e19c10d0d619f8e6e301e54
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Wed Feb 11 14:24:36 2015 +0000
+
+    updated point validation to comply with geoJSON requirements
+
+commit c821a4b086c8c72bf603c7778e704e45ea4346ba
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Wed Feb 11 12:33:24 2015 +0000
+
+    updated latlng to be stored as a JSON object, instead of separate variables
+
+commit 9ee70c98da8fabbc0001d6815947a610b4850b66
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Wed Feb 11 11:50:55 2015 +0000
+
+    beginnings of location-based event searching
+
+commit d5c3395af30fba0044007d9b4f9db96af70348a7
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Feb 10 22:19:08 2015 +0000
+
+    made client-side JS conditional, added basic notifications to dashboard
+
+commit e015f9021d5b3713876fa1d943d0aa37b890f6c9
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Feb 10 17:56:22 2015 +0000
+
+    unified new and edit layouts for events
+
+commit 921559a87627737083b79c19138cb48083979d34
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Feb 10 11:30:44 2015 +0000
+
+    removed some debug logs, revised some views
+
+commit f8a216d36b549392210ce93e3ac2319dff537f85
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Thu Feb 5 15:48:08 2015 +0000
+
+    tidied up user profile design slightly
+
+commit 81f89adf871ee232a26b71639144af65ae5b111d
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Feb 3 19:05:31 2015 +0000
+
+    display time-accurate relative dates for events on homepage and team show
+
+commit f08f75adc7d9579811620f7297ba23e62c64df1c
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Feb 3 13:51:31 2015 +0000
+
+    use utility function for team photo
+
+commit 0104cd3abe5166d1f6e3828af93d13ffb24c130a
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Feb 3 13:26:40 2015 +0000
+
+    moved reading files into utility
+
+commit 80dde9d5d4cbf1432dc741e4235ea32c7006e852
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Feb 3 13:10:10 2015 +0000
+
+    only show upcoming events
+
+commit 6e268a4c879daa54647e51c8fac08ece35ca2ce7
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Feb 3 12:46:23 2015 +0000
+
+    display team photo on show view
+
+commit 92c946db57d2269730aec2769d205fb7f94359cf
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Mon Feb 2 10:34:18 2015 +0000
+
+    rejigged new event view
+
+commit e448d030166b62b2d548a7138915d859333ee59d
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Mon Feb 2 10:07:27 2015 +0000
+
+    fixed user profile crash
+
+commit be96dce9fe0f84f51abe516de5ddc4d61e0452b9
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Mon Feb 2 09:43:37 2015 +0000
+
+    team deletion fixed
+
+commit 933d9a2de699efcde73f2be3b92968182f427f46
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Thu Jan 29 10:57:56 2015 +0000
+
+    refresh the user each time to update changed info
+
+commit a624fd2669b27e76e4fdfdeb123d7339ebdd8288
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Wed Jan 28 21:52:22 2015 +0000
+
+    added basic team search
+
+commit 9ce5723c1426442be83945c0df15092edaf1b6fb
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Wed Jan 28 12:23:32 2015 +0000
+
+    added more information to event view
+
+commit 1392c41a40b097a9b31c92bfb3421f5c7c127e94
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Wed Jan 28 11:30:02 2015 +0000
+
+    tidied up some comments
+
+commit 4a51f8ac5a5be5ad95bc29bea743bbbb30e92b57
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Jan 27 20:34:58 2015 +0000
+
+    added photo option for teams
+
+commit 9387cde5f1ab979e46d048dbfd2d6f3bcf95348a
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Jan 27 18:12:22 2015 +0000
+
+    removed FileController, moved fileUpload to global
+
+commit 52e570bde797508470646734d5467592897f2bab
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Jan 27 16:49:20 2015 +0000
+
+    updated sails policies for flash msgs
+
+commit 57e91cdffcc235fc2e7cba8c1567b549c5a46f2e
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Jan 27 16:25:15 2015 +0000
+
+    moved flash msgs into layout view
+
+commit dfd68b6e2e4db38913cd5312e4817a27fcc2f739
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Jan 27 16:14:21 2015 +0000
+
+    moved notification creation to a global function and implemented for event creation
+
+commit 55d7097d193981ea22ae1c466ff6692b9425f559
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Mon Jan 26 15:16:43 2015 +0000
+
+    added icon font and tidier menu bar
+
+commit 8c97a4f253fcc5b0bd699b437558155d98a47226
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Mon Jan 26 14:23:21 2015 +0000
+
+    fixed registration redirect glitch
+
+commit 7547397854808865364386ddff634f0c99b4071d
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Mon Jan 26 13:21:14 2015 +0000
+
+    layout tweaks
+
+commit d1f6a7a2ace1c20b68f1697d8a33d34699e1411b
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Mon Jan 26 13:02:12 2015 +0000
+
+    only show notifications to their owners
+
+commit b6e0bae73f9f347ee6f5a18ff3f77dd00ae83ab9
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Mon Jan 26 12:50:37 2015 +0000
+
+    ability to mark notifications as read
+
+commit c364174ed18a9e3b5684d45e18708f9a01442819
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Mon Jan 26 12:15:27 2015 +0000
+
+    manual implementation of notifications
+
+commit a0dae3e19a4d97b7855590198e84100045fab80a
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Fri Jan 23 13:17:35 2015 +0000
+
+    removed 'add friend' from front-end
+
+commit 3c97fbf3b3a37ecddd22c569c8035c76ace9a4ef
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Jan 13 11:35:06 2015 +0000
+
+    minor layout tweaks
+
+commit 0902f12382596d0d44bb19c6fdf673ec2d04a3b6
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Fri Jan 9 20:51:37 2015 +0000
+
+    added events to a team show action
+
+commit 2357f62fdf2a5947b61b726489c39b5e1eb3ef21
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Thu Jan 8 10:31:52 2015 +0000
+
+    updated favicon
+
+commit ffc9e143c01beef25babc8f00a8f486d73f9d181
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Thu Jan 8 09:11:26 2015 +0000
+
+    added blank File API files
+
+commit f790d5adede2291781ce33a85945f8247d94a7dd
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Dec 30 13:18:56 2014 +0000
+
+    redirect to event if you're already attending
+
+commit 4885c3ecf355d17d428743ecdd79eee89a5162ea
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Fri Dec 12 18:42:21 2014 +0000
+
+    event rsvp tweaks
+
+commit 930513b34a449ff809dd9655c07468eeb588e5f2
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Fri Dec 12 18:16:02 2014 +0000
+
+    layout tweaks
+
+commit ff229503d3c7e09c5073c690f732403ab7b81b6d
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Fri Dec 12 18:07:42 2014 +0000
+
+    only populate biography edit field if it exists
+
+commit 2980e90967382a00617104097e0b8a342c164205
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Fri Dec 12 18:05:44 2014 +0000
+
+    stopped non-admins being able to delete teams
+
+commit aae560a0339526281065a80f12aff217727279be
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Fri Dec 12 17:44:50 2014 +0000
+
+    added delete action for events
+
+commit 0402bc5765ef6e2722f7862a0d62a15183507e78
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Fri Dec 12 17:24:32 2014 +0000
+
+    lat/lng now stored when event is created
+
+commit 801db0126d7ebf601f54208b9f47ef5d46492982
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Fri Dec 12 12:02:07 2014 +0000
+
+    added experimental google maps for location
+
+commit d048b7345eeba4e3b7da7bbe338954d45fff8430
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Thu Dec 11 20:27:29 2014 +0000
+
+    inline new event calendars
+
+commit a8b42ab99fabc760b1029917ff33f099e8081758
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Thu Dec 11 15:53:20 2014 +0000
+
+    refactored dashboard layout
+
+commit e483543f03cec206ca1a33ccf0972ca5e2e19cb8
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Thu Dec 11 09:11:59 2014 +0000
+
+    edit event layout populates with existing values
+
+commit 136128516b1032be9b44dbefe43465a6029fd9b5
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Wed Dec 10 17:17:32 2014 +0000
+
+    edit event layout tweaks
+
+commit 17c97a63ad3cc89d0bfd63c2a1f5f3e8badfc569
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Dec 9 22:12:32 2014 +0000
+
+    layout tweaks, experimental user profile pictures
+
+commit 3ba082f08f21287f179873b970f8786fcf313e8c
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Dec 9 13:12:54 2014 +0000
+
+    add the event creator to the list of attendees automatically
+
+commit 1e467ea02e43653600164ce811652dcd693bb943
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Mon Dec 8 22:30:19 2014 +0000
+
+    base64 encoded images display using data URIs
+
+commit 7bb68d99e42c7bb289d1cb895114ee783d68310c
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Mon Dec 8 20:28:46 2014 +0000
+
+    profile photo uploads to gridfs, stores filename in user model
+
+commit daf22556b120b32de17c62b92325e86316c953a1
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Mon Dec 8 16:49:45 2014 +0000
+
+    layout tweaks
+
+commit faf0c0b26751242dc9c5848ad6b97d0e4fddeb85
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Mon Dec 8 16:43:48 2014 +0000
+
+    edit and update an event
+
+commit 7270d483890c5963b953ac6b1a07f7650ed6ad3d
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Mon Dec 8 14:21:36 2014 +0000
+
+    edit user populates textarea
+
+commit b3a612c4fad79e642f1199743c5ba30e7b7ba067
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Mon Dec 8 13:16:25 2014 +0000
+
+    working team join requests
+
+commit f6020ab368c23df285e0980a70e8975f6dac5b41
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Mon Dec 8 12:44:44 2014 +0000
+
+    team join requests display on client side
+
+commit d2d869bfad51f6ce51a5c2382ab9438b2670b50a
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Mon Dec 8 12:29:06 2014 +0000
+
+    added team join requests
+
+commit bb24d3555d9d2d08ef9f23b7a549eac30a32c4bb
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Sun Dec 7 00:20:34 2014 +0000
+
+    refactored some controller code to use findOne instead of returning array
+
+commit d00ee74121421ac3aa24ae31b73ee55679dbb840
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Thu Dec 4 16:42:26 2014 +0000
+
+    fixed support for team deletion
+
+commit 074ee0e26b7067e91f07874df404f30bf6de1e95
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Thu Dec 4 16:31:27 2014 +0000
+
+    admin gets added as a member when they create a team
+
+commit 485765223c234bb56382790806054bd1347e5040
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Thu Dec 4 16:04:44 2014 +0000
+
+    fixed team joining errors
+
+commit 347c29c3d1929ac276ca0c693c50d94441049854
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Thu Dec 4 15:43:36 2014 +0000
+
+    restrict teams assigned to events to admin's teams only
+
+commit 6fb2ea12d23b1b164c5271046e561f9272b8318f
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Thu Dec 4 15:37:48 2014 +0000
+
+    added Home controller and moved logic from view into controller
+
+commit 9f2d411ec1a1d5cab608c9a4acf272092b7c1458
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Thu Dec 4 09:15:22 2014 +0000
+
+    removed event privacy (all events will be per team)
+
+commit 6eb5b61f80d6ae82928325199b553aa8a2ae513e
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Wed Dec 3 22:40:32 2014 +0000
+
+    added gridFS support files
+
+commit 98e1dc0001cf3cd9a89cf1a1cfda01768a86ff02
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Wed Dec 3 09:14:31 2014 +0000
+
+    added event attribute for available spaces
+
+commit 7178ac641454c2fd06b6ec9eb9f45592d6d47ac6
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Dec 2 22:53:08 2014 +0000
+
+    updated user policies and datepicker CSS
+
+commit 25c1f2d4bc28536399715b2ae1a237b0e006327c
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Dec 2 20:44:52 2014 +0000
+
+    style changes
+
+commit 1a06522f3715aff3bc787b58db440937036dd959
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Dec 2 19:17:29 2014 +0000
+
+    fixed styling issues
+
+commit f4a878d489d8fe8c8270d777a200f6ea414b538a
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Dec 2 18:50:03 2014 +0000
+
+    error handling for register page when logged in
+
+commit 9825da1ec3401e632baefaa2bc282d8a1cb2d1b1
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Dec 2 18:26:37 2014 +0000
+
+    added searching to User index
+
+commit 1fff7dcd539795a7bb3db51a93696fe439d85afc
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Dec 2 17:51:32 2014 +0000
+
+    improved form design
+
+commit 00d39a7077f109f063577350fb8b4364872099ca
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Dec 2 17:30:08 2014 +0000
+
+    user login now redirects to homepage
+
+commit 62fc3c276bedcc1a208d4284d2c13e499a6f3d1c
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Dec 2 17:03:45 2014 +0000
+
+    layout tweaks
+
+commit 15e4e4f2537dd185b5bc69c3eadce06471b3328c
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Dec 2 16:23:34 2014 +0000
+
+    added homepage styling changes & imagery
+
+commit a885f81a54437185098cab0478c4f548ba5a6e67
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Dec 2 09:56:56 2014 +0000
+
+    added user bio field
+
+commit 0a0f57402d2e3a44d6c11707f4ad72deaa92fcf6
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Dec 2 09:48:08 2014 +0000
+
+    fixed bug with saving team member associations
+
+commit 00a6bf1457e9a9457d238ca1ab5909601646cda1
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Dec 2 09:40:35 2014 +0000
+
+    added action to join a team
+
+commit 7808acc3d0bbd8ca30f35e0641210461523a92a1
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Dec 2 09:17:34 2014 +0000
+
+    added endTime comparison to detect past events
+
+commit b505d170be264d44ee74f5542c3a7b0e5d0268db
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Mon Dec 1 23:23:09 2014 +0000
+
+    added moment.js and rome.js for date input fields (unstyled)
+
+commit 18e33e98f953c83b360ddb4fbd9f91f5a4aa5558
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Mon Dec 1 18:49:56 2014 +0000
+
+    rearranged homepage and layout
+
+commit 458445ac8777fed52ed57c3d93a5da93b1385dba
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Mon Dec 1 12:33:25 2014 +0000
+
+    added JSON web token support & API action for retrieval
+
+commit 089e4cb3fdf0e6593aec378c28fc1f0ef3ec520d
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Nov 25 16:59:39 2014 +0000
+
+    improved UX for active users
+
+commit 9d14f9e0c7915b4b87110f27d39d99520fd53db9
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Sat Nov 22 21:46:39 2014 +0000
+
+    user delete action also removes dependencies (teams and events)
+
+commit a137e9bcaf23e4b9ac1073332615fc00f568188b
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Sat Nov 22 15:58:56 2014 +0000
+
+    added RSVP action to events
+
+commit 3e0714043b7f0925789c30f3ca1436e537d6b602
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Fri Nov 21 19:15:36 2014 +0000
+
+    require login to create an event
+
+commit 595032c6052b47fca42fa1d3a7fd6898d076fb20
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Fri Nov 21 19:09:54 2014 +0000
+
+    added laroux.js for DOM manipulation and AJAX requests
+
+commit f281c9fb670fbc186baaa6e0713a51380c728876
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Fri Nov 21 18:20:36 2014 +0000
+
+    added public/private option for events
+
+commit 0633c4464f503fe80b426763dace69a678fce7c5
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Fri Nov 21 18:10:00 2014 +0000
+
+    added show action with promises for Events
+
+commit 011427bbf32c204999702c86020adad18681b9b7
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Wed Nov 19 19:56:31 2014 +0000
+
+    allow users to set themselves to private
+
+commit db8dd3bd5ee1d8d43a6cac6d134a258a5b220a3c
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Wed Nov 19 19:47:01 2014 +0000
+
+    don't show add buttons for yourself or unless logged in
+
+commit a0ea6463aea04ec1b7ce1fbeada0351ea99d46de
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Wed Nov 19 19:37:33 2014 +0000
+
+    added buttons for accepting and making requests
+
+commit 2a7461c8f23eb6b7c47b1d00438b0faa4487f685
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Wed Nov 19 18:29:01 2014 +0000
+
+    accept friend request action added
+
+commit c08b79964e2611494b7ade16840161296ce81838
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Wed Nov 19 17:57:10 2014 +0000
+
+    primitive friend request storage implemented
+
+commit d2402544794311c361c882c903641ab24b3b90b4
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Wed Nov 19 13:04:35 2014 +0000
+
+    team editing view restricted to team admin
+
+commit 08d8886783fded4445dc4d43b846bf8cd94fe3b7
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Wed Nov 19 12:44:43 2014 +0000
+
+    added some styles, template work for user profile page
+
+commit 808573c12560d373e41046ed690f3b117b60ae3a
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Wed Nov 19 11:15:23 2014 +0000
+
+    added redirect to team page after team creation
+
+commit 108d5fce6cc849f3662f7728e7eca9df5cdc5734
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Mon Nov 17 20:56:09 2014 +0000
+
+    enforce authenticated policy for creating a team
+
+commit 29271127e63463e0d8f96deda72c84c9294c1236
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Mon Nov 17 15:20:01 2014 +0000
+
+    added more JSON actions, changed routes to /api
+
+commit 1a58fb3fe8d6f7b9474bc332f46636e76035b8da
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Mon Nov 17 12:32:13 2014 +0000
+
+    added routes and actions to allow JSON API calls
+
+commit 230ee7daa0f0a200dcd63845e096a0e5be5a9198
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Sun Nov 16 20:46:32 2014 +0000
+
+    added show team view, connected others in templates
+
+commit fb0b5013f47daebdc06164380950c6e38c343b37
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Sun Nov 16 19:57:28 2014 +0000
+
+    added basic typography constraints
+
+commit 70da4fa52be1b763497f344ccdc302d22839a8e5
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Sun Nov 16 19:29:31 2014 +0000
+
+    added layouts and routes
+
+commit 5cee6a2f0ca6b63cba87da92699469ca7eb23f15
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Sat Nov 15 10:28:47 2014 +0000
+
+    added barebones style guide framework to repo
+
+commit 95d50b973bb2f24a29d3538acc7efbaaf2c9cbc7
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Thu Nov 13 22:12:56 2014 +0000
+
+    slightly better flashes, also on login
+
+commit 8de910513eae5ed69375af884cb4487ed4a6a74d
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Thu Nov 13 21:45:49 2014 +0000
+
+    added primitive flash message errors that kinda don't work
+
+commit 3e8b68a3e4cbbf2c66e1a88e5be42d656c532354
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Wed Nov 12 20:58:32 2014 +0000
+
+    update action works for user
+
+commit 62310e431a407532417226eec63da5191ba138cf
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Wed Nov 12 08:59:36 2014 +0000
+
+    new team becomes associated with current user
+
+commit 82249b60e02bac403c9575ce6526206c0178b537
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Wed Nov 12 08:26:24 2014 +0000
+
+    sign users in after signup, link team admins to user pages
+
+commit c75d6b6e918692897785eddff9353517c6a8c906
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Nov 11 18:26:44 2014 +0000
+
+    added create action to session controller
+
+commit 3cbf073c331aab5a248e95a12bb0f6c3905f74c2
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Nov 11 13:32:42 2014 +0000
+
+    removed larger PDF
+
+commit 55fa8381c17b2440c5eab78c730d28c7d95e9ea0
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Nov 11 13:29:27 2014 +0000
+
+    added design & docs
+
+commit 137e824ab4b7ef63f6d4b7a1c968660e8c5706f5
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Fri Oct 31 17:33:10 2014 +0000
+
+    added show route for users
+
+commit eb231f2ef61b3e8d1c7c1f543ed721b70391116d
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Fri Oct 31 16:02:13 2014 +0000
+
+    events relationship to teams
+
+commit 4fccbd61932a227b9c7c455440794dc8db69f22e
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Wed Oct 29 11:47:24 2014 +0000
+
+    added events logic & views
+
+commit 402fcb229dd7436c6b828805cf51441578d1d5a7
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Oct 28 12:56:34 2014 +0000
+
+    users view shows related teams
+
+commit a0ddbec5878243fcb178fae4b950ac227af31a9e
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Oct 28 12:46:23 2014 +0000
+
+    working relations with teams and users
+
+commit 7c39927ecb060ddf38d941152e152d203a12a25a
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Oct 28 09:53:10 2014 +0000
+
+    Fixed gitignore
+
+commit 9bda0d453ffc1e584dd249773bc9d5a037290565
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Oct 28 09:43:04 2014 +0000
+
+    commit with content
+
+commit 0f8063a1b7307704112b1c7b1934ff5f3dcd23dc
+Author: Charlie <charlesgrinsted@gmail.com>
+Date:   Tue Oct 28 09:34:35 2014 +0000
+
+    initial commit

@@ -228,7 +228,10 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 .dash-list li{font-weight:bold; background-color:#eee; padding:1em; vertical-align:middle; margin-bottom:0.1em;}
 
 .dash-list li .cta-submit{float:right; margin-left:1em; display:inline-block; margin-bottom:1em;}
+.dash-list li .cta-submit.right{position:static !important;}
+
 .dash-list span{font-weight:normal;}
+
 
 .tab-nav{max-width:300px; margin:2em auto 0; text-align:center;}
 .tab-nav li{display:inline-block; width:48%;}

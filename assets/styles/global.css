@@ -198,8 +198,8 @@ textarea{max-width:26.4em; width:60%; display:block; margin-top:0.2em;}
 .cta-submit:after{content:''; position:absolute; z-index:-1; -webkit-transition:all 0.3s; -moz-transition:all 0.3s; transition:all 0.3s;}
 
 .cta-submit.locate{margin:0 auto 1em;}
-.cta-submit.top-left{float:left; display:inline; box-shadow:none;}
-.cta-submit.top-right{float:right; right:0; display:inline; position:absolute; bottom:0; box-shadow:none;}
+.cta-submit.left{float:left; display:inline; box-shadow:none;}
+.cta-submit.right{float:right; right:0; display:inline; position:absolute; bottom:0; box-shadow:none;}
 
 .cta-submit.block{display:block;}
 .cta-submit.inline{display:inline-block;}

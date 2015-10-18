@@ -5,5 +5,3 @@ GamePlan is a web app for managing sport teams, built on Sails.js. To install th
 	npm install
 
 from this directory.
-
-To use a working demo of this app, go [here](http://planaga.me/).
